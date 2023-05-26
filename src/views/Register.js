@@ -80,13 +80,15 @@ const Register = () => {
             onChange={(e) => handleOnchangeInput(e)}
           />
         </div>
+        <div>
+          <p className="register-link forgot-password text-right">
+            Already registered? <Link to="/login">Sign in</Link>
+          </p>
+        </div>
         <div className="d-grid">
           <button type="submit" className="btn btn-primary">
             Sign Up
           </button>
-          <p className="register-link forgot-password text-right">
-            Already registered? <Link to="/login">Sign in</Link>
-          </p>
         </div>
       </form>
     </MainLayout>
