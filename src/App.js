@@ -1,9 +1,24 @@
-import MainLayout from './views/MainLayout';
+// <<<<<<< HEAD
+import "./App.css";
+import Login from "./views/login";
+import MainLayout from "./views/MainLayout";
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+//         <Login />
+//       </header>
+//     </div>
+// =======
+// import MainLayout from './views/MainLayout';
 function App() {
   return (
-      <div className='App'>
-        <MainLayout></MainLayout>
-      </div>
+    <div className="App">
+      <MainLayout></MainLayout>
+      {/* <Login/> */}
+    </div>
+    // >>>>>>> 5a3036a227858b7dfaae67fdd053a09e72079961
   );
 }
 export default App;
