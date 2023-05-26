@@ -41,9 +41,9 @@ const Login = () => {
           </div>
 
           <div>
-            <p>
+            {/* <p>
               Bạn chưa có tài khoản? <a><Link to="/register">Đăng ký</Link></a>
-            </p>
+            </p> */}
           </div>
 
           <div>
