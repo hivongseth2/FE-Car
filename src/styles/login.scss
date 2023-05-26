@@ -1,0 +1,28 @@
+input{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    &:focus{
+        outline: none;  
+        border: 1px solid #333;
+    }
+}
+
+button {
+	background: #0066A2;
+	border: none;
+    color: white;
+	height: 50px;
+	width: 100px;
+	font: bold 15px arial,sans-serif;
+    border-radius: 10px;
+    &:hover{
+        cursor: pointer;
+        background: #004C7F;
+    }
+}
