@@ -1,6 +1,6 @@
 // <<<<<<< HEAD
 import "./App.css";
-import Login from "./views/Login";
+import Login from "./views/login";
 import MainLayout from "./views/MainLayout";
 
 // function App() {
@@ -16,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <MainLayout></MainLayout>
+      {/* <Login/> */}
     </div>
     // >>>>>>> 5a3036a227858b7dfaae67fdd053a09e72079961
   );
