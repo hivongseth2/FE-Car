@@ -25,10 +25,10 @@ const Logins = () => {
     // Handle the error, e.g., display an error message
     console.error(errorMessage);
   };
-  const handleSignIn = async (e) => {
-    e.preventDefault();
+  const handleSignIn = async (event) => {
+    event.preventDefault();
     try {
-      const reponse = await fetch("http://localhost:8080/api/account/login", {
+      const response = await fetch("http://localhost:8080/api/account/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,18 +38,21 @@ const Logins = () => {
           password: passWord,
         }),
       });
-      const data = await reponse.json();
-      console.log(data);
+
+      const data = await response.json();
+
       if (data.errorCode !== undefined) {
-        alert("loi");
+        // toast.error(data);
+
+        toast.error(`Tên đăng nhập hoặc mật khẩu sai`);
+
         return;
       }
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data));
-      console.log(data);
-      // navigate("Info", { state: { user: data } });
-      // history.push("/Info", { user: data });
-      toast.success(`Chào mừng ${data.userName} đã quay trở lại`);
+      //   history.push("/Info", { user: data });
+
+      toast.success(`Chào mừng ${data.fullName} đã quay trở lại!`);
       console.log(data);
     } catch (error) {
       setError(error.message);
