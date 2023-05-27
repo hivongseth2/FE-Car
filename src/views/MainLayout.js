@@ -3,10 +3,10 @@ import Menu from "./Menu";
 
 function MainLayout({ children }) {
   return (
-    <div>
+    <div id="container">
       <Menu></Menu>
       <div>{children}</div>
-      {/* <div>This is a sidebar</div> */}
+      <div>This is a sidebar</div>
     </div>
   );
 }

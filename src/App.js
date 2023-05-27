@@ -1,6 +1,6 @@
 // <<<<<<< HEAD
 import "./App.css";
-import Login from "./views/login";
+// import Login from "./views/login";
 import MainLayout from "./views/MainLayout";
 
 // function App() {
