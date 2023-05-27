@@ -1,0 +1,36 @@
+.wrapper_register_advise {
+    border: 1px solid black;
+    height: 20em;
+    width: 50%;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    border: none;
+    margin-left: 18rem;
+    // background: linear-gradient(to right, rgb(229, 231, 235), rgb(156, 163, 175), rgb(203, 216, 234));
+    p{
+        text-align: center;
+        font-size: 1.5rem;
+        color: black;
+        margin-bottom: 20px;
+        font-weight: bold;
+
+    }
+    input{
+        margin-left: 6rem;
+        height: 30px;
+        width: 200px;
+        margin-bottom: 20px;
+        border: 1px solid black;
+        border-radius: 5px;
+        text-indent: 0.2em;
+    }
+    .button, .typeagree{
+        width: 200px;   
+        height: 30px;
+        border-radius: 5px;
+        margin-left: 6rem;
+    }
+    .button:hover{
+        background-color: red;
+    }
+    
+}

@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import Register from './views/Register';
 import Login from './views/login';
+import Course from './views/course';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/Course",
+    element: <Course />,
   },
   {
     path: "/register",
