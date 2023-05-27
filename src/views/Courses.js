@@ -1,7 +1,7 @@
 import MainLayout from "./MainLayout";
 import "../styles/Course.scss";
 import Register_Advise from "./Register_advise";
-const course = () => {
+const Courses = () => {
   return (
     <MainLayout>
       <div className="rapper">
@@ -31,4 +31,4 @@ const course = () => {
     </MainLayout>
   );
 };
-export default course;
+export default Courses;

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const Login = () => {
+const Logins = () => {
   const [userName, setUserName] = useState("");
   const [passWord, setPassWord] = useState("");
 
@@ -48,7 +48,7 @@ const Login = () => {
       localStorage.setItem("user", JSON.stringify(data));
       console.log(data);
       // navigate("Info", { state: { user: data } });
-      history.push("/Info", { user: data });
+      // history.push("/Info", { user: data });
       toast.success(`Chào mừng ${data.userName} đã quay trở lại`);
       console.log(data);
     } catch (error) {
@@ -102,4 +102,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Logins;
