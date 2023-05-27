@@ -48,7 +48,8 @@ const Login = () => {
       localStorage.setItem("user", JSON.stringify(data));
       console.log(data);
       // navigate("Info", { state: { user: data } });
-      // toast.success(`Chào mừng ${data.userName} đã quay trở lại`);
+      history.push("/Info", { user: data });
+      toast.success(`Chào mừng ${data.userName} đã quay trở lại`);
       console.log(data);
     } catch (error) {
       setError(error.message);
@@ -87,13 +88,6 @@ const Login = () => {
           </div>
 
           <div>
-            {/* {" "}
-            <Link to="/course">
-              <button className="button" >
-                Đăng nhập
-              </button>
-            </Link> */}
-
             <button
               type="submit"
               className="btn btn-primary col-4 mx-auto"
