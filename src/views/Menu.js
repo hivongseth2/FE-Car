@@ -8,7 +8,7 @@ const Menu = () => {
             </div>
             <div className="menu">
                 <ul>
-                    <li><Link to="/">TRANG CHỦ</Link></li>
+                    <li><Link to="/course">TRANG CHỦ</Link></li>
                     <li><a href="/#">GIỚI THIỆU</a></li>
                     <li><a href="/#">LUYỆN THI</a></li>
                     <li><a href="/#">BÀI HỌC</a></li>   

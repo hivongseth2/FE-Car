@@ -1,7 +1,10 @@
 import { useState } from "react";
 import "../styles/Login.scss";
 import MainLayout from "./MainLayout";
-import { Link} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [passWord, setPassWord] = useState("");
@@ -13,6 +16,43 @@ const Login = () => {
     } else {
       setPassWord(e.target.value);
       console.log("Pw" + passWord);
+    }
+  };
+  const navigate = useNavigate();
+
+  // Declare the setError function
+  const setError = (errorMessage) => {
+    // Handle the error, e.g., display an error message
+    console.error(errorMessage);
+  };
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    try {
+      const reponse = await fetch("http://localhost:8080/api/account/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: userName,
+          password: passWord,
+        }),
+      });
+      const data = await reponse.json();
+      console.log(data);
+      if (data.errorCode !== undefined) {
+        alert("loi");
+        return;
+      }
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data));
+      console.log(data);
+      // navigate("Info", { state: { user: data } });
+      history.push("/Info", { user: data });
+      toast.success(`Chào mừng ${data.userName} đã quay trở lại`);
+      console.log(data);
+    } catch (error) {
+      setError(error.message);
     }
   };
   return (
@@ -41,13 +81,20 @@ const Login = () => {
           </div>
 
           <div>
-            <p>
-              Bạn chưa có tài khoản? <a><Link to="/register">Đăng ký</Link></a>
+            <p className="login-link">
+              Bạn chưa có tài khoản?
+              <Link to="/register">Đăng ký</Link>
             </p>
           </div>
 
           <div>
-            <button type="submit">Đăng nhập</button>
+            <button
+              type="submit"
+              className="btn btn-primary col-4 mx-auto"
+              onClick={(e) => handleSignIn(e)}
+            >
+              Submit
+            </button>
           </div>
         </form>
       </div>
