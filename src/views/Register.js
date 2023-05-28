@@ -1,83 +1,132 @@
 import "../styles/Register.scss";
-import React from "react";
+import { useState } from "react";
 import MainLayout from "./MainLayout";
 import { Link } from "react-router-dom";
 const Register = () => {
-  const [fullName, setFullName] = React.useState("");
-  const [phoneNumber, setPhoneNumber] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [address, setAddress] = React.useState("");
-  const [type, setType] = React.useState("");
+  const [fullName, setFullName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [birthday, setBirthday] = useState("");
+  const [username, setUsername] = useState("");
+  // const [address, setAddress] = useState("");
+  // const [type, setType] = useState("");
 
   const handleOnchangeInput = (e) => {
-    if (e.target.classList.contains("fullName")) {
-      setFullName(e.target.value);
-      console.log("Us" + fullName);
-    } else if (e.target.classList.contains("phoneNumber")) {
-      setPhoneNumber(e.target.value);
-      console.log("Pn" + phoneNumber);
-    } else if (e.target.classList.contains("email")) {
-      setEmail(e.target.value);
-      console.log("Em" + email);
-    } else if (e.target.classList.contains("address")) {
-      setAddress(e.target.value);
-      console.log("Add" + address);
-    } else {
-      setType(e.target.value);
-      console.log("Tp" + type);
+    const { name, value } = e.target;
+    switch (name) {
+      case "fullName":
+        setFullName(value);
+        break;
+      case "phoneNumber":
+        setPhoneNumber(value);
+        break;
+      case "email":
+        setEmail(value);
+        break;
+      case "birthday":
+        setBirthday(value);
+        break;
+      case "username":
+        setUsername(value);
+        break;
+      // case "address":
+      //   setAddress(value);
+      //   break;
+      // case "type":
+      //   setType(value);
+      //   break;
+      default:
+        break;
     }
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:8080/api/account/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        birthday: birthday,
+        email: email,
+        fullName: fullName,
+        password: "Thanhtung0404@",
+        phoneNumber: phoneNumber,
+        username: username,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        alert("Đăng ký thành công");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
     <MainLayout>
       <form className="my-form">
-        <h3>Đăng ký</h3>
+        <h3>ĐĂNG KÝ</h3>
         <div className="mb-3">
           <label>Họ và tên</label>
           <input
             type="text"
+            id="fullName"
+            name="fullName"
             className="form-control"
-            placeholder="Họ và tên"
+            placeholder="Nhập họ và tên"
             value={fullName}
-            onChange={(e) => handleOnchangeInput(e)}
+            onChange={handleOnchangeInput}
           />
         </div>
         <div className="mb-3">
           <label>Số điện thoại</label>
           <input
             type="text"
+            id="phoneNumber"
+            name="phoneNumber"
             className="form-control"
-            placeholder="Số điện thoại"
+            placeholder="Nhập số điện thoại"
+            value={phoneNumber}
+            onChange={handleOnchangeInput}
           />
         </div>
         <div className="mb-3">
           <label>Email address</label>
           <input
             type="email"
+            id="email"
+            name="email"
             className="form-control"
-            placeholder="Enter email"
+            placeholder="Nhập email"
             value={email}
-            onChange={(e) => handleOnchangeInput(e)}
+            onChange={handleOnchangeInput}
           />
         </div>
         <div className="mb-3">
-          <label>Địa chỉ</label>
+          <label>Ngày tháng năm sinh</label>
           <input
-            type="text"
+            type="Date"
             className="form-control"
-            placeholder="Địa chỉ"
-            value={address}
-            onChange={(e) => handleOnchangeInput(e)}
+            id="birthday"
+            name="birthday"
+            placeholder="Nhập ngày tháng năm sinh"
+            value={birthday}
+            onChange={handleOnchangeInput}
           />
         </div>
         <div className="mb-3">
-          <label>Loại bằng</label>
+          <label>username</label>
           <input
             type="text"
+            id="username"
+            name="username"
             className="form-control"
-            placeholder="Loại bằng"
-            value={type}
-            onChange={(e) => handleOnchangeInput(e)}
+            placeholder="Nhập username"
+            value={username}
+            onChange={handleOnchangeInput}
           />
         </div>
         <div>
@@ -86,8 +135,11 @@ const Register = () => {
           </p>
         </div>
         <div className="d-grid">
-          <button type="submit" className="btn btn-primary">
-            Sign Up
+          <button type="submit" className="btn btn-primary submitBtn" 
+          onClick={(e) => handleSubmit(e)}
+          value="Submit"
+          >
+            ĐĂNG KÝ
           </button>
         </div>
       </form>

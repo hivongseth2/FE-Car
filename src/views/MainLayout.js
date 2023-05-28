@@ -1,12 +1,13 @@
 import React from "react";
 import Menu from "./Menu";
+import Sidebar from "./Sidebar";
 
 function MainLayout({children}){
     return(
         <div>
             <Menu></Menu>
             <div>{children}</div>
-            <div>This is a sidebar</div>
+            <Sidebar></Sidebar>
         </div>
     );
 }
