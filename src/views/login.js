@@ -47,8 +47,8 @@ const Login = () => {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data));
       console.log(data);
-      // navigate("Info", { state: { user: data } });
-      history.push("/Info", { user: data });
+      navigate("Info", { state: { user: data } });
+      // history.push("/Info", { user: data });
       toast.success(`Chào mừng ${data.userName} đã quay trở lại`);
       console.log(data);
     } catch (error) {
@@ -93,7 +93,7 @@ const Login = () => {
               className="btn btn-primary col-4 mx-auto"
               onClick={(e) => handleSignIn(e)}
             >
-              Submit
+              Đăng nhập
             </button>
           </div>
         </form>
