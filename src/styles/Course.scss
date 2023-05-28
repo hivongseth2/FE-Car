@@ -1,0 +1,55 @@
+
+.register_advise{
+    margin-top: -650px;
+    margin-left: 500px;
+}
+.wrapper_course{
+    border: #333333 solid 1px;
+}
+.rapper{
+    
+    // margin-top: 10px;
+    .header{
+        height: 80px;
+        width: 400px;
+        background-color: #333333;
+    }
+    .img{
+        width: 400px;
+        background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%),url('../img/oto_b1.jpg');
+        background-size: cover;
+        height: 300px;
+    }
+    .header p{
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 30px;
+        font-weight: bold;
+    }
+    .title{
+       background-color: rgb(147, 147, 224);
+       width: 400px;
+       height: 300px;
+    }
+    .title ul{
+        display: block;
+    }
+    .title ul li{
+        list-style: none;
+        padding-bottom: 2px;
+        margin-left: -30px; 
+    }
+    .title button{
+        height: 30px;
+        width: 100px;
+        background-color: navy;  
+        margin-top: 250px;
+        margin-left: -150px; 
+        cursor: pointer;
+        border-radius: 5px;
+        border: none;
+        color:white;
+    }
+    
+}

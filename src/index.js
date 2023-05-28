@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 import './index.css';
 import App from './App';
 import Register from './views/Register';
 import Login from './views/login';
-import Lesson from './views/Lesson';
-import Training from './views/Training';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
@@ -19,24 +16,19 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
+    path: "/Course",
+    element: <Courses />,
+  },
+  {
     path: "/register",
     element: <Register />,
   },
   {
     path: "/login",
     element: <Login />,
-  },{
-    path: "/lesson",
-    element: <Lesson />,
-  },
-  {
-    path: "/training",
-    element: <Training />,
   },
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <RouterProvider router={router} />
-);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<RouterProvider router={router} />);
 reportWebVitals();
