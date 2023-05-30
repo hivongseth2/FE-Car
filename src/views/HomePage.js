@@ -26,7 +26,6 @@ const HomePage = () => {
   return (
     <div>
       <SocalItem />
-      {/* <SocialItem /> */}
       {data
         .filter((item) => item.id === 1)
         .map((item) => (

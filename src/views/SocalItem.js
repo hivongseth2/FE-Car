@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/Youtube.scss"; // Import external CSS file
 import GetVideo from "./GetVideo";
+import YouTube from "react-youtube";
 
 const SocalItem = () => {
   const [data, setData] = useState(null);
