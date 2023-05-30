@@ -41,7 +41,7 @@ form {
     }
     
     .forgot-password {
-      text-align: right;
+      text-align: left;
       
       a {
         color: blue;
@@ -51,6 +51,9 @@ form {
           text-decoration: underline;
         }
       }
+    }
+    .register-link {
+      color: navy;
     }
   }
   

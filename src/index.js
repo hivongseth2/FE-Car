@@ -3,8 +3,10 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import Register from "./views/Register";
-import Login from "./views/login";
-import Course from "./views/course";
+import Logins from "./views/Logins";
+
+import Courses from "./views/Courses";
+
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -15,7 +17,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/Course",
-    element: <Course />,
+    element: <Courses />,
   },
   {
     path: "/register",
@@ -23,7 +25,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login />,
+    element: <Logins />,
   },
 ]);
 

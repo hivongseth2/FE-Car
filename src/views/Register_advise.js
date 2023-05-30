@@ -3,11 +3,16 @@ import "../styles/Register_advise.scss";
 const Register_Advise = () => {
   return (
     <div className="wrapper_register_advise">
-      <p>Đăng ký ngay</p>
+      <p>Đăng ký tư vấn</p>
+      <label className="label">Họ tên </label>
+      <br></br>
       <input type="text" placeholder="Tên của bạn"></input>
+      <br></br>
+      <label className="label">Số điện thoại </label>
+      <br></br>
       <input type="text" placeholder="Số điện thoại"></input> <br></br>
+      <label className="label">Loại bằng </label>
       <div className="typeagree">
-        <label>Loại bằng </label>
         <select>
           <option value="A1">A1</option>
           <option value="A2">A2</option>
@@ -20,8 +25,8 @@ const Register_Advise = () => {
         </select>
       </div>
       <br></br>
-      <button type="submit" className="button">
-        Đăng ký ngay
+      <button className="btn_DKngay">
+        <span>Đăng ký ngay</span>
       </button>
     </div>
   );

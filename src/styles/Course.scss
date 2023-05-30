@@ -1,55 +1,46 @@
+.lists{
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
 
-.register_advise{
-    margin-top: -650px;
-    margin-left: 500px;
+  background-color: white;
+  padding: 1.5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
-.wrapper_course{
-    border: #333333 solid 1px;
+
+
+
+.content{
+  // height: 100px;
+  font-weight: 500;
+  color:white;
+  width: 100%;
+  border: 2px solid  rgba(255, 255, 255, 1);
+  border-radius: 9999px;
+  background-color: #0081CF;
+  padding: 0.625rem 1.5rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  outline: none;
+  transition: all .2s ease;
 }
-.rapper{
-    
-    // margin-top: 10px;
-    .header{
-        height: 80px;
-        width: 400px;
-        background-color: #333333;
-    }
-    .img{
-        width: 400px;
-        background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%),url('../img/oto_b1.jpg');
-        background-size: cover;
-        height: 300px;
-    }
-    .header p{
-        color: white;
-        font-size: 20px;
-        text-align: center;
-        padding-top: 30px;
-        font-weight: bold;
-    }
-    .title{
-       background-color: rgb(147, 147, 224);
-       width: 400px;
-       height: 300px;
-    }
-    .title ul{
-        display: block;
-    }
-    .title ul li{
-        list-style: none;
-        padding-bottom: 2px;
-        margin-left: -30px; 
-    }
-    .title button{
-        height: 30px;
-        width: 100px;
-        background-color: navy;  
-        margin-top: 250px;
-        margin-left: -150px; 
-        cursor: pointer;
-        border-radius: 5px;
-        border: none;
-        color:white;
-    }
-    
+.content:hover{
+  color: #008AC3;
+  background-color: transparent;
 }
+.list {
+  display: flex;
+  color: gray;
+  
+  border-bottom: 0.5px solid rgb(90, 88, 88);
+  margin-bottom: 1em;
+  margin-top: 1em;
+  font-weight: 500;
+}
+
+
+
+
