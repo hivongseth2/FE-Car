@@ -10,7 +10,7 @@
     background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%),url('../img/landscape.jpg');
     background-position: center;
     background-size: cover;
-    height: 15vh;
+    height: 12vh;
     font-family: sans-serif;
 }
 
@@ -32,7 +32,7 @@
     float: left;
     height: 70px;
 }
-ul {
+.main ul {
     float: left;
     display: flex;
     padding-top: 30px;
@@ -40,19 +40,19 @@ ul {
     align-items: center;
     margin-left: 14%;
 }
-ul li {
+.main ul li {
     list-style: none;
     margin-left: 20px;
     font-size: 16px;
 }
-ul li a {
+.main ul li a {
     text-decoration: none;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     transition: .3s ease;
 }
-ul li a:hover {
+.main ul li a:hover {
     color: #ff7200;
 }
 .login-register{

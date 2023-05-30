@@ -1,21 +1,15 @@
-// <<<<<<< HEAD
+import React from "react";
 import "./App.css";
-// import Login from "./views/login";
+import HomePage from "./views/HomePage";
 import MainLayout from "./views/MainLayout";
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <Login />
-//       </header>
-//     </div>
-// =======
-// import MainLayout from './views/MainLayout';
+import BangDetail from "./views/BangDetail";
 function App() {
   return (
     <div className="App">
-      <MainLayout></MainLayout>
+      <MainLayout>
+        <HomePage></HomePage>
+        <BangDetail></BangDetail>
+      </MainLayout>
     </div>
   );
 }
