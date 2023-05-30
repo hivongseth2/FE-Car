@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { fakeData } from "../api/fake-data";
 import BangDetail from "../views/BangDetail";
+import SocialItem from "./SocialItem";
 import "../styles/HomePage.scss";
+import SocalItem from "./SocalItem";
 const HomePage = () => {
   const getAll = () => {
     return new Promise((resolve) => {
@@ -23,6 +25,8 @@ const HomePage = () => {
 
   return (
     <div>
+      <SocalItem />
+      {/* <SocialItem /> */}
       {data
         .filter((item) => item.id === 1)
         .map((item) => (
