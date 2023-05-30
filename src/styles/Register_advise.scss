@@ -1,11 +1,14 @@
-.wrapper_register_advise {
+.card {
     border: 1px solid black;
     height: 25em;
-    width: 50%;
+    width: 20rem;
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     border: none;
-    margin-left: 30rem;
-    margin-top: -500px;
+    margin-top: -2000px;
+    background: white;
+    border-radius: 10px;
+    transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    z-index: 100px;   
     p{
         text-align: center;
         font-size: 1.5rem;
@@ -14,14 +17,20 @@
         font-weight: bold;
 
     }
-    input{
-        margin-left: 6rem;
+    .fullName, .phoneNumber{
+        // margin-left: 6rem;
         height: 30px;
-        width: 30em;
+        width: 15em;
         margin-bottom: 20px;
         border: 1px solid black;
         border-radius: 5px;
         text-indent: 0.2em;
+    }
+    .fullName:hover, .phoneNumber:hover{
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
     }
     .typeagree{
         width: 200px;   
@@ -32,20 +41,41 @@
    
     select{
         height: 30px;
-        width: 30em;
+        width: 200px;
         border-radius: 5px;
+        margin-left: -70px;
     }
-    .label{
-        margin-left: 6rem;
-        font-weight: bold;
+    .label1{
+        // margin-left: 6rem;
+        font-weight:500;
+        margin-right:150px;
     }
-
+    .label2{
+      // margin-left: 6rem;
+      font-weight:500;
+      margin-right:100px;
+  }.label3{
+    // margin-left: 6rem;
+    font-weight:500;
+    margin-right:120px;
+}
+.Cancel{
+    width: 50px;
+    height: 20px;
+    border-radius: 5px;
+    margin-left: 16.8rem;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
 
 
     // gg
     
 
     .btn_DKngay {
+      width: 200px;
         position: relative;
         margin: 0;
         padding: 0.8em 1em;
@@ -183,7 +213,7 @@
       
       
       .btn_DKngay{
-        margin-left: 270px;
+         margin-left: 60px;
     }
 
 }

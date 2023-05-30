@@ -23,7 +23,7 @@ function MainLayout({ children }) {
           theme="colored"
         />
       </div>
-      <div>This is a sidebar</div>
+      <Sidebar></Sidebar>
     </div>
   );
 }
