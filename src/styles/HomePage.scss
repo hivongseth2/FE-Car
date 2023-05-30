@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 .container-homepage {
-  height: 90vh;
+  // height: 90vh;
   padding: 10px;
   display: flex;
   font-family: "Poppins", sans-serif;
@@ -10,12 +10,14 @@
   padding: 20px;
   text-align: left;
   //background-color: aqua;
-  width: 50%;
+  width: 45%;
+  display: inline-block;
 }
 .container-homepage-left h3 {
   text-align: left;
   font-weight: 700;
-  font-size: 3.5rem;
+  font-size: 4.5rem;
+  padding-top: 0.5em;
 }
 .container-homepage-right {
   //background-color: chartreuse;
@@ -24,12 +26,17 @@
   text-align: center;
   flex: 50%;
 }
+p{
+  font-size: 1.5rem;
+  text-align: justify;
+}
 .container-homepage-right img {
   //transform: scale(0.6);
   width: 90%;
 }
 .button-area{
   display: flex;
+
   justify-content: center;
   align-items: center;
   margin-top: 20px;

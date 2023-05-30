@@ -1,41 +1,50 @@
 .list-plan-card{
   display: grid;
-  grid-template-columns: repeat(auto-fill, 20rem);
-  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, 25rem);
+  grid-gap: 4em;
+  padding-top: 3em;
   justify-content: center;
   align-items: center;
+  
 }
 .plan-card {
-    background: #fff;
-    width: 18rem;
+    background: #D6E4F0;
+    width: 20rem;
     padding-left: 2rem;
     padding-right: 2rem;
+  
     padding-top: 10px;
     padding-bottom: 20px;
     border-radius: 10px;
     border-bottom: 4px solid #000446;
     box-shadow: 0 6px 30px rgba(207, 212, 222, 0.3);
     font-family: "Poppins", sans-serif;
+    display: block;
+    height: 31em;
   }
   
   .plan-card h2 {
-    margin-bottom: 15px;
     font-size: 27px;
     font-weight: 600;
   }
   
   .plan-card h2 span {
+    margin: 1.4em 0em;
+    height: 3em;
     display: block;
-    margin-top: -4px;
-    color: #4d4d4d;
-    font-size: 12px;
-    font-weight: 400;
+    // margin-top: -4px;
+    font-size: 0.7em;
+    color: #073458;
+
+    // font-size: 12px;
+    font-weight: 600;
   }
   
   .etiquet-price {
     position: relative;
-    background: #fdbd4a;
-    width: 17.46rem;
+    color: #fff;
+    background:  #1E56A0;
+    width: 19.46rem;
     margin-left: -0.65rem;
     padding: .2rem 1.2rem;
     border-radius: 5px 0 0 5px;
@@ -68,8 +77,9 @@
     bottom: -23px;
     right: 0px;
     width: 0;
+  
     height: 0;
-    border-top: 13px solid #c58102;
+    border-top: 13px solid #344ddb;
     border-bottom: 10px solid transparent;
     border-right: 13px solid transparent;
     z-index: -6;
@@ -85,11 +95,14 @@
   }
   
   .benefits-list ul li {
-    color: #4d4d4d;
+    color: #163172;
     list-style: none;
+    font-size: 1.3em;
     margin-bottom: .2rem;
     display: flex;
     align-items: center;
+    line-height: 1.4em;
+    text-align: justify;
     gap: .5rem;
   }
   
@@ -105,7 +118,7 @@
   .button-get-plan {
     display: flex;
     justify-content: center;
-    margin-top: 1.2rem;
+    margin-top: 1.8rem;
   }
   
   .button-get-plan a {
