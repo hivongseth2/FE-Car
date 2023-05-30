@@ -38,7 +38,6 @@ const GetVideo = () => {
 
         // const data = response.data;
         setVideo(response.data);
-        // console.log(data);
 
         console.log("id video", video.items[0].id.videoId);
         console.log("title video", video.items[0].snippet.title);
