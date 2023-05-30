@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import Register from './views/Register';
-import Login from './views/login';
+import Courses from './views/Courses';
+import Logins from './views/Logins';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
@@ -25,7 +27,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login />,
+    element: <Logins />,
   },
 ]);
 

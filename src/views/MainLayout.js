@@ -1,6 +1,7 @@
 import React from "react";
 import Menu from "./Menu";
-import { ToastContainer, toast } from "react-toastify";
+import Sidebar from "./Sidebar";
+import { ToastContainer,} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function MainLayout({ children }) {
@@ -22,7 +23,7 @@ function MainLayout({ children }) {
           theme="colored"
         />
       </div>
-      <div>This is a sidebar</div>
+      <Sidebar></Sidebar>
     </div>
   );
 }
