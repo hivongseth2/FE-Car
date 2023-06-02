@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/Youtube.scss"; // Import external CSS file
 // import GetVideo from "./GetVideo";
-import YouTube from "react-youtube";
+// import YouTube from "react-youtube";
 
 const SocalItem = () => {
   const [data, setData] = useState(null);
@@ -61,7 +61,7 @@ const SocalItem = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button>
+                <button className="button-social-item-youtube">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"

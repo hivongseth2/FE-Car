@@ -1,4 +1,5 @@
 import "../styles/Register_advise.scss";
+import MainLayout from "./MainLayout";
 import React, { useState } from "react";
 
 const Register_Advise = () => {
@@ -15,9 +16,8 @@ const Register_Advise = () => {
     }
   };
   return (
-    <div className="card shadow">
+    <div className="card-register shadow">
       <button className="Cancel">X</button>
->>>>>>> 8d967ba932ead70a9c4bfd5e3231b9ef05ff8eab
       <p>Đăng ký tư vấn</p>
       <label className="label1">Họ tên </label>
       <br></br>
@@ -53,7 +53,6 @@ const Register_Advise = () => {
         <span>Đăng ký ngay</span>
       </button>
     </div>
-    </MainLayout>
   );
 };
-export default Register_advise;
+export default Register_Advise;

@@ -23,10 +23,10 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
-      <Facebook />
+    <div className="home-page-container">
+      {/* <Facebook />
 
-      <SocalItem />
+      <SocalItem /> */}
       {data
         .filter((item) => item.id === 1)
         .map((item) => (
