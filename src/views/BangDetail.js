@@ -26,6 +26,7 @@ const BangDetail = () => {
   const handleOpenModal = () => {
     setOpenModal((prevState) => !prevState);
   };
+
   return (
     <div className="list-plan-card">
       {data &&
@@ -78,7 +79,7 @@ const BangDetail = () => {
                 className="button-get-plan openModalBtn"
                 onClick={handleOpenModal}
               >
-                đăng kí
+                Đăng kí
               </button>
             </div>
           </div>

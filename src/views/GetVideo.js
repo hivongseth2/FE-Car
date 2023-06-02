@@ -1,24 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import React from "react";
 import YouTube from "react-youtube";
 const GetVideo = () => {
-  // const Array_Video = ["RptZnTXJM9Q", "VRDfgBRTXb0", "f5g726CwCX8"]
-  // const opts = {
-  //   height: '400',
-  //   width: '640',
-  //   playerVars:{
-  //     autoplay:1,
-  //   }
-  // }
-  // return (
-  //   <div>
-  //     {Array_Video.map((videoId, index) => (
-  //       <YouTubeVideo key={index} videoId={videoId} />
-  //     ))}
-  //   </div>
-  // );
-
   const [video, setVideo] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
