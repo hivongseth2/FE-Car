@@ -27,13 +27,11 @@
   outline: none;
   transition: all .2s ease;
 }
-.content:hover{
-  color: #008AC3;
-  background-color: transparent;
-}
+
 .list {
+  margin-top: 100px;
   display: flex;
-  color: gray;
+  color:  #163172;
   
   border-bottom: 0.5px solid rgb(90, 88, 88);
   margin-bottom: 1em;

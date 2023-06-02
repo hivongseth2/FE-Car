@@ -119,13 +119,15 @@
     display: flex;
     justify-content: center;
     margin-top: 1.8rem;
+    border: none;
+    margin-left: 40px;
   }
   
   .button-get-plan a {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #000446;
+    background: #000446;  
     color: #fff;
     padding: 10px 15px;
     border-radius: 5px;
@@ -146,3 +148,4 @@
     width: .9rem;
     fill: currentColor;
   }
+

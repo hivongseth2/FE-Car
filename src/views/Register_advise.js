@@ -1,25 +1,47 @@
 import "../styles/Register_advise.scss";
-import MainLayout from "./MainLayout";
+import React, { useState } from "react";
 
-const Register_advise = () => {
+const Register_Advise = () => {
+  const [fullName, setFullName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  const handleOnchangeInput = (e) => {
+    if (e.target.classList.contains("fullName")) {
+      setFullName(e.target.value);
+      console.log("hoTen" + fullName);
+    } else {
+      setPhoneNumber(e.target.value);
+      console.log("soDienThoai" + phoneNumber);
+    }
+  };
   return (
-    <MainLayout>
-    <div className="wrapper_register_advise">
+    <div className="card shadow">
+      <button className="Cancel">X</button>
+>>>>>>> 8d967ba932ead70a9c4bfd5e3231b9ef05ff8eab
       <p>Đăng ký tư vấn</p>
-      <label className="label">Họ tên </label>
+      <label className="label1">Họ tên </label>
       <br></br>
-      <input type="text" placeholder="Tên của bạn"></input>
+      <input
+        type="text"
+        placeholder="Tên của bạn"
+        className="fullName"
+        value={fullName}
+        onChange={(e) => handleOnchangeInput(e)}
+      ></input>
       <br></br>
-      <label className="label">Số điện thoại </label>
+      <label className="label2">Số điện thoại </label>
       <br></br>
-      <input type="text" placeholder="Số điện thoại"></input> <br></br>
-      <label className="label">Loại bằng </label>
+      <input
+        type="text"
+        placeholder="Số điện thoại"
+        className="phoneNumber"
+        value={phoneNumber}
+        onChange={(e) => handleOnchangeInput(e)}
+      ></input>
+      <br></br>
+      <label className="label3">Loại bằng </label>
       <div className="typeagree">
         <select>
-          <option value="A1">A1</option>
-          <option value="A2">A2</option>
-          <option value="A3">A3</option>
-          <option value="A4">A4</option>
           <option value="B1">B1</option>
           <option value="B2">B2</option>
           <option value="C">C</option>

@@ -1,5 +1,5 @@
-import "../styles/Menu.scss"
-import { Link} from "react-router-dom";
+import "../styles/Menu.scss";
+import { Link } from "react-router-dom";
 const Menu = () => {
     return (
         <div className="main-header">

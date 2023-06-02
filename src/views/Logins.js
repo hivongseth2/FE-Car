@@ -65,7 +65,7 @@ const Logins = () => {
   return (
     <MainLayout>
       <div className="wrapper">
-        <h3>Đăng nhập</h3>
+        <h1 className="dang_nhap">Đăng nhập</h1>
         <form>
           <div className="input-field">
             <input
