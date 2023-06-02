@@ -3,6 +3,7 @@ import { fakeData } from "../api/fake-data";
 import BangDetail from "../views/BangDetail";
 import SocialItem from "./SocialItem";
 import "../styles/HomePage.scss";
+import Facebook from "./Facebook";
 import SocalItem from "./SocalItem";
 const HomePage = () => {
   const getAll = () => {
@@ -25,6 +26,8 @@ const HomePage = () => {
 
   return (
     <div>
+      <Facebook />
+
       <SocalItem />
       {data
         .filter((item) => item.id === 1)
