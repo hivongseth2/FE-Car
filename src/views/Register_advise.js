@@ -1,7 +1,9 @@
 import "../styles/Register_advise.scss";
+import MainLayout from "./MainLayout";
 
-const Register_Advise = () => {
+const Register_advise = () => {
   return (
+    <MainLayout>
     <div className="wrapper_register_advise">
       <p>Đăng ký tư vấn</p>
       <label className="label">Họ tên </label>
@@ -29,6 +31,7 @@ const Register_Advise = () => {
         <span>Đăng ký ngay</span>
       </button>
     </div>
+    </MainLayout>
   );
 };
-export default Register_Advise;
+export default Register_advise;

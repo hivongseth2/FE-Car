@@ -2,7 +2,7 @@
 
 .container-homepage {
   // height: 90vh;
-  padding: 10px;
+  //padding: 10px;
   display: flex;
   font-family: "Poppins", sans-serif;
 }
@@ -15,9 +15,9 @@
 }
 .container-homepage-left h3 {
   text-align: left;
-  font-weight: 700;
-  font-size: 4.5rem;
-  padding-top: 0.5em;
+  font-weight: 600;
+  font-size: 3.5rem;
+  //padding-top: 0.5em;
 }
 .container-homepage-right {
   //background-color: chartreuse;
@@ -27,7 +27,7 @@
   flex: 50%;
 }
 p{
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-align: justify;
 }
 .container-homepage-right img {

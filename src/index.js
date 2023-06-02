@@ -4,8 +4,15 @@ import './index.css';
 import App from './App';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Register from './views/Register';
-import Courses from './views/Courses';
+/** */
+import InfoStudentForAdmin from "../src/views/Dashboard/InfoStudentForAdmin";
+import QuanLyBang from "../src/views/Dashboard/QuanLyBang";
+import QuanLyKhachHangMoi from "../src/views/Dashboard/NewCustomer";
+import MainLayoutAdmin from '../src/views/Dashboard/MainLayoutAdmin';
+/** */
+import InfoStudent  from './views/InfoStudent';
 import Logins from './views/Logins';
+import Register_Advise  from './views/Register_advise';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
@@ -18,8 +25,8 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/Course",
-    element: <Courses />,
+    path: "/advise",
+    element: <Register_Advise />,
   },
   {
     path: "/register",
@@ -28,6 +35,27 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Logins />,
+  },
+  {
+    path: "/info",
+    element: <InfoStudent />,
+  },
+  // Admin
+  {
+    path: "/admin-edit-info",
+    element: <MainLayoutAdmin />,
+  },
+  {
+    path: "/edit-info",
+    element: <InfoStudentForAdmin />,
+  },
+  {
+    path: "/quan-ly-bang",
+    element: <QuanLyBang />,
+  },
+  {
+    path: "/new-customer",
+    element: <QuanLyKhachHangMoi />,
   },
 ]);
 

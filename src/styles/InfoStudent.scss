@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:600,300");
+
+.center {
+  width: 60%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-auto-flow: row;
+  background: #fff;
+  border-radius: 3px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 100%);
+  }
+}
+
+.profile {
+  //padding: 15px;
+  .image {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 38px auto 0 auto;
+
+    .circle-1,
+    .circle-2 {
+      position: absolute;
+      box-sizing: border-box;
+      width: 86px;
+      height: 86px;
+      top: -3px;
+      left: -3px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #073458;
+      border-radius: 50%;
+      transition: all 1.5s ease-in-out;
+    }
+
+    .circle-2 {
+      width: 92px;
+      height: 92px;
+      top: -6px;
+      left: -6px;
+      border-color: #073458 transparent #073458 #073458;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 50%;
+      background: #f5e8df;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      .circle-1 {
+        transform: rotate(360deg);
+      }
+
+      .circle-2 {
+        transform: rotate(-360deg);
+      }
+    }
+  }
+
+  .name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .job {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    word-wrap: break-word;
+  }
+}
+
+.stats {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  //padding-left: 80px;
+  text-align: center;
+}
+
+.box {
+  margin: 1px 0;
+  box-sizing: border-box;
+  height: 70px;
+  background: #d6e4f0;
+  text-align: center;
+  padding-top: 15px;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    background: #8eb2e1;
+    cursor: pointer;
+  }
+}
+
+span {
+  display: block;
+}
+
+.value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #073458;
+}
+
+.parameter {
+  font-size: 1.1rem;
+  color: #073458;
+}

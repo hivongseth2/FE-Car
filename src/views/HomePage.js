@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { fakeData } from "../api/fake-data";
-import BangDetail from "../views/BangDetail";
 import "../styles/HomePage.scss";
 const HomePage = () => {
   const getAll = () => {
