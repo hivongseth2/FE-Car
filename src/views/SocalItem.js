@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/Youtube.scss"; // Import external CSS file
-import GetVideo from "./GetVideo";
+// import GetVideo from "./GetVideo";
 import YouTube from "react-youtube";
 
 const SocalItem = () => {
@@ -17,7 +17,7 @@ const SocalItem = () => {
             params: {
               part: "snippet,statistics,brandingSettings",
               id: channelId,
-              key: "AIzaSyCIVk0M0srE2_G7UdRYm7ApByefLRlT4AU", // Replace with your YouTube API Key
+              key: "AIzaSyA1o0eXgMFDKO19fRJBaBMsBBe_zsuQvVM", // Replace with your YouTube API Key
             },
           }
         );
@@ -81,7 +81,6 @@ const SocalItem = () => {
           </div>
         </>
       )}
-      <GetVideo />
     </div>
   );
 };
