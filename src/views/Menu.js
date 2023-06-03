@@ -18,7 +18,7 @@ const Menu = () => {
             <a href="/training">LUYỆN THI</a>
           </li>
           <li>
-            <a href="/lesson">BÀI HỌC</a>
+            <a href="/socialmedia">Social Media</a>
           </li>
         </ul>
       </div>

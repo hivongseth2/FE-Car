@@ -9,6 +9,7 @@ import Logins from "./views/Logins";
 import Register_Advise from "./views/Register_advise";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Facebook from "./views/Facebook";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Logins />,
+  },
+  {
+    path: "/socialmedia",
+    element: <Facebook />,
   },
 ]);
 
