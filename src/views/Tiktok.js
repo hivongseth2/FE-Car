@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-const Facebook = () => {
+const Tiktok = () => {
   const iframeStyle = {
     border: "none",
     overflow: "hidden",
@@ -37,29 +37,7 @@ const Facebook = () => {
 
   return (
     <>
-      <div className="social-facebook">
-        <div
-          class="fb-page"
-          data-href="https://www.facebook.com/profile.php?id=100078023214277"
-          data-tabs="timeline"
-          data-width=""
-          data-height=""
-          data-small-header="false"
-          data-adapt-container-width="true"
-          data-hide-cover="false"
-          data-show-facepile="true"
-        >
-          <blockquote
-            cite="https://www.facebook.com/profile.php?id=100078023214277"
-            class="fb-xfbml-parse-ignore"
-          >
-            <a href="https://www.facebook.com/profile.php?id=100078023214277">
-              Kaha Café.
-            </a>
-          </blockquote>
-        </div>
-      </div>
-      {/* <div className="social-tiktok">
+      <div className="social-tiktok">
         <blockquote
           class="tiktok-embed"
           cite="https://www.tiktok.com/@thanhluan1303"
@@ -76,15 +54,8 @@ const Facebook = () => {
             </a>{" "}
           </section>{" "}
         </blockquote>{" "}
-      </div> */}
-      {/* <div className="social-youtube">
-        <iframe
-          width="420"
-          height="345"
-          src="https://www.youtube.com/embed/XGSy3_Czz8k"
-        ></iframe>
-      </div> */}
+      </div>
     </>
   );
 };
-export default Facebook;
+export default Tiktok;

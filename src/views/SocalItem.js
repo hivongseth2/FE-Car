@@ -39,6 +39,7 @@ const SocalItem = () => {
         <>
           {/* {console.log(data)} */}
           <img
+            className="ChannelAvatar"
             src={data.items[0].snippet.thumbnails.high.url}
             alt="Channel Avatar"
           />

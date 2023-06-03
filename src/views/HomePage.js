@@ -4,6 +4,7 @@ import BangDetail from "../views/BangDetail";
 import SocialItem from "./SocialItem";
 import "../styles/HomePage.scss";
 import Facebook from "./Facebook";
+import Register_Advise from "./Register_advise";
 import SocalItem from "./SocalItem";
 const HomePage = () => {
   const getAll = () => {
@@ -26,9 +27,9 @@ const HomePage = () => {
 
   return (
     <div>
-      <Facebook />
+      {/* <Facebook /> */}
 
-      <SocalItem />
+      {/* <SocalItem /> */}
       {data
         .filter((item) => item.id === 1)
         .map((item) => (
@@ -53,6 +54,7 @@ const HomePage = () => {
             </div>
           </div>
         ))}
+      {/* <Register_Advise></Register_Advise> */}
     </div>
   );
 };
