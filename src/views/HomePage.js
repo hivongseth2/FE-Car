@@ -23,10 +23,10 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="home-page-container">
-      {/* <Facebook />
+    <div>
+      {/* <Facebook /> */}
 
-      <SocalItem /> */}
+      {/* <SocalItem /> */}
       {data
         .filter((item) => item.id === 1)
         .map((item) => (
@@ -51,6 +51,7 @@ const HomePage = () => {
             </div>
           </div>
         ))}
+      <BangDetail />
     </div>
   );
 };
