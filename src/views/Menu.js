@@ -15,10 +15,7 @@ const Menu = () => {
             <Link to="/Register_advise">GIỚI THIỆU</Link>
           </li>
           <li>
-            <a href="/training">LUYỆN THI</a>
-          </li>
-          <li>
-            <a href="/lesson">BÀI HỌC</a>
+            <a href="/social-media">SOCIAL MEDIA</a>
           </li>
         </ul>
       </div>

@@ -9,7 +9,7 @@ import Logins from "./views/Logins";
 import Register_Advise from "./views/Register_advise";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import SocialMedia from "./views/SocialMedia";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "/Course",
     element: <Courses />,
+  },
+  {
+    path: "/social-media",
+    element: <SocialMedia />,
   },
   {
     path: "/register",
