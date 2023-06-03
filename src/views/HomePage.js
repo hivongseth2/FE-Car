@@ -53,6 +53,7 @@ const HomePage = () => {
             </div>
           </div>
         ))}
+      <BangDetail />
     </div>
   );
 };

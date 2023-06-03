@@ -1,30 +1,56 @@
 import React from "react";
-import "./App.css";
+// import "./App.css";
 import HomePage from "./views/HomePage";
 import MainLayout from "./views/MainLayout";
 import { useEffect } from "react";
+import Nav from "./views/Nav";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+import Register from "./views/Register";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // import { Helmet } from "react-helmet";
 
 import BangDetail from "./views/BangDetail";
+import Logins from "./views/Logins";
+import Facebook from "./views/Facebook";
 function App() {
   return (
-    <div className="App">
-      {/* <Helmet>
-        <script async src="https://www.tiktok.com/embed.js"></script>
-        <script
-          async
-          defer
-          crossorigin="anonymous"
-          src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v17.0"
-          nonce="ocv4IcD6"
-        ></script>
-      </Helmet> */}
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <Nav />
 
-      <MainLayout>
-        <HomePage></HomePage>
-        <BangDetail></BangDetail>
-      </MainLayout>
-    </div>
+          <Switch>
+            <Route path="/" exact>
+              <HomePage></HomePage>
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="/login">
+              <Logins />
+            </Route>
+
+            <Route path="/socialmedia">
+              <Facebook />
+            </Route>
+          </Switch>
+        </header>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
+      </div>
+    </Router>
   );
 }
 export default App;
