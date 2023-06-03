@@ -1,5 +1,4 @@
 import "../styles/Register_advise.scss";
-import MainLayout from "./MainLayout";
 import React, { useState } from "react";
 
 const Register_Advise = () => {
