@@ -7,6 +7,7 @@ const Nav = () => {
       <NavLink to="/">Trang chủ</NavLink>
       <NavLink to="/register">Đăng kí</NavLink>
       <NavLink to="/login">Đăng Nhập</NavLink>
+      <NavLink to="/edit-admin">Chỉnh sửa thông tin</NavLink>
       {/* <NavLink to="/ForgotPass">Quên Mật khẩu</NavLink> */}
       {/* <NavLink to="/Info">Ca Nhan</NavLink> */}
       {/* <NavLink to="/Course">Mua san pham</NavLink> */}

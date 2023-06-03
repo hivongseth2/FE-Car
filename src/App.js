@@ -11,6 +11,9 @@ import Register from "./views/Register";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // import { Helmet } from "react-helmet";
 
+//admin
+import MainLayoutAdmin from "./views/Dashboard/MainLayoutAdmin";
+
 import BangDetail from "./views/BangDetail";
 import Logins from "./views/Logins";
 import Facebook from "./views/Facebook";
@@ -28,12 +31,16 @@ function App() {
             <Route path="/register">
               <Register />
             </Route>
+
             <Route path="/login">
               <Logins />
             </Route>
 
             <Route path="/socialmedia">
               <Facebook />
+            </Route>
+            <Route path="/edit-admin">
+              <MainLayoutAdmin />
             </Route>
           </Switch>
         </header>
