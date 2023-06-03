@@ -54,7 +54,7 @@ const HomePage = () => {
             </div>
           </div>
         ))}
-      {/* <Register_Advise></Register_Advise> */}
+      <BangDetail />
     </div>
   );
 };

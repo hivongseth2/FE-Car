@@ -1,13 +1,15 @@
 import { useState } from "react";
 import "../styles/Login.scss";
 import MainLayout from "./MainLayout";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-d?om";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Logins = () => {
   const [userName, setUserName] = useState("");
   const [passWord, setPassWord] = useState("");
+  const history = useHistory();
 
   const handleOnchangeInput = (e) => {
     if (e.target.classList.contains("userName")) {
@@ -19,7 +21,7 @@ const Logins = () => {
     }
   };
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // Declare the setError function
   const setError = (errorMessage) => {
@@ -53,7 +55,8 @@ const Logins = () => {
 
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data));
-      navigate("/Course");
+      // navigate("/Course");
+      history.push("/Course");
 
       toast.success(`Chào mừng ${data.fullName} đã quay trở lại!`);
       console.log(data);
@@ -63,48 +66,46 @@ const Logins = () => {
   };
 
   return (
-    <MainLayout>
-      <div className="wrapper">
-        <h1 className="dang_nhap">Đăng nhập</h1>
-        <form>
-          <div className="input-field">
-            <input
-              type="text"
-              placeholder="Tên đăng nhập"
-              className="userName"
-              value={userName}
-              onChange={(e) => handleOnchangeInput(e)}
-            ></input>
-          </div>
+    <div className="wrapper">
+      <h1 className="dang_nhap">Đăng nhập</h1>
+      <form>
+        <div className="input-field">
+          <input
+            type="text"
+            placeholder="Tên đăng nhập"
+            className="userName"
+            value={userName}
+            onChange={(e) => handleOnchangeInput(e)}
+          ></input>
+        </div>
 
-          <div className="input-field">
-            <input
-              type="password"
-              placeholder="Mật khẩu"
-              className="passWord"
-              value={passWord}
-              onChange={(e) => handleOnchangeInput(e)}
-            ></input>
-          </div>
+        <div className="input-field">
+          <input
+            type="password"
+            placeholder="Mật khẩu"
+            className="passWord"
+            value={passWord}
+            onChange={(e) => handleOnchangeInput(e)}
+          ></input>
+        </div>
 
-          <div>
-            <p>
-              Bạn chưa có tài khoản? <Link to="/register">Đăng ký</Link>
-            </p>
-          </div>
+        <div>
+          <p>
+            Bạn chưa có tài khoản? <Link to="/register">Đăng ký</Link>
+          </p>
+        </div>
 
-          <div>
-            <button
-              type="submit"
-              className="button  btn-primary col-4 mx-auto"
-              onClick={(e) => handleSignIn(e)}
-            >
-              Đăng nhập
-            </button>
-          </div>
-        </form>
-      </div>
-    </MainLayout>
+        <div>
+          <button
+            type="submit"
+            className="button  btn-primary col-4 mx-auto"
+            onClick={(e) => handleSignIn(e)}
+          >
+            Đăng nhập
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 

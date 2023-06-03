@@ -66,84 +66,84 @@ const Register = () => {
   };
 
   return (
-    <MainLayout>
-      <form className="my-form">
-        <h3>ĐĂNG KÝ</h3>
-        <div className="mb-3">
-          <label>Họ và tên</label>
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            className="form-control"
-            placeholder="Nhập họ và tên"
-            value={fullName}
-            onChange={handleOnchangeInput}
-          />
-        </div>
-        <div className="mb-3">
-          <label>Số điện thoại</label>
-          <input
-            type="text"
-            id="phoneNumber"
-            name="phoneNumber"
-            className="form-control"
-            placeholder="Nhập số điện thoại"
-            value={phoneNumber}
-            onChange={handleOnchangeInput}
-          />
-        </div>
-        <div className="mb-3">
-          <label>Email address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            className="form-control"
-            placeholder="Nhập email"
-            value={email}
-            onChange={handleOnchangeInput}
-          />
-        </div>
-        <div className="mb-3">
-          <label>Ngày tháng năm sinh</label>
-          <input
-            type="Date"
-            className="form-control"
-            id="birthday"
-            name="birthday"
-            placeholder="Nhập ngày tháng năm sinh"
-            value={birthday}
-            onChange={handleOnchangeInput}
-          />
-        </div>
-        <div className="mb-3">
-          <label>username</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            className="form-control"
-            placeholder="Nhập username"
-            value={username}
-            onChange={handleOnchangeInput}
-          />
-        </div>
-        <div>
-          <p className="register-link forgot-password text-right">
-            Already registered? <Link to="/login">Sign in</Link>
-          </p>
-        </div>
-        <div className="d-grid">
-          <button type="submit" className="btn btn-primary submitBtn" 
+    <form className="my-form">
+      <h3>ĐĂNG KÝ</h3>
+      <div className="mb-3">
+        <label>Họ và tên</label>
+        <input
+          type="text"
+          id="fullName"
+          name="fullName"
+          className="form-control"
+          placeholder="Nhập họ và tên"
+          value={fullName}
+          onChange={handleOnchangeInput}
+        />
+      </div>
+      <div className="mb-3">
+        <label>Số điện thoại</label>
+        <input
+          type="text"
+          id="phoneNumber"
+          name="phoneNumber"
+          className="form-control"
+          placeholder="Nhập số điện thoại"
+          value={phoneNumber}
+          onChange={handleOnchangeInput}
+        />
+      </div>
+      <div className="mb-3">
+        <label>Email address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          className="form-control"
+          placeholder="Nhập email"
+          value={email}
+          onChange={handleOnchangeInput}
+        />
+      </div>
+      <div className="mb-3">
+        <label>Ngày tháng năm sinh</label>
+        <input
+          type="Date"
+          className="form-control"
+          id="birthday"
+          name="birthday"
+          placeholder="Nhập ngày tháng năm sinh"
+          value={birthday}
+          onChange={handleOnchangeInput}
+        />
+      </div>
+      <div className="mb-3">
+        <label>username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          className="form-control"
+          placeholder="Nhập username"
+          value={username}
+          onChange={handleOnchangeInput}
+        />
+      </div>
+      <div>
+        <p className="register-link forgot-password text-right">
+          Already registered? <Link to="/login">Sign in</Link>
+        </p>
+      </div>
+      <div className="d-grid">
+        <button
+          type="submit"
+          className="btn btn-primary submitBtn"
           onClick={(e) => handleSubmit(e)}
           value="Submit"
-          >
-            ĐĂNG KÝ
-          </button>
-        </div>
-      </form>
-    </MainLayout>
+        >
+          ĐĂNG KÝ
+        </button>
+      </div>
+    </form>
   );
 };
 export default Register;
