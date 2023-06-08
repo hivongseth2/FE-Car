@@ -66,14 +66,17 @@ const Register_Advise = () => {
       const data = await response.json();
       console.log(data);
 
+
       if (data.errorCode !== undefined) {
         console.log(data);
         toast.error(`Vui lòng nhập đúng số điện thoại`);
         return;
       }
 
+
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data));
+
 
       // history.push("/");
       setTimeout(function () {
@@ -83,6 +86,7 @@ const Register_Advise = () => {
       toast.success(
         `Đăng ký thành công. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất`
       );
+
       console.log(data);
     } catch (error) {
       setError(error.message);

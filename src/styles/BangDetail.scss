@@ -21,6 +21,12 @@
     font-family: "Poppins", sans-serif;
     display: block;
     height: 31em;
+    &:hover{
+      transform: translateY(-6%);
+      box-shadow: 0 16px 50px rgba(169, 198, 255, 0.3);
+
+      // box-shadow: 0 3px 10px rgba(207, 212, 222, 0.9);
+    }
   }
   
   .plan-card h2 {

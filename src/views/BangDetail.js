@@ -28,16 +28,16 @@ const BangDetail = () => {
   };
 
   return (
-    <div className="list-plan-card">
+    <div className="list-plan-card ">
       {data &&
         data.map((item) => (
           <div key={item.id}>
-            <div className="plan-card">
+            <div className="plan-card ">
               <h2>
                 {item.hang}
                 <span>{item.mo_ta}</span>
               </h2>
-              <div className="etiquet-price">
+              <div className="etiquet-price ">
                 <p>{item.gia}</p>
                 <div></div>
               </div>

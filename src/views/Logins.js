@@ -5,12 +5,14 @@ import MainLayout from "./MainLayout";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
+// import "dotenv/config";
+// require("dotenv").config();
 
 const Logins = () => {
   const [userName, setUserName] = useState("");
   const [passWord, setPassWord] = useState("");
   const history = useHistory();
-
+  // const NODE_ENV = process.env.REACT_DOMAIN;
   const handleOnchangeInput = (e) => {
     if (e.target.classList.contains("userName")) {
       setUserName(e.target.value);
@@ -31,8 +33,12 @@ const Logins = () => {
   const handleSignIn = async (event) => {
     event.preventDefault();
     try {
+      console.log(process.env.REACT_DOMAIN);
       const response = await fetch(
-        "http://trungtamdaotaolaixebinhduong.com:8080/api/account/login",
+        `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/account/login`,
         {
           method: "POST",
           headers: {

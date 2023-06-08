@@ -4,14 +4,17 @@ import HomePage from "./views/HomePage";
 import MainLayout from "./views/MainLayout";
 import { useEffect } from "react";
 import Nav from "./views/Nav";
+// import Slider from "./views/Slider";
+import Slider from "./views/Slider";
 import { ToastContainer, toast } from "react-toastify";
+// import "dotenv/config";
+// require("dotenv").config();
 
 import "react-toastify/dist/ReactToastify.css";
 import Register from "./views/Register";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SocialMedia from "./views/SocialMedia";
 // import { Helmet } from "react-helmet";
-
 import BangDetail from "./views/BangDetail";
 import Logins from "./views/Logins";
 import Facebook from "./views/Facebook";
@@ -24,7 +27,8 @@ function App() {
 
           <Switch>
             <Route path="/" exact>
-              <HomePage></HomePage>
+              {/* <HomePage></HomePage> */}
+              <Slider></Slider>
             </Route>
             <Route path="/register">
               <Register />
