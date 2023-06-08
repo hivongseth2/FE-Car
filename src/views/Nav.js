@@ -6,6 +6,8 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
+
 import logo from "../img/Logo-IUH.jpg";
 const Nav = () => {
   return (
@@ -33,7 +35,10 @@ const Nav = () => {
           <FontAwesomeIcon icon={faUserPlus} />
           Đăng kí
         </NavLink>
-        <span className="hotline">Holine:0909789789</span>
+        <span className="hotline">
+          <FontAwesomeIcon icon={faPhone} />
+          Holine:0909789789
+        </span>
       </div>
       {/* <NavLink to="/Cart">Giỏ Hàng </NavLink> */}
     </div>
