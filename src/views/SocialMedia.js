@@ -3,9 +3,9 @@ import MainLayout from "./MainLayout";
 import SocalItem from "./SocalItem";
 import "../styles/SocialMedia.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { faTiktok } from "@fortawesome/free-brands-svg-icons";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+// import { faYoutube } from "@fortawesome/free-brands-svg-icons";
+// import { faTiktok } from "@fortawesome/free-brands-svg-icons";
+// import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import Facebook from "./Facebook";
 import Youtube from "./Youtube";
 import Tiktok from "./Tiktok";
@@ -46,7 +46,7 @@ const SocialMedia = () => {
             <div className="youtube-content">Youtube </div>
             <div className="youtube-icon">
               {" "}
-              <FontAwesomeIcon icon={faYoutube} />
+              {/* <FontAwesomeIcon icon={faYoutube} /> */}
             </div>
           </div>
 
@@ -71,7 +71,7 @@ const SocialMedia = () => {
             <div className="facebook-content">Facebook </div>
             <div className="facebook-icon">
               {" "}
-              <FontAwesomeIcon icon={faFacebook} />
+              {/* <FontAwesomeIcon icon={faFacebook} /> */}
             </div>
           </div>
           <div></div>
@@ -94,7 +94,7 @@ const SocialMedia = () => {
             <div className="tiktok-content">Tiktok </div>
             <div className="tiktok-icon">
               {" "}
-              <FontAwesomeIcon icon={faTiktok} />
+              {/* <FontAwesomeIcon icon={faTiktok} /> */}
             </div>
           </div>
           <div></div>

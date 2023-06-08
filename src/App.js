@@ -23,6 +23,7 @@ import InfoStudent from "./views/InfoStudent";
 import Logins from "./views/Logins";
 import Facebook from "./views/Facebook";
 import BangDetail from "./views/BangDetail";
+import Slider from "./views/Slider";
 function App() {
   return (
     <Router>

@@ -24,7 +24,10 @@ const Nav = () => {
           Social Media
         </NavLink>
       </div>
+      <NavLink to="/edit-admin">Chỉnh sửa thông tin</NavLink>
+      <NavLink to="/info-sudent">Thông tin học viên</NavLink>
       <div className="submenu">
+
         <NavLink to="/login">
           <FontAwesomeIcon icon={faSignInAlt} />
           Đăng Nhập
