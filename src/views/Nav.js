@@ -1,16 +1,40 @@
 // import "../styles/Nav.scss";
 import { Link, NavLink } from "react-router-dom";
 import "../styles/Nav.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
+import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
+import logo from "../img/Logo-IUH.jpg";
 const Nav = () => {
   return (
     <div className="topnav">
-      <NavLink to="/">Trang chủ</NavLink>
-      <NavLink to="/register">Đăng kí</NavLink>
-      <NavLink to="/login">Đăng Nhập</NavLink>
-      {/* <NavLink to="/ForgotPass">Quên Mật khẩu</NavLink> */}
-      {/* <NavLink to="/Info">Ca Nhan</NavLink> */}
-      {/* <NavLink to="/Course">Mua san pham</NavLink> */}
-      <NavLink to="/socialmedia">Social Media</NavLink>
+      <div className="logo">
+        <img src={logo} alt="logo" className="logo"></img>
+      </div>
+      <div className="mainMenu">
+        <NavLink to="/">
+          <FontAwesomeIcon icon={faHome} />
+          Trang chủ
+        </NavLink>
+        <NavLink to="/socialmedia">
+          {" "}
+          <FontAwesomeIcon icon={faShareAlt} />
+          Social Media
+        </NavLink>
+      </div>
+      <div className="submenu">
+        <NavLink to="/login">
+          <FontAwesomeIcon icon={faSignInAlt} />
+          Đăng Nhập
+        </NavLink>
+        <NavLink to="/register">
+          <FontAwesomeIcon icon={faUserPlus} />
+          Đăng kí
+        </NavLink>
+        <span className="hotline">Holine:0909789789</span>
+      </div>
       {/* <NavLink to="/Cart">Giỏ Hàng </NavLink> */}
     </div>
   );

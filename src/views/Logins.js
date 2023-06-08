@@ -31,16 +31,19 @@ const Logins = () => {
   const handleSignIn = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/api/account/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: userName,
-          password: passWord,
-        }),
-      });
+      const response = await fetch(
+        "http://trungtamdaotaolaixebinhduong.com:8080/api/account/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: userName,
+            password: passWord,
+          }),
+        }
+      );
 
       const data = await response.json();
       console.log(data);
@@ -56,7 +59,10 @@ const Logins = () => {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data));
       // navigate("/Course");
-      history.push("/Course");
+      // history.push("/Course");
+      setTimeout(function () {
+        window.location.href = "/";
+      }, 1000);
 
       toast.success(`Chào mừng ${data.fullName} đã quay trở lại!`);
       console.log(data);

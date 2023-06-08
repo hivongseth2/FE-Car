@@ -9,6 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Register from "./views/Register";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import SocialMedia from "./views/SocialMedia";
 // import { Helmet } from "react-helmet";
 
 import BangDetail from "./views/BangDetail";
@@ -33,7 +34,7 @@ function App() {
             </Route>
 
             <Route path="/socialmedia">
-              <Facebook />
+              <SocialMedia />
             </Route>
           </Switch>
         </header>
