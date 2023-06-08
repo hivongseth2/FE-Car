@@ -11,8 +11,8 @@ function MainLayoutAdmin({ children }) {
           <li><Link to="/edit-info">Thông tin học viên</Link></li>
           <li>Theo dõi học viên</li>
           <li>Quản lý bài đăng</li>
-          <li><Link to="/quan-ly-bang">Quản lý bằng lái</Link></li>
-          <li><Link to="/new-customer">Quản lý khách hàng mới</Link></li>
+          <li><Link to="/edit-bang">Quản lý bằng lái</Link></li>
+          <li><Link to="/edit-new-customer">Quản lý khách hàng mới</Link></li>
         </ul>
       </div>
       <div class="content-sibebar-admin">

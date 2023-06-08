@@ -1,7 +1,5 @@
 import { useState } from "react";
 import "../styles/Login.scss";
-import MainLayout from "./MainLayout";
-// import { useNavigate } from "react-router-d?om";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -31,7 +29,7 @@ const Logins = () => {
   const handleSignIn = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/api/account/login", {
+      const response = await fetch("http://trungtamdaotaolaixebinhduong.com:8080/api/account/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,7 +54,7 @@ const Logins = () => {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data));
       // navigate("/Course");
-      history.push("/Course");
+      history.push("/");
 
       toast.success(`Chào mừng ${data.fullName} đã quay trở lại!`);
       console.log(data);

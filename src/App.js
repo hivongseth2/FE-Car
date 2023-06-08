@@ -1,9 +1,8 @@
 import React from "react";
-// import "./App.css";
 import HomePage from "./views/HomePage";
-import MainLayout from "./views/MainLayout";
-import { useEffect } from "react";
+
 import Nav from "./views/Nav";
+import Sidebar from "./views/Sidebar";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -13,8 +12,11 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 //admin
 import MainLayoutAdmin from "./views/Dashboard/MainLayoutAdmin";
+import InfoStudentForAdmin from "./views/Dashboard/InfoStudentForAdmin";
+import QuanLyBang from "./views/Dashboard/QuanLyBang";
+import NewCustomer from "./views/Dashboard/NewCustomer";
 
-import BangDetail from "./views/BangDetail";
+import InfoStudent from "./views/InfoStudent";
 import Logins from "./views/Logins";
 import Facebook from "./views/Facebook";
 function App() {
@@ -42,6 +44,18 @@ function App() {
             <Route path="/edit-admin">
               <MainLayoutAdmin />
             </Route>
+            <Route path="/info-sudent">
+              <InfoStudent />
+            </Route>
+            <Route path="/edit-info">
+              <InfoStudentForAdmin />
+            </Route>
+            <Route path="/edit-bang">
+              <QuanLyBang />
+            </Route>
+            <Route path="/edit-new-customer">
+              <NewCustomer />
+            </Route>
           </Switch>
         </header>
         <ToastContainer
@@ -56,6 +70,7 @@ function App() {
           pauseOnHover
           theme="colored"
         />
+        <Sidebar />
       </div>
     </Router>
   );

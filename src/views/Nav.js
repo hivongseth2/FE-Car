@@ -1,5 +1,5 @@
 // import "../styles/Nav.scss";
-import { Link, NavLink } from "react-router-dom";
+import {NavLink } from "react-router-dom";
 import "../styles/Nav.scss";
 const Nav = () => {
   return (
@@ -8,6 +8,7 @@ const Nav = () => {
       <NavLink to="/register">Đăng kí</NavLink>
       <NavLink to="/login">Đăng Nhập</NavLink>
       <NavLink to="/edit-admin">Chỉnh sửa thông tin</NavLink>
+      <NavLink to="/info-sudent">Thông tin học viên</NavLink>
       {/* <NavLink to="/ForgotPass">Quên Mật khẩu</NavLink> */}
       {/* <NavLink to="/Info">Ca Nhan</NavLink> */}
       {/* <NavLink to="/Course">Mua san pham</NavLink> */}

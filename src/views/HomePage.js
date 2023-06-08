@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { fakeData } from "../api/fake-data";
 import "../styles/HomePage.scss";
 import BangDetail from "./BangDetail";
-import Facebook from "./Facebook";
-import SocalItem from "./SocalItem";
 const HomePage = () => {
   const getAll = () => {
     return new Promise((resolve) => {
@@ -24,10 +22,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
-      {/* <Facebook /> */}
-
-      {/* <SocalItem /> */}
+    <div className="home-page-container">
       {data
         .filter((item) => item.id === 1)
         .map((item) => (

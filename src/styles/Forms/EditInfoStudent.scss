@@ -1,0 +1,63 @@
+.form-add-degree {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+  }
+  .form-add-degree h1{
+    margin-bottom: 10px;
+  }
+  .form-add-degree input,
+  .form-add-degree textarea,
+  .form-add-degree select {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #707070;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+  }
+  
+  .button-addbanglai {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .button-addbanglai input[type="submit"],
+  .button-addbanglai input[type="button"] {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 80px;
+    margin: 0 10px;
+  }
+  
+  .button-addbanglai input[type="submit"] {
+    background-color: #4ee173;
+    color: #fff;
+  }
+  .button-addbanglai input[type="button"] {
+    background-color: #e74c3c;
+    color: #fff;
+  }
+  @media screen and (max-width: 600px) {
+    .small-container {
+      padding: 0 0.5rem;
+    }
+  
+    .form-add-degree {
+      width: 95%;
+      max-width: none;
+    }
+  }
+  

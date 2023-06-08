@@ -6,7 +6,7 @@ const NewCustomer = () => {
     <MainLayoutAdmin>
       <div className="contain-table-info">
         <div className="header-info">
-          <h1>Quản lý học viên</h1>
+          <h1>Quản lý khách hàng mới</h1>
           <button>Thêm học viên</button>
         </div>
         <table className="striped-table-info">

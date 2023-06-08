@@ -15,6 +15,7 @@ const BangDetail = () => {
         );
         let data = result && result.data ? result.data.data : [];
         setData(data);
+        
       } catch (error) {
         console.error("Error fetching data:", error);
       }

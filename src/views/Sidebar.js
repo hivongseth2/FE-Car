@@ -4,35 +4,35 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div className="social">
-        <ul class="wrapper-sidebar">
-          <li class="icon facebook">
-            <span class="tooltip">Facebook</span>
+        <ul className="wrapper-sidebar">
+          <li className="icon facebook">
+            <span className="tooltip">Facebook</span>
             <span>
-              <i class="fab fa-facebook-f"></i>
+              <i className="fab fa-facebook-f"></i>
             </span>
           </li>
-          <li class="icon twitter">
-            <span class="tooltip">Twitter</span>
+          <li className="icon twitter">
+            <span className="tooltip">Twitter</span>
             <span>
-              <i class="fab fa-twitter"></i>
+              <i className="fab fa-twitter"></i>
             </span>
           </li>
-          <li class="icon instagram">
-            <span class="tooltip">Instagram</span>
+          <li className="icon instagram">
+            <span className="tooltip">Instagram</span>
             <span>
-              <i class="fab fa-instagram"></i>
+              <i className="fab fa-instagram"></i>
             </span>
           </li>
-          <li class="icon github">
-            <span class="tooltip">Github</span>
+          <li className="icon github">
+            <span className="tooltip">Github</span>
             <span>
-              <i class="fab fa-github"></i>
+              <i className="fab fa-github"></i>
             </span>
           </li>
-          <li class="icon youtube">
-            <span class="tooltip">Youtube</span>
+          <li className="icon youtube">
+            <span className="tooltip">Youtube</span>
             <span>
-              <i class="fab fa-youtube"></i>
+              <i className="fab fa-youtube"></i>
             </span>
           </li>
         </ul>
