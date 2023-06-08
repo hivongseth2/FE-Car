@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Slider.scss";
 import BangDetail from "./BangDetail";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+
 // var ObjectFitCover = require("react-object-fit-cover");
 
 const Slider = () => {
@@ -168,12 +172,12 @@ const Slider = () => {
         <ul className="nav">
           <li className="slide-up">
             <a id="slide-up" href="#" onClick={backSlide}>
-              &#8656;
+              <FontAwesomeIcon icon={faChevronLeft} />
             </a>
           </li>
           <li className="slide-down">
             <a id="slide-down" href="#" onClick={nextSlide}>
-              &#8658;
+              <FontAwesomeIcon icon={faChevronRight} />
             </a>
           </li>
         </ul>

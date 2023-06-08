@@ -7,7 +7,7 @@ const Menu = () => {
         <h2 className="logo">WEBNAME</h2>
       </div>
       <div className="menu">
-        <ul>
+        <ul className="menuItems">
           <li>
             <Link to="/">TRANG CHỦ</Link>
           </li>

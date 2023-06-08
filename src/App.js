@@ -1,11 +1,8 @@
 import React from "react";
-// import "./App.css";
 import HomePage from "./views/HomePage";
-import MainLayout from "./views/MainLayout";
-import { useEffect } from "react";
+
 import Nav from "./views/Nav";
-// import Slider from "./views/Slider";
-import Slider from "./views/Slider";
+import Sidebar from "./views/Sidebar";
 import { ToastContainer, toast } from "react-toastify";
 // import "dotenv/config";
 // require("dotenv").config();
@@ -15,9 +12,18 @@ import Register from "./views/Register";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SocialMedia from "./views/SocialMedia";
 // import { Helmet } from "react-helmet";
-import BangDetail from "./views/BangDetail";
+
+//admin
+import MainLayoutAdmin from "./views/Dashboard/MainLayoutAdmin";
+import InfoStudentForAdmin from "./views/Dashboard/InfoStudentForAdmin";
+import QuanLyBang from "./views/Dashboard/QuanLyBang";
+import NewCustomer from "./views/Dashboard/NewCustomer";
+
+import InfoStudent from "./views/InfoStudent";
 import Logins from "./views/Logins";
 import Facebook from "./views/Facebook";
+import BangDetail from "./views/BangDetail";
+import Slider from "./views/Slider";
 function App() {
   return (
     <Router>
@@ -33,12 +39,28 @@ function App() {
             <Route path="/register">
               <Register />
             </Route>
+
             <Route path="/login">
               <Logins />
             </Route>
 
             <Route path="/socialmedia">
               <SocialMedia />
+            </Route>
+            <Route path="/edit-admin">
+              <MainLayoutAdmin />
+            </Route>
+            <Route path="/info-sudent">
+              <InfoStudent />
+            </Route>
+            <Route path="/edit-info">
+              <InfoStudentForAdmin />
+            </Route>
+            <Route path="/edit-bang">
+              <QuanLyBang />
+            </Route>
+            <Route path="/edit-new-customer">
+              <NewCustomer />
             </Route>
           </Switch>
         </header>
@@ -54,6 +76,7 @@ function App() {
           pauseOnHover
           theme="colored"
         />
+        <Sidebar />
       </div>
     </Router>
   );

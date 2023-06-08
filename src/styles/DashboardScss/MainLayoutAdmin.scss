@@ -1,0 +1,40 @@
+.main-sidebar-admin {
+  display: flex;
+  .sidebar-admin {
+    width: 200px;
+    height: 100vh;
+    background-color: #f1f1f1;
+  }
+
+  .sidebar-admin ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .sidebar-admin ul li {
+    padding: 10px;
+  }
+
+  .sidebar-admin ul li a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .content-sibebar-admin {
+    //margin-left: 70px; /* Khoảng cách để sidebar không che phủ nội dung chính */
+    padding: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .main-sidebar-admin {
+    flex-direction: column;
+    .sidebar-admin {
+      width: 100%;
+      height: auto;
+    }
+
+    .content-sibebar-admin {
+      flex-grow: 0;
+    }
+  }
+}

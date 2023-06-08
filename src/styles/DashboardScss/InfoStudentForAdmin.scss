@@ -1,0 +1,93 @@
+.header-info{
+    padding-bottom: 15px;
+}
+.header-info {
+    button {
+        margin: 15px;
+        width: fit-content;
+        min-width: 100px;
+        height: 45px;
+        padding: 8px;
+        border-radius: 5px;
+        border: 2.5px solid #E0E1E4;
+        box-shadow: 0px 0px 20px -20px;
+        cursor: pointer;
+        background-color: #209978;
+        transition: all 0.2s ease-in-out 0ms;
+        user-select: none;
+        font-family: 'Poppins', sans-serif;
+        color: white;
+      }
+      
+      button:hover {
+        background-color: #17795E;
+        box-shadow: 0px 0px 20px -18px;
+      }
+      
+      button:active {
+        transform: scale(0.95);
+      }
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  max-width: 100%;
+}
+thead th {
+  border-bottom: 2px solid #dedede;
+}
+
+tfoot th {
+  border-top: 2px solid #dedede;
+}
+
+td {
+  border-bottom: 1px solid #dedede;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5rem;
+}
+.striped-table-info tbody tr:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+
+.contain-table-info {
+  overflow-x: auto;
+}
+.text-left-info {
+  text-align: left;
+}
+.button-info {
+    button {
+        width: fit-content;
+        min-width: 100px;
+        height: 45px;
+        padding: 8px;
+        border-radius: 5px;
+        border: 2.5px solid #E0E1E4;
+        box-shadow: 0px 0px 20px -20px;
+        cursor: pointer;
+        background-color: white;
+        transition: all 0.2s ease-in-out 0ms;
+        user-select: none;
+        font-family: 'Poppins', sans-serif;
+      }
+      
+      button:hover {
+        background-color: #F2F2F2;
+        box-shadow: 0px 0px 20px -18px;
+      }
+      
+      button:active {
+        transform: scale(0.95);
+      }
+}
+@media (min-width: 600px) {
+  .contain-table-info {
+    width: 100%;
+  }
+}

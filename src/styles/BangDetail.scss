@@ -6,7 +6,6 @@
   justify-content: center;
   align-items: center;
   
-}
 .plan-card {
     background: #D6E4F0;
     width: 20rem;
@@ -43,7 +42,7 @@
     color: #073458;
 
     // font-size: 12px;
-    font-weight: 600;
+    font-weight: 400;
   }
   
   .etiquet-price {
@@ -121,15 +120,15 @@
     font-weight: 300;
   }
   
-  .button-get-plan {
+  .button-get-plan-detail {
     display: flex;
     justify-content: center;
     margin-top: 1.8rem;
     border: none;
-    margin-left: 40px;
+    margin-left: 60px;
   }
   
-  .button-get-plan a {
+  .button-get-plan-detail a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -144,12 +143,12 @@
     transition: all 0.3s ease;
   }
   
-  .button-get-plan a:hover {
+  .button-get-plan-detail a:hover {
     transform: translateY(-3%);
     box-shadow: 0 3px 10px rgba(207, 212, 222, 0.9);
   }
   
-  .button-get-plan .svg-rocket {
+  .button-get-plan-detail .svg-rocket {
     margin-right: 10px;
     width: .9rem;
     fill: currentColor;
@@ -160,3 +159,4 @@
     cursor: pointer;
   }
 
+}
