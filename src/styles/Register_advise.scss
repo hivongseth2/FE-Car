@@ -1,228 +1,230 @@
-.card-register {
+.card {
   border: 1px solid black;
   height: 25em;
   width: 20rem;
-  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
-    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
   border: none;
-  margin-top: -2000px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: white;
   border-radius: 10px;
-  transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  z-index: 100px;
-  p {
-    text-align: center;
-    font-size: 1.5rem;
-    color: black;
-    margin-bottom: 20px;
-    font-weight: bold;
+  transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+  position: fixed;
+  z-index: 100px;   
+  align-items: center;
+  p{
+      text-align: center;
+      font-size: 1.5rem;
+      color: black;
+      margin-bottom: 20px;
+      font-weight: bold;
+
   }
-  .fullName,
-  .phoneNumber {
-    // margin-left: 6rem;
-    height: 30px;
-    width: 15em;
-    margin-bottom: 20px;
-    border: 1px solid black;
-    border-radius: 5px;
-    text-indent: 0.2em;
+  .fullName, .phoneNumber{
+      margin-left: 3.7rem;
+      height: 30px;
+      width: 15em;
+      margin-bottom: 20px;
+      border: 1px solid black;
+      border-radius: 5px;
+      text-indent: 0.2em;
   }
-  .fullName:hover,
-  .phoneNumber:hover {
+  .fullName:hover, .phoneNumber:hover{
     border-top: none;
     border-left: none;
     border-right: none;
     border-radius: 0;
   }
-  .typeagree {
-    width: 200px;
-    height: 30px;
-    border-radius: 5px;
-    margin-left: 6rem;
+  .typeagree{
+      width: 200px;   
+      height: 30px;
+      border-radius: 5px;
+      margin-left: 8rem;
   }
+ 
+  select{
+      height: 30px;
+      width: 200px;
+      border-radius: 5px;
+      margin-left: -70px;
+  }
+  .label1{
+      margin-left: 1.9rem;
+      font-weight:500;
+  }
+  .label2{
+    margin-left: 1.9rem;
 
-  select {
-    height: 30px;
-    width: 200px;
-    border-radius: 5px;
-    margin-left: -70px;
-  }
-  .label1 {
-    // margin-left: 6rem;
-    font-weight: 500;
-    margin-right: 150px;
-  }
-  .label2 {
-    // margin-left: 6rem;
-    font-weight: 500;
-    margin-right: 100px;
-  }
-  .label3 {
-    // margin-left: 6rem;
-    font-weight: 500;
-    margin-right: 120px;
-  }
-  .Cancel {
-    width: 50px;
-    height: 20px;
-    border-radius: 5px;
-    margin-left: 16.8rem;
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
+    font-weight:500;
+    margin-right:100px;
+}.label3{
+  margin-left: 1.9rem;
+  font-weight:500;
+  margin-right:120px;
+}
+.close{
+  margin-top: -0px;
+  // margin-left: -100px;
+  width: 50px;
+  height: 20px;
+  border-radius: 5px;
+  margin-left: 16.9rem;
+  color: white;
+  border: none;
+  cursor: pointer;  
+  font-size: 20px;
+  font-weight: bold;
+  background: rgb(196, 31, 31);
+}
+.dangkyngay-content{
+color: #0081cf;
+}
 
   // gg
+  
 
   .btn_DKngay {
-    width: 200px;
-    position: relative;
-    margin: 0;
-    padding: 0.8em 1em;
-    outline: none;
-    text-decoration: none;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    cursor: pointer;
-    border: none;
-    text-transform: uppercase;
-    background-color: #0081cf;
-    border-radius: 10px;
-    color: #fff;
-    font-weight: 300;
-    font-size: 18px;
-    font-family: inherit;
-    z-index: 0;
-    overflow: hidden;
-    -webkit-transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
-    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+      width: 200px;
+      position: relative;
+      margin: 0;
+      padding: 0.8em 1em;
+      outline: none;
+      text-decoration: none;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      cursor: pointer;
+      border: none;
+      text-transform: uppercase;
+      background-color: #0081CF;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: 300;
+      font-size: 18px;
+      font-family: inherit;
+      z-index: 0;
+      overflow: hidden;
+      -webkit-transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+      transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+    }
+    
+    .btn_DKngay:hover {
+      -webkit-animation: sh0 0.5s ease-in-out both;
+              animation: sh0 0.5s ease-in-out both;
+    }
+    
+    @-webkit-keyframes sh0 {
+      0% {
+        -webkit-transform: rotate(0deg) translate3d(0, 0, 0);
+transform: rotate(0deg) translate3d(0, 0, 0);
+      }
+    
+      25% {
+        -webkit-transform: rotate(7deg) translate3d(0, 0, 0);
+                transform: rotate(7deg) translate3d(0, 0, 0);
+      }
+    
+      50% {
+        -webkit-transform: rotate(-7deg) translate3d(0, 0, 0);
+                transform: rotate(-7deg) translate3d(0, 0, 0);
+      }
+    
+      75% {
+        -webkit-transform: rotate(1deg) translate3d(0, 0, 0);
+                transform: rotate(1deg) translate3d(0, 0, 0);
+      }
+    
+      100% {
+        -webkit-transform: rotate(0deg) translate3d(0, 0, 0);
+                transform: rotate(0deg) translate3d(0, 0, 0);
+      }
+    }
+    
+    @keyframes sh0 {
+      0% {
+        -webkit-transform: rotate(0deg) translate3d(0, 0, 0);
+                transform: rotate(0deg) translate3d(0, 0, 0);
+      }
+    
+      25% {
+        -webkit-transform: rotate(7deg) translate3d(0, 0, 0);
+                transform: rotate(7deg) translate3d(0, 0, 0);
+      }
+    
+      50% {
+        -webkit-transform: rotate(-7deg) translate3d(0, 0, 0);
+                transform: rotate(-7deg) translate3d(0, 0, 0);
+      }
+    
+      75% {
+        -webkit-transform: rotate(1deg) translate3d(0, 0, 0);
+                transform: rotate(1deg) translate3d(0, 0, 0);
+      }
+    
+      100% {
+        -webkit-transform: rotate(0deg) translate3d(0, 0, 0);
+                transform: rotate(0deg) translate3d(0, 0, 0);
+      }
+    }
+    
+    .btn_DKngay:hover span {
+      -webkit-animation: storm 0.7s ease-in-out both;
+              animation: storm 0.7s ease-in-out both;
+      -webkit-animation-delay: 0.06s;
+              animation-delay: 0.06s;
+    }
+    
+    .btn_DKngay:hover::before,
+    .btn_DKngay:hover::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0;
+      -webkit-transition: opacity 0.15s cubic-bezier(0.02, 0.01, 0.47, 1), -webkit-transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
+      transition: opacity 0.15s cubic-bezier(0.02, 0.01, 0.47, 1), -webkit-transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
+      transition: transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1), opacity 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
+      transition: transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1), opacity 0.15s cubic-bezier(0.02, 0.01, 0.47, 1), -webkit-transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
+      z-index: -1;
+      -webkit-transform: translate(100%, -25%) translate3d(0, 0, 0);
+              transform: translate(100%, -25%) translate3d(0, 0, 0);
+    }
+    
+    .btn_DKngay:hover::before,
+    .btn_DKngay:hover::after {
+      opacity: 0.15;
+-webkit-transition: opacity 0.2s cubic-bezier(0.02, 0.01, 0.47, 1), -webkit-transform 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
+      transition: opacity 0.2s cubic-bezier(0.02, 0.01, 0.47, 1), -webkit-transform 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
+      transition: transform 0.2s cubic-bezier(0.02, 0.01, 0.47, 1), opacity 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
+      transition: transform 0.2s cubic-bezier(0.02, 0.01, 0.47, 1), opacity 0.2s cubic-bezier(0.02, 0.01, 0.47, 1), -webkit-transform 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
+    }
+    
+    .btn_DKngay:hover::before {
+      -webkit-transform: translate3d(50%, 0, 0) scale(0.9);
+              transform: translate3d(50%, 0, 0) scale(0.9);
+    }
+    
+    .btn_DKngay:hover::after {
+      -webkit-transform: translate(50%, 0) scale(1.1);
+          -ms-transform: translate(50%, 0) scale(1.1);
+              transform: translate(50%, 0) scale(1.1);
+    }
+    
+    
+    .btn_DKngay{
+       margin-left: 60px;
+       background: #0081CF;
   }
 
-  .btn_DKngay:hover {
-    -webkit-animation: sh0 0.5s ease-in-out both;
-    animation: sh0 0.5s ease-in-out both;
-  }
-
-  @-webkit-keyframes sh0 {
-    0% {
-      -webkit-transform: rotate(0deg) translate3d(0, 0, 0);
-      transform: rotate(0deg) translate3d(0, 0, 0);
-    }
-
-    25% {
-      -webkit-transform: rotate(7deg) translate3d(0, 0, 0);
-      transform: rotate(7deg) translate3d(0, 0, 0);
-    }
-
-    50% {
-      -webkit-transform: rotate(-7deg) translate3d(0, 0, 0);
-      transform: rotate(-7deg) translate3d(0, 0, 0);
-    }
-
-    75% {
-      -webkit-transform: rotate(1deg) translate3d(0, 0, 0);
-      transform: rotate(1deg) translate3d(0, 0, 0);
-    }
-
-    100% {
-      -webkit-transform: rotate(0deg) translate3d(0, 0, 0);
-      transform: rotate(0deg) translate3d(0, 0, 0);
-    }
-  }
-
-  @keyframes sh0 {
-    0% {
-      -webkit-transform: rotate(0deg) translate3d(0, 0, 0);
-      transform: rotate(0deg) translate3d(0, 0, 0);
-    }
-
-    25% {
-      -webkit-transform: rotate(7deg) translate3d(0, 0, 0);
-      transform: rotate(7deg) translate3d(0, 0, 0);
-    }
-
-    50% {
-      -webkit-transform: rotate(-7deg) translate3d(0, 0, 0);
-      transform: rotate(-7deg) translate3d(0, 0, 0);
-    }
-
-    75% {
-      -webkit-transform: rotate(1deg) translate3d(0, 0, 0);
-      transform: rotate(1deg) translate3d(0, 0, 0);
-    }
-
-    100% {
-      -webkit-transform: rotate(0deg) translate3d(0, 0, 0);
-      transform: rotate(0deg) translate3d(0, 0, 0);
-    }
-  }
-
-  .btn_DKngay:hover span {
-    -webkit-animation: storm 0.7s ease-in-out both;
-    animation: storm 0.7s ease-in-out both;
-    -webkit-animation-delay: 0.06s;
-    animation-delay: 0.06s;
-  }
-
-  .btn_DKngay:hover::before,
-  .btn_DKngay:hover::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: #fff;
-    opacity: 0;
-    -webkit-transition: opacity 0.15s cubic-bezier(0.02, 0.01, 0.47, 1),
-      -webkit-transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
-    transition: opacity 0.15s cubic-bezier(0.02, 0.01, 0.47, 1),
-      -webkit-transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
-    transition: transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1),
-      opacity 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
-    transition: transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1),
-      opacity 0.15s cubic-bezier(0.02, 0.01, 0.47, 1),
-      -webkit-transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
-    z-index: -1;
-    -webkit-transform: translate(100%, -25%) translate3d(0, 0, 0);
-    transform: translate(100%, -25%) translate3d(0, 0, 0);
-  }
-
-  .btn_DKngay:hover::before,
-  .btn_DKngay:hover::after {
-    opacity: 0.15;
-    -webkit-transition: opacity 0.2s cubic-bezier(0.02, 0.01, 0.47, 1),
-      -webkit-transform 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
-    transition: opacity 0.2s cubic-bezier(0.02, 0.01, 0.47, 1),
-      -webkit-transform 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
-    transition: transform 0.2s cubic-bezier(0.02, 0.01, 0.47, 1),
-      opacity 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
-    transition: transform 0.2s cubic-bezier(0.02, 0.01, 0.47, 1),
-      opacity 0.2s cubic-bezier(0.02, 0.01, 0.47, 1),
-      -webkit-transform 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
-  }
-
-  .btn_DKngay:hover::before {
-    -webkit-transform: translate3d(50%, 0, 0) scale(0.9);
-    transform: translate3d(50%, 0, 0) scale(0.9);
-  }
-
-  .btn_DKngay:hover::after {
-    -webkit-transform: translate(50%, 0) scale(1.1);
-    -ms-transform: translate(50%, 0) scale(1.1);
-    transform: translate(50%, 0) scale(1.1);
-  }
-
-  .btn_DKngay {
-    margin-left: 60px;
-  }
 }

@@ -29,12 +29,13 @@ const BangDetail = () => {
   const handleOpenModal = () => {
     setOpenModal((prevState) => !prevState);
   };
+
   return (
     <div className="list-plan-card">
       {dataBang && dataBang.length > 0 ? (
         dataBang.map((item) => (
           <div key={item.id}>
-            <div className="plan-card">
+            <div className="plan-card ">
               <h2>
                 {item.rating}
                 <span>{item.description}</span>

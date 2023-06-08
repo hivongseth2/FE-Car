@@ -4,10 +4,13 @@ import HomePage from "./views/HomePage";
 import Nav from "./views/Nav";
 import Sidebar from "./views/Sidebar";
 import { ToastContainer, toast } from "react-toastify";
+// import "dotenv/config";
+// require("dotenv").config();
 
 import "react-toastify/dist/ReactToastify.css";
 import Register from "./views/Register";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import SocialMedia from "./views/SocialMedia";
 // import { Helmet } from "react-helmet";
 
 //admin
@@ -19,6 +22,7 @@ import NewCustomer from "./views/Dashboard/NewCustomer";
 import InfoStudent from "./views/InfoStudent";
 import Logins from "./views/Logins";
 import Facebook from "./views/Facebook";
+import BangDetail from "./views/BangDetail";
 function App() {
   return (
     <Router>
@@ -28,7 +32,8 @@ function App() {
 
           <Switch>
             <Route path="/" exact>
-              <HomePage></HomePage>
+              {/* <HomePage></HomePage> */}
+              <Slider></Slider>
             </Route>
             <Route path="/register">
               <Register />
@@ -39,7 +44,7 @@ function App() {
             </Route>
 
             <Route path="/socialmedia">
-              <Facebook />
+              <SocialMedia />
             </Route>
             <Route path="/edit-admin">
               <MainLayoutAdmin />

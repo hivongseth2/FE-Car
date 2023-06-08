@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { fakeData } from "../api/fake-data";
 import "../styles/HomePage.scss";
 import BangDetail from "./BangDetail";
+import Facebook from "./Facebook";
+import Register_Advise from "./Register_advise";
+import SocalItem from "./SocalItem";
 const HomePage = () => {
   const getAll = () => {
     return new Promise((resolve) => {

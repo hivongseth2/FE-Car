@@ -3,12 +3,14 @@ import "../styles/Login.scss";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
+// import "dotenv/config";
+// require("dotenv").config();
 
 const Logins = () => {
   const [userName, setUserName] = useState("");
   const [passWord, setPassWord] = useState("");
   const history = useHistory();
-
+  // const NODE_ENV = process.env.REACT_DOMAIN;
   const handleOnchangeInput = (e) => {
     if (e.target.classList.contains("userName")) {
       setUserName(e.target.value);
@@ -29,16 +31,23 @@ const Logins = () => {
   const handleSignIn = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://trungtamdaotaolaixebinhduong.com:8080/api/account/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: userName,
-          password: passWord,
-        }),
-      });
+      console.log(process.env.REACT_DOMAIN);
+      const response = await fetch(
+        `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/account/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: userName,
+            password: passWord,
+          }),
+        }
+      );
 
       const data = await response.json();
       console.log(data);
@@ -54,7 +63,10 @@ const Logins = () => {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data));
       // navigate("/Course");
-      history.push("/");
+      // history.push("/Course");
+      setTimeout(function () {
+        window.location.href = "/";
+      }, 1000);
 
       toast.success(`Chào mừng ${data.fullName} đã quay trở lại!`);
       console.log(data);

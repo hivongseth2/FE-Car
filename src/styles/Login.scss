@@ -3,6 +3,9 @@
     margin-bottom: 20px;
     margin-top: 30px;
     font-weight: 500;
+    text-transform: uppercase;
+    font-family: Courier New;
+    font-weight: bold;
 }
 .userName, .passWord{
     height: 50px;
@@ -18,13 +21,13 @@
 	background: #0066A2;
 	color: white;
 	height: 50px;
-	width: 100px;
-	font: bold 15px arial,sans-serif;
+	width: 140px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
     margin-top: 30px;
-    margin-left: 150px;
+    margin-left: 220px;
+    text-align: center;
 }
 .userName, .passWord{
       width: 100%;
