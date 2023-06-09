@@ -74,7 +74,7 @@ const Slider = () => {
           imageElement.src = newImage.src;
           setTimeout(() => {
             imageElement.style.transition =
-              "height 0.6s,width 0.6s, opacity 0.5s";
+              "height 0.1s,width 0.1s, opacity 1s";
             imageElement.style.width = "100%";
             imageElement.style.height = "80vh";
             imageElement.style.opacity = "1";
