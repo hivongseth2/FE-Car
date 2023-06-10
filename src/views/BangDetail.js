@@ -23,8 +23,6 @@ const BangDetail = () => {
     fetchData();
   }, []);
 
-  console.warn("data", dataBang);
-
   const handleOpenModal = () => {
     setOpenModal((prevState) => !prevState);
   };
