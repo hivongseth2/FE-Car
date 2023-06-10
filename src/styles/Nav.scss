@@ -1,7 +1,13 @@
 .topnav {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     overflow: hidden;
     font-family: 'Courier New', Courier, monospace;
+    display: inline-block;
+    width: 100%;
+  }
+  .logo{
+    display: inline-block;
   }
   .menu-toggle, .menu-icon
   {
@@ -25,6 +31,7 @@
   .topnav a:hover {
     background-color: #d6e4f0;
     color: black;
+border-radius: 4px;
   }
   
   .submenu {
@@ -36,6 +43,11 @@
   .submenu a {
     margin-left: 0;
     margin-right: 30px;
+  }
+  .mainMenu a.active{
+    // background-color: rgba(122, 197, 255, 0.589);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      border-radius: 3px;
   }
   .submenu{
     .Btn {
@@ -86,6 +98,7 @@
       width: 125px;
       border-radius: 40px;
       transition-duration: .3s;
+
     }
     
     .Btn:hover .sign {
