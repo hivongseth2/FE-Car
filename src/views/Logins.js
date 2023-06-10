@@ -3,8 +3,6 @@ import "../styles/Login.scss";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-// import "dotenv/config";
-// require("dotenv").config();
 
 const Logins = () => {
   const [userName, setUserName] = useState("");
@@ -21,11 +19,7 @@ const Logins = () => {
     }
   };
 
-  // const navigate = useNavigate();
-
-  // Declare the setError function
   const setError = (errorMessage) => {
-    // Handle the error, e.g., display an error message
     console.error(errorMessage);
   };
   const handleSignIn = async (event) => {
@@ -62,8 +56,6 @@ const Logins = () => {
 
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data));
-      // navigate("/Course");
-      // history.push("/Course");
       setTimeout(function () {
         window.location.href = "/";
       }, 1000);
@@ -74,7 +66,6 @@ const Logins = () => {
       setError(error.message);
     }
   };
-
   return (
     <div className="wrapper">
       <h1 className="dang_nhap">Đăng nhập</h1>

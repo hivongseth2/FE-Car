@@ -1,0 +1,100 @@
+.wrapper-footer {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: #333;
+    background-color: rgb(73, 143, 201);
+    border-top-left-radius: 50px;
+    color: white;
+  }
+  .content-footer{
+    font-weight: bold;
+    position: relative;
+    margin: 0px auto;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+    font-size: 1em; 
+    margin-top: 15px;
+    margin-bottom: 20px;
+    letter-spacing: 5px;
+    -webkit-box-reflect: below 0.1px linear-gradient(transparent, #0008);
+    line-height: 0.9em;
+    outline: none;
+    animation: animate 5s linear infinite;
+  }
+  @keyframes animate{
+    0%,18%,20%,50.1%,60%,65.1%,80%,90.1%,92%
+    {
+        color:#0e3742;
+        // text-shadow: none;
+    }
+    18.2%,20%,30%,50%,60.1%,65%,80.1%,90%,92.1%,100%
+    {
+        color:#fff;
+        text-shadow: 0 0 1px #03bcf4,
+        0 0 2px #03bcf4,
+        0 0 4px #03bcf4,
+        0 0 8px #03bcf4,
+        0 0 16px #03bcf4;
+    }
+}
+  
+  .left, .centre, .right {
+    width: 30%;
+  }
+  
+  .left ul, .centre ul, .right ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .left ul li, .centre ul li, .right ul li {
+    margin-bottom: 10px;
+  }
+  
+  .left ul li:first-child, .centre ul li:first-child, .right ul li:first-child {
+    font-weight: bold;
+  }
+  
+  /* Trang trí phần Footer */
+  .wrapper::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .footer-decoration {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .footer-decoration span {
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    margin: 0 5px;
+  }
+
+ .content{
+    text-decoration: dashed;
+ }
+  
+.fab {
+    margin-right: 50px;
+    font-size: 25px;
+
+}
+.icon{
+    margin-left: 40px;
+}
+.facebook{
+    margin-right: 30px;
+}
+.tiktok{
+    margin-right: 30px;
+}
+li{
+  line-height: 30px;
+}

@@ -3,6 +3,7 @@ import imgavt from "../img/avtnoavt.png";
 import "../styles/InfoStudent.scss";
 import EditInfoStudent from "./Forms/EditInfoStudent";
 import { format } from "date-fns";
+import StudentResetPw from "./Forms/StudentResetPw";
 
 const InfoStudent = () => {
   const [currentTab, setCurrentTab] = useState("1"); // 0: tab "Thông tin cá nhân", 1: tab "Bằng lái xe"
@@ -117,6 +118,7 @@ const InfoStudent = () => {
               Chỉnh sửa thông tin{" "}
               <i className="fa-regular fa-pen-to-square"></i>
             </div>
+            <StudentResetPw />
           </div>
         </div>
       )}
