@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
+  faBars,
   faUserPlus,
   faSignInAlt,
   faSignOutAlt,
@@ -21,24 +22,30 @@ const Nav = () => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
   };
-
   return (
     <div className="topnav">
       <div className="logo">
+        {/* <a href={`${process.env.REACT_DOMAIN}`}> */}{" "}
         <img src={logo} alt="logo" className="logo" />
+        {/* </a> */}
       </div>
+      <input type="checkbox" id="menu-toggle" className="menu-toggle" />
+      <label htmlFor="menu-toggle" className="menu-icon">
+        <FontAwesomeIcon icon={faBars} />
+      </label>
       <div className="mainMenu">
         <NavLink to="/">
           <FontAwesomeIcon icon={faHome} />
           Trang chủ
         </NavLink>
+
         <NavLink to="/socialmedia">
           <FontAwesomeIcon icon={faShareAlt} />
           Social Media
         </NavLink>
+        <NavLink to="/edit-admin">Chỉnh sửa thông tin</NavLink>
+        <NavLink to="/info-sudent">Thông tin học viên</NavLink>
       </div>
-      <NavLink to="/edit-admin">Chỉnh sửa thông tin</NavLink>
-      <NavLink to="/info-sudent">Thông tin học viên</NavLink>
       {isLoggedIn ? (
         <div className="submenu">
           <FlastInfo onLogout={handleLogout} />
@@ -53,7 +60,7 @@ const Nav = () => {
             <FontAwesomeIcon icon={faUserPlus} />
             Đăng kí
           </NavLink>
-          <span className="hotline">Holine:0909789789</span>
+          <span className="hotline">Hotline: 0909789789</span>
         </div>
       )}
     </div>

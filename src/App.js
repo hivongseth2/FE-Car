@@ -6,7 +6,7 @@ import Sidebar from "./views/Sidebar";
 import { ToastContainer, toast } from "react-toastify";
 // import "dotenv/config";
 // require("dotenv").config();
-
+import Sliderr from "./views/Sliderr";
 import "react-toastify/dist/ReactToastify.css";
 import Register from "./views/Register";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -23,7 +23,7 @@ import InfoStudent from "./views/InfoStudent";
 import Logins from "./views/Logins";
 import Facebook from "./views/Facebook";
 import BangDetail from "./views/BangDetail";
-import Slider from "./views/Slider";
+
 function App() {
   return (
     <Router>
@@ -34,7 +34,7 @@ function App() {
           <Switch>
             <Route path="/" exact>
               {/* <HomePage></HomePage> */}
-              <Slider></Slider>
+              <Sliderr></Sliderr>
             </Route>
             <Route path="/register">
               <Register />

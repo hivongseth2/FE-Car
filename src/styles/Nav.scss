@@ -3,6 +3,10 @@
     overflow: hidden;
     font-family: 'Courier New', Courier, monospace;
   }
+  .menu-toggle, .menu-icon
+  {
+    display: none;
+  }
   
   /* Style the links inside the navigation bar */
   .topnav a {
@@ -114,4 +118,44 @@
   padding: 20px;
   background-color: #d6e4f0;
   color: black;
+}
+@media only screen and (max-width: 768px) {
+  .hotline{
+    display: none;
+  }
+  
+  .mainMenu {
+    display: none;
+   
+  }
+  
+  .menu-toggle:checked ~ .mainMenu a {
+    display: block;
+  }
+  .menu-toggle:checked ~ a:not(.menu-icon){
+    display: block;
+  }
+ 
+  
+  .submenu {
+    display: none;
+  }
+  
+.menu-icon
+{
+display: block;
+}
+  
+  .menu-toggle:checked ~ .mainMenu  {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+   
+  }
+  
+  .menu-toggle:checked ~ .submenu  {
+    display: flex;
+  }
+
+  
 }
