@@ -142,7 +142,7 @@ const Sliderr = () => {
           </div>
         </div>
       </section>
-      {/* <BangDetail /> */}
+      <BangDetail />
     </main>
   );
 };
