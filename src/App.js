@@ -2,12 +2,14 @@ import React from "react";
 
 import Nav from "./views/Nav";
 import Sidebar from "./views/Sidebar";
-import { ToastContainer} from "react-toastify";
-
+import { ToastContainer, toast } from "react-toastify";
+// import "dotenv/config";
+// require("dotenv").config();
+import Sliderr from "./views/Sliderr";
 import "react-toastify/dist/ReactToastify.css";
 import Register from "./views/Register";
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-// import { Helmet } from "react-helmet";
+import SlideAdmin from "./views/SlideAdmin/SlideAdmin";
 
 //admin
 import MainLayoutAdmin from "./views/Dashboard/MainLayoutAdmin";
@@ -18,8 +20,8 @@ import NewCustomer from "./views/Dashboard/NewCustomer";
 import InfoStudent from "./views/InfoStudent";
 import Logins from "./views/Logins";
 import SocialPage from "./views/SocialPage";
-import Slider from "./views/Slider";
 import AdminLogin from "./views/Dashboard/AdminLogin";
+
 function App() {
   return (
     <Router>
@@ -30,7 +32,7 @@ function App() {
           <Switch>
             <Route path="/" exact>
               {/* <HomePage></HomePage> */}
-              <Slider></Slider>
+              <Sliderr></Sliderr>
             </Route>
             <Route path="/register">
               <Register />
@@ -51,6 +53,9 @@ function App() {
               <SocialPage />
             </Route>
 
+            <Route path="/edit-slide">
+              <SlideAdmin></SlideAdmin>
+            </Route>
             <Route path="/edit-info">
               <InfoStudentForAdmin />
             </Route>

@@ -1,10 +1,11 @@
 .card-container {
+  //position: relative;
   background-color: #fff;
   border-radius: 10px;
   margin: 20px;
   display: flex;
   flex-direction: column;
-  width: 350px;
+  width: 300px;
 }
 
 .card-header {
@@ -21,20 +22,21 @@
   margin-right: 20px;
 }
 .img-avatar img {
-  width: 100%;
+  width: 90%;
   border-radius: 50%;
 }
 
 .card-header .text-chat {
   color: black;
   margin: 0;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .card-body {
   flex: 1;
   overflow-y: auto;
-  border-top: 1px solid #ccc;
+  border-top: 1px dashed #ccc;
+  //border-top-width: 10px;
 }
 
 .messages-container {

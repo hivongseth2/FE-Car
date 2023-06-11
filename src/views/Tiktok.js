@@ -39,7 +39,7 @@ const Tiktok = () => {
     <>
       <div className="social-tiktok">
         <blockquote
-          class="tiktok-embed"
+          className="tiktok-embed"
           cite="https://www.tiktok.com/@thanhluan1303"
           data-unique-id="thanhluan1303"
           data-embed-type="creator"

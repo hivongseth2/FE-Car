@@ -83,7 +83,7 @@ const AdminLogin = () => {
             onChange={(e) => handleOnchangeInput(e)}
           />
         </div>
-        <button type="submit" class="submit" onClick={(e) => handleSignIn(e)}>
+        <button type="submit" className="submit" onClick={(e) => handleSignIn(e)}>
           Sign in
         </button>
       </form>

@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
+  faBars,
   faUserPlus,
   faSignInAlt,
 } from "@fortawesome/free-solid-svg-icons";
@@ -19,14 +20,17 @@ const Nav = () => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
   };
-
   return (
     <div className="topnav">
-      <div className="logo">
-        <img src={logo} alt="logo" className="logo" />
-      </div>
+      {/* <div className="logo">
+          <img src={logo} alt="logo" className="logo" />
+        </div> */}
+      <input type="checkbox" id="menu-toggle" className="menu-toggle" />
+      <label htmlFor="menu-toggle" className="menu-icon">
+        <FontAwesomeIcon icon={faBars} />
+      </label>
       <div className="mainMenu">
-        <NavLink to="/">
+        <NavLink to="/" exact={true}>
           <FontAwesomeIcon icon={faHome} />
           Trang chủ
         </NavLink>
@@ -35,7 +39,7 @@ const Nav = () => {
       <NavLink to="/info-sudent">Thông tin học viên</NavLink>
       <NavLink to="/page-mxh">Mạng xã hội</NavLink>
       {isLoggedIn ? (
-        <div className="submenu">
+        <div className="submenu fast-info">
           <FlastInfo onLogout={handleLogout} />
         </div>
       ) : (
@@ -48,7 +52,7 @@ const Nav = () => {
             <FontAwesomeIcon icon={faUserPlus} />
             Đăng kí
           </NavLink>
-          <span className="hotline">Holine:0909789789</span>
+          <span className="hotline">Hotline: 0909789789</span>
         </div>
       )}
     </div>

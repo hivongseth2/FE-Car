@@ -165,7 +165,6 @@ const Slider = () => {
               src={currentSlide[0]}
               onTransitionEnd={handleTransitionEnd}
             />
-            <div id="left-slider"></div>
           </div>
         </>
 

@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { format } from "date-fns";
 import "../../styles/Forms/EditInfoStudent.scss";
 
-const EditInfoStudent = ({ selectedInfoStudent, setIsEditing, setIsUpdating }) => {
+const EditInfoStudent = ({
+  selectedInfoStudent,
+  setIsEditing,
+  setIsUpdating,
+}) => {
   const [name, setName] = useState(selectedInfoStudent.fullName);
   const [birthday, setBirthday] = useState(selectedInfoStudent.birthday);
   const [address, setAddress] = useState(selectedInfoStudent.address);
@@ -41,6 +45,7 @@ const EditInfoStudent = ({ selectedInfoStudent, setIsEditing, setIsUpdating }) =
     } catch (error) {
       console.error("Error updating data:", error);
     }
+    window.location.reload();
   };
 
   return (
