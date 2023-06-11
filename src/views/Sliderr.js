@@ -7,7 +7,7 @@ const Sliderr = () => {
   const xmlns = "http://www.w3.org/2000/svg";
   const [slides, setSlides] = useState([]);
   //trungtamdaotaolaixebinhduong.com:8080/api/slide
-  http: useEffect(() => {
+  useEffect(() => {
     fetch(`${process.env.REACT_DOMAIN}/api/slide`, {
       method: "GET",
       headers: {

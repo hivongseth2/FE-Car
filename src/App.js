@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Register from "./views/Register";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SocialMedia from "./views/SocialMedia";
-// import { Helmet } from "react-helmet";
+import SlideAdmin from "./views/SlideAdmin/SlideAdmin";
 
 //admin
 import MainLayoutAdmin from "./views/Dashboard/MainLayoutAdmin";
@@ -53,6 +53,9 @@ function App() {
             </Route>
             <Route path="/info-sudent">
               <InfoStudent />
+            </Route>
+            <Route path="/edit-slide">
+              <SlideAdmin></SlideAdmin>
             </Route>
             <Route path="/edit-info">
               <InfoStudentForAdmin />
