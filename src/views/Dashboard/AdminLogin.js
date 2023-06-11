@@ -1,14 +1,12 @@
-import { useState } from "react";
-import "../styles/Login.scss";
-import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import React, { useState } from "react";
+import "../../styles/DashboardScss/AdminLogin.scss";
+import { Link, useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const Logins = () => {
+const AdminLogin = () => {
   const [userName, setUserName] = useState("");
   const [passWord, setPassWord] = useState("");
   const history = useHistory();
-  // const NODE_ENV = process.env.REACT_DOMAIN;
   const handleOnchangeInput = (e) => {
     if (e.target.classList.contains("userName")) {
       setUserName(e.target.value);
@@ -18,7 +16,6 @@ const Logins = () => {
       console.log("Pw" + passWord);
     }
   };
-
   const setError = (errorMessage) => {
     console.error(errorMessage);
   };
@@ -53,11 +50,8 @@ const Logins = () => {
 
         return;
       }
-
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data));
       setTimeout(function () {
-        window.location.href = "/";
+        window.location.href = "/edit-admin";
       }, 1000);
 
       toast.success(`Chào mừng ${data.fullName} đã quay trở lại!`);
@@ -67,45 +61,33 @@ const Logins = () => {
     }
   };
   return (
-    <div className="wrapper-login">
+    <div className="form-login-admin">
       <form className="form">
-        <div className="header">Đăng nhập</div>
-        <div className="inputs">
+        <p className="form-title">Sign in to your admin account</p>
+        <div className="input-container">
           <input
-            type="text"
-            placeholder="Tên đăng nhập"
-            className="userName input"
+            type="email"
+            placeholder="Nhập username"
+            className="userName"
             value={userName}
             onChange={(e) => handleOnchangeInput(e)}
-          ></input>
+          />
+          <span></span>
+        </div>
+        <div className="input-container">
           <input
             type="password"
-            placeholder="Mật khẩu"
-            className="passWord input"
+            placeholder="Nhập password"
+            className="passWord"
             value={passWord}
             onChange={(e) => handleOnchangeInput(e)}
-          ></input>
-          <div className="checkbox-container">
-            <label className="checkbox">
-              <input type="checkbox" id="checkbox" />
-            </label>
-            <label htmlFor="checkbox" className="checkbox-text">
-              Nhớ tài khoản
-            </label>
-          </div>
-          <button className="sigin-btn" onClick={(e) => handleSignIn(e)}>
-            Đăng nhập
-          </button>
-          <a className="forget" href="#">
-            Quên mật khẩu
-          </a>
-          <p className="signup-link">
-            Bạn chưa có tài khoản ? <Link to="/register">Đăng ký</Link>
-          </p>
+          />
         </div>
+        <button type="submit" class="submit" onClick={(e) => handleSignIn(e)}>
+          Sign in
+        </button>
       </form>
     </div>
   );
 };
-
-export default Logins;
+export default AdminLogin;

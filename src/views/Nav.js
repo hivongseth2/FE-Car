@@ -5,8 +5,6 @@ import {
   faHome,
   faUserPlus,
   faSignInAlt,
-  faSignOutAlt,
-  faShareAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import logo from "../img/Logo-IUH.jpg";
 import "../styles/Nav.scss";
@@ -32,13 +30,10 @@ const Nav = () => {
           <FontAwesomeIcon icon={faHome} />
           Trang chủ
         </NavLink>
-        <NavLink to="/socialmedia">
-          <FontAwesomeIcon icon={faShareAlt} />
-          Social Media
-        </NavLink>
       </div>
-      <NavLink to="/edit-admin">Chỉnh sửa thông tin</NavLink>
+      <NavLink to="/admin-login">Chỉnh sửa thông tin</NavLink>
       <NavLink to="/info-sudent">Thông tin học viên</NavLink>
+      <NavLink to="/page-mxh">Mạng xã hội</NavLink>
       {isLoggedIn ? (
         <div className="submenu">
           <FlastInfo onLogout={handleLogout} />

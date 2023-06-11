@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/Forms/FlastInfo.scss";
 import imgavt from "../../img/avtnoavt.png";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const FlastInfo = ({ onLogout }) => {
   const [showCardBody, setShowCardBody] = useState(false);
   const [data, setData] = useState([]);
   const accessToken = localStorage.getItem("token");
+  const history = useHistory();
 
   const fetchData = async () => {
     try {
@@ -44,6 +45,7 @@ const FlastInfo = ({ onLogout }) => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     onLogout(); // Gọi hàm xử lý đăng xuất từ prop onLogout
+    history.push("/login");
   };
   const toggleCardBody = () => {
     setShowCardBody(!showCardBody);
@@ -59,7 +61,7 @@ const FlastInfo = ({ onLogout }) => {
       {showCardBody && (
         <div className="card-body">
           <div className="messages-container">
-            <div className="message-box left">
+            <div className="message-box left" onClick={() => { history.push("/info-sudent"); }}>
               <i className="fa-solid fa-list-ul"></i>
               <p>Xem thông tin cá nhân</p>
             </div>

@@ -1,16 +1,12 @@
 import React from "react";
-import HomePage from "./views/HomePage";
 
 import Nav from "./views/Nav";
 import Sidebar from "./views/Sidebar";
-import { ToastContainer, toast } from "react-toastify";
-// import "dotenv/config";
-// require("dotenv").config();
+import { ToastContainer} from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 import Register from "./views/Register";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import SocialMedia from "./views/SocialMedia";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 // import { Helmet } from "react-helmet";
 
 //admin
@@ -21,9 +17,9 @@ import NewCustomer from "./views/Dashboard/NewCustomer";
 
 import InfoStudent from "./views/InfoStudent";
 import Logins from "./views/Logins";
-import Facebook from "./views/Facebook";
-import BangDetail from "./views/BangDetail";
+import SocialPage from "./views/SocialPage";
 import Slider from "./views/Slider";
+import AdminLogin from "./views/Dashboard/AdminLogin";
 function App() {
   return (
     <Router>
@@ -44,15 +40,17 @@ function App() {
               <Logins />
             </Route>
 
-            <Route path="/socialmedia">
-              <SocialMedia />
-            </Route>
             <Route path="/edit-admin">
               <MainLayoutAdmin />
             </Route>
             <Route path="/info-sudent">
               <InfoStudent />
             </Route>
+
+            <Route path="/page-mxh">
+              <SocialPage />
+            </Route>
+
             <Route path="/edit-info">
               <InfoStudentForAdmin />
             </Route>
@@ -61,6 +59,9 @@ function App() {
             </Route>
             <Route path="/edit-new-customer">
               <NewCustomer />
+            </Route>
+            <Route path="/admin-login">
+              <AdminLogin/>
             </Route>
           </Switch>
         </header>
