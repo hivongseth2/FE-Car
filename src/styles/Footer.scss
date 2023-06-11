@@ -10,35 +10,11 @@
   }
   .content-footer{
     font-weight: bold;
-    position: relative;
-    margin: 0px auto;
-    margin-bottom: 7px;
-    text-transform: uppercase;
-    font-size: 1em; 
-    margin-top: 15px;
+    font-size: 20px;
+    margin-left: 30px;
     margin-bottom: 20px;
-    letter-spacing: 5px;
-    -webkit-box-reflect: below 0.1px linear-gradient(transparent, #0008);
-    line-height: 0.9em;
-    outline: none;
-    animation: animate 5s linear infinite;
   }
-  @keyframes animate{
-    0%,18%,20%,50.1%,60%,65.1%,80%,90.1%,92%
-    {
-        color:#0e3742;
-        // text-shadow: none;
-    }
-    18.2%,20%,30%,50%,60.1%,65%,80.1%,90%,92.1%,100%
-    {
-        color:#fff;
-        text-shadow: 0 0 1px #03bcf4,
-        0 0 2px #03bcf4,
-        0 0 4px #03bcf4,
-        0 0 8px #03bcf4,
-        0 0 16px #03bcf4;
-    }
-}
+  
   
   .left, .centre, .right {
     width: 30%;

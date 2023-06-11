@@ -26,22 +26,17 @@ const Nav = () => {
   };
   return (
     <div className="topnav">
-      <div className="logo">
-        {/* <a href={`${process.env.REACT_DOMAIN}`}> */}{" "}
-        <img src={logo} alt="logo" className="logo" />
-        {/* </a> */}
-      </div>
+      {/* <div className="logo">
+          <img src={logo} alt="logo" className="logo" />
+        </div> */}
       <input type="checkbox" id="menu-toggle" className="menu-toggle" />
       <label htmlFor="menu-toggle" className="menu-icon">
         <FontAwesomeIcon icon={faBars} />
       </label>
       <div className="mainMenu">
-        <NavLink to="/">
-          {/* </FontAwesomeIcon> */}
-          <p className="menu-content1">
-            <FontAwesomeIcon id="a" icon={faHome} />
-            Trang chủ
-          </p>
+        <NavLink to="/" exact={true}>
+          <FontAwesomeIcon id="a" icon={faHome} />
+          Trang chủ
         </NavLink>
 
         <NavLink to="/socialmedia">

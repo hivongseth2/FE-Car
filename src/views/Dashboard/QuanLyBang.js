@@ -10,7 +10,6 @@ const QuanLyBang = () => {
   const [showForm, setShowForm] = useState(false);
   const [selectedBangLai, setSelectedBangLai] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
-  
 
   useEffect(() => {
     const fetchData = async () => {

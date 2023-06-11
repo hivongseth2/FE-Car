@@ -1,14 +1,19 @@
 .topnav {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   overflow: hidden;
   font-family: 'Courier New', Courier, monospace;
+  display: inline-block;
+  width: 100%;
 }
-.menu-toggle{
+.logo{
+  display: inline-block;
+}
+.menu-toggle, .menu-icon
+{
   display: none;
 }
-.menu-icon{
-  display: none;
-}
+
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
@@ -26,6 +31,7 @@
 .topnav a:hover {
   background-color: #d6e4f0;
   color: black;
+border-radius: 4px;
 }
 
 .submenu {
@@ -37,6 +43,11 @@
 .submenu a {
   margin-left: 0;
   margin-right: 30px;
+}
+.mainMenu a.active{
+  // background-color: rgba(122, 197, 255, 0.589);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 3px;
 }
 .submenu{
   .Btn {
@@ -53,10 +64,6 @@
     transition-duration: .3s;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
     background-color: rgb(255, 65, 65);
-  }
-  .menu-toggle, .menu-icon
-  {
-    display: none;
   }
   
   /* plus sign */
@@ -91,6 +98,7 @@
     width: 125px;
     border-radius: 40px;
     transition-duration: .3s;
+
   }
   
   .Btn:hover .sign {
@@ -114,7 +122,6 @@
   width: 160px;
   height: 70px;
 }
-
 .hotline{
 text-transform: uppercase;
 font-weight: bold;
@@ -126,15 +133,15 @@ background-color: #d6e4f0;
 color: black;
 }
 @media only screen and (max-width: 768px) {
-  
-.menu-icon{
-    display: block;
-  }
 .hotline{
   display: none;
 }
 
 .mainMenu {
+  display: none;
+ 
+}
+#a{
   display: none;
 }
 
@@ -143,46 +150,25 @@ color: black;
 }
 .menu-toggle:checked ~ a:not(.menu-icon){
   display: block;
-}
-
-
-.submenu {
+}.submenu {
   display: none;
 }
-#a, #b{
-  display: none;
-}
-.menu-content1{
-  margin-left: -95px;
-}
-.menu-content2{
-  margin-left: -65px;
-}
 
-
+.menu-icon
+{
+display: block;
+}
 
 .menu-toggle:checked ~ .mainMenu  {
-  margin-left: -30px;
   display: flex;
   flex-direction: column;
-  align-items: left;
-  text-align: left;
+  align-items:flex-start;
+ 
 }
 
 .menu-toggle:checked ~ .submenu  {
   display: flex;
 }
-.topnav{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;  
-  text-align: left;
-  padding: 0;
-  margin: 0;
-}
-.topnav a:hover {
-  background-color: #d6e4f0;
-  color: black;
-}
+
 
 }
