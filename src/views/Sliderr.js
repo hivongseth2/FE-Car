@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Sliderr.scss";
 import BangDetail from "./BangDetail";
+import Nav1 from "./Nav1";
 
 const Sliderr = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -151,7 +152,9 @@ const Sliderr = () => {
           </div>
         </div>
       </section>
-      <BangDetail />
+
+      {/* <BangDetail /> */}
+      {/* <Nav1 /> */}
     </main>
   );
 };
