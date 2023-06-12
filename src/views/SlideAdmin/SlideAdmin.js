@@ -13,7 +13,7 @@ const SlideAdmin = () => {
   const [updateTrigger, setUpdateTrigger] = useState(false); // State để trigger việc render lại
 
   const token =
-    "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4NjQxOTQzOCwiZXhwIjoxNjg2NTA1ODM4fQ.aqLrvRpMeKXxlrj20xZDd1COzRn63Cp_9iuQNtg4QJCRC-Ze9ZhpSMz2tmKYavZBOfKfulI1tdsGVkmlTFA9ew";
+    "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4NjU2NjA1NiwiZXhwIjoxNjg2NjUyNDU2fQ.qxSPbqH4tvy-OE5iPxirct0v-3Lsn2mdmUHlk3mjXf5dYTwpPcdr-LLwssOtWmhb0JzsA0xMFs4bk_RR5sKR_g";
   const [file, setFile] = useState();
   // Gọi API và lấy danh sách slide
   useEffect(() => {
