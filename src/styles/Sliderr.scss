@@ -7,12 +7,12 @@
 .btn {
   display: inline-block;
   padding: 13px 20px;
-  color: #001aaa;
+  color: #0278bd;
   text-decoration: none;
   position: relative;
   background: transparent;
   border: 1px solid #e1e1e1;
-  font: 42px/1.2 "Oswald", sans-serif;
+  font: 32px/1.2 "Oswald", sans-serif;
   letter-spacing: 0.4em;
   text-align: center;
   text-indent: 4px;
@@ -105,7 +105,9 @@
 
 .slideshow .slide .caption {
   padding: 0 100px;
+ 
 }
+
 
 .slideshow .slide .image-container {
   position: absolute;
@@ -115,10 +117,13 @@
   height: 100%;
   background-position: center;
   z-index: 1;
-  background-size: cover;
+  background-size: contain;
   image-rendering: optimizeQuality;
 }
-
+.caption
+{
+  
+}
 .slideshow .slide .image-container::before {
   content: "";
   display: block;
@@ -151,14 +156,14 @@
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transform: scale(0.1) translateY(-130%);
+  // transform:  translateY(-130%);
   transition: opacity 1.5s, transform 1s;
 }
 
 .slideshow .slide.is-active .slide-content {
   opacity: 1;
-  transform: scale(1);
-  transition: opacity 1s, transform 1s;
+
+  transition: opacity 1s;
 }
 
 
@@ -169,23 +174,47 @@
 .slideshow .slide .title {
   margin: 0 auto 15px;
   max-width: 1000px;
-  font: 300 50px/1.2 "Oswald", sans-serif;
-  letter-spacing: 0.35em;
+  font: 300 80px/1.2 "Oswald", sans-serif;
+  letter-spacing: 0.30em;
   text-transform: uppercase;
 }
 
 .slideshow .slide .text {
   margin: 0 auto;
   // max-width: 1000px;
-  font-size: 18px;
+  font-size: 3em;
   line-height: 1.4;
 }
-
-.slideshow .slide .btn {
+.slideshow{
+  text-align: center;
+}
+.slideshow  .btn {
   margin: 15px 0 0;
   border-color: #fff;
+  // position: 
+  bottom: 0px;
+  // left: 38%;
+  top: 75%;
+  
+  justify-content: center;
+  
+  // transform: translate(-50%, -50%);
 }
-
+@media only screen and (max-width: 768px) {
+  .slideshow .slide .title {
+    margin: 0 auto 15px;
+    max-width: 1000px;
+    font: 300 28px/1.2 "Oswald", sans-serif;
+    letter-spacing: 0.30em;
+    text-transform: uppercase;
+  }
+  .slideshow .slide .text {
+    margin: 0 auto;
+    // max-width: 1000px;
+    font-size: 24px;
+    line-height: 1;
+  }
+}
 .slideshow .slide .btn::before {
   background: #fff;
 }
