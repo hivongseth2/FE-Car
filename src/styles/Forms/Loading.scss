@@ -1,78 +1,42 @@
-.loader {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.loading-wave {
+  width: 300px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.jimu-primary-loading:before,
-.jimu-primary-loading:after {
-  position: absolute;
-  top: 0;
-  content: '';
+.loading-bar {
+  width: 20px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #3498db;
+  border-radius: 5px;
+  animation: loading-wave-animation 1s ease-in-out infinite;
 }
 
-.jimu-primary-loading:before {
-  left: -19.992px;
+.loading-bar:nth-child(2) {
+  animation-delay: 0.1s;
 }
 
-.jimu-primary-loading:after {
-  left: 19.992px;
-  -webkit-animation-delay: 0.32s !important;
-  animation-delay: 0.32s !important;
+.loading-bar:nth-child(3) {
+  animation-delay: 0.2s;
 }
 
-.jimu-primary-loading:before,
-.jimu-primary-loading:after,
-.jimu-primary-loading {
-  background: #076fe5;
-  -webkit-animation: loading-keys-app-loading 0.8s infinite ease-in-out;
-  animation: loading-keys-app-loading 0.8s infinite ease-in-out;
-  width: 13.6px;
-  height: 32px;
+.loading-bar:nth-child(4) {
+  animation-delay: 0.3s;
 }
 
-.jimu-primary-loading {
-  text-indent: -9999em;
-  margin: auto;
-  position: absolute;
-  right: calc(50% - 6.8px);
-  top: calc(50% - 16px);
-  -webkit-animation-delay: 0.16s !important;
-  animation-delay: 0.16s !important;
-}
+@keyframes loading-wave-animation {
+  0% {
+    height: 10px;
+  }
 
-@-webkit-keyframes loading-keys-app-loading {
+  50% {
+    height: 50px;
+  }
 
-  0%,
-  80%,
   100% {
-    opacity: .75;
-    box-shadow: 0 0 #076fe5;
-    height: 32px;
-  }
-
-  40% {
-    opacity: 1;
-    box-shadow: 0 -8px #076fe5;
-    height: 40px;
-  }
-}
-
-@keyframes loading-keys-app-loading {
-
-  0%,
-  80%,
-  100% {
-    opacity: .75;
-    box-shadow: 0 0 #076fe5;
-    height: 32px;
-  }
-
-  40% {
-    opacity: 1;
-    box-shadow: 0 -8px #076fe5;
-    height: 40px;
+    height: 10px;
   }
 }

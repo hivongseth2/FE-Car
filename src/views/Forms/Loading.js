@@ -2,8 +2,11 @@ import "../../styles/Forms/Loading.scss";
 
 const Loading = () => {
   return (
-    <div class="loader">
-      <div class="justify-content-center jimu-primary-loading"></div>
+    <div class="loading-wave">
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
     </div>
   );
 };
