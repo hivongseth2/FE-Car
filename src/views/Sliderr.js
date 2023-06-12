@@ -41,16 +41,17 @@ const Sliderr = () => {
     }
   }, [slides]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 5000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+  //   }, 5000);
 
-    return () => clearInterval(interval);
-  }, [slides.length]);
+  //   return () => clearInterval(interval);
+  // }, [slides.length]);
 
   const handleSlideClick = (index) => {
     setCurrentIndex(index);
+    const btn = document.getElementById(`${index}`);
   };
 
   return (
@@ -70,9 +71,6 @@ const Sliderr = () => {
                     <div className="text">
                       <p>{slide.description}</p>
                     </div>
-                    <a href="#" className="btn">
-                      <span className="btn-inner">Learn More</span>
-                    </a>
                   </div>
                 </div>
                 <div className="image-container">
@@ -80,6 +78,14 @@ const Sliderr = () => {
                 </div>
               </div>
             ))}
+            <a
+              href="#"
+              className="btn"
+
+              // onMouseLeave={console.log(index)}
+            >
+              <span className="btn-inner">Learn More</span>
+            </a>
           </div>
           <div className="pagination">
             {slides.map((_, index) => (
@@ -134,8 +140,11 @@ const Sliderr = () => {
                   viewBox="0 0 24 24"
                   xmlSpace="preserve"
                 >
-                  <path d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M12,22C6.486,22,2,17.514,2,12 S6.486,2,12,2s10,4.486,10,10S17.514,22,12,22z" />
-                  <polygon points="14.707,12 9.293,7.293 10.707,5.879 16.586,12 10.707,18.121 9.293,16.707 14.707,12 " />
+                  {/* <path d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M12,22C6.486,22,2,17.514,2,12 S6.486,2,12,2s10,4.486,10,10S17.514,22,12,22z" /> */}
+                  <path
+                    d="M11,26c0.256,0,0.512-0.098,0.707-0.293l12-12c0.391-0.391,0.391-1.023,0-1.414l-12-12c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414L21.586,13l-11.293,11.293c-0.391,0.391-0.391,1.023,0,1.414C10.488,25.902,10.744,26,11,26z
+"
+                  />{" "}
                 </svg>
               </span>
             </div>

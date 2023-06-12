@@ -10,6 +10,7 @@ const SlideAdmin = () => {
   const [editingSlide, setEditingSlide] = useState(null);
   const [imageFile, setImageFile] = useState(null);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [updateTrigger, setUpdateTrigger] = useState(false); // State để trigger việc render lại
 
   const token =
     "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4NjQxOTQzOCwiZXhwIjoxNjg2NTA1ODM4fQ.aqLrvRpMeKXxlrj20xZDd1COzRn63Cp_9iuQNtg4QJCRC-Ze9ZhpSMz2tmKYavZBOfKfulI1tdsGVkmlTFA9ew";
@@ -28,7 +29,7 @@ const SlideAdmin = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [updateTrigger]);
 
   const handleEditClick = (slideId) => {
     const slideToEdit = slides.find((slide) => slide.id === slideId);
@@ -36,7 +37,13 @@ const SlideAdmin = () => {
   };
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, files } = e.target;
+
+    if (name === "image") {
+      // Update the image file state
+      setImageFile(files[0]);
+    }
+
     setEditingSlide((prevSlide) => ({
       ...prevSlide,
       [name]: value,
@@ -70,6 +77,7 @@ const SlideAdmin = () => {
         console.error(error);
       });
   };
+  // ...
 
   const handleSaveClick = async () => {
     const formData = new FormData();
@@ -80,11 +88,15 @@ const SlideAdmin = () => {
         description: editingSlide.description,
       })
     );
-    console.log(editingSlide.image);
-    formData.append("image", file[0], file[0].name);
-    formData.append("id", editingSlide.id);
 
-    console.log(formData);
+    if (file && file[0]) {
+      formData.append("image", file[0], file[0].name);
+    } else {
+      // Use the existing image from editingSlide
+      formData.append("image", editingSlide.image);
+    }
+
+    formData.append("id", editingSlide.id);
 
     axios
       .post(`${process.env.REACT_DOMAIN}/api/admin/slide/update`, formData, {
@@ -94,22 +106,36 @@ const SlideAdmin = () => {
         },
       })
       .then((response) => {
-        // Xử lý phản hồi từ server
-        // Cập nhật lại danh sách slides
-        const data = response.json();
-        if (data.errorCode !== undefined) {
-          console.log(data);
-
+        if (response.data.errorCode !== undefined) {
           toast.error(`Cập nhật thất bại, đã có lỗi xảy ra. Thử lại sau`);
-
           return;
         }
+
+        // Update the slides state with the updated slide
+        const updatedSlide = {
+          ...editingSlide,
+          image: response.data.image, // Update the image URL if necessary
+        };
+        const updatedSlides = slides.map((slide) =>
+          slide.id === editingSlide.id ? updatedSlide : slide
+        );
+        setSlides(updatedSlides);
+
+        // Clear the editingSlide state to exit the edit mode
+        // setSlides(updatedSlides);
+
+        // Clear the image file state
+        setImageFile(null);
+        setUpdateTrigger(!updateTrigger);
+        setEditingSlide(null);
         toast.success(`Cập nhật slide thành công`);
       })
       .catch((error) => {
         console.error(error);
       });
   };
+
+  // ...
 
   return (
     <MainLayoutAdmin>
