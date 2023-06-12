@@ -12,7 +12,10 @@ const FlastInfo = ({ onLogout }) => {
   const fetchData = async () => {
     try {
       const url =
-        "http://trungtamdaotaolaixebinhduong.com:8080/api/student/info-person";
+      `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/student/info-person`;
       const response = await fetch(url, {
         method: "GET",
         headers: {

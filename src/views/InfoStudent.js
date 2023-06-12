@@ -14,8 +14,10 @@ const InfoStudent = () => {
 
   const fetchData = async () => {
     try {
-      const url =
-        "http://trungtamdaotaolaixebinhduong.com:8080/api/student/info-person";
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/student/info-person`;
       const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -43,8 +45,10 @@ const InfoStudent = () => {
   const [datafollow, setDatafollow] = useState([]);
   const getDataFollow = async () => {
     try {
-      const url =
-        "http://trungtamdaotaolaixebinhduong.com:8080/api/follow/list-person?page=0&size=10";
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/follow/list-person?page=0&size=10`;
       const responsefl = await fetch(url, {
         method: "GET",
         headers: {

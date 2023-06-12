@@ -10,7 +10,10 @@ const InfoStudentForAdmin = () => {
     const fetchData = async () => {
       try {
         const url =
-          "http://trungtamdaotaolaixebinhduong.com:8080/api/admin/account";
+          `${
+            process.env.REACT_DOMAIN ||
+            "http://trungtamdaotaolaixebinhduong.com:8080"
+          }/api/admin/account`;
         const response = await fetch(url, {
           method: "GET",
           headers: {

@@ -20,7 +20,10 @@ const EditInfoStudent = ({
     try {
       const accessToken = localStorage.getItem("token");
       const url =
-        "http://trungtamdaotaolaixebinhduong.com:8080/api/student/update-person";
+      `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/student/update-person`;
 
       const response = await fetch(url, {
         method: "PUT",
