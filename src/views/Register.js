@@ -41,20 +41,26 @@ const Register = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:8080/api/account/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        birthday: birthday,
-        email: email,
-        fullName: fullName,
-        password: "Thanhtung0404@",
-        phoneNumber: phoneNumber,
-        username: username,
-      }),
-    })
+    fetch(
+      `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/account/register`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          birthday: birthday,
+          email: email,
+          fullName: fullName,
+          password: "Thanhtung0404@",
+          phoneNumber: phoneNumber,
+          username: username,
+        }),
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

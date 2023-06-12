@@ -1,174 +1,180 @@
 .topnav {
-    background-color: rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    overflow: hidden;
-    font-family: 'Courier New', Courier, monospace;
-    display: inline-block;
-    width: 100%;
-  }
-  .logo{
-    display: inline-block;
-  }
-  .menu-toggle, .menu-icon
-  {
-    display: none;
-  }
-  
-  /* Style the links inside the navigation bar */
-  .topnav a {
-    float: left;
-    color: black;
-    text-align: center;
-    padding: 34px 16px;
-    text-decoration: none;
-    font-size: 15px;
-    text-transform: uppercase;
-    margin-left: 30px;
-    font-weight: bold;
-  }
-  
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    background-color: #d6e4f0;
-    color: black;
-border-radius: 4px;
-  }
-  
-  .submenu {
-    float: right;
-    display: flex;
-    align-items: center;
-  }
-  
-  .submenu a {
-    margin-left: 0;
-    margin-right: 30px;
-  }
-  .mainMenu a.active{
-    // background-color: rgba(122, 197, 255, 0.589);
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-      border-radius: 3px;
-  }
-  .submenu{
-    .Btn {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      width: 45px;
-      height: 45px;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition-duration: .3s;
-      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
-      background-color: rgb(255, 65, 65);
-    }
-    
-    /* plus sign */
-    .sign {
-      width: 100%;
-      transition-duration: .3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .sign svg {
-      width: 17px;
-    }
-    
-    .sign svg path {
-      fill: white;
-    }
-    /* text */
-    .text {
-      position: absolute;
-      right: 0%;
-      width: 0%;
-      opacity: 0;
-      color: white;
-      font-size: 1.2em;
-      font-weight: 600;
-      transition-duration: .3s;
-    }
-    /* hover effect on button width */
-    .Btn:hover {
-      width: 125px;
-      border-radius: 40px;
-      transition-duration: .3s;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  overflow: hidden;
+  font-family: 'Courier New', Courier, monospace;
+  display: inline-block;
+  width: 100%;
+}
+.logo{
+  display: inline-block;
+}
+.menu-toggle, .menu-icon
+{
+  display: none;
+}
 
-    }
-    
-    .Btn:hover .sign {
-      width: 30%;
-      transition-duration: .3s;
-      padding-left: 20px;
-    }
-    /* hover effect button's text */
-    .Btn:hover .text {
-      opacity: 1;
-      width: 70%;
-      transition-duration: .3s;
-      padding-right: 10px;
-    }
-    /* button click effect*/
-    .Btn:active {
-      transform: translate(2px ,2px);
-    }
-  }
-  .logo{
-    width: 160px;
-    height: 70px;
-  }
-.hotline{
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 34px 16px;
+  text-decoration: none;
+  font-size: 15px;
   text-transform: uppercase;
+  margin-left: 30px;
   font-weight: bold;
-  margin-right: 50px;
-  width: 250px;
-  height: 60px;
-  padding: 20px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
   background-color: #d6e4f0;
   color: black;
+border-radius: 4px;
+}
+
+
+.submenu a {
+  margin-left: 0;
+  margin-right: 30px;
+}
+.submenu {
+  float: right;
+  display: flex;
+  align-items: center;
+}
+.fast-info {
+  position: absolute;
+  top: 0;
+  left: 70%;
+  z-index: 9999;
+}
+.mainMenu a.active{
+  // background-color: rgba(122, 197, 255, 0.589);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 3px;
+}
+.submenu{
+  .Btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(255, 65, 65);
+  }
+  
+  /* plus sign */
+  .sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sign svg {
+    width: 17px;
+  }
+  
+  .sign svg path {
+    fill: white;
+  }
+  /* text */
+  .text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition-duration: .3s;
+  }
+  /* hover effect on button width */
+  .Btn:hover {
+    width: 125px;
+    border-radius: 40px;
+    transition-duration: .3s;
+
+  }
+  
+  .Btn:hover .sign {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 20px;
+  }
+  /* hover effect button's text */
+  .Btn:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 10px;
+  }
+  /* button click effect*/
+  .Btn:active {
+    transform: translate(2px ,2px);
+  }
+}
+.logo{
+  width: 160px;
+  height: 70px;
+}
+.hotline{
+text-transform: uppercase;
+font-weight: bold;
+margin-right: 50px;
+width: 250px;
+height: 60px;
+padding: 20px;
+background-color: #d6e4f0;
+color: black;
 }
 @media only screen and (max-width: 768px) {
-  .hotline{
-    display: none;
-  }
-  
-  .mainMenu {
-    display: none;
-   
-  }
-  
-  .menu-toggle:checked ~ .mainMenu a {
-    display: block;
-  }
-  .menu-toggle:checked ~ a:not(.menu-icon){
-    display: block;
-  }
+.hotline{
+  display: none;
+}
+
+.mainMenu {
+  display: none;
  
-  
-  .submenu {
-    display: none;
-  }
-  
+}
+
+.menu-toggle:checked ~ .mainMenu a {
+  display: block;
+}
+.menu-toggle:checked ~ a:not(.menu-icon){
+  display: block;
+}
+
+
+.submenu {
+  display: none;
+}
+
 .menu-icon
 {
 display: block;
 }
-  
-  .menu-toggle:checked ~ .mainMenu  {
-    display: flex;
-    flex-direction: column;
-    align-items:flex-start;
-   
-  }
-  
-  .menu-toggle:checked ~ .submenu  {
-    display: flex;
-  }
 
-  
+.menu-toggle:checked ~ .mainMenu  {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+ 
+}
+
+.menu-toggle:checked ~ .submenu  {
+  display: flex;
+}
+
+
 }

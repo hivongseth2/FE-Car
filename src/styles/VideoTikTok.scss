@@ -1,0 +1,16 @@
+.list-video-tiktok {
+  display: flex;
+}
+.video-tiktok-1,
+.video-tiktok-2,
+.video-tiktok-3,
+.video-tiktok-4 {
+  flex: 1; /* Định kích thước jữa các phần tử con trên hàng */
+  margin: 5px;
+  //width: 100%;
+}
+@media (max-width: 768px) {
+  .list-video-tiktok {
+    flex-direction: column; /* Hiển thị các phần tử con dọc theo cột */
+  }
+}

@@ -11,7 +11,10 @@ const BangDetail = () => {
     const fetchData = async () => {
       try {
         let result = await axios.get(
-          "http://trungtamdaotaolaixebinhduong.com:8080/api/degree"
+          `${
+            process.env.REACT_DOMAIN ||
+            "http://trungtamdaotaolaixebinhduong.com:8080"
+          }/api/degree`
         );
         let data = result && result.data ? result.data.data : [];
         setData(data);

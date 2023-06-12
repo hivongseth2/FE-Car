@@ -25,7 +25,10 @@ const Slider = () => {
 
         const srcslide = data.map(
           (slide) =>
-            `http://trungtamdaotaolaixebinhduong.com:8080/api/slide/image?image-name=${slide.image}`
+            `${
+              process.env.REACT_DOMAIN ||
+              "http://trungtamdaotaolaixebinhduong.com:8080"
+            }/api/slide/image?image-name=${slide.image}`
         );
         console.log(srcslide);
 

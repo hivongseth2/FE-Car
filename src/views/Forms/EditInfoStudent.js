@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { format } from "date-fns";
 import "../../styles/Forms/EditInfoStudent.scss";
 
-const EditInfoStudent = ({ selectedInfoStudent, setIsEditing, setIsUpdating }) => {
+const EditInfoStudent = ({
+  selectedInfoStudent,
+  setIsEditing,
+  setIsUpdating,
+}) => {
   const [name, setName] = useState(selectedInfoStudent.fullName);
   const [birthday, setBirthday] = useState(selectedInfoStudent.birthday);
   const [address, setAddress] = useState(selectedInfoStudent.address);
@@ -16,7 +20,10 @@ const EditInfoStudent = ({ selectedInfoStudent, setIsEditing, setIsUpdating }) =
     try {
       const accessToken = localStorage.getItem("token");
       const url =
-        "http://trungtamdaotaolaixebinhduong.com:8080/api/student/update-person";
+      `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/student/update-person`;
 
       const response = await fetch(url, {
         method: "PUT",
@@ -41,6 +48,7 @@ const EditInfoStudent = ({ selectedInfoStudent, setIsEditing, setIsUpdating }) =
     } catch (error) {
       console.error("Error updating data:", error);
     }
+    window.location.reload();
   };
 
   return (

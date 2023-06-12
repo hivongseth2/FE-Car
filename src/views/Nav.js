@@ -37,17 +37,17 @@ const Nav = () => {
           Trang chủ
         </NavLink>
 
-        <NavLink to="/socialmedia">
+        <NavLink to="/page-mxh">
           <FontAwesomeIcon icon={faShareAlt} />
-          Social Media
+          Mạng xã hội
         </NavLink>
-        <NavLink to="/edit-admin">Chỉnh sửa thông tin</NavLink>
+        <NavLink to="/admin-login">Chỉnh sửa thông tin</NavLink>
         <NavLink to="/info-sudent">Thông tin học viên</NavLink>
       </div>
       {isLoggedIn ? (
-        <div className="submenu">
-          <FlastInfo onLogout={handleLogout} />
-        </div>
+        <div className="submenu fast-info">
+        <FlastInfo onLogout={handleLogout} />
+      </div>
       ) : (
         <div className="submenu">
           <NavLink to="/login">

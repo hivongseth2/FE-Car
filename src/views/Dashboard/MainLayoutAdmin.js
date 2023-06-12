@@ -26,7 +26,7 @@ function MainLayoutAdmin({ children }) {
           </li>
         </ul>
       </div>
-      <div class="content-sibebar-admin">{children}</div>
+      <div className="content-sibebar-admin">{children}</div>
     </div>
   );
 }
