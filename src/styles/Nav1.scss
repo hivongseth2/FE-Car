@@ -12,8 +12,8 @@
 .active
 {
   color: #07077a;
-  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-  border-radius: 5px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 15px -5px;
+    border-radius: 5px;
 }
 
 .navbar.transparent-bg {
@@ -71,7 +71,7 @@
   height: 0;
   border: 200px solid rgba(0, 0, 0, 0);
   border-top: 0 solid;
-  border-bottom: 120px solid rgba(20, 68, 122, 0.418);
+  border-bottom: 120px solid rgba(2, 60, 126, 0.884);
   border-radius: 20px 20px 0 0;
   font: normal 100%/normal Arial, Helvetica, sans-serif;
   color: rgba(0, 0, 0, 0.7);
@@ -235,7 +235,7 @@
     // text-overflow: inherit;
     border-top: 0 solid;
     border-bottom: none;
-  
+    // border-bottom: 120px solid rgba(2, 60, 126, 0.884);
    
     font: normal 14px Arial, Helvetica, sans-serif;
     color: rgba(0, 0, 0, 0.7);
@@ -274,6 +274,7 @@
   transform: rotateX(0deg);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-top: 5px;;
+  background-color: rgba(2, 60, 126, 0.884);
 
 }
 .subnavbtn {
@@ -334,7 +335,7 @@
   height: 0;
   border: 160px solid rgba(0, 0, 0, 0);
   border-top: 0 solid;
-  border-bottom: 120px solid rgba(20, 68, 122, 0.418);
+  border-bottom: 120px solid rgba(2, 60, 126, 0.884);
   border-radius: 20px 20px 0 0;
   font: normal 16px Arial, Helvetica, sans-serif;
   color: rgba(0, 0, 0, 0.7);

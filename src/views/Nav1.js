@@ -57,9 +57,9 @@ const Nav1 = () => {
           Mạng xã hội
         </NavLink>
 
-        <NavLink to="/page-mxh" className="parent">
+        {/* <NavLink to="/page-mxh" className="parent">
           Mạng xã hội
-        </NavLink>
+        </NavLink> */}
       </div>
       <div className="submenu">
         <NavLink to="/login" className="subItem" style={{ border: "none" }}>
