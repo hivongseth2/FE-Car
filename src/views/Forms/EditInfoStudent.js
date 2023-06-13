@@ -19,8 +19,7 @@ const EditInfoStudent = ({
 
     try {
       const accessToken = localStorage.getItem("token");
-      const url =
-      `${
+      const url = `${
         process.env.REACT_DOMAIN ||
         "http://trungtamdaotaolaixebinhduong.com:8080"
       }/api/student/update-person`;

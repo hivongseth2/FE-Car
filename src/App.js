@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import Sliderr from "./views/Sliderr";
 import "react-toastify/dist/ReactToastify.css";
 import Register from "./views/Register";
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SlideAdmin from "./views/SlideAdmin/SlideAdmin";
 
 //admin
@@ -66,7 +66,7 @@ function App() {
               <NewCustomer />
             </Route>
             <Route path="/admin-login">
-              <AdminLogin/>
+              <AdminLogin />
             </Route>
           </Switch>
         </header>

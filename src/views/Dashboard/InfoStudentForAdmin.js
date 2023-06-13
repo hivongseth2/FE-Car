@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/DashboardScss/InfoStudentForAdmin.scss";
 import MainLayoutAdmin from "./MainLayoutAdmin";
+import AdAccount from "./AdAccount";
 
 const InfoStudentForAdmin = () => {
+  const [showForm, setShowForm] = useState(false);
   const accessToken = localStorage.getItem("token");
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url =
-          `${
-            process.env.REACT_DOMAIN ||
-            "http://trungtamdaotaolaixebinhduong.com:8080"
-          }/api/admin/account`;
+        const url = `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/admin/account`;
         const response = await fetch(url, {
           method: "GET",
           headers: {
@@ -27,7 +28,7 @@ const InfoStudentForAdmin = () => {
         }
 
         const responseData = await response.json();
-        
+
         const fetchedData =
           responseData && responseData.data ? responseData.data : [];
         setData(fetchedData);
@@ -39,12 +40,20 @@ const InfoStudentForAdmin = () => {
     fetchData();
   }, [accessToken]);
 
+  const handleOpenForm = () => {
+    setShowForm(true);
+  };
+
+  const handleCloseForm = () => {
+    setShowForm(false);
+  };
+
   return (
     <MainLayoutAdmin>
       <div className="contain-table-info">
         <div className="header-info">
           <h1>Quản lý học viên</h1>
-          <button>Tạo tài khoản</button>
+          <button onClick={handleOpenForm}>Tạo tài khoản</button>
         </div>
         <table className="striped-table-info">
           <thead>
@@ -73,7 +82,15 @@ const InfoStudentForAdmin = () => {
           </tbody>
         </table>
       </div>
+      {showForm && (
+        <div className="popup">
+          <div className="popup-inner">
+            <AdAccount handleCloseForm={handleCloseForm} />
+          </div>
+        </div>
+      )}
     </MainLayoutAdmin>
   );
 };
+
 export default InfoStudentForAdmin;
