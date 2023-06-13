@@ -56,50 +56,11 @@ const Nav1 = () => {
         <NavLink to="/page-mxh" className="parent">
           Mạng xã hội
         </NavLink>
-
-        {/* <a href="#About" className="expandHome">
-          <NavLink to="/admin-login" className="parent">
-            Chỉnh sửa thông tin
-          </NavLink>
-        </a>
-        <div className="subnav">
-          <button className="subnavbtn">
-            Clients<i className="fa fa-caret-down"></i>
-          </button>
-          <div className="subnav-content">
-            <div id="subnav-trapezoid">
-              <a href="#Clients">Burger King</a>
-              <a href="#Clients">Southwest Airlines</a>
-              <a href="#Clients">Levi Strauss</a>
-            </div>
-          </div>
-        </div> */}
-        {/* 
-        <div className="subnav">
-          <button className="subnavbtn">
-            Services<i className="fa fa-caret-down"></i>
-          </button>
-          <div className="subnav-content">
-            <div className="subnav-trapezoid">
-              <a href="#Services">Print Design</a>
-              <a href="#Services">Web Design</a>
-              <a href="#Services">Mobile App Development</a>
-            </div>
-          </div>
-        </div> */}
       </div>
       <div className="submenu">
-        <div className="logo">
+        <NavLink to="/login" className="subItem" style={{ border: "none" }}>
           <img src={login} alt="logo" className="parentLogo" />
-          <NavLink to="/login" className="subItem">
-            <FontAwesomeIcon icon={faSignInAlt} />
-            Đăng Nhập
-          </NavLink>
-          <NavLink to="/register" className="subItem">
-            <FontAwesomeIcon icon={faUserPlus} />
-            Đăng kí
-          </NavLink>
-        </div>
+        </NavLink>
       </div>
     </nav>
   );
