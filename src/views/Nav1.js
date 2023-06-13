@@ -56,6 +56,10 @@ const Nav1 = () => {
         <NavLink to="/page-mxh" className="parent">
           Mạng xã hội
         </NavLink>
+
+        <NavLink to="/page-mxh" className="parent">
+          Mạng xã hội
+        </NavLink>
       </div>
       <div className="submenu">
         <NavLink to="/login" className="subItem" style={{ border: "none" }}>
