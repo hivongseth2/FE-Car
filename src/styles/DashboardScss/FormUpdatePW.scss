@@ -1,0 +1,42 @@
+.formUpdatePW{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    margin-top: 5%;
+  }
+  
+  .input-formUpdatePW , .input-formUpdateConfirmPW{
+    margin-top: 10px;
+    height: 35px;
+    border: #ccc 1px solid;
+    border-radius: 5px;
+    text-indent: 10px;
+  }
+  .input-formUpdateConfirmPW{
+    margin-bottom: 20px;
+  }
+  .group-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    // margin-left: 10px;
+  }
+  .cancel-button{
+    background-color: red;
+    margin-left: 5px;
+  }
+  .cancel-button:hover{
+    background-color: #b40404;
+  }
+  .content-update{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .formUpdatePW{
+    background-color: #ccc;
+    padding: 20px;
+    border-radius: 10px;
+  }
