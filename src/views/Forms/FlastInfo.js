@@ -9,10 +9,11 @@ const FlastInfo = ({ onLogout }) => {
   const accessToken = localStorage.getItem("token");
   const history = useHistory();
 
+  const [isUser, setIsUser] = useState(null);
+
   const fetchData = async () => {
     try {
-      const url =
-      `${
+      const url = `${
         process.env.REACT_DOMAIN ||
         "http://trungtamdaotaolaixebinhduong.com:8080"
       }/api/student/info-person`;
@@ -41,8 +42,13 @@ const FlastInfo = ({ onLogout }) => {
   };
 
   useEffect(() => {
+    console.log(isUser);
     fetchData();
   }, []);
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    setIsUser(user.role);
+  }, [isUser]);
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -64,10 +70,30 @@ const FlastInfo = ({ onLogout }) => {
       {showCardBody && (
         <div className="card-body">
           <div className="messages-container">
-            <div className="message-box left" onClick={() => { history.push("/info-sudent"); }}>
-              <i className="fa-solid fa-list-ul"></i>
-              <p>Xem thông tin cá nhân</p>
-            </div>
+            {/* =========== */}
+            {isUser !== null && isUser === "ROLE_USER" ? (
+              <div
+                className="message-box left"
+                onClick={() => {
+                  history.push("/info-sudent");
+                }}
+              >
+                <i className="fa-solid fa-list-ul"></i>
+                <p>Xem thông tin cá nhân</p>
+              </div>
+            ) : (
+              <div
+                className="message-box left"
+                onClick={() => {
+                  history.push("/edit-admin");
+                }}
+              >
+                <i className="fa-solid fa-list-ul"></i>
+                <p>Đến trang quản lý</p>
+              </div>
+            )}
+
+            {/* ================ */}
             <div className="message-box left" onClick={handleLogout}>
               <i className="fa-solid fa-arrow-right-from-bracket"></i>
               <p>Đăng xuất</p>

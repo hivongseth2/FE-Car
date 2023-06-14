@@ -102,7 +102,13 @@ const InfoStudentForAdmin = () => {
         <div className="header-info">
           <h1>Quản lý học viên</h1>
           <button className="add-button">Thêm học viên</button>
-          <button onClick={handleOpenForm} className="updatePW-button">
+          <button
+            onClick={handleOpenForm}
+            className="updatePW-button"
+            style={{
+              marginRight: "-0px",
+            }}
+          >
             Cập nhật mật khẩu
           </button>
         </div>

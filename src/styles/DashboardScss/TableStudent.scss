@@ -80,23 +80,25 @@
 //   }
 
 
-html,
-body {
-	height: 100%;
-}
+// html,
+// body {
+// 	height: 100%;
+// }
 
-body {
-	margin: 0;
-	background: linear-gradient(45deg, #49a09d, #5f2c82);
-	font-family: sans-serif;
-	font-weight: 100;
-}
+// body {
+// 	margin: 0;
+// 	background: linear-gradient(45deg, #49a09d, #5f2c82);
+// 	font-family: sans-serif;
+// 	font-weight: 100;
+// }
 
 table {
-	width: 800px;
+	width: 100%;
 	border-collapse: collapse;
 	overflow: hidden;
 	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  // margin-left: 20%;
+
 }
 
 th,
@@ -139,19 +141,31 @@ tbody {
 	}
 }
 .button-info button {
-        margin: 0 5px;
-        padding: 5px 10px;
-        background-color: #e6e6e6;
-        border: none;
-        cursor: pointer;
-      }
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color: #e6e6e6;
+  border: none;
+  cursor: pointer;
+}
     
-      .button-info button:first-child {
-        background-color: #66bb6a;
-        color: white;
-      }
+.button-info button:first-child {
+  background-color: #66bb6a;
+  color: white;
+}
     
-      .button-info button:last-child {
-        background-color: #ef5350;
-        color: white;
-      }
+.button-info button:last-child {
+  background-color: #ef5350;
+  color: white;
+}
+.contain-table-info{
+  text-align: center;
+  align-items: center;
+  width:100%;
+}
+.container{
+  width: 100%;
+}
+.content-sibebar-admin{
+  position: fixed;
+  left: 450px;
+}
