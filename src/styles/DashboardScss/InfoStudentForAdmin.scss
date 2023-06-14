@@ -98,3 +98,61 @@ td {
     width: 100%;
   }
 }
+
+.searchByID {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 15px;
+}
+.info-search{
+  background-color: #288af2;
+  width: 50%;
+  // height: 80px;
+  text-indent: 20px;
+  color: white;
+  border-radius: 10px;
+  margin-top: 3%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  background: rgba(217, 217, 217, 0.58);
+  border: 1px solid white;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+}
+.no-user {
+  text-align: center;
+  
+}
+
+.student-info{
+  font-size: 20px;
+  margin-left: 10%;
+}
+.info-content{
+  font-size: 15px;
+}
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.search-button{
+  // margin-right: 20%;
+  border: white 2px solid;
+}
+.add-button{
+  margin-left: 60%;
+}
+.updatePW-button{
+  margin-right: 0px;
+}

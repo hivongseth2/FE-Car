@@ -1,28 +1,27 @@
 .card-container {
-  //position: relative;
-  // background-color: #fff;
   border-radius: 10px;
   margin: 20px;
   display: flex;
-  
   flex-direction: column;
   position: fixed;
- left:80%;
+  left: 75%;
   width: 300px;
 }
-
 .card-header {
   display: flex;
   align-items: center;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
   cursor: pointer;
+  align-content: stretch;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .card-header .img-avatar {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  margin-right: 20px;
+
 }
 .img-avatar img {
   width: 90%;
@@ -38,7 +37,7 @@
 .card-body {
   flex: 1;
   overflow-y: auto;
-  border-top: 1px dashed #ccc;
+
   //border-top-width: 10px;
 }
 
@@ -68,7 +67,6 @@
 
   .card-container {
 
-   //left:85%;
  
   }
 }
@@ -77,6 +75,7 @@
   .card-body {
     position: absolute;
     flex: 1 1;
+    bottom:-30px;
     overflow-y: clip;
     /* border-top: 1px dashed #ccc; */
     // margin-top: 15em;
@@ -85,7 +84,7 @@
   .card-container {
 
     left: -10.7em;
-    top: 1.5em;
+    top: 0.5em;
     justify-content: space-evenly;
     display: grid;
     flex-direction: row;
@@ -108,15 +107,22 @@
     border-radius: 50%;
     margin-right: 0px;
   }
+
+  .card-header .img-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
   .card-header {
     display: flex;
-    align-items:stretch ;
     position: relative;
     width: 100%;
-    // padding-bottom: 10px;
     cursor: pointer;
     margin: 4em;
-  
+    justify-content: flex-start;
+    align-items: baseline;
+    flex-direction: row;
   }
 
   .message-box {

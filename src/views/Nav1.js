@@ -64,12 +64,16 @@ const Nav1 = () => {
   return (
     <>
       {isMobile ? (
-        <nav className={`navbar ${isAtTop ? "" : "transparent-bg"}`}>
+        <nav
+          className={`navbar ${isAtTop ? "" : "transparent-bg"} ${
+            isMenuOpen ? "open" : ""
+          }`}
+        >
           <div className="logo">
             <img src={logo} className="logoct" alt="logo" />
           </div>
 
-          <div id="trapezoid">
+          <div id={`trapezoid`}>
             <a className="sub-home" href="#">
               Home
             </a>

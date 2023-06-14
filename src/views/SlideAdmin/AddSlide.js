@@ -5,8 +5,7 @@ const AddSlide = (props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState();
-  const token =
-    "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4NjQxOTQzOCwiZXhwIjoxNjg2NTA1ODM4fQ.aqLrvRpMeKXxlrj20xZDd1COzRn63Cp_9iuQNtg4QJCRC-Ze9ZhpSMz2tmKYavZBOfKfulI1tdsGVkmlTFA9ew";
+  const token = localStorage.getItem("token");
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };

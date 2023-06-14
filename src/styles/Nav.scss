@@ -190,3 +190,9 @@
     margin-left: 20px;
   }
 }
+
+.menu-toggle:checked ~ .submenu  {
+  display: flex;
+}
+
+
