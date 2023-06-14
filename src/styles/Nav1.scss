@@ -101,7 +101,7 @@
   // padding-bottom: 30px;
   margin: auto;
   position: relative;
-  left: -50px;
+  left: -17%;
  
 
 }
@@ -401,7 +401,7 @@ span{
   // margin-left: -59px;
   box-sizing: content-box;
   height: 0;
-  border: 160px solid rgba(0, 0, 0, 0);
+  border: 100px solid rgba(0, 0, 0, 0);
   border-top: 0 solid;
   border-bottom: 120px solid rgba(2, 60, 126, 0.884);
   border-radius: 20px 20px 0 0;
@@ -410,14 +410,23 @@ span{
   text-overflow: clip;
   transform: rotateX(180deg);
   margin-top: -53px;
-  width: 550px;
+  width: 468px;
   display: flex;
   grid-template-columns: auto auto;
   
   transition: all 0.7s ease;
   padding-left: 0px;
 }
-
+.navbar .logo img {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+.logo{
+  width: 80px;
+    height: 80px;
+    margin-top: 20px;
+}
 
 .subnavbtn {
   -webkit-transform: rotateX(180deg);
@@ -474,7 +483,7 @@ span{
   // padding-bottom: 30px;
   margin: auto;
   position: inline-block;
-  left: 10%;
+  left: 7%;
  
 
 }
