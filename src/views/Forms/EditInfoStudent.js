@@ -10,17 +10,13 @@ const EditInfoStudent = ({
   const [name, setName] = useState(selectedInfoStudent.fullName);
   const [birthday, setBirthday] = useState(selectedInfoStudent.birthday);
   const [address, setAddress] = useState(selectedInfoStudent.address);
-  const [phoneNumber, setPhoneNumber] = useState(
-    selectedInfoStudent.phoneNumber
-  );
 
   const handleUpdate = async (e) => {
     e.preventDefault();
 
     try {
       const accessToken = localStorage.getItem("token");
-      const url =
-      `${
+      const url = `${
         process.env.REACT_DOMAIN ||
         "http://trungtamdaotaolaixebinhduong.com:8080"
       }/api/student/update-person`;
@@ -35,7 +31,6 @@ const EditInfoStudent = ({
           fullName: name,
           birthday: birthday,
           address: address,
-          phoneNumber: phoneNumber,
         }),
       });
 
@@ -78,14 +73,6 @@ const EditInfoStudent = ({
           name="address"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
-        />
-        <label htmlFor="phoneNumber">Số điện thoại</label>
-        <input
-          id="phoneNumber"
-          type="number"
-          name="phoneNumber"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
         />
         <div className="button-addbanglai">
           <input type="submit" value="Lưu" onClick={handleUpdate} />

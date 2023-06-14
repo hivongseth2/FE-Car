@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import "../styles/Sliderr.scss";
 import BangDetail from "./BangDetail";
 import Nav1 from "./Nav1";
+import LisBang from "./ListBang";
+import RegisterAdvise from "./RegisterAdvise";
+import ApplicationProcess from "./ApplicationProcess";
+import AboutUs from "./AboutUs";
 
 const Sliderr = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -153,8 +157,10 @@ const Sliderr = () => {
         </div>
       </section>
 
-      {/* <BangDetail /> */}
-      {/* <Nav1 /> */}
+      <LisBang />
+      <RegisterAdvise />
+      <ApplicationProcess />
+      <AboutUs />
     </main>
   );
 };

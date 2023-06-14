@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../styles/DashboardScss/InfoStudentForAdmin.scss";
 import "../../styles/DashboardScss/TableStudent.scss";
 import MainLayoutAdmin from "./MainLayoutAdmin";
+import AdAccount from "./AdAccount";
 import SearchByID from "../SearchByID";
 import FormUpdatePW from "./FormUpdatePW";
 
@@ -67,8 +68,10 @@ const InfoStudentForAdmin = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url =
-          "http://trungtamdaotaolaixebinhduong.com:8080/api/admin/account";
+        const url = `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/admin/account`;
         const response = await fetch(url, {
           method: "GET",
           headers: {
@@ -101,16 +104,7 @@ const InfoStudentForAdmin = () => {
       <div className="contain-table-info">
         <div className="header-info">
           <h1>Quản lý học viên</h1>
-          <button className="add-button">Thêm học viên</button>
-          <button
-            onClick={handleOpenForm}
-            className="updatePW-button"
-            style={{
-              marginRight: "-0px",
-            }}
-          >
-            Cập nhật mật khẩu
-          </button>
+          <button onClick={handleOpenForm}>Tạo tài khoản</button>
         </div>
         {/* Tìm kiếm học viên theo ID */}
         <div className="searchByID">
@@ -166,6 +160,7 @@ const InfoStudentForAdmin = () => {
       {showForm && (
         <div className="popup">
           <div className="popup-inner">
+            <AdAccount handleCloseForm={handleCloseForm} />
             <FormUpdatePW handleCloseForm={handleCloseForm} />
           </div>
         </div>
