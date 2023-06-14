@@ -2,6 +2,7 @@ import React from "react";
 
 import Nav from "./views/Nav";
 import Sidebar from "./views/Sidebar";
+import Footer from "./views/Footer";
 import { ToastContainer, toast } from "react-toastify";
 // import "dotenv/config";
 // require("dotenv").config();
@@ -82,7 +83,7 @@ function App() {
           pauseOnHover
           theme="colored"
         />
-        <Sidebar />
+        <Footer />
       </div>
     </Router>
   );

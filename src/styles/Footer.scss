@@ -1,0 +1,76 @@
+.wrapper-footer {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: #333;
+    background-color: rgb(73, 143, 201);
+    border-top-left-radius: 50px;
+    color: white;
+  }
+  .content-footer{
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+  }
+  
+  
+  .left, .centre, .right {
+    width: 30%;
+  }
+  
+  .left ul, .centre ul, .right ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .left ul li, .centre ul li, .right ul li {
+    margin-bottom: 10px;
+  }
+  
+  .left ul li:first-child, .centre ul li:first-child, .right ul li:first-child {
+    font-weight: bold;
+  }
+  
+  /* Trang trí phần Footer */
+  .wrapper::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .footer-decoration {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .footer-decoration span {
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    margin: 0 5px;
+  }
+
+ .content{
+    text-decoration: dashed;
+ }
+  
+.fab {
+    margin-right: 50px;
+    font-size: 25px;
+
+}
+.icon{
+    margin-left: 40px;
+}
+.facebook{
+    margin-right: 30px;
+}
+.tiktok{
+    margin-right: 30px;
+}
+li{
+  line-height: 30px;
+}

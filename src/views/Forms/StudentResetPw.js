@@ -30,10 +30,7 @@ const StudentResetPw = () => {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `${
-          process.env.REACT_DOMAIN ||
-          "http://trungtamdaotaolaixebinhduong.com:8080"
-        }/api/student/reset-person-password?password=${newPassword}`,
+        `http://trungtamdaotaolaixebinhduong.com:8080/api/student/reset-person-password?password=${newPassword}`,
         {
           method: "PUT",
           headers: {

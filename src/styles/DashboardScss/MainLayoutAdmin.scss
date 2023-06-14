@@ -1,18 +1,30 @@
 .main-sidebar-admin {
   display: flex;
+  margin: 0;
+	background: linear-gradient(45deg, #49a09d, #5f2c82);
+	font-family: sans-serif;
+	font-weight: 100;
+
   .sidebar-admin {
     width: 200px;
     height: 100vh;
     background-color: #f1f1f1;
-  }
 
-  .sidebar-admin ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  .sidebar-admin ul li {
-    padding: 10px;
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      padding: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    li:hover {
+      background-color: #e0e0e0;
+      border-bottom: 1px solid #ccc;
+    }
   }
 
   .sidebar-admin ul li a {
@@ -21,13 +33,15 @@
   }
 
   .content-sibebar-admin {
-    //margin-left: 70px; /* Khoảng cách để sidebar không che phủ nội dung chính */
     padding: 20px;
+    	
   }
 }
+
 @media (max-width: 768px) {
   .main-sidebar-admin {
     flex-direction: column;
+
     .sidebar-admin {
       width: 100%;
       height: auto;
