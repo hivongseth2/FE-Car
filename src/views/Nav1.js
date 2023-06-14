@@ -7,6 +7,7 @@ import login from "../img/login.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FlastInfo from "./Forms/FlastInfo";
 
+
 import { faUserPlus, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Nav1 = () => {
@@ -60,20 +61,12 @@ const Nav1 = () => {
           </NavLink>
         )}
       </div>
-      <div className="submenu login-register-submenu">
-        <div className="logo">
+      <div className="submenu">
+        <NavLink to="/login" className="subItem" style={{ border: "none" }}>
           <img src={login} alt="logo" className="parentLogo" />
-          <NavLink to="/login" className="subItem">
-            <FontAwesomeIcon icon={faSignInAlt} /> Đăng Nhập
-          </NavLink>
-          <NavLink to="/register" className="subItem">
-            {" "}
-            {""}
-            <FontAwesomeIcon icon={faUserPlus} />
-            Đăng kí
-          </NavLink>
-        </div>
+        </NavLink>
       </div>
+      
     </nav>
   );
 };

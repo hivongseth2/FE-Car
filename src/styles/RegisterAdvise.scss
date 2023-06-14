@@ -1,0 +1,200 @@
+.register-advise-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Hai cột có chiều rộng bằng nhau */
+  gap: 10px; /* Khoảng cách giữa các cột */
+  padding-top: 3em;
+}
+.register-advise-content {
+  display: block;
+  padding: 20px;
+}
+.register-advise-content h1 {
+  color: #121113;
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 56px;
+  text-align: left;
+}
+.register-advise-content p {
+  color: #74757b;
+  line-height: 26px;
+  margin: 0px 0px 33px;
+  text-align: left;
+}
+.input-info-register {
+  display: flex;
+  flex-direction: column;
+}
+.input-info-register input {
+  margin-bottom: 10px;
+}
+.register-advise-content {
+  .input {
+    max-width: 300px;
+    background-color: #e2eef0;
+    color: #242424;
+    padding: 0.15rem 0.5rem;
+    min-height: 40px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    line-height: 1.15;
+    box-shadow: 0px 10px 20px -18px;
+  }
+
+  input:focus {
+    border-bottom: 2px solid #5b5fc7;
+    border-radius: 4px 4px 2px 2px;
+  }
+
+  input:hover {
+    outline: 1px solid lightgrey;
+  }
+}
+.radio-input input {
+  display: none;
+}
+.button-register {
+  margin-top: 10px;
+  button {
+    height: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #183153;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border: none;
+  }
+
+  button:after {
+    content: " ";
+    width: 0%;
+    height: 100%;
+    background: #ffd401;
+    position: absolute;
+    transition: all 0.4s ease-in-out;
+    right: 0;
+  }
+
+  button:hover::after {
+    right: auto;
+    left: 0;
+    width: 100%;
+  }
+
+  button span {
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    //padding: 9px 9px;
+    color: #fff;
+    font-size: 1.125em;
+    font-weight: 700;
+    //letter-spacing: 0.3em;
+    z-index: 20;
+    transition: all 0.3s ease-in-out;
+  }
+
+  button:hover span {
+    color: #183153;
+    animation: scaleUp 0.3s ease-in-out;
+  }
+
+  @keyframes scaleUp {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(0.95);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+.radio-input {
+  --container_width: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #000000;
+  width: var(--container_width);
+  overflow: hidden;
+  border: 1px solid rgba(53, 52, 52, 0.226);
+}
+
+.radio-input label {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-size: 14px;
+}
+
+.selection {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: calc(var(--container_width) / 3);
+  z-index: 0;
+  left: 0;
+  top: 0;
+  transition: 0.15s ease;
+}
+
+.radio-input label:has(input:checked) {
+  color: #fff;
+}
+
+.radio-input label:has(input:checked) ~ .selection {
+  background-color: #183153;
+  display: inline-block;
+}
+
+.radio-input label:nth-child(1):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 0 / 3));
+}
+
+.radio-input label:nth-child(2):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 1 / 3));
+}
+
+.radio-input label:nth-child(3):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 2 / 3));
+}
+
+.register-advise-img img {
+  width: 95%;
+  height: 100vh;
+}
+@media screen and (max-width: 768px) {
+  .register-advise-container {
+    grid-template-columns: 1fr; /* Chỉ có một cột */
+  }
+  .register-advise-img img{
+    display: none;
+  }
+}
+
+/* Các media query khác tùy thuộc vào nhu cầu thiết kế của bạn */
+@media screen and (max-width: 480px) {
+  .register-advise-container {
+    grid-template-columns: 1fr; /* Chỉ có một cột */
+    gap: 5px; /* Khoảng cách giữa các cột nhỏ hơn */
+    padding-top: 2em; /* Khoảng cách trên cùng nhỏ hơn */
+  }
+}

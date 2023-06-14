@@ -5,6 +5,7 @@ import EditInfoStudent from "./Forms/EditInfoStudent";
 import { format } from "date-fns";
 import StudentResetPw from "./Forms/StudentResetPw";
 import Loading from "./Forms/Loading";
+import ListBang from "./ListBang";
 
 const InfoStudent = () => {
   const [currentTab, setCurrentTab] = useState("1"); // 0: tab "Thông tin cá nhân", 1: tab "Bằng lái xe"
@@ -204,6 +205,7 @@ const InfoStudent = () => {
           </div>
         )}
       </div>
+      <ListBang />
     </div>
   );
 };
