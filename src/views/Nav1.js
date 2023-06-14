@@ -4,23 +4,44 @@ import "../styles/Nav1.scss"; // Import file CSS tương ứng
 import { NavLink } from "react-router-dom";
 import logo from "../img/zyro-image.png";
 import login from "../img/login.png";
+import menu from "../img/menu.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FlastInfo from "./Forms/FlastInfo";
 
-
-import { faUserPlus, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHome,
+  faBars,
+  faUserPlus,
+  faSignInAlt,
+  faSignOutAlt,
+  faShareAlt,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Nav1 = () => {
   const token = localStorage.getItem("token");
-  const user = JSON.parse(localStorage.getItem("user"));
-  const role = user.role;
-  console.log(role);
   const [isLoggedIn, setIsLoggedIn] = useState(!!token);
 
   const handleLogout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     setIsLoggedIn(false);
+  };
+
+  // const isMobile = window.innerWidth < 768; // Xác định nếu là điện thoại di động
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isMobile]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const [isAtTop, setIsAtTop] = useState(true);
@@ -35,39 +56,132 @@ const Nav1 = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
-    <nav className={`navbar ${isAtTop ? "" : "transparent-bg"}`}>
-      <div className="logo">
-        <img src={logo} className="logoct" alt="logo" />
-      </div>
+    <>
+      {isMobile ? (
+        <nav className={`navbar ${isAtTop ? "" : "transparent-bg"}`}>
+          <div className="logo">
+            <img src={logo} className="logoct" alt="logo" />
+          </div>
 
-      <div id="trapezoid">
-        <NavLink to="/" exact={true} className="parent">
-          Trang chủ
-        </NavLink>
+          <div id="trapezoid">
+            <a className="sub-home" href="#">
+              Home
+            </a>
+            <input
+              type="checkbox"
+              id="menu-toggle"
+              className="menu-toggle"
+              checked={isMenuOpen}
+            />
 
-        <NavLink to="/page-mxh" className="parent">
-          Mạng xã hội
-        </NavLink>
-        {role === "ROLE_USER" && (
-          <NavLink to="/info-sudent" className="parent">
-            Thông tin học viên
-          </NavLink>
-        )}
+            <label
+              htmlFor="menu-toggle"
+              className="menu-icon"
+              onClick={toggleMenu}
+            >
+              <img src={logo} className="menuIcon" alt="menu" />
+            </label>
 
-        {(role === "ROLE_ADMIN" || role === "ROLE_STAFF") && (
-          <NavLink to="/admin-login" className="parent">
-            Chỉnh sửa thông tin
-          </NavLink>
-        )}
-      </div>
-      <div className="submenu">
-        <NavLink to="/login" className="subItem" style={{ border: "none" }}>
-          <img src={login} alt="logo" className="parentLogo" />
-        </NavLink>
-      </div>
-      
-    </nav>
+            <div className={`menu ${isMenuOpen ? "open" : ""}`}>
+              {/* Nội dung menu */}
+              <div className={`menu-content `}>
+                <NavLink
+                  to="/"
+                  exact={true}
+                  className="parent"
+                  onClick={closeMenu}
+                >
+                  Trang chủ
+                </NavLink>
+
+                <NavLink to="/page-mxh" className="parent" onClick={closeMenu}>
+                  Mạng xã hội
+                </NavLink>
+
+                {isLoggedIn ? (
+                  <FlastInfo onLogout={handleLogout} className="rotate" />
+                ) : (
+                  <div className={` menu ${isMenuOpen ? "open" : ""}`}>
+                    <NavLink
+                      to="/login"
+                      className="subItem parent "
+                      style={{ border: "none" }}
+                    >
+                      <img src={login} alt="logo" className="parentLogo" />
+                      <span>ĐĂNG NHẬP</span>
+                    </NavLink>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </nav>
+      ) : (
+        <nav className={`navbar ${isAtTop ? "" : "transparent-bg"}`}>
+          <div className="logo">
+            <img src={logo} className="logoct" alt="logo" />
+          </div>
+
+          <div id="trapezoid">
+            <a className="sub-home" href="#">
+              Home
+            </a>
+            <input
+              type="checkbox"
+              id="menu-toggle"
+              className="menu-toggle"
+              checked={isMenuOpen}
+            />
+
+            <label
+              htmlFor="menu-toggle"
+              className="menu-icon"
+              onClick={toggleMenu}
+            >
+              <img src={logo} className="menuIcon" alt="menu" />
+            </label>
+
+            <div className={`menu ${isMenuOpen ? "open" : ""}`}>
+              {/* Nội dung menu */}
+              <div className={`menu-content `}>
+                <NavLink
+                  to="/"
+                  exact={true}
+                  className="parent"
+                  onClick={closeMenu}
+                >
+                  Trang chủ
+                </NavLink>
+
+                <NavLink to="/page-mxh" className="parent" onClick={closeMenu}>
+                  Mạng xã hội
+                </NavLink>
+              </div>
+            </div>
+          </div>
+          {isLoggedIn ? (
+            <FlastInfo onLogout={handleLogout} className="rotate" />
+          ) : (
+            <div className={` menu ${isMenuOpen ? "open" : ""}`}>
+              <NavLink
+                to="/login"
+                className="subItem parent "
+                style={{ border: "none" }}
+              >
+                <img src={login} alt="logo" className="parentLogo" />
+              </NavLink>
+              {/* <span>ĐĂNG NHẬP</span> */}
+            </div>
+          )}
+        </nav>
+      )}{" "}
+    </>
   );
 };
 

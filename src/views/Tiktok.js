@@ -40,17 +40,17 @@ const Tiktok = () => {
       <div className="social-tiktok">
         <blockquote
           className="tiktok-embed"
-          cite="https://www.tiktok.com/@thanhluan1303"
-          data-unique-id="thanhluan1303"
+          cite="https://www.tiktok.com/@daylaixebinhduongg"
+          data-unique-id="daylaixebinhduongg"
           data-embed-type="creator"
         >
           <section>
             {" "}
             <a
               target="_blank"
-              href="https://www.tiktok.com/@thanhluan1303?refer=creator_embed"
+              href="https://www.tiktok.com/@daylaixebinhduongg?refer=creator_embed"
             >
-              @thanhluan1303
+              @daylaixebinhduongg
             </a>{" "}
           </section>{" "}
         </blockquote>{" "}

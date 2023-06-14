@@ -26,41 +26,29 @@ const RegisterAdvise = () => {
             type="search"
           />
         </div>
-        <div class="radio-input">
-          <label>
-            <input
-              type="radio"
-              id="value-1"
-              name="value-radio"
-              value="value-1"
-            />
-            <span>Hạng B1</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              id="value-2"
-              name="value-radio"
-              value="value-2"
-            />
-            <span>Hạng B2</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              id="value-3"
-              name="value-radio"
-              value="value-3"
-            />
-            <span>Hạng C</span>
-          </label>
-          <span class="selection"></span>
+        <div class="container-radio-input">
+          <form>
+            <label>
+              <input type="radio" name="radio"/>
+              <span>Hạng B1</span>
+            </label>
+            <label>
+              <input type="radio" name="radio" />
+              <span>Hạng B2</span>
+            </label>
+            <label>
+              <input type="radio" name="radio" />
+              <span>Hạng C</span>
+            </label>
+            <label>
+              <input type="radio" name="radio" />
+              <span>Hạng D</span>
+            </label>
+          </form>
         </div>
-        <div className="button-register">
-          <button>
-            <span>Đăng ký nghe tư vấn</span>
-          </button>
-        </div>
+        <div className="button-register-advise">
+                <button>Đăng ký</button>
+              </div>
       </div>
       <div className="register-advise-img">
         <img src={driver_img} alt="Driver_img" />

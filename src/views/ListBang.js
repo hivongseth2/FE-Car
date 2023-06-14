@@ -65,9 +65,9 @@ const BangDetail = () => {
                   <span> {item.advantage}</span>
                 </li>
               </ul>
-              <button>
-                <span>Đăng ký</span>
-              </button>
+              <div className="button-register-advise">
+                <button>Đăng ký</button>
+              </div>
             </div>
           </div>
         ))

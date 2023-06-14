@@ -5,6 +5,7 @@ import Nav1 from "./Nav1";
 import LisBang from "./ListBang";
 import RegisterAdvise from "./RegisterAdvise";
 import ApplicationProcess from "./ApplicationProcess";
+import AboutUs from "./AboutUs";
 
 const Sliderr = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -159,6 +160,7 @@ const Sliderr = () => {
       <LisBang />
       <RegisterAdvise />
       <ApplicationProcess />
+      <AboutUs />
     </main>
   );
 };
