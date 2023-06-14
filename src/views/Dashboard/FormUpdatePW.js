@@ -46,11 +46,9 @@ const FormUpdatePW = ({ handleCloseForm }) => {
         toast.success("Cập nhật khẩu thành công");
         handleResetForm();
       } else {
-        console.log("Password reset failed");
-        toast.error("Cập nhật mật khẩu thất bại");
+        setError("Cập nhật mật khẩu thất bại");
       }
     } catch (error) {
-      console.error(error);
       toast.error(error.message || "Cập nhật mật khẩu thất bại");
     }
   };
@@ -78,6 +76,8 @@ const FormUpdatePW = ({ handleCloseForm }) => {
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
+      <p className="error-message">{passwordError}</p>
+
       <div className="group-button">
         <button className="search-button" onClick={handleSubmit}>
           Cập nhật

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/DashboardScss/InfoStudentForAdmin.scss";
+import "../../styles/DashboardScss/TableStudent.scss";
 import MainLayoutAdmin from "./MainLayoutAdmin";
 import SearchByID from "../SearchByID";
 import FormUpdatePW from "./FormUpdatePW";
+
 import FormSearchStudent from "./FormSearchStudent";
 
 const InfoStudentForAdmin = () => {
@@ -80,7 +82,6 @@ const InfoStudentForAdmin = () => {
         }
 
         const responseData = await response.json();
-
         const fetchedData =
           responseData && responseData.data ? responseData.data : [];
         setData(fetchedData);
@@ -100,8 +101,10 @@ const InfoStudentForAdmin = () => {
       <div className="contain-table-info">
         <div className="header-info">
           <h1>Quản lý học viên</h1>
-          <button>Thêm học viên</button>
-          <button onClick={handleOpenForm}>Cập nhật mật khẩu</button>
+          <button className="add-button">Thêm học viên</button>
+          <button onClick={handleOpenForm} className="updatePW-button">
+            Cập nhật mật khẩu
+          </button>
         </div>
         {/* Tìm kiếm học viên theo ID */}
         <div className="searchByID">
@@ -126,31 +129,33 @@ const InfoStudentForAdmin = () => {
         {/* form cập nhật PW */}
         {/* <FormUpdatePW /> */}
 
-        <table className="striped-table-info">
-          <thead className="thead-dark">
-            <tr>
-              <th>No.</th>
-              <th>UserName</th>
-              <th>Role</th>
-              <th>Active</th>
-              <th className="text-center-info">Hành động</th>
-            </tr>
-          </thead>
-          <tbody>
-            {renderData.map((item) => (
-              <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.username}</td>
-                <td>{item.role}</td>
-                <td>{item.active}</td>
-                <td className="button-info">
-                  <button>Sửa</button>
-                  <button>Xóa</button>
-                </td>
+        <div class="container">
+          <table>
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>UserName</th>
+                <th>Role</th>
+                <th>Active</th>
+                <th className="text-center-info">Hành động</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {renderData.map((item) => (
+                <tr key={item.id}>
+                  <td>{item.id}</td>
+                  <td>{item.username}</td>
+                  <td>{item.role}</td>
+                  <td>{item.active}</td>
+                  <td className="button-info">
+                    <button>Sửa</button>
+                    <button>Xóa</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
       {showForm && (
         <div className="popup">

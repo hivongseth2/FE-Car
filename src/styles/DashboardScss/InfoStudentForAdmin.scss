@@ -121,12 +121,6 @@ td {
   font-weight: bolder;
   color: black;
 }
-
-
-
-
-
-
 .no-user {
   text-align: center;
   
@@ -145,4 +139,10 @@ td {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+.search-button{
+  margin-right: 20%;
+  border: white 2px solid;
+}
+.add-button{
+  margin-left: 60%;
+}

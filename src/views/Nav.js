@@ -14,6 +14,7 @@ import {
 import logo from "../img/Logo-IUH.jpg";
 import "../styles/Nav.scss";
 import FlastInfo from "./Forms/FlastInfo";
+import Nav1 from "./Nav1";
 
 const Nav = () => {
   const token = localStorage.getItem("token");
@@ -25,63 +26,45 @@ const Nav = () => {
     setIsLoggedIn(false);
   };
   return (
-    <div className="topnav">
-      {/* <div className="logo">
-          <img src={logo} alt="logo" className="logo" />
-        </div> */}
-      <input type="checkbox" id="menu-toggle" className="menu-toggle" />
-      <label htmlFor="menu-toggle" className="menu-icon">
-        <FontAwesomeIcon icon={faBars} />
-      </label>
-      <div className="mainMenu">
-        <NavLink to="/" exact={true}>
-          <FontAwesomeIcon id="a" icon={faHome} />
-          Trang chủ
-        </NavLink>
+    <>
+      <Nav1 />
+      {/* <div className="topnav">
+        <input type="checkbox" id="menu-toggle" className="menu-toggle" />
+        <label htmlFor="menu-toggle" className="menu-icon">
+          <FontAwesomeIcon icon={faBars} />
+        </label>
+        <div className="mainMenu">
+          <NavLink to="/" exact={true}>
+            <FontAwesomeIcon icon={faHome} />
+            Trang chủ
+          </NavLink>
 
-        <NavLink to="/socialmedia">
-          <p className="menu-content2">
-            <FontAwesomeIcon id="a" icon={faShareAlt}></FontAwesomeIcon>Social
-            Media
-          </p>
-        </NavLink>
-        <NavLink to="/edit-admin">
-          <p className="menu-content3">
-            {" "}
-            <FontAwesomeIcon id="a" icon={faTools} />
-            Chỉnh sửa thông tin
-          </p>
-        </NavLink>
-        <NavLink to="/info-sudent">
-          <p className="menu-content4">
-            <FontAwesomeIcon id="a" icon={faInfoCircle} />
-            Thông tin học viên
-          </p>
-        </NavLink>
-      </div>
-      {isLoggedIn ? (
-        <div className="submenu">
-          <FlastInfo onLogout={handleLogout} />
-        </div>
-      ) : (
-        <div className="submenu">
-          <NavLink to="/login">
-            <p className="menu-content5">
-              <FontAwesomeIcon icon={faSignInAlt} id="a" />
-              Đăng Nhập{" "}
-            </p>
+          <NavLink to="/page-mxh">
+            <FontAwesomeIcon icon={faShareAlt} />
+            Mạng xã hội
           </NavLink>
-          <NavLink to="/register">
-            <p className="menu-content6">
-              {" "}
-              <FontAwesomeIcon icon={faUserPlus} id="a" />
+          <NavLink to="/admin-login">Chỉnh sửa thông tin</NavLink>
+          <NavLink to="/info-sudent">Thông tin học viên</NavLink>
+        </div>
+        {isLoggedIn ? (
+          <div className="submenu fast-info">
+            <FlastInfo onLogout={handleLogout} />
+          </div>
+        ) : (
+          <div className="submenu">
+            <NavLink to="/login">
+              <FontAwesomeIcon icon={faSignInAlt} />
+              Đăng Nhập
+            </NavLink>
+            <NavLink to="/register">
+              <FontAwesomeIcon icon={faUserPlus} />
               Đăng kí
-            </p>
-          </NavLink>
-          <span className="hotline">Hotline: 0909789789</span>
-        </div>
-      )}
-    </div>
+            </NavLink>
+            <span className="hotline">Hotline: 0909789789</span>
+          </div>
+        )}
+      </div> */}
+    </>
   );
 };
 

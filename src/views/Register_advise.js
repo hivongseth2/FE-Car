@@ -50,7 +50,10 @@ const Register_Advise = () => {
     // event.preventDefault();
     try {
       const response = await fetch(
-        "http://trungtamdaotaolaixebinhduong.com:8080/api/contact/send-contact",
+        `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/contact/send-contact`,
         {
           method: "POST",
           headers: {
@@ -66,17 +69,14 @@ const Register_Advise = () => {
       const data = await response.json();
       console.log(data);
 
-
       if (data.errorCode !== undefined) {
         console.log(data);
         toast.error(`Vui lòng nhập đúng số điện thoại`);
         return;
       }
 
-
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data));
-
 
       // history.push("/");
       setTimeout(function () {
