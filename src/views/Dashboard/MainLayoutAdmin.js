@@ -11,7 +11,10 @@ function MainLayoutAdmin({ children }) {
             <Link to="/">Trang chủ</Link>
           </li>
           <li>
-            <Link to="/edit-info">Thông tin học viên</Link>
+            <Link to="/edit-info">Tài khoản</Link>
+          </li>
+          <li>
+            <Link to="/student-management">Quản lý học viên</Link>
           </li>
           <li>Theo dõi học viên</li>
           <li>Quản lý bài đăng</li>

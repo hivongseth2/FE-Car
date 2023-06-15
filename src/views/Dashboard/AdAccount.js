@@ -67,8 +67,8 @@ const AdAccount = ({ handleCloseForm }) => {
             <input
               type="radio"
               name="radio"
-              value="ROLE_USER"
-              checked={selectedRole === "ROLE_USER"}
+              value="user"
+              checked={selectedRole === "user"}
               onChange={handleRadioChange}
             />
             <span className="name">USER</span>
@@ -77,8 +77,8 @@ const AdAccount = ({ handleCloseForm }) => {
             <input
               type="radio"
               name="radio"
-              value="ROLE_STAFF"
-              checked={selectedRole === "ROLE_STAFF"}
+              value="staff"
+              checked={selectedRole === "staff"}
               onChange={handleRadioChange}
             />
             <span className="name">STAFF</span>
@@ -88,8 +88,8 @@ const AdAccount = ({ handleCloseForm }) => {
             <input
               type="radio"
               name="radio"
-              value="ROLE_ADMIN"
-              checked={selectedRole === "ROLE_ADMIN"}
+              value="admin"
+              checked={selectedRole === "admin"}
               onChange={handleRadioChange}
             />
             <span className="name">ADMIN</span>
