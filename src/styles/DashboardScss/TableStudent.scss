@@ -105,7 +105,7 @@ th,
 td {
 	padding: 15px;
 	background-color: rgba(255,255,255,0.2);
-	color: #fff;
+	color: #020202;
 }
 
 th {
@@ -134,9 +134,15 @@ tbody {
 				right: 0;
 				top: -9999px;
 				bottom: -9999px;
-				background-color: rgba(255,255,255,0.2);
+				background-color: rgba(255,255,255,0.2) !important;
 				z-index: -1;
 			}
+		}
+		img{
+			width:300px;
+			height: 300px;
+			object-fit: contain;
+
 		}
 	}
 }
@@ -166,6 +172,5 @@ tbody {
   width: 100%;
 }
 .content-sibebar-admin{
-  position: fixed;
-  left: 450px;
+
 }
