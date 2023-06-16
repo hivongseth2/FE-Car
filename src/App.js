@@ -22,6 +22,7 @@ import InfoStudent from "./views/InfoStudent";
 import Logins from "./views/Logins";
 import SocialPage from "./views/SocialPage";
 import AdminLogin from "./views/Dashboard/AdminLogin";
+import StudentManagement from "./views/Dashboard/StudentManagement";
 
 function App() {
   return (
@@ -68,6 +69,9 @@ function App() {
             </Route>
             <Route path="/admin-login">
               <AdminLogin />
+            </Route>
+            <Route path="/student-management">
+              <StudentManagement />
             </Route>
             <Route path="/follow-admin">
               <FollowAdmin />

@@ -49,10 +49,13 @@ const BangDetail = () => {
             <div class="table-content">
               <ul class="feature-list clearfix">
                 <li>
-                  Đội tuổi<span> &gt; 21 tuổi</span>
+                  Đội tuổi<span> &gt; {item.allowAge} tuổi</span>
                 </li>
                 <li>
-                  Thời gian học<span>{item.studyTime}</span>
+                  Thời gian học<span>{item.studyTime} tháng</span>
+                </li>
+                <li>
+                  Bổ sung<span>{item.title}</span>
                 </li>
                 <li>
                   Loại xe <span>{item.categoryCar}</span>

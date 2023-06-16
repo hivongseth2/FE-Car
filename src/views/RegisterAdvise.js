@@ -1,8 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 import "../styles/RegisterAdvise.scss";
 import driver_img from "../img/driver_car.jpg";
 
 const RegisterAdvise = () => {
+  const [fullName, setFullName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [degree, setDegree] = useState("");
+
+  const handleRegisterAdvise = async (e) => {
+    try {
+      const response = await fetch(
+        `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/contact/send-contact`,
+        {
+          method: "POST",
+          headers: {
+            "content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            fullName: fullName,
+            note: degree,
+            phoneNumber: phoneNumber,
+          }),
+        }
+      );
+      const data = await response.json();
+  
+      if (data.errorCode !== undefined) {
+        toast.error(`Vui lòng nhập đúng số điện thoại`);
+        return;
+      }
+  
+      setTimeout(function () {
+        window.location.reload();
+      }, 5000);
+  
+      toast.success(
+        `Đăng ký thành công. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất`
+      );
+    } catch (error) {
+      console.error("Error add data:", error);
+      toast.error("Đã xảy ra lỗi khi thêm thông tin");
+    }
+  };
+  
+
   return (
     <div className="register-advise-container">
       <div className="register-advise-content">

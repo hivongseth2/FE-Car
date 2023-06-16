@@ -20,7 +20,7 @@ const ApplicationProcess = () => {
         <img src={imgdriver} alt="img-diver"></img>
         <div className="aplication-process-now">
           <div className="aplication-process-now-img">
-            <img src={imgregisterwrite}></img>
+            <img src={imgregisterwrite} alt=""></img>
           </div>
           <div className="aplication-process-now-content">
             <h4>Hãy đăng ký ngay</h4>
@@ -31,7 +31,7 @@ const ApplicationProcess = () => {
       </div>
       <div className="aplication-process-content">
         <div className="aplication-process-1">
-          <img src={imgmessage}></img>
+          <img src={imgmessage} alt="img1"></img>
           <h4>Đăng ký để được nghe tư vấn</h4>
           <p>
             Điền thông tin để lại số điện thoại để được gọi và nghe trung tâm tư
@@ -39,7 +39,7 @@ const ApplicationProcess = () => {
           </p>
         </div>
         <div className="aplication-process-2">
-          <img src={imgprofile}></img>
+          <img src={imgprofile} alt="img2"></img>
           <h4>Nộp hồ sơ cho trung tâm</h4>
           <p>
             Sau khi được nghe tư vấn về hạng xe, cũng như cách thức học và thi
@@ -47,7 +47,7 @@ const ApplicationProcess = () => {
           </p>
         </div>
         <div className="aplication-process-3">
-          <img src={carimg}></img>
+          <img src={carimg} alt="img3"></img>
           <h4>Nhận lịch học và đi học</h4>
           <p>
             Sau khi trung tâm sắp xếp hồ sơ và lên lịch học sẽ báo cho bạn qua

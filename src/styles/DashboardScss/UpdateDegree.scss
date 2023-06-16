@@ -1,19 +1,21 @@
-.form-add-degree {
+.form-update-degree {
   max-width: 700px;
   margin: 0 auto;
   padding: 1rem;
+  background-color: #f0f0f0;
+  border-radius: 10px;
 }
-.container-lable-add-degree {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-}
-.form-add-degree h1 {
+.form-update-degree h1 {
   margin-bottom: 10px;
 }
-.form-add-degree input,
-.form-add-degree textarea,
-.form-add-degree select {
+.container-lable-update-degree{
+    display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px
+}
+.form-update-degree input,
+.form-update-degree textarea,
+.form-update-degree select {
   position: relative;
   height: 50px;
   width: 100%;
@@ -27,14 +29,15 @@
   padding: 0 15px;
 }
 
-.button-addbanglai {
+.button-update-degree {
   display: flex;
   justify-content: flex-end;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.button-addbanglai input[type="submit"],
-.button-addbanglai input[type="button"] {
+.button-update-degree input[type="submit"],
+.button-update-degree input[type="button"] {
   border-radius: 10px;
   border: none;
   outline: none;
@@ -44,21 +47,20 @@
   margin: 0 10px;
 }
 
-.button-addbanglai input[type="submit"] {
+.button-update-degree input[type="submit"] {
   background-color: #4ee173;
   color: #fff;
 }
-.button-addbanglai input[type="button"] {
+.button-update-degree input[type="button"] {
   background-color: #e74c3c;
   color: #fff;
 }
 @media screen and (max-width: 600px) {
-  .small-container {
-    padding: 0 0.5rem;
-  }
-
-  .form-add-degree {
-    width: 100%;
+  .form-update-degree {
+    width: 95%;
     max-width: none;
+  }
+  .container-lable-update-degree {
+    grid-template-columns: 1fr;
   }
 }

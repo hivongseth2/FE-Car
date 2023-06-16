@@ -198,7 +198,7 @@ const FollowAdmin = () => {
                   </option>
                   {degree.map((item) => (
                     <option key={item.id} value={item.id}>
-                      {item.title}
+                      {item.rating}
                     </option>
                   ))}
                 </select>
@@ -237,7 +237,7 @@ const FollowAdmin = () => {
               {/* <td>{item.id.student.id}</td> */}
               <td>{item.id.student.fullName}</td>
               <td>{item.id.student.phoneNumber}</td>
-              <td>{item.id.degree.title}</td>
+              <td>{item.id.degree.rating}</td>
               <td>{item.course}</td>
 
               <td>{item.hoursRunningDAT}</td>

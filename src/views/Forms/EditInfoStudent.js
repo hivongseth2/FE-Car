@@ -10,6 +10,9 @@ const EditInfoStudent = ({
   const [name, setName] = useState(selectedInfoStudent.fullName);
   const [birthday, setBirthday] = useState(selectedInfoStudent.birthday);
   const [address, setAddress] = useState(selectedInfoStudent.address);
+  const [phoneNumber, setPhoneNumber] = useState(
+    selectedInfoStudent.phoneNumber
+  );
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -28,9 +31,10 @@ const EditInfoStudent = ({
           Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify({
-          fullName: name,
-          birthday: birthday,
           address: address,
+          birthday: birthday,
+          fullName: name,
+          phoneNumber: phoneNumber,
         }),
       });
 
@@ -73,6 +77,14 @@ const EditInfoStudent = ({
           name="address"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
+        />
+        <label htmlFor="phoneNumber">Số điện thoại</label>
+        <input
+          id="phoneNumber"
+          type="text"
+          name="phoneNumber"
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
         />
         <div className="button-addbanglai">
           <input type="submit" value="Lưu" onClick={handleUpdate} />
