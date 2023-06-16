@@ -3,6 +3,8 @@ import axios from "axios";
 import AddSlide from "./AddSlide";
 import { toast } from "react-toastify";
 import "../SlideAdmin/SliderAdmin.scss";
+import "../../styles/DashboardScss/TableStudent.scss";
+
 import MainLayoutAdmin from "../Dashboard/MainLayoutAdmin";
 
 const SlideAdmin = () => {

@@ -199,7 +199,7 @@ const StudentManagement = () => {
                   <td>{format(new Date(item.updatedDate), "dd/MM/yyyy")}</td>
                   <td className="button-info">
                     <button onClick={handleShowUpdateStudentPopup}>Sửa</button>
-                    <button type="button" onClick={() => handleResetPassword()}>
+                    <button type="button-reset-pw" style={{ color: 'black' }} onClick={() => handleResetPassword()}>
                       Reset mật khẩu
                     </button>
                     <button onClick={handleShowDeleteStudentPopup}>Xóa</button>

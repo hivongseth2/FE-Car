@@ -17,7 +17,7 @@ import MainLayoutAdmin from "./views/Dashboard/MainLayoutAdmin";
 import InfoStudentForAdmin from "./views/Dashboard/InfoStudentForAdmin";
 import QuanLyBang from "./views/Dashboard/QuanLyBang";
 import NewCustomer from "./views/Dashboard/NewCustomer";
-
+import FollowAdmin from "./views/FollowAdmin/FollowAdmin";
 import InfoStudent from "./views/InfoStudent";
 import Logins from "./views/Logins";
 import SocialPage from "./views/SocialPage";
@@ -72,6 +72,9 @@ function App() {
             </Route>
             <Route path="/student-management">
               <StudentManagement />
+            </Route>
+            <Route path="/follow-admin">
+              <FollowAdmin />
             </Route>
           </Switch>
         </header>
