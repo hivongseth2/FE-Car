@@ -13,46 +13,45 @@ const FollowAdmin = () => {
   const [inputSearch, setInputSearch] = useState("");
   const [selectedDegree, setSelectedDegree] = useState(-1);
   const [isDegree, setIsDegree] = useState(false);
-  const [urlDegree,setUrlDegree] = useState("")
-  const[isSearch,setIsSearch] = useState(false)
+  const [urlDegree, setUrlDegree] = useState("");
+  const [editingItem, setEditingItem] = useState(null);
+
   const params = {
     filter: inputSearch,
     page: 0,
-    size: 10
+    size: 10,
   };
-  const url = 'http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow';
+  const url = "http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow";
 
-
-// ========config default
-
+  // ========config default
 
   const config = {
     headers: {
-      'Authorization': `Bearer ${token}`,
-      'accept': 'application/json'
+      Authorization: `Bearer ${token}`,
+      accept: "application/json",
     },
-    params
+    params,
   };
   // =========config của Search Degree
   const paramsDe = {
-    'degree-id': selectedDegree,
+    "degree-id": selectedDegree,
     filter: inputSearch,
     page: 0,
-    size: 10
+    size: 10,
   };
-  
+
   const configDe = {
     headers: {
-      'Authorization': `Bearer ${token}`,
-      'accept': 'application/json'
+      Authorization: `Bearer ${token}`,
+      accept: "application/json",
     },
-    paramsDe
+    paramsDe,
   };
 
   const handleDegreeChange = (e) => {
     setInputSearch("");
     setSelectedDegree(e.target.value);
-    console.log(selectedDegree)
+    console.log(selectedDegree);
   };
   // ============
   useEffect(() => {
@@ -63,43 +62,52 @@ const FollowAdmin = () => {
     fetchDegree();
   }, []);
 
+  useEffect(() => {
+    if (selectedDegree == -1) {
+      setIsDegree(false);
+    } else {
+      setIsDegree(true);
+      setUrlDegree(
+        `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow/by-degree?degree-id=${selectedDegree}`
+      );
+    }
+  }, [selectedDegree]);
 
-useEffect(() => {
-  if (selectedDegree == -1) {
-    setIsDegree(false);
-  } else {
-    setIsDegree(true);
-    setUrlDegree(
-      `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow/by-degree?degree-id=${selectedDegree}`
-    );
-  }
-}, [selectedDegree]);
-
-
-useEffect(() => {
-  if (!isDegree) {
-    fetchData();
-  } else {
-    fetchFollowByDegree();
-  }
-}, [isDegree, urlDegree]);
-// ==========================fetch data
+  useEffect(() => {
+    if (!isDegree) {
+      fetchData();
+    } else {
+      fetchFollowByDegree();
+    }
+  }, [isDegree, urlDegree]);
+  // ==========================fetch data
   const fetchData = () => {
-    axios.get(url, config)
-    .then(response => {
-      setData(response.data.data);
-      setTotalPage(response.data.totalPages);
-      setCurrentPage(response.data.currentPage + 1);
-      console.log(currentPage);
-    })
+    axios
+      .get(url, config)
+      .then((response) => {
+        setData(response.data.data);
+        setTotalPage(response.data.totalPages);
+        setCurrentPage(response.data.currentPage + 1);
+        console.log(currentPage);
+      })
       .catch((error) => {
         console.error(error);
       });
   };
-//=============fetch loại bằng
+  // ========Edit
+
+  // const handleEditClick = (index) => {
+  //   const editingItem= data.find((slide) => slide.id === slideId);
+  //   setEditingSlide(slideToEdit);
+  // };
+
+  //=============fetch loại bằng
   const fetchDegree = () => {
     axios
-      .get("http://trungtamdaotaolaixebinhduong.com:8080/api/degree?size=10", {})
+      .get(
+        "http://trungtamdaotaolaixebinhduong.com:8080/api/degree?size=10",
+        {}
+      )
       .then((response) => {
         setDegree(response.data.data);
         console.log("loai bang", degree);
@@ -108,13 +116,10 @@ useEffect(() => {
         console.error(error);
       });
   };
-//=================fetch follow loại bằng
+  //=================fetch follow loại bằng
   const fetchFollowByDegree = () => {
     axios
-      .get(
-        urlDegree,configDe
-        
-      )
+      .get(urlDegree, configDe)
       .then((response) => {
         setData(response.data.data);
       })
@@ -124,23 +129,18 @@ useEffect(() => {
   };
   // ==================== fetch data search
 
-
   const handleInputSearch = (e) => {
-
     setInputSearch(e.target.value);
-
-    
   };
 
-
   const handleClickSearch = () => {
-    console.log(isDegree)
-    if (isDegree===false) {
-      console.log("135",isDegree)
+    console.log(isDegree);
+    if (isDegree === false) {
+      console.log("135", isDegree);
       fetchData();
     } else {
-      setUrlDegree(`http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow/by-degree?degree-id=${selectedDegree}&filter=${inputSearch}`
-
+      setUrlDegree(
+        `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow/by-degree?degree-id=${selectedDegree}&filter=${inputSearch}`
       );
     }
   };
@@ -149,8 +149,7 @@ useEffect(() => {
       fetchFollowByDegree();
     }
   }, [urlDegree]);
-  
- 
+
   return (
     <MainLayoutAdmin>
       <div className="contain-table-info">
@@ -175,7 +174,13 @@ useEffect(() => {
               />
             </div>
             <div class="input-field third-wrap">
-              <button class="btn-search" type="button" onClick ={ () =>{handleClickSearch()}}>
+              <button
+                class="btn-search"
+                type="button"
+                onClick={() => {
+                  handleClickSearch();
+                }}
+              >
                 SEARCH
               </button>
             </div>
@@ -188,7 +193,9 @@ useEffect(() => {
                   className="fieldSelect"
                   onChange={handleDegreeChange}
                 >
-                  <option value="-1" key={-1}>Tất cả</option>
+                  <option value="-1" key={-1}>
+                    Tất cả
+                  </option>
                   {degree.map((item) => (
                     <option key={item.id} value={item.id}>
                       {item.title}
@@ -222,9 +229,9 @@ useEffect(() => {
         </thead>
 
         <tbody>
-          {data.map((item) => (
+          {data.map((item, index) => (
             <tr
-              key={`${item.id.student.id} ${item.id.degree.id} `}
+              key={`${item.id.student.id}${item.id.degree.id}`}
               className="rowFollow"
             >
               {/* <td>{item.id.student.id}</td> */}
@@ -242,6 +249,21 @@ useEffect(() => {
               <td>{item.simulatedTestScore}</td>
               <td>{item.teacher}</td>
               <td>{item.note}</td>
+
+              {/* ==== */}
+
+              <td className="button-info">
+                {/* {editingItem && editingItem.id === slide.id ? (
+                    <button onClick={handleSaveClick}>Lưu</button>
+                  ) : (
+                    <button onClick={() => handleEditClick(slide.id)}>
+                      Sửa
+                    </button>
+                  )}
+                  <button onClick={() => handleDeleteClick(slide.id)}>
+                    Xóa
+                  </button> */}
+              </td>
             </tr>
           ))}
         </tbody>
