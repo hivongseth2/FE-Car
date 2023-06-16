@@ -82,9 +82,6 @@ const InfoStudent = () => {
   if (data.length === 0) {
     return <Loading />;
   }
-  if (datafollow.length === 0) {
-    return <Loading />;
-  }
   const formattedBirthday = format(new Date(data.birthday), "dd/MM/yyyy");
 
   const handleEditClick = () => {

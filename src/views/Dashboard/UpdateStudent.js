@@ -6,9 +6,8 @@ import { format} from "date-fns";
 
 const UpdateStudent = ({ handleCloseForm, selectedInfoStudent }) => {
   const [fullName, setFullName] = useState(selectedInfoStudent.fullName);
-  const [phoneNumber, setPhoneNumber] = useState(selectedInfoStudent.phoneNumber);
   const [address, setAddress] = useState(selectedInfoStudent.address);
-  const [birthday, setBirthday] = useState(format(new Date(selectedInfoStudent.birthday), "dd/MM/yyyy"));
+  const [birthday, setBirthday] = useState(format(new Date(selectedInfoStudent.birthday), "yyyy-MM-dd"));
 
   const handleUpdateStudent = async (e) => {
     e.preventDefault();
@@ -24,10 +23,9 @@ const UpdateStudent = ({ handleCloseForm, selectedInfoStudent }) => {
           Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify({
-          address: address,
-          birthday: birthday,
-          fullName: fullName,
-          phoneNumber: phoneNumber,
+            address: address,
+            birthday: birthday,
+            fullName: fullName,
         }),
       });
 
@@ -57,14 +55,6 @@ const UpdateStudent = ({ handleCloseForm, selectedInfoStudent }) => {
           name="fullName"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
-        />
-        <label htmlFor="phoneNumber">Số điện thoại</label>
-        <input
-          id="phoneNumber"
-          type="text"
-          name="phoneNumber"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
         />
         <label htmlFor="address">Địa chỉ</label>
         <input
