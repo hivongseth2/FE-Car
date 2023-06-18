@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Register from "./views/Register";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SlideAdmin from "./views/SlideAdmin/SlideAdmin";
+import Document from "./views/Document";
 
 //admin
 import MainLayoutAdmin from "./views/Dashboard/MainLayoutAdmin";
@@ -53,6 +54,9 @@ function App() {
 
             <Route path="/page-mxh">
               <SocialPage />
+            </Route>
+            <Route path="/document">
+              <Document />
             </Route>
 
             <Route path="/edit-slide">

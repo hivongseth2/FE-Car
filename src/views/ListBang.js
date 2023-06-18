@@ -46,7 +46,7 @@ const BangDetail = () => {
               <h4>Hạng {item.rating}</h4>
               <p>{item.description}</p>
             </div>
-            <div class="table-content">
+            <div class="table-content-degree">
               <ul class="feature-list clearfix">
                 <li>
                   Đội tuổi<span> &gt; {item.allowAge} tuổi</span>

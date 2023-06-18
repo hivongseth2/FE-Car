@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../styles/DashboardScss/InfoStudentForAdmin.scss";
+// import "../../styles/DashboardScss/InfoStudentForAdmin.scss";
 import MainLayoutAdmin from "./MainLayoutAdmin";
 import AddBangLai from "./AddBangLai";
 import EditBangLai from "./EditBangLai";
@@ -24,6 +24,7 @@ const QuanLyBang = () => {
           }/api/degree`
         );
         let data = result && result.data ? result.data.data : [];
+
         setData(data);
       } catch (error) {
         console.error("Error fetching data:", error);

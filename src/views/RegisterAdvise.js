@@ -8,6 +8,10 @@ const RegisterAdvise = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [degree, setDegree] = useState("");
 
+  const handleDegreeChange = (event) => {
+    setDegree(event.target.value);
+  };
+
   const handleRegisterAdvise = async (e) => {
     try {
       const response = await fetch(
@@ -28,16 +32,16 @@ const RegisterAdvise = () => {
         }
       );
       const data = await response.json();
-  
+
       if (data.errorCode !== undefined) {
         toast.error(`Vui lòng nhập đúng số điện thoại`);
         return;
       }
-  
+
       setTimeout(function () {
         window.location.reload();
       }, 5000);
-  
+
       toast.success(
         `Đăng ký thành công. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất`
       );
@@ -46,7 +50,6 @@ const RegisterAdvise = () => {
       toast.error("Đã xảy ra lỗi khi thêm thông tin");
     }
   };
-  
 
   return (
     <div className="register-advise-container">
@@ -63,37 +66,63 @@ const RegisterAdvise = () => {
             name="text"
             placeholder="Nhập tên của bạn"
             type="search"
+            onChange={(e) => setFullName(e.target.value)}
           />
           <input
             class="input"
             name="text"
             placeholder="Nhập số điện thoại"
             type="search"
+            onChange={(e) => setPhoneNumber(e.target.value)}
           />
         </div>
-        <div class="container-radio-input">
+        <div className="container-radio-input">
           <form>
             <label>
-              <input type="radio" name="radio"/>
+              <input
+                type="radio"
+                name="radio"
+                value="Hạng B1"
+                checked={degree === "Hạng B1"}
+                onChange={handleDegreeChange}
+              />
               <span>Hạng B1</span>
             </label>
             <label>
-              <input type="radio" name="radio" />
+              <input
+                type="radio"
+                name="radio"
+                value="Hạng B2"
+                checked={degree === "Hạng B2"}
+                onChange={handleDegreeChange}
+              />
               <span>Hạng B2</span>
             </label>
             <label>
-              <input type="radio" name="radio" />
+              <input
+                type="radio"
+                name="radio"
+                value="Hạng C"
+                checked={degree === "Hạng C"}
+                onChange={handleDegreeChange}
+              />
               <span>Hạng C</span>
             </label>
             <label>
-              <input type="radio" name="radio" />
+              <input
+                type="radio"
+                name="radio"
+                value="Hạng D"
+                checked={degree === "Hạng D"}
+                onChange={handleDegreeChange}
+              />
               <span>Hạng D</span>
             </label>
           </form>
         </div>
         <div className="button-register-advise">
-                <button>Đăng ký</button>
-              </div>
+          <button onClick={handleRegisterAdvise}>Đăng ký</button>
+        </div>
       </div>
       <div className="register-advise-img">
         <img src={driver_img} alt="Driver_img" />

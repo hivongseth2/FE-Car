@@ -56,7 +56,7 @@
   font-weight: 600;
   padding-left: 20px;
   padding-right: 43px;
-  color: #FBCA1F;
+  color: #fbca1f;
 }
 
 .pricing-table .table-header h2 .course {
@@ -84,7 +84,7 @@
   color: #121113;
   padding: 13px 0px;
   border-bottom: 1px solid #e8eaed;
-  //font-family: Lexend;
+  font-family: Lexend;
   font-weight: 500;
   line-height: 26px;
   padding: 13px 0px;
@@ -95,28 +95,29 @@
   margin-bottom: 20px;
 }
 
-.pricing-table .table-content {
+.pricing-table .table-content-degree {
   position: relative;
   display: block;
-  padding: 20px 40px 40px 40px;
+  padding: 20px 30px 40px 30px;
 }
-.table-content span {
-  color: #75767b;
-  font-weight: 500;
-  line-height: 26px;
-  text-align: right;
-}
-.table-content li span {
+// .table-content-degree span {
+//   color: #75767b;
+//   font-weight: 500;
+//   line-height: 30px;
+//   text-align: right;
+// }
+.table-content-degree li span {
   display: inline-block;
   float: right;
   color: #75767b;
+
   font-weight: 500;
   line-height: 26px;
   text-align: right;
 }
 .button-register-advise {
   button {
-    background: #FBCA1F;
+    background: #fbca1f;
     font-family: inherit;
     padding: 0.6em 1.3em;
     font-weight: 900;
@@ -125,14 +126,17 @@
     border-radius: 0.4em;
     box-shadow: 0.1em 0.1em;
   }
-  
+
   button:hover {
     transform: translate(-0.05em, -0.05em);
     box-shadow: 0.15em 0.15em;
   }
-  
+
   button:active {
     transform: translate(0.05em, 0.05em);
     box-shadow: 0.05em 0.05em;
   }
+}
+@media screen and (max-width: 768px) {
+ 
 }

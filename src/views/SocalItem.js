@@ -45,14 +45,9 @@ const SocalItem = () => {
             <p className="ChanelName">
               {data.items[0].brandingSettings.channel.title}
             </p>
-            <p>
-              <span className="description">
-                {data.items[0].snippet.localized.description}{" "}
-              </span>
-            </p>
+            <p className="description">{data.items[0].snippet.localized.description} </p>
             <p className="subrice">
-              Nguời theo dõi:
-              <span>{data.items[0].statistics.subscriberCount}</span>
+              Nguời theo dõi: {data.items[0].statistics.subscriberCount}
             </p>
             <p>
               <a
@@ -63,9 +58,10 @@ const SocalItem = () => {
                 <button className="button-social-item-youtube">
                   <FontAwesomeIcon
                     icon={faYoutube}
-                    style={{ color: "#ff0000" }}
+                    style={{ color: "#ff0000", paddingRight: "8px" }}
+
                   />
-                  <span className="content">Mở Youtube</span>
+                  Mở Youtube
                 </button>
               </a>
             </p>

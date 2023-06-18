@@ -9,7 +9,8 @@ import FormUpdatePW from "./FormUpdatePW";
 import FormSearchStudent from "./FormSearchStudent";
 
 const InfoStudentForAdmin = () => {
-  const [showForm, setShowForm] = useState(false);
+  const [showFormUpdateAccount, setShowFormUpdateAccount] = useState(false);
+  const [showFormAddAccount, setShowFormAddAccount] = useState(false);
   const accessToken = localStorage.getItem("token");
   const [searchId, setSearchId] = useState("");
   const [isSearching, setIsSearching] = useState(false);
@@ -17,13 +18,14 @@ const InfoStudentForAdmin = () => {
   const [searchResult, setSearchResult] = useState([]);
   const [data, setData] = useState([]);
 
-  const handleOpenForm = () => {
-    setShowForm(true);
+  const handleOpenFormUpdateAccount = () => {
+    setShowFormUpdateAccount(true);
   };
 
-  const handleCloseForm = () => {
-    setShowForm(false);
-  };
+
+  const handleOpenFormAddAccount = () => {
+    setShowFormAddAccount(true);
+  }
 
   const handleSearch = async () => {
     try {
@@ -104,7 +106,7 @@ const InfoStudentForAdmin = () => {
       <div className="contain-table-info">
         <div className="header-info">
           <h1>Quản lý học viên</h1>
-          <button onClick={handleOpenForm}>Tạo tài khoản</button>
+          <button onClick={handleOpenFormAddAccount}>Tạo tài khoản</button>
         </div>
         {/* Tìm kiếm học viên theo ID */}
         <div className="searchByID">
@@ -148,7 +150,7 @@ const InfoStudentForAdmin = () => {
                   <td>{item.role}</td>
                   <td>{item.active}</td>
                   <td className="button-info">
-                    <button>Sửa</button>
+                    <button onClick={handleOpenFormUpdateAccount}>Sửa</button>
                     <button>Xóa</button>
                   </td>
                 </tr>
@@ -157,14 +159,21 @@ const InfoStudentForAdmin = () => {
           </table>
         </div>
       </div>
-      {showForm && (
+      {showFormUpdateAccount && (
         <div className="popup">
           <div className="popup-inner">
-            <AdAccount handleCloseForm={handleCloseForm} />
-            <FormUpdatePW handleCloseForm={handleCloseForm} />
+            <FormUpdatePW handleCloseForm={() => handleOpenFormAddAccount(false)} />
           </div>
         </div>
       )}
+      {showFormAddAccount && (
+        <div className="popup">
+          <div className="popup-inner">
+            <AdAccount handleCloseForm={() => setShowFormAddAccount(false)} />
+          </div>
+        </div>
+      )}
+      
     </MainLayoutAdmin>
   );
 };

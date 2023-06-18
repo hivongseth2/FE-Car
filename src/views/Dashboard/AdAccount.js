@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../styles/DashboardScss/AddAccount.scss";
+import { toast } from "react-toastify";
 
 const AdAccount = ({ handleCloseForm }) => {
   const [userName, setUserName] = useState("");
@@ -13,14 +14,14 @@ const AdAccount = ({ handleCloseForm }) => {
 
   const handleAddAccount = async (e) => {
     e.preventDefault();
-  
+
     try {
       const accessToken = localStorage.getItem("token");
       const url = `${
         process.env.REACT_DOMAIN ||
         "http://trungtamdaotaolaixebinhduong.com:8080"
       }/api/admin/account/create`;
-  
+
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -33,7 +34,9 @@ const AdAccount = ({ handleCloseForm }) => {
           username: userName,
         }),
       });
-  
+      console.log("API response:", response);
+      handleCloseForm();
+      toast.success("Thêm tài khoản thành công");
       if (!response.ok) {
         throw new Error("Error updating data");
       }
@@ -96,7 +99,7 @@ const AdAccount = ({ handleCloseForm }) => {
           </label>
         </div>
         <div className="button-addbanglai">
-        <input type="submit" value="Thêm" onClick={handleAddAccount} />
+          <input type="submit" value="Thêm" onClick={handleAddAccount} />
           <input type="submit" value="Đóng" onClick={handleCloseForm} />
         </div>
       </form>
