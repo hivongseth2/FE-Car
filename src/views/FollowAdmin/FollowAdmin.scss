@@ -704,4 +704,36 @@ fieldset {
     background-color: #fff;
     border-radius: 3px;
   }
-  
+  table.striped-table-info{
+    tbody{
+     .rowFollow{
+        td{
+            button.creaseButton{
+              background-color: #2d62d3;
+            }
+            button.editButton{
+              background-color: #d4af07;
+
+            }
+            button.deleteButton{
+              background-color: #c22d00;
+
+            }
+            button.saveButton{
+              background-color: #03f523;
+
+            }
+            button{
+            
+              padding: 2px;
+            }
+           
+          
+          input[type=text], input[type=file]{
+            padding: 2px ;
+            width: 60px;
+          }
+        }
+     }
+    }
+  }
