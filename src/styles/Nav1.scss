@@ -37,7 +37,7 @@
   position: sticky;
   z-index: 999;
   top: 0;
-
+  height: 9em;
   background: #6200ff;
 
   background-image: linear-gradient(to right, #07077a, #fafafa);
@@ -51,36 +51,35 @@
   justify-content: center;
   // height: 200px;
   .logo img {
-    width: 80px;
-    height: 80px;
-    position: relative;
+    width: 120px;
+    height: 120px;
+    position: absolute;
     top: 10px;
-    // left: -300px;
+    left: 3em;
+    z-index: 9;
   }
 }
 #trapezoid {
-  // background: -webkit-linear-gradient(to right, #333399, #ff00cc);
-  // margin-left: -59px;
   box-sizing: content-box;
   height: 0;
   border: 200px solid rgba(0, 0, 0, 0);
   border-top: 0 solid;
   border-bottom: 120px solid rgba(2, 60, 126, 0.884);
   border-radius: 20px 20px 0 0;
-  font: normal 100% / normal Arial, Helvetica, sans-serif;
+  font: normal 100%/normal Arial, Helvetica, sans-serif;
   color: rgba(0, 0, 0, 0.7);
   text-overflow: clip;
   transform: rotateX(180deg);
   margin-top: -53px;
-  width: 450px;
+  width: 100%;
   display: flex;
-
   flex-direction: row;
-
   transition: all 0.7s ease;
   padding-left: 10%;
   align-items: baseline;
-}
+  flex-wrap: nowrap;
+  align-content: stretch;
+  justify-content: space-around;}
 
 .subnavbtn {
   -webkit-transform: rotateX(180deg);
@@ -388,7 +387,7 @@
     text-overflow: clip;
     transform: rotateX(180deg);
     margin-top: -53px;
-    width: 550px;
+    width: 100%;
     display: flex;
     grid-template-columns: auto auto;
 
@@ -479,7 +478,7 @@
   // padding-bottom: 30px;
   margin: auto;
   position: inline-block;
-  left: 7%;
+  // left: 7%;
  
 
 }
