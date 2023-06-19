@@ -76,29 +76,6 @@ const InfoStudentForAdmin = () => {
     setEditedData({});
   };
 
-  const handleActiveChange = async (itemId, checked) => {
-    try {
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/account/deactive?id=${itemId}`;
-
-      const response = await fetch(url, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error("Error deactivating account");
-      }
-
-      // Update the state or handle the success response
-      // ...
-    } catch (error) {
-      console.error("Error deactivating account:", error);
-    }
-  };
-
   const handleSaveClick = () => {
     const updatedData = renderData.map((item) => {
       if (editedData[item.id] !== undefined) {
@@ -150,6 +127,13 @@ const InfoStudentForAdmin = () => {
   }, [accessToken]);
 
   const renderData = isSearching ? searchResult : data;
+
+  const handleActiveChange = (itemId, checked) => {
+    setEditedData((prevState) => ({
+      ...prevState,
+      [itemId]: checked,
+    }));
+  };
 
   return (
     <MainLayoutAdmin>
@@ -218,11 +202,9 @@ const InfoStudentForAdmin = () => {
                             : item.active
                         }
                         onChange={(e) =>
-                          setEditedData((prevState) => ({
-                            ...prevState,
-                            [item.id]: e.target.checked,
-                          }))
+                          handleActiveChange(item.id, e.target.checked)
                         }
+                        onClick={(e) => e.preventDefault()} // Prevent page reload
                       />
                     ) : item.active ? (
                       "active"
