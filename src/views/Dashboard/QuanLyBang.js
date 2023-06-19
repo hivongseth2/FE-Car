@@ -53,7 +53,7 @@ const QuanLyBang = () => {
           <button>Quay lại</button>
           <button onClick={handleAddDegree}>Thêm bằng lái</button>
         </div>
-        <table className="container">
+        <table className="container-table">
           <thead>
             <tr>
               <th>No.</th>

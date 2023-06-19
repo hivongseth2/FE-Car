@@ -131,7 +131,7 @@ const InfoStudentForAdmin = () => {
         {/* form cập nhật PW */}
         {/* <FormUpdatePW /> */}
 
-        <div class="container">
+        <div class="container-table">
           <table>
             <thead>
               <tr>

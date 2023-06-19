@@ -54,7 +54,7 @@ const RegisterAdvise = () => {
   return (
     <div className="register-advise-container">
       <div className="register-advise-content">
-        <h1>96% học viên tại trung tâm đã thi đậu ngay lần đầu tiên</h1>
+        <h1>Hình ảnh học viên tại trung tâm đã thi đậu ngay lần đầu tiên</h1>
         <p>
           Nếu bạn còn nhiều thắc mắc về quy trình đào tạo, hạng lái xe nào phù
           hợp với mình hay cách thức sát hạch ra sao. Hãy để lại số điện thoại

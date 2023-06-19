@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../styles/DashboardScss/TableStudent.scss";
 import "../../styles/DashboardScss/StudentManagement.scss";
 import MainLayoutAdmin from "./MainLayoutAdmin";
-// import "../../styles/DashboardScss/InfoStudentForAdmin.scss";
+import "../../styles/DashboardScss/InfoStudentForAdmin.scss";
 import { format, set } from "date-fns";
 import AddStudent from "./AddStudent";
 import UpdateStudent from "./UpdateStudent";
@@ -275,7 +275,7 @@ const StudentManagement = () => {
           </button>
         </div>
 
-        <div class="container">
+        <div class="container-table">
           <table>
             <thead>
               <tr>
