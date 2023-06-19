@@ -24,6 +24,12 @@ function MainLayoutAdmin({ children }) {
           <li>
             <Link to="/edit-slide">Quản lý slide</Link>
           </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/certificate">Certificate</Link>
+          </li>
         </ul>
       </div>
       <div className="content-sibebar-admin">{children}</div>

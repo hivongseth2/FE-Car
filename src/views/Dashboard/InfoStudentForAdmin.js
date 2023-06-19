@@ -4,17 +4,20 @@ import "../../styles/DashboardScss/TableStudent.scss";
 import MainLayoutAdmin from "./MainLayoutAdmin";
 import SearchByID from "../SearchByID";
 import FormUpdatePW from "./FormUpdatePW";
-
 import FormSearchStudent from "./FormSearchStudent";
+import CreateStudent from "../CreateStudent";
 
 const InfoStudentForAdmin = () => {
   const [showForm, setShowForm] = useState(false);
+  const [showCreateForm, setShowCreateForm] = useState(false);
   const accessToken = localStorage.getItem("token");
   const [searchId, setSearchId] = useState("");
   const [isSearching, setIsSearching] = useState(false);
   const [passwordError, setPasswordError] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [data, setData] = useState([]);
+  const [editButton, setEditButton] = useState(false);
+  const [editedData, setEditedData] = useState({});
 
   const handleOpenForm = () => {
     setShowForm(true);
@@ -22,6 +25,10 @@ const InfoStudentForAdmin = () => {
 
   const handleCloseForm = () => {
     setShowForm(false);
+  };
+
+  const handleShowCreateForm = (value) => {
+    setShowCreateForm(value);
   };
 
   const handleSearch = async () => {
@@ -64,6 +71,55 @@ const InfoStudentForAdmin = () => {
     setIsSearching(false);
   };
 
+  const handleEditClick = () => {
+    setEditButton(true);
+    setEditedData({});
+  };
+
+  const handleActiveChange = async (itemId, checked) => {
+    try {
+      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/account/deactive?id=${itemId}`;
+
+      const response = await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Error deactivating account");
+      }
+
+      // Update the state or handle the success response
+      // ...
+    } catch (error) {
+      console.error("Error deactivating account:", error);
+    }
+  };
+
+  const handleSaveClick = () => {
+    const updatedData = renderData.map((item) => {
+      if (editedData[item.id] !== undefined) {
+        return {
+          ...item,
+          active: editedData[item.id],
+        };
+      }
+      return item;
+    });
+
+    if (isSearching) {
+      setSearchResult(updatedData);
+    } else {
+      setData(updatedData);
+    }
+
+    setEditButton(false);
+    setEditedData({});
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -94,14 +150,18 @@ const InfoStudentForAdmin = () => {
   }, [accessToken]);
 
   const renderData = isSearching ? searchResult : data;
-  // đôi mật khẩu
 
   return (
     <MainLayoutAdmin>
       <div className="contain-table-info">
         <div className="header-info">
-          <h1>Quản lý học viên</h1>
-          <button className="add-button">Thêm học viên</button>
+          <h1>Quản lý khoản</h1>
+          <button
+            className="add-button"
+            onClick={() => handleShowCreateForm(true)}
+          >
+            Thêm tài khoản
+          </button>
           <button
             onClick={handleOpenForm}
             className="updatePW-button"
@@ -112,9 +172,8 @@ const InfoStudentForAdmin = () => {
             Cập nhật mật khẩu
           </button>
         </div>
-        {/* Tìm kiếm học viên theo ID */}
         <div className="searchByID">
-          Tìm kiếm học viên theo ID:
+          Tìm kiếm tài khoản theo ID:
           <input
             className="input-searchByID"
             type="text"
@@ -132,12 +191,9 @@ const InfoStudentForAdmin = () => {
           )}
         </div>
 
-        {/* form cập nhật PW */}
-        {/* <FormUpdatePW /> */}
-
         <div class="container">
-          <table>
-            <thead>
+          <table className="table-account">
+            <thead className="thead">
               <tr>
                 <th>No.</th>
                 <th>UserName</th>
@@ -146,15 +202,45 @@ const InfoStudentForAdmin = () => {
                 <th className="text-center-info">Hành động</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="tbody">
               {renderData.map((item) => (
                 <tr key={item.id}>
                   <td>{item.id}</td>
                   <td>{item.username}</td>
                   <td>{item.role}</td>
-                  <td>{item.active}</td>
+                  <td>
+                    {editButton ? (
+                      <input
+                        type="checkbox"
+                        checked={
+                          editedData[item.id] !== undefined
+                            ? editedData[item.id]
+                            : item.active
+                        }
+                        onChange={(e) =>
+                          setEditedData((prevState) => ({
+                            ...prevState,
+                            [item.id]: e.target.checked,
+                          }))
+                        }
+                      />
+                    ) : item.active ? (
+                      "active"
+                    ) : (
+                      "deactive"
+                    )}
+                  </td>
                   <td className="button-info">
-                    <button>Sửa</button>
+                    {editButton ? (
+                      <>
+                        <button onClick={handleSaveClick}>Lưu</button>
+                        <button onClick={() => setEditButton(false)}>
+                          Hủy
+                        </button>
+                      </>
+                    ) : (
+                      <button onClick={handleEditClick}>Sửa</button>
+                    )}
                     <button>Xóa</button>
                   </td>
                 </tr>
@@ -167,6 +253,13 @@ const InfoStudentForAdmin = () => {
         <div className="popup">
           <div className="popup-inner">
             <FormUpdatePW handleCloseForm={handleCloseForm} />
+          </div>
+        </div>
+      )}
+      {showCreateForm && (
+        <div className="popup">
+          <div className="popup-inner">
+            <CreateStudent handleShowCreateForm={handleShowCreateForm} />
           </div>
         </div>
       )}

@@ -51,6 +51,7 @@ const FormUpdatePW = ({ handleCloseForm }) => {
     } catch (error) {
       toast.error(error.message || "Cập nhật mật khẩu thất bại");
     }
+    handleCloseForm(false);
   };
   return (
     <div className="formUpdatePW">
