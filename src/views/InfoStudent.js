@@ -80,10 +80,7 @@ const InfoStudent = () => {
   }, []);
 
   if (data.length === 0) {
-    return <div>Loading....</div>;
-  }
-  if (datafollow.length === 0) {
-    return <div>Loading follow....</div>;
+    return <Loading />;
   }
   const formattedBirthday = format(new Date(data.birthday), "dd/MM/yyyy");
 

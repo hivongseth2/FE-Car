@@ -8,10 +8,11 @@ import {
   faBars,
   faUserPlus,
   faSignInAlt,
-  faSignOutAlt,
-  faShareAlt,
+  faCircleInfo,
+  faPenToSquare,
+  faHouse,
 } from "@fortawesome/free-solid-svg-icons";
-import logo from "../img/Logo-IUH.jpg";
+import logo from "../img/logott.jpg";
 import "../styles/Nav.scss";
 import FlastInfo from "./Forms/FlastInfo";
 import Nav1 from "./Nav1";

@@ -19,8 +19,7 @@ const EditInfoStudent = ({
 
     try {
       const accessToken = localStorage.getItem("token");
-      const url =
-      `${
+      const url = `${
         process.env.REACT_DOMAIN ||
         "http://trungtamdaotaolaixebinhduong.com:8080"
       }/api/student/update-person`;
@@ -32,9 +31,9 @@ const EditInfoStudent = ({
           Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify({
-          fullName: name,
-          birthday: birthday,
           address: address,
+          birthday: birthday,
+          fullName: name,
           phoneNumber: phoneNumber,
         }),
       });
@@ -82,7 +81,7 @@ const EditInfoStudent = ({
         <label htmlFor="phoneNumber">Số điện thoại</label>
         <input
           id="phoneNumber"
-          type="number"
+          type="text"
           name="phoneNumber"
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}

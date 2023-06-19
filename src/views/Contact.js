@@ -18,6 +18,10 @@ const Contact = () => {
   const accessToken = localStorage.getItem("token");
   const [allData, setAllData] = useState([]);
 
+  // Phan trang
+  const [currentPageContact, setCurrentPageContact] = useState(0);
+  const [totalPagesContact, setTotalPagesContact] = useState(0);
+
   // ===================
   const handleSearch = async () => {
     try {
@@ -70,7 +74,7 @@ const Contact = () => {
 
   const getAllContact = async () => {
     try {
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/contact`;
+      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/contact?page=${currentPageContact}&size=10`;
       const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -85,6 +89,10 @@ const Contact = () => {
       const fetchedData =
         responseData && responseData.data ? responseData.data : [];
       setData(fetchedData);
+      // Lấy tổng số trang từ response và cập nhật state
+      const totalPages =
+        responseData && responseData.totalPages ? responseData.totalPages : 0;
+      setTotalPagesContact(totalPages);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -92,7 +100,7 @@ const Contact = () => {
 
   useEffect(() => {
     getAllContact();
-  }, [accessToken]);
+  }, [accessToken, currentPageContact]);
 
   useEffect(() => {
     const storedCheckedStatus = JSON.parse(
@@ -179,6 +187,28 @@ const Contact = () => {
     }
   };
 
+  const handlePreviousPage = () => {
+    if (currentPageContact > 0) {
+      setCurrentPageContact(currentPageContact - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPageContact < totalPagesContact - 1) {
+      setCurrentPageContact(currentPageContact + 1);
+    }
+  };
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPageContact(pageNumber);
+  };
+
+  // Tạo danh sách các số trang để hiển thị
+  const pageNumbers = [];
+  for (let i = 1; i <= totalPagesContact; i++) {
+    pageNumbers.push(i);
+  }
+
   const renderDataContact = showResult ? searchResult : data;
 
   return (
@@ -200,88 +230,115 @@ const Contact = () => {
           {showResult && <button onClick={handleReset}>Trở về</button>}
         </div>
         {/* ========================== */}
-        <table className="table-contact">
-          <thead className="thead-contact">
-            <tr>
-              <th>ID</th>
-              <th>Họ tên</th>
-              <th>Số điện thoại</th>
-              <th>Ghi chú</th>
-              <th>Trạng thái</th>
-              <th>Hành động</th>
-            </tr>
-          </thead>
-          <tbody className="tbody-contact">
-            {renderDataContact.map((item) => (
-              <tr key={item.id} onClick={() => setSelectedRowIdDelete(item)}>
-                <td>{item.id}</td>
-                <td>
-                  {selectedRowId === item.id ? (
-                    <input
-                      type="text"
-                      value={item.fullName}
-                      onChange={(e) => handleFullNameChange(e, item.id)}
-                    />
-                  ) : (
-                    item.fullName
-                  )}
-                </td>
-                <td>
-                  {selectedRowId === item.id ? (
-                    <input
-                      type="text"
-                      value={item.phoneNumber}
-                      onChange={(e) => handlePhoneNumberChange(e, item.id)}
-                    />
-                  ) : (
-                    item.phoneNumber
-                  )}
-                </td>
-                <td>
-                  {selectedRowId === item.id ? (
-                    <input
-                      type="text"
-                      value={item.note}
-                      onChange={(e) => handleNoteChange(e, item.id)}
-                    />
-                  ) : (
-                    item.note
-                  )}
-                </td>
-                <td>
-                  <input
-                    type="checkbox"
-                    checked={checkedStatus[item.id]}
-                    // disabled={!checkedStatus[item.id]}
-                    onChange={() =>
-                      setCheckedStatus((prevState) => ({
-                        ...prevState,
-                        [item.id]: !prevState[item.id],
-                      }))
-                    }
-                  />
-                </td>
-
-                <td className="button-info">
-                  {selectedRowId === item.id ? (
-                    <button onClick={() => handleSaveChanges(item.id)}>
-                      Lưu
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() => {
-                        setSelectedRowId(item.id);
-                      }}
-                    >
-                      Sửa
-                    </button>
-                  )}
-                  <button onClick={() => handleDeleteContact()}>Xóa</button>
-                </td>
+        <div className="container-table">
+          <table className="table-contact">
+            <thead className="thead-contact">
+              <tr>
+                <th>ID</th>
+                <th>Họ tên</th>
+                <th>Số điện thoại</th>
+                <th>Ghi chú</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="tbody-contact">
+              {renderDataContact.map((item) => (
+                <tr key={item.id} onClick={() => setSelectedRowIdDelete(item)}>
+                  <td>{item.id}</td>
+                  <td>
+                    {selectedRowId === item.id ? (
+                      <input
+                        type="text"
+                        value={item.fullName}
+                        onChange={(e) => handleFullNameChange(e, item.id)}
+                      />
+                    ) : (
+                      item.fullName
+                    )}
+                  </td>
+                  <td>
+                    {selectedRowId === item.id ? (
+                      <input
+                        type="text"
+                        value={item.phoneNumber}
+                        onChange={(e) => handlePhoneNumberChange(e, item.id)}
+                      />
+                    ) : (
+                      item.phoneNumber
+                    )}
+                  </td>
+                  <td>
+                    {selectedRowId === item.id ? (
+                      <input
+                        type="text"
+                        value={item.note}
+                        onChange={(e) => handleNoteChange(e, item.id)}
+                      />
+                    ) : (
+                      item.note
+                    )}
+                  </td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      checked={checkedStatus[item.id]}
+                      // disabled={!checkedStatus[item.id]}
+                      onChange={() =>
+                        setCheckedStatus((prevState) => ({
+                          ...prevState,
+                          [item.id]: !prevState[item.id],
+                        }))
+                      }
+                    />
+                  </td>
+
+                  <td className="button-info">
+                    {selectedRowId === item.id ? (
+                      <button onClick={() => handleSaveChanges(item.id)}>
+                        Lưu
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          setSelectedRowId(item.id);
+                        }}
+                      >
+                        Sửa
+                      </button>
+                    )}
+                    <button onClick={() => handleDeleteContact()}>Xóa</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div>
+            <button
+              onClick={handlePreviousPage}
+              disabled={currentPageContact === 0}
+            >
+              Previous
+            </button>
+
+            {/* {pageNumbers.map((pageNumber) => (
+          <button
+            key={pageNumber}
+            onClick={() => handlePageChange(pageNumber - 1)}
+            disabled={pageNumber - 1 === currentPage}
+          >
+            {pageNumber}
+          </button>
+        ))} */}
+
+            <button
+              onClick={handleNextPage}
+              disabled={currentPageContact === totalPagesContact}
+            >
+              Next
+            </button>
+          </div>
+        </div>
       </div>
     </MainLayoutAdmin>
   );

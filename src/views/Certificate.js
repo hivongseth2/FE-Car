@@ -125,7 +125,7 @@ const Certificate = () => {
 
   const getAllCertificate = async () => {
     try {
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin?page=${currentPageCertificate}&size=1`;
+      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin?page=${currentPageCertificate}&size=10`;
       const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -274,72 +274,75 @@ const Certificate = () => {
           </select>
           <button onClick={getByDegree}>Tìm kiếm</button>
         </div>
-        <table className="table-certificate">
-          <thead className="thead-certificate">
-            <tr>
-              <th>ID</th>
-              <th>Họ tên</th>
-              <th>Số điện thoại</th>
-              <th>Loại bằng</th>
-              <th>Năm sinh</th>
-              <th>Trạng thái</th>
-              <th>Hành động</th>
-            </tr>
-          </thead>
-          <tbody className="tbody-certificate">
-            {renderDataCertificate.length === 0 && (
+
+        <div className="container-table">
+          <table className="table-certificate">
+            <thead className="thead-certificate">
               <tr>
-                <td colSpan="7">Không có dữ liệu</td>
+                <th>ID</th>
+                <th>Họ tên</th>
+                <th>Số điện thoại</th>
+                <th>Loại bằng</th>
+                <th>Năm sinh</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
               </tr>
-            )}
-            {renderDataCertificate.map((item) => (
-              <tr key={`${item.id.student.id}-${item.id.degree.id}`}>
-                <td>{item.id.student.id}</td>
-                <td>{item.id.student.fullName}</td>
-                <td>{item.id.student.phoneNumber}</td>
-                <td>{item.id.degree.rating}</td>
-                <td>{item.finishDay}</td>
-                <td>
-                  {item.status ? (
-                    <input
-                      type="checkbox"
-                      checked={true}
-                      onChange={() =>
-                        updateCertificateStatus(
-                          item.id.degree.id,
-                          item.id.student.id,
-                          false
-                        )
+            </thead>
+            <tbody className="tbody-certificate">
+              {renderDataCertificate.length === 0 && (
+                <tr>
+                  <td colSpan="7">Không có dữ liệu</td>
+                </tr>
+              )}
+              {renderDataCertificate.map((item) => (
+                <tr key={`${item.id.student.id}-${item.id.degree.id}`}>
+                  <td>{item.id.student.id}</td>
+                  <td>{item.id.student.fullName}</td>
+                  <td>{item.id.student.phoneNumber}</td>
+                  <td>{item.id.degree.rating}</td>
+                  <td>{item.finishDay}</td>
+                  <td>
+                    {item.status ? (
+                      <input
+                        type="checkbox"
+                        checked={true}
+                        onChange={() =>
+                          updateCertificateStatus(
+                            item.id.degree.id,
+                            item.id.student.id,
+                            false
+                          )
+                        }
+                      />
+                    ) : (
+                      <input
+                        type="checkbox"
+                        checked={false}
+                        onChange={() =>
+                          updateCertificateStatus(
+                            item.id.degree.id,
+                            item.id.student.id,
+                            true
+                          )
+                        }
+                      />
+                    )}
+                  </td>
+                  <td className="button-info">
+                    {/* <button>Sửa</button> */}
+                    <button
+                      onClick={() =>
+                        deleteCertificate(item.id.degree.id, item.id.student.id)
                       }
-                    />
-                  ) : (
-                    <input
-                      type="checkbox"
-                      checked={false}
-                      onChange={() =>
-                        updateCertificateStatus(
-                          item.id.degree.id,
-                          item.id.student.id,
-                          true
-                        )
-                      }
-                    />
-                  )}
-                </td>
-                <td className="button-info">
-                  {/* <button>Sửa</button> */}
-                  <button
-                    onClick={() =>
-                      deleteCertificate(item.id.degree.id, item.id.student.id)
-                    }
-                  >
-                    Xóa
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                    >
+                      Xóa
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
         <div>
           <button
             onClick={handlePreviousPage}
@@ -348,7 +351,7 @@ const Certificate = () => {
             Previous
           </button>
 
-          {pageNumbers.map((pageNumber) => (
+          {/* {pageNumbers.map((pageNumber) => (
             <button
               key={pageNumber}
               onClick={() => handlePageChange(pageNumber - 1)}
@@ -356,7 +359,7 @@ const Certificate = () => {
             >
               {pageNumber}
             </button>
-          ))}
+          ))} */}
 
           <button
             onClick={handleNextPage}

@@ -17,13 +17,14 @@ import MainLayoutAdmin from "./views/Dashboard/MainLayoutAdmin";
 import InfoStudentForAdmin from "./views/Dashboard/InfoStudentForAdmin";
 import QuanLyBang from "./views/Dashboard/QuanLyBang";
 import NewCustomer from "./views/Dashboard/NewCustomer";
-
+import FollowAdmin from "./views/FollowAdmin/FollowAdmin";
 import InfoStudent from "./views/InfoStudent";
 import Logins from "./views/Logins";
 import SocialPage from "./views/SocialPage";
 import AdminLogin from "./views/Dashboard/AdminLogin";
 import Contact from "./views/Contact";
 import Certificate from "./views/Certificate";
+import StudentManagement from "./views/Dashboard/StudentManagement";
 
 function App() {
   return (
@@ -76,6 +77,15 @@ function App() {
             </Route>
             <Route path="/certificate">
               <Certificate />
+            </Route>
+            <Route path="/student-management">
+              <StudentManagement />
+            </Route>
+            <Route path="/account-management">
+              <InfoStudentForAdmin />
+            </Route>
+            <Route path="/follow-admin">
+              <FollowAdmin />
             </Route>
           </Switch>
         </header>

@@ -65,7 +65,9 @@ const FlastInfo = ({ onLogout }) => {
         <div className="img-avatar">
           <img src={imgavt} alt="anh" />
         </div>
-        <div className="text-chat">{data && data.fullName}</div>
+        <div className={`text-chat ${showCardBody ? "" : "hidden"}`}>
+          {data && data.fullName}
+        </div>
       </div>
       {showCardBody && (
         <div className="card-body">

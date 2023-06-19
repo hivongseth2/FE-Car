@@ -1,52 +1,52 @@
-.contain-table-info {
-    margin: 20px;
-    width: 100%;
-  }
+// .contain-table-info {
+//     margin: 20px;
+//     width: 100%;
+//   }
   
-  .header-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
+//   .header-info {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     margin-bottom: 10px;
+//   }
   
-  .header-info h1 {
-    font-size: 24px;
-    margin: 0;
-  }
+//   .header-info h1 {
+//     font-size: 24px;
+//     margin: 0;
+//   }
   
-  .striped-table-info {
-    width: 100%;
-    border-collapse: collapse;
-  }
+//   .striped-table-info {
+//     width: 100%;
+//     border-collapse: collapse;
+//   }
   
-  .striped-table-info th,
-  .striped-table-info td {
-    padding: 8px;
-    border: 1px solid #ccc;
-  }
+//   .striped-table-info th,
+//   .striped-table-info td {
+//     padding: 8px;
+//     border: 1px solid #ccc;
+//   }
   
-  .striped-table-info th {
-    background-color: #f2f2f2;
-    text-align: left;
-  }
+//   .striped-table-info th {
+//     background-color: #f2f2f2;
+//     text-align: left;
+//   }
   
-  .striped-table-info tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  .imgContainer img
-  {
-    width: 30em;
-    height: 25em;
-    object-fit: cover;
-  }
+//   .striped-table-info tbody tr:nth-child(even) {
+//     background-color: #f9f9f9;
+//   }
+//   .imgContainer img
+//   {
+//     width: 30em;
+//     height: 25em;
+//     object-fit: contain;
+//   }
   
-  .text-center-info {
-    text-align: center;
-  }
+//   .text-center-info {
+//     text-align: center;
+//   }
   
-  .button-info button {
-    margin-right: 5px;
-    color: #333;
-  }
+//   .button-info button {
+//     margin-right: 5px;
+//     color: #333;
+//   }
   

@@ -166,6 +166,9 @@ const Nav1 = () => {
                 <NavLink to="/page-mxh" className="parent" onClick={closeMenu}>
                   Mạng xã hội
                 </NavLink>
+                <NavLink to="/page-mxh" className="parent" onClick={closeMenu}>
+                  Tài liệu
+                </NavLink>
               </div>
             </div>
           </div>

@@ -11,9 +11,16 @@ function MainLayoutAdmin({ children }) {
             <Link to="/">Trang chủ</Link>
           </li>
           <li>
-            <Link to="/edit-info">Thông tin học viên</Link>
+            <Link to="/account-management">Tài khoản</Link>
           </li>
-          <li>Theo dõi học viên</li>
+
+          <li>
+            <Link to="/student-management">Quản lý học viên</Link>
+          </li>
+
+          <li>
+            <Link to="/follow-admin">Quản lý theo dõi học viên</Link>
+          </li>
           <li>Quản lý bài đăng</li>
           <li>
             <Link to="/edit-bang">Quản lý bằng lái</Link>
@@ -24,6 +31,7 @@ function MainLayoutAdmin({ children }) {
           <li>
             <Link to="/edit-slide">Quản lý slide</Link>
           </li>
+
           <li>
             <Link to="/contact">Contact</Link>
           </li>

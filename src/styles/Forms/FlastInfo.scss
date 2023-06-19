@@ -67,7 +67,6 @@
 
   .card-container {
 
-
  
   }
 }
@@ -83,22 +82,21 @@
 }
 
   .card-container {
-
+    z-index: -1;
     left: -10.7em;
-    top: 0.5em;
-    justify-content: space-evenly;
+    top: 1.5em;
+    justify-content: space-between;
     display: grid;
     flex-direction: row;
     align-content: stretch;
-    align-items: end;
     justify-items: center;
-
   
    }
 
    .messages-container {
     padding: 0px;
     margin-left: 3em;
+    margin-bottom: 53px;
 
   }
   
@@ -106,6 +104,8 @@
    .img-avatar img {
     width: 45px;
     border-radius: 50%;
+    z-index: 2;
+    position: relative;
     margin-right: 0px;
   }
 
@@ -116,13 +116,13 @@
     margin-right: 20px;
   }
   .card-header {
-    display: flex;
+  display: flex;
     position: relative;
     width: 100%;
     cursor: pointer;
     margin: 4em;
-    justify-content: flex-start;
-    align-items: baseline;
+    justify-content: space-around;
+    align-items: center;
     flex-direction: row;
   }
 
