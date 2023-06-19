@@ -1,0 +1,83 @@
+.table-certificate{
+	width: 100%;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+	th,
+	td {
+	  padding: 15px;
+	  background-color: rgba(255,255,255,0.2);
+	  color: #fff;
+	}
+	th {
+	  text-align: left;
+	}
+	.thead-certificate {
+	  th {
+		background-color: #55608f;
+	  }
+	}
+	.tbody-certificate {
+	  tr {
+		&:hover {
+		  background-color: rgba(255,255,255,0.3);
+		}
+	  }
+	  td {
+		position: relative;
+		&:hover {
+		  &:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: -9999px;
+			bottom: -9999px;
+			background-color: rgba(255,255,255,0.2);
+			z-index: -1;
+		  }
+		}
+	  }
+	}
+  }
+  
+  .thead-certificate{
+	background-color: #f5f5f5;
+  }
+  .select-certificate{
+	width: 185px;
+	height: 40px;
+	border-radius: 5px;
+  }
+  .content-search-cer{
+	width:300px;
+  }
+  .header-info {
+	margin-bottom: 20px;
+  }
+  .searchByIDCer,
+  .searchByDegree {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 10px;
+	.search-input {
+	  display: flex;
+	  align-items: center;
+	  .content-search-cer {
+		margin-right: 10px;
+	  }
+	  .input-certificate {
+		width: 200px;
+		height: 30px;
+		padding: 5px;
+		border: 1px solid #ddd;
+		border-radius: 5px;
+	  }
+	}
+	.search-button {
+	  button {
+		margin-left: 10px;
+	  }
+	}
+  }

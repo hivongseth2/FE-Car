@@ -11,11 +11,13 @@ function MainLayoutAdmin({ children }) {
             <Link to="/">Trang chủ</Link>
           </li>
           <li>
-            <Link to="/edit-info">Tài khoản</Link>
+            <Link to="/account-management">Tài khoản</Link>
           </li>
+
           <li>
             <Link to="/student-management">Quản lý học viên</Link>
           </li>
+
           <li>
             <Link to="/follow-admin">Quản lý theo dõi học viên</Link>
           </li>
@@ -28,6 +30,13 @@ function MainLayoutAdmin({ children }) {
           </li>
           <li>
             <Link to="/edit-slide">Quản lý slide</Link>
+          </li>
+
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/certificate">Certificate</Link>
           </li>
         </ul>
       </div>
