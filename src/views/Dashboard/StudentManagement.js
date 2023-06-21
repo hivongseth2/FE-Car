@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../styles/DashboardScss/TableStudent.scss";
 import MainLayoutAdmin from "./MainLayoutAdmin";
 import "../../styles/DashboardScss/InfoStudentForAdmin.scss";
-import { format} from "date-fns";
+import { format } from "date-fns";
 import AddStudent from "./AddStudent";
 import UpdateStudent from "./UpdateStudent";
 import { toast } from "react-toastify";
@@ -165,7 +165,7 @@ const StudentManagement = () => {
           )}
         </div>
 
-        <div class="container">
+        <div class="container-table">
           <table>
             <thead>
               <tr>
@@ -199,7 +199,11 @@ const StudentManagement = () => {
                   <td>{format(new Date(item.updatedDate), "dd/MM/yyyy")}</td>
                   <td className="button-info">
                     <button onClick={handleShowUpdateStudentPopup}>Sửa</button>
-                    <button type="button-reset-pw" style={{ color: 'black' }} onClick={() => handleResetPassword()}>
+                    <button
+                      type="button-reset-pw"
+                      style={{ color: "black" }}
+                      onClick={() => handleResetPassword()}
+                    >
                       Reset mật khẩu
                     </button>
                     <button onClick={handleShowDeleteStudentPopup}>Xóa</button>

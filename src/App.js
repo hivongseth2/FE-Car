@@ -22,6 +22,8 @@ import InfoStudent from "./views/InfoStudent";
 import Logins from "./views/Logins";
 import SocialPage from "./views/SocialPage";
 import AdminLogin from "./views/Dashboard/AdminLogin";
+import Contact from "./views/Contact";
+import Certificate from "./views/Certificate";
 import StudentManagement from "./views/Dashboard/StudentManagement";
 
 function App() {
@@ -70,8 +72,17 @@ function App() {
             <Route path="/admin-login">
               <AdminLogin />
             </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/certificate">
+              <Certificate />
+            </Route>
             <Route path="/student-management">
               <StudentManagement />
+            </Route>
+            <Route path="/account-management">
+              <InfoStudentForAdmin />
             </Route>
             <Route path="/follow-admin">
               <FollowAdmin />
