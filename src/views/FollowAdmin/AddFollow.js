@@ -61,6 +61,7 @@ const AddFollow = (props) => {
       } else {
         toast.success("Tạo theo dõi thành công");
         props.onUpdateSuccess();
+        closeForm();
         return;
       }
     } catch (error) {
@@ -152,14 +153,15 @@ const AddFollow = (props) => {
       });
   };
   // ========Xử lý chọn tên
+
   const selectStudent = (e) => {
     setFormData((prevFormData) => ({
       ...prevFormData,
+      phone: e.phoneNumber,
       studentId: e.id,
     }));
-
+    console.log(e);
     setNameStudent(e.fullName);
-    // console.log(idStudent);
   };
 
   // create button
@@ -174,7 +176,7 @@ const AddFollow = (props) => {
   };
   return (
     <div className="container">
-      <div className="title">Registration</div>
+      <div className="title">Thêm theo dõi mới</div>
       <button onClick={closeForm}>X</button>
       <form>
         <div className="user__details">
@@ -277,6 +279,12 @@ const AddFollow = (props) => {
 
       {showPopup && (
         <div className="popup">
+          <div className="popup-header">
+            <h3 className="popup-title">Chọn học viên</h3>
+            <button className="close-button" onClick={closePopup}>
+              X
+            </button>
+          </div>
           <div className="popup-content">
             <table>
               <thead>
@@ -301,7 +309,6 @@ const AddFollow = (props) => {
                 ))}
               </tbody>
             </table>
-            <button onClick={closePopup}>Close</button>
           </div>
         </div>
       )}

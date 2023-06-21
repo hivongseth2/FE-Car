@@ -49,7 +49,7 @@ const Sliderr = () => {
   // useEffect(() => {
   //   const interval = setInterval(() => {
   //     setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  //   }, 5000);
+  //   }, 4000);
 
   //   return () => clearInterval(interval);
   // }, [slides.length]);

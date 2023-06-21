@@ -7,6 +7,7 @@ import axios from "axios";
 import IncreaseHours from "./IncreaseHours";
 import { toast } from "react-toastify";
 import { useCallback } from "react";
+import CreateCertificate from "./CreateCertificate";
 
 const FollowAdmin = () => {
   const [data, setData] = useState([]);
@@ -22,7 +23,7 @@ const FollowAdmin = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isFormCrease, setIsFormCrease] = useState(false);
   const [creasingItem, setCreasingItem] = useState(null);
-  const [currentDePage, setCurrentDePage] = useState(0);
+
   const [url, setUrl] = useState(
     "http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow"
   );
@@ -154,6 +155,8 @@ const FollowAdmin = () => {
   const handleCreaseClose = () => {
     setIsFormCrease(false);
   };
+
+  // =============
 
   // ==========xử lý button edit
   // xử lý phân trang
@@ -335,10 +338,10 @@ const FollowAdmin = () => {
                   handleClickSearch();
                 }}
               >
-                SEARCH
+                Tìm kiếm
               </button>
             </div>
-            <h3>Filter</h3>
+            <h3>Loại bằng</h3>
             <div className="input-field second-wrap">
               <div className="input-select">
                 <select
@@ -582,6 +585,8 @@ const FollowAdmin = () => {
                       itemId={item.id}
                     />
                   )}
+                {/* button danh dau hoan thanh */}
+                <CreateCertificate id={item.id}></CreateCertificate>
               </td>
             </tr>
           ))}

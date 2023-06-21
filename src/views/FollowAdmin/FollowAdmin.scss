@@ -23,6 +23,24 @@
 
 }
 
+.contain-table-info{
+  .container{
+    .popup{
+      left: 60em;
+      overflow: auto;
+      height: 500px;
+      top:35%;
+      .popup-content{
+      
+        width: 35em;
+        color: #fff;
+        
+      }
+    }
+  }
+}
+
+
 .striped-table-info
 {
     font-size: 13px;
@@ -498,6 +516,10 @@ fieldset {
         justify-content: space-between;
     -ms-flex-align: center;
         align-items: center;
+        h3{
+          color: #c0d6ff;
+          margin-right: 10px;
+        }
   }
   
   .s131 form .inner-form .input-field {
@@ -695,6 +717,7 @@ fieldset {
       width: 100%;
     }
   }
+  
 
   .fieldSelect{
     // height: 200px;
@@ -704,29 +727,33 @@ fieldset {
     background-color: #fff;
     border-radius: 3px;
   }
-  table.striped-table-info{
+  .container-table{
     tbody{
      .rowFollow{
-        td{
+        td.button-info{
             button.creaseButton{
-              background-color: #2d62d3;
+              background-color: #2d62d3 !important;
+              margin-right:  30px;
             }
             button.editButton{
-              background-color: #d4af07;
-
+              background-color: #d4af07 !important;
+              margin-right: 30px;
             }
             button.deleteButton{
-              background-color: #c22d00;
+              background-color: #c22d00 !important;
 
             }
             button.saveButton{
-              background-color: #03f523;
+              background-color: #03f523 !important;
 
             }
-            button{
-            
-              padding: 2px;
+            button.doneButton{
+              background-color: #05a500;
             }
+            button{
+              margin: 4px 0px;
+            }
+          
            
           
           input[type=text], input[type=file]{

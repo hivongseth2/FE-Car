@@ -92,7 +92,7 @@ const FlastInfo = ({ onLogout }) => {
               <div
                 className="message-box left"
                 onClick={() => {
-                  history.push("/edit-admin");
+                  history.push("/follow-admin");
                 }}
               >
                 <i className="fa-solid fa-list-ul"></i>
