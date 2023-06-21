@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../../styles/DashboardScss/AddAccount.scss";
 
-const AddStudent = ({ handleCloseForm }) => {
+const AddStudent = ({ handleCloseForm, IsEditing }) => {
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
@@ -36,15 +36,14 @@ const AddStudent = ({ handleCloseForm }) => {
       if (!response.ok) {
         throw new Error("Error updating data");
       }
-
-      // Thêm sinh viên thành công
-      toast.success("Thêm học viên thành công");
-
-      // Đóng form
-      handleCloseForm();
+      if (response.status === 200) {
+        toast.success("Thêm học viên thành công");
+        IsEditing();
+        handleCloseForm();
+      }
     } catch (error) {
       console.error("Error updating data:", error);
-      toast.error("Đã xảy ra lỗi khi thêm sinh viên");
+      toast.error("Đã xảy ra lỗi khi thêm học viên");
     }
   };
 

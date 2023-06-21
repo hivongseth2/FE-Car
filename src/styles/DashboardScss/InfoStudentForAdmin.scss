@@ -1,5 +1,5 @@
 .header-info {
-  padding-bottom: 15px;
+  padding-bottom: 5px;
 }
 .header-info {
   button {
@@ -91,6 +91,15 @@ td {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 9999;
+  // width: 400px;
+  // padding: 20px;
+  border-radius: 5px;
+}
+.popup-inner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (min-width: 600px) {

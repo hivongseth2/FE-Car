@@ -71,7 +71,7 @@ const Nav1 = () => {
               type="checkbox"
               id="menu-toggle"
               className="menu-toggle"
-              checked={isMenuOpen}
+              defaultChecked={isMenuOpen}
             />
 
             <label
@@ -130,7 +130,7 @@ const Nav1 = () => {
               type="checkbox"
               id="menu-toggle"
               className="menu-toggle"
-              checked={isMenuOpen}
+              defaultChecked={isMenuOpen}
             />
 
             <label

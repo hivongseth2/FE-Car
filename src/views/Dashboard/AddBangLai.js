@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../styles/DashboardScss/AddBangLai.scss";
 import { toast } from "react-toastify";
 
-const AddBangLai = ({handleCloseUpdate}) => {
+const AddBangLai = ({ handleCloseUpdate, IsEditDegree }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
@@ -15,14 +15,14 @@ const AddBangLai = ({handleCloseUpdate}) => {
 
   const handleAddDegree = async (e) => {
     e.preventDefault();
-  
+
     try {
       const accessToken = localStorage.getItem("token");
       const url = `${
         process.env.REACT_DOMAIN ||
         "http://trungtamdaotaolaixebinhduong.com:8080"
       }/api/admin/degree/create`;
-  
+
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -41,16 +41,15 @@ const AddBangLai = ({handleCloseUpdate}) => {
           title: title,
         }),
       });
-  
+
       if (!response.ok) {
         throw new Error("Error add data");
       }
-  
-      // Cập nhật thông tin bằng lái thành công
-      toast.success("Thêm bằng lái thành công");
-  
-      // Đóng form
-      handleCloseUpdate();
+      if (response.status === 200) {
+        toast.success("Thêm bằng lái thành công");
+        IsEditDegree();
+        handleCloseUpdate();
+      }
     } catch (error) {
       console.error("Error add data:", error);
       toast.error("Đã xảy ra lỗi khi thêm thông tin bằng lái");

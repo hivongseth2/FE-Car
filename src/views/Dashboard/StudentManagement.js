@@ -3,15 +3,16 @@ import "../../styles/DashboardScss/TableStudent.scss";
 import "../../styles/DashboardScss/StudentManagement.scss";
 import MainLayoutAdmin from "./MainLayoutAdmin";
 import "../../styles/DashboardScss/InfoStudentForAdmin.scss";
-import { format, set } from "date-fns";
+import { format } from "date-fns";
 import AddStudent from "./AddStudent";
 import UpdateStudent from "./UpdateStudent";
 import { toast } from "react-toastify";
 import ConfirmDeleteStudent from "./ConfirmDeleteStudent";
+import is from "date-fns/locale/is/index";
 
 const StudentManagement = () => {
   const [dataStudent, setDataStudent] = useState([]);
-  const [searchId, setSearchId] = useState("");
+  // const [searchId, setSearchId] = useState("");
   const [selectedInfoStudent, setSelectedInfoStudent] = useState(null);
   const [selectedInfoStudentDelete, setSelectedInfoStudentDelete] =
     useState(null);
@@ -22,7 +23,7 @@ const StudentManagement = () => {
   const [filterSearchStudent, setFilterSearchStudent] = useState(""); // Dữ liệu tìm kiếm theo filter [
   const [dataSearchFilter, setDataSearchFilter] = useState([]); // Dữ liệu sau khi tìm kiếm theo filter [
   const [isSearchingFilter, setIsSearchingFilter] = useState(false); // Trạng thái tìm kiếm theo filter [
-
+  const [isEditing, setIsEditing] = useState(false); // Trạng thái đang sửa thông tin học viên [
   const [showAddStudentPopup, setShowAddStudentPopup] = useState(false);
   const [showUpdateStudentPopup, setShowUpdateStudentPopup] = useState(false);
   const [showDeleteStudentPopup, setShowDeleteStudentPopup] = useState(false);
@@ -38,7 +39,7 @@ const StudentManagement = () => {
         const url = `${
           process.env.REACT_DOMAIN ||
           "http://trungtamdaotaolaixebinhduong.com:8080"
-        }/api/admin/student?page=${currentPageTemp}&size=3`;
+        }/api/admin/student?page=${currentPageTemp}&size=6`;
         const response = await fetch(url, {
           method: "GET",
           headers: {
@@ -65,45 +66,45 @@ const StudentManagement = () => {
       }
     };
     fetchData();
-  }, [accessToken, currentPage]);
+  }, [accessToken, currentPage, isEditing]);
 
-  const handleSearch = async () => {
-    try {
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/student/${searchId}`;
+  // const handleSearch = async () => {
+  //   try {
+  //     const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/student/${searchId}`;
 
-      if (searchId === "") {
-        setSearchResult(dataStudent);
-        setIsSearching(false);
-      } else {
-        const response = await fetch(url, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
+  //     if (searchId === "") {
+  //       setSearchResult(dataStudent);
+  //       setIsSearching(false);
+  //     } else {
+  //       const response = await fetch(url, {
+  //         method: "GET",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Authorization: `Bearer ${accessToken}`,
+  //         },
+  //       });
 
-        if (!response.ok) {
-          throw new Error("Error fetching data");
-        }
+  //       if (!response.ok) {
+  //         throw new Error("Error fetching data");
+  //       }
 
-        const responseDataSearchById = await response.json();
-        console.log("API response:", responseDataSearchById);
+  //       const responseDataSearchById = await response.json();
+  //       console.log("API response:", responseDataSearchById);
 
-        // Gán dữ liệu vào biến state searchResult hoặc hiển thị thông báo nếu không tìm thấy
-        if (responseDataSearchById) {
-          setSearchResult([responseDataSearchById]);
-          setIsSearching(true);
-        } else {
-          // Hiển thị thông báo không tìm thấy
-          console.log("Không tìm thấy học viên");
-          setIsSearching(false);
-        }
-      }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+  //       // Gán dữ liệu vào biến state searchResult hoặc hiển thị thông báo nếu không tìm thấy
+  //       if (responseDataSearchById) {
+  //         setSearchResult([responseDataSearchById]);
+  //         setIsSearching(true);
+  //       } else {
+  //         // Hiển thị thông báo không tìm thấy
+  //         console.log("Không tìm thấy học viên");
+  //         setIsSearching(false);
+  //       }
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching data:", error);
+  //   }
+  // };
 
   const handleSearchFilter = async () => {
     try {
@@ -151,7 +152,7 @@ const StudentManagement = () => {
   };
 
   const handleReset = () => {
-    setSearchId("");
+    // setSearchId("");
     setIsSearching(false);
     setSearchResult(dataStudent);
   };
@@ -213,6 +214,9 @@ const StudentManagement = () => {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+  const handleEditStudent = () => {
+    setIsEditing(false);
+  };
 
   // Tạo danh sách các số trang để hiển thị
   const pageNumbers = [];
@@ -220,17 +224,28 @@ const StudentManagement = () => {
     pageNumbers.push(i);
   }
 
-  const renderDataStudent = isSearchingFilter ? dataSearchFilter : isSearching ? searchResult: dataStudent;
+  const renderDataStudent = isSearchingFilter
+    ? dataSearchFilter
+    : isSearching
+    ? searchResult
+    : dataStudent;
 
   return (
     <MainLayoutAdmin>
       <div className="contain-table-info">
         <div className="header-info">
           <h1>Quản lý học viên</h1>
-          <button onClick={handleShowAddStudentPopup}>Thêm học viên</button>
+          <button
+            onClick={() => {
+              handleShowAddStudentPopup();
+              handleEditStudent();
+            }}
+          >
+            Thêm học viên
+          </button>
         </div>
         {/* Tìm kiếm học viên theo ID */}
-        <div className="searchByID">
+        {/* <div className="searchByID">
           Tìm kiếm học viên theo ID:
           <input
             className="input-searchByID"
@@ -247,7 +262,7 @@ const StudentManagement = () => {
               Trở về
             </button>
           )}
-        </div>
+        </div> */}
         <div className="group-search-student">
           <svg
             className="icon-search-student"
@@ -260,7 +275,7 @@ const StudentManagement = () => {
           </svg>
           <input
             onChange={(e) => setFilterSearchStudent(e.target.value)}
-            placeholder="Search"
+            placeholder="Tìm kiếm"
             type="search"
             className="input-search-student"
           />
@@ -275,7 +290,7 @@ const StudentManagement = () => {
           </button>
         </div>
 
-        <div class="container-table">
+        <div className="container-table">
           <table>
             <thead>
               <tr>
@@ -307,11 +322,20 @@ const StudentManagement = () => {
                   <td>{format(new Date(item.createdDate), "dd/MM/yyyy")}</td>
                   <td>{format(new Date(item.updatedDate), "dd/MM/yyyy")}</td>
                   <td className="button-info">
-                    <button onClick={handleShowUpdateStudentPopup}>Sửa</button>
+                    <button
+                      onClick={() => {
+                        handleShowUpdateStudentPopup();
+                        handleEditStudent();
+                      }}
+                    >
+                      Sửa
+                    </button>
                     <button
                       type="button-reset-pw"
                       style={{ color: "black" }}
-                      onClick={() => handleResetPassword()}
+                      onClick={() => {
+                        handleResetPassword();
+                      }}
                     >
                       Reset mật khẩu
                     </button>
@@ -343,25 +367,29 @@ const StudentManagement = () => {
         </button>
       </div>
       {showAddStudentPopup && (
-        <div className="popup">
+        <div className="popup-student">
           <div className="popup-inner">
-            <AddStudent handleCloseForm={() => setShowAddStudentPopup(false)} />
+            <AddStudent
+              handleCloseForm={() => setShowAddStudentPopup(false)}
+              IsEditing={() => setIsEditing(true)}
+            />
           </div>
         </div>
       )}
       {showUpdateStudentPopup && (
-        <div className="popup">
-          <div className="popup-inner">
+        <div className="popup-student">
+          <div className="popup-inner-student">
             <UpdateStudent
-              handleCloseForm={() => setShowUpdateStudentPopup(false)}
               selectedInfoStudent={selectedInfoStudent}
+              handleCloseForm={() => setShowUpdateStudentPopup(false)}
+              IsEditing={() => setIsEditing(true)}
             />
           </div>
         </div>
       )}
       {showDeleteStudentPopup && (
-        <div className="popup">
-          <div className="popup-inner">
+        <div className="popup-student">
+          <div className="popup-inner-student">
             <ConfirmDeleteStudent
               handleCloseForm={() => setShowDeleteStudentPopup(false)}
               setDataStudent={setDataStudent}

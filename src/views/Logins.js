@@ -85,22 +85,22 @@ const Logins = () => {
             value={passWord}
             onChange={(e) => handleOnchangeInput(e)}
           ></input>
-          <div className="checkbox-container">
+          {/* <div className="checkbox-container">
             <label className="checkbox">
               <input type="checkbox" id="checkbox" />
             </label>
             <label htmlFor="checkbox" className="checkbox-text">
               Nhớ tài khoản
             </label>
-          </div>
+          </div> */}
           <button className="sigin-btn" onClick={(e) => handleSignIn(e)}>
             Đăng nhập
           </button>
-          <a className="forget" href="#">
+          {/* <a className="forget" href="#">
             Quên mật khẩu
-          </a>
+          </a> */}
           <p className="signup-link">
-            Bạn chưa có tài khoản ? <Link to="/register">Đăng ký</Link>
+            Bạn chưa có tài khoản ? <Link to="/">Đăng ký</Link>
           </p>
         </div>
       </form>

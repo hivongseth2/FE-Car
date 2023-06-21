@@ -1,6 +1,7 @@
 .about-us-page {
   margin: 5px;
-  background-color: rgb(92, 213, 237);
+  //background-color: rgb(92, 213, 237);
+  border: 1px solid black;
   border-top-left-radius: 65px;
   border-bottom-left-radius: 65px;
   display: grid;
@@ -23,14 +24,17 @@
   align-items: center;
 }
 .about-us-container-title {
+  background-color: black;
+  border-radius: 40px 0 40px 0;
   color: #ffffff;
-  font-size: 40px;
+  font-size: 35px;
   font-weight: 600;
   line-height: 56px;
   margin: 0px 0px 21px;
   text-align: left;
   padding-left: 20px;
   padding-top: 20px;
+  padding-bottom: 20px;
   width: 50%; // sửa khi reponsive
 }
 .card-about-us {
@@ -39,7 +43,7 @@
   border-width: 1px;
   border-color: rgba(219, 234, 254, 1);
   border-radius: 1rem;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: #f5cb34;
   padding: 1rem;
 }
 
@@ -67,12 +71,12 @@
 
 .alert-about-us {
   font-weight: 600;
-  color: rgba(107, 114, 128, 1);
+  color: rgb(11, 11, 11);
 }
 
 .message-about-us {
   margin-top: 1rem;
-  color: rgba(107, 114, 128, 1);
+  color: rgb(11, 11, 11);
 }
 @media (max-width: 768px) {
   .about-us-content {

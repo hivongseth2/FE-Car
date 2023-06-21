@@ -17,7 +17,6 @@ import Document from "./views/Document";
 import MainLayoutAdmin from "./views/Dashboard/MainLayoutAdmin";
 import InfoStudentForAdmin from "./views/Dashboard/InfoStudentForAdmin";
 import QuanLyBang from "./views/Dashboard/QuanLyBang";
-import NewCustomer from "./views/Dashboard/NewCustomer";
 import FollowAdmin from "./views/FollowAdmin/FollowAdmin";
 import InfoStudent from "./views/InfoStudent";
 import Logins from "./views/Logins";
@@ -26,6 +25,7 @@ import AdminLogin from "./views/Dashboard/AdminLogin";
 import Contact from "./views/Contact";
 import Certificate from "./views/Certificate";
 import StudentManagement from "./views/Dashboard/StudentManagement";
+import DocumentAdmin from "./views/Dashboard/DocumentAdmin";
 
 function App() {
   return (
@@ -70,9 +70,6 @@ function App() {
             <Route path="/edit-bang">
               <QuanLyBang />
             </Route>
-            <Route path="/edit-new-customer">
-              <NewCustomer />
-            </Route>
             <Route path="/admin-login">
               <AdminLogin />
             </Route>
@@ -90,6 +87,9 @@ function App() {
             </Route>
             <Route path="/follow-admin">
               <FollowAdmin />
+            </Route>
+            <Route path="/document-management">
+              <DocumentAdmin />
             </Route>
           </Switch>
         </header>

@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import imgavt from "../img/avtnoavt.png";
 import "../styles/InfoStudent.scss";
 import EditInfoStudent from "./Forms/EditInfoStudent";
-import { format } from "date-fns";
+import { format, set } from "date-fns";
 import StudentResetPw from "./Forms/StudentResetPw";
 import Loading from "./Forms/Loading";
+import { is } from "date-fns/esm/locale";
 
 const InfoStudent = () => {
   const [currentTab, setCurrentTab] = useState("1"); // 0: tab "Thông tin cá nhân", 1: tab "Bằng lái xe"
   const [showForm, setShowForm] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false); // Dùng để thông báo cho component cha là đã cập nhật dữ liệu
   const accessToken = localStorage.getItem("token");
   const [data, setData] = useState([]);
 
@@ -77,7 +79,7 @@ const InfoStudent = () => {
     fetchData();
     getDataFollow();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isUpdating]);
 
   if (data.length === 0) {
     return <Loading />;
@@ -101,6 +103,9 @@ const InfoStudent = () => {
   const handleTabClick = (e) => {
     setCurrentTab(e.target.id);
   };
+  const handleUpdating = () => {
+    setIsUpdating(false);
+  };
 
   return (
     <div className="info-stuedent-container">
@@ -119,7 +124,7 @@ const InfoStudent = () => {
               </div>
               <div className="job">Số điện thoại: {data.phoneNumber}</div>
               <div className="job">Địa chỉ: {data.address}</div>
-              <div className="edit-thong-tin-icon" onClick={handleEditClick}>
+              <div className="edit-thong-tin-icon" onClick={()=>{handleEditClick();handleUpdating()}}>
                 Chỉnh sửa thông tin{" "}
                 <i className="fa-regular fa-pen-to-square"></i>
               </div>
@@ -197,6 +202,7 @@ const InfoStudent = () => {
               }}
               setIsEditing={setShowForm}
               handleUpdate={handleUpdate}
+              setIsUpdating={()=>setIsUpdating(true)}
             />
           </div>
         )}

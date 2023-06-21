@@ -26,17 +26,17 @@ function MainLayoutAdmin({ children }) {
             <Link to="/edit-bang">Quản lý bằng lái</Link>
           </li>
           <li>
-            <Link to="/edit-new-customer">Quản lý khách hàng mới</Link>
+            <Link to="/edit-slide">Quản lý slide</Link>
           </li>
           <li>
-            <Link to="/edit-slide">Quản lý slide</Link>
+            <Link to="/document-management">Quản tài liệu</Link>
           </li>
 
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/contact">Quản lý liên hệ mới</Link>
           </li>
           <li>
-            <Link to="/certificate">Certificate</Link>
+            <Link to="/certificate">Quản lý hoàn thành khóa học</Link>
           </li>
         </ul>
       </div>
