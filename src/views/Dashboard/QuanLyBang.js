@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../styles/DashboardScss/InfoStudentForAdmin.scss";
+// import "../../styles/DashboardScss/InfoStudentForAdmin.scss";
 import MainLayoutAdmin from "./MainLayoutAdmin";
 import AddBangLai from "./AddBangLai";
 import EditBangLai from "./EditBangLai";
@@ -13,6 +13,7 @@ const QuanLyBang = () => {
   const [showAddDegreePopup, setShowAddDegreePopup] = useState(false);
   const [showDeleteDegreePopup, setShowDeleteDegreePopup] = useState(false);
   const [selectedDegreeDelete, setSelectedDegreeDelete] = useState(null);
+  const [isEditingDegree, setIsEditingDegree] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,13 +25,14 @@ const QuanLyBang = () => {
           }/api/degree`
         );
         let data = result && result.data ? result.data.data : [];
+
         setData(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
     fetchData();
-  }, []);
+  }, [isEditingDegree]);
 
   const handleUpdateDegree = async () => {
     setSelectedBangLai(null);
@@ -43,16 +45,18 @@ const QuanLyBang = () => {
     setSelectedBangLai(null);
     setShowDeleteDegreePopup(true);
   };
-
+  const handleEditDegree = async () => {
+    setIsEditingDegree(false);
+  };
   return (
     <MainLayoutAdmin>
       <div className="contain-table-info">
         <div className="header-info">
           <h1>Quản lý bằng lái</h1>
           <button>Quay lại</button>
-          <button onClick={handleAddDegree}>Thêm bằng lái</button>
+          <button onClick={()=>{handleAddDegree();handleEditDegree()}}>Thêm bằng lái</button>
         </div>
-        <table className="container">
+        <table className="container-table">
           <thead>
             <tr>
               <th>No.</th>
@@ -89,7 +93,7 @@ const QuanLyBang = () => {
                   <td>{item.title}</td>
                   <td>{item.advantage}</td>
                   <td className="button-info">
-                    <button onClick={handleUpdateDegree}>Sửa</button>
+                    <button onClick={()=>{handleUpdateDegree();handleEditDegree()}}>Sửa</button>
                     <button onClick={handleShowDeleteDegree}>Xóa</button>
                   </td>
                 </tr>
@@ -103,19 +107,20 @@ const QuanLyBang = () => {
         </table>
       </div>
       {showUpdateDegreePopup && (
-        <div className="popup">
-          <div className="popup-inner">
+        <div className="popup-student">
+          <div className="popup-inner-student">
             <EditBangLai
               handleCloseUpdate={() => setShowUpdateDegreePopup(false)}
               selectedBangLai={selectedBangLai}
               setData={setData}
+              IsEditDegree ={() => setIsEditingDegree(true)}
             />
           </div>
         </div>
       )}
       {showDeleteDegreePopup && (
-        <div className="popup">
-          <div className="popup-inner">
+        <div className="popup-student">
+          <div className="popup-inner-student">
             <ConfirmDeleteDegree
               handleCloseFormDelete={() => setShowDeleteDegreePopup(false)}
               selectedDegreeDelete={selectedDegreeDelete}
@@ -125,10 +130,11 @@ const QuanLyBang = () => {
         </div>
       )}
       {showAddDegreePopup && (
-        <div className="popup">
-          <div className="popup-inner">
+        <div className="popup-student">
+          <div className="popup-inner-student">
             <AddBangLai
               handleCloseUpdate={() => setShowAddDegreePopup(false)}
+              IsEditDegree ={() => setIsEditingDegree(true)}
             />
           </div>
         </div>

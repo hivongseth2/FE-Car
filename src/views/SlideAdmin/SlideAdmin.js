@@ -147,7 +147,7 @@ const SlideAdmin = () => {
 
           {isFormOpen && <AddSlide onClose={handleFormClose} />}
         </div>
-        <table className="striped-table-info">
+        <table className="container-table">
           <thead>
             <tr>
               <th>Id</th>

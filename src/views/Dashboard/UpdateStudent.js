@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../../styles/DashboardScss/AddAccount.scss";
-import { format} from "date-fns";
+import { format } from "date-fns";
 
-const UpdateStudent = ({ handleCloseForm, selectedInfoStudent }) => {
+const UpdateStudent = ({ handleCloseForm, selectedInfoStudent, IsEditing }) => {
   const [fullName, setFullName] = useState(selectedInfoStudent.fullName);
   const [address, setAddress] = useState(selectedInfoStudent.address);
-  const [birthday, setBirthday] = useState(format(new Date(selectedInfoStudent.birthday), "yyyy-MM-dd"));
+  const [birthday, setBirthday] = useState(
+    format(new Date(selectedInfoStudent.birthday), "yyyy-MM-dd")
+  );
 
   const handleUpdateStudent = async (e) => {
     e.preventDefault();
@@ -23,24 +25,23 @@ const UpdateStudent = ({ handleCloseForm, selectedInfoStudent }) => {
           Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify({
-            address: address,
-            birthday: birthday,
-            fullName: fullName,
+          address: address,
+          birthday: birthday,
+          fullName: fullName,
         }),
       });
 
       if (!response.ok) {
         throw new Error("Error updating data");
       }
-
-      // Cập nhật thông tin sinh viên thành công
-      toast.success("Cập nhật thông tin sinh viên thành công");
-
-      // Đóng form
-      handleCloseForm();
+      if (response.status === 200) {
+        toast.success("Cập nhật thông tin học viên thành công");
+        IsEditing();
+        handleCloseForm();
+      }
     } catch (error) {
       console.error("Error updating data:", error);
-      toast.error("Đã xảy ra lỗi khi cập nhật thông tin sinh viên");
+      toast.error("Đã xảy ra lỗi khi cập nhật thông tin học viên");
     }
   };
   console.log(selectedInfoStudent.id);

@@ -1,32 +1,32 @@
-.header-info{
-    padding-bottom: 15px;
+.header-info {
+  padding-bottom: 5px;
 }
 .header-info {
-    button {
-        margin: 15px;
-        width: fit-content;
-        min-width: 100px;
-        height: 45px;
-        padding: 8px;
-        border-radius: 5px;
-        border: 2.5px solid #E0E1E4;
-        box-shadow: 0px 0px 20px -20px;
-        cursor: pointer;
-        background-color: #209978;
-        transition: all 0.2s ease-in-out 0ms;
-        user-select: none;
-        font-family: 'Poppins', sans-serif;
-        color: white;
-      }
-      
-      button:hover {
-        background-color: #17795E;
-        box-shadow: 0px 0px 20px -18px;
-      }
-      
-      button:active {
-        transform: scale(0.95);
-      }
+  button {
+    margin: 15px;
+    width: fit-content;
+    min-width: 100px;
+    height: 45px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 2.5px solid #e0e1e4;
+    box-shadow: 0px 0px 20px -20px;
+    cursor: pointer;
+    background-color: #209978;
+    transition: all 0.2s ease-in-out 0ms;
+    user-select: none;
+    font-family: "Poppins", sans-serif;
+    color: white;
+  }
+
+  button:hover {
+    background-color: #17795e;
+    box-shadow: 0px 0px 20px -18px;
+  }
+
+  button:active {
+    transform: scale(0.95);
+  }
 }
 table {
   border-collapse: collapse;
@@ -62,35 +62,44 @@ td {
   text-align: left;
 }
 .button-info {
-    button {
-        width: fit-content;
-        min-width: 100px;
-        height: 45px;
-        padding: 8px;
-        border-radius: 5px;
-        border: 2.5px solid #E0E1E4;
-        box-shadow: 0px 0px 20px -20px;
-        cursor: pointer;
-        background-color: white;
-        transition: all 0.2s ease-in-out 0ms;
-        user-select: none;
-        font-family: 'Poppins', sans-serif;
-      }
-      
-      button:hover {
-        background-color: #F2F2F2;
-        box-shadow: 0px 0px 20px -18px;
-      }
-      
-      button:active {
-        transform: scale(0.95);
-      }
+  button {
+    width: fit-content;
+    min-width: 100px;
+    height: 45px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 2.5px solid #e0e1e4;
+    box-shadow: 0px 0px 20px -20px;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.2s ease-in-out 0ms;
+    user-select: none;
+    font-family: "Poppins", sans-serif;
+  }
+
+  button:hover {
+    background-color: #f2f2f2;
+    box-shadow: 0px 0px 20px -18px;
+  }
+
+  button:active {
+    transform: scale(0.95);
+  }
 }
 .popup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 9999;
+  // width: 400px;
+  // padding: 20px;
+  border-radius: 5px;
+}
+.popup-inner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (min-width: 600px) {
@@ -105,7 +114,7 @@ td {
   align-items: flex-end;
   margin-bottom: 15px;
 }
-.info-search{
+.info-search {
   background-color: #288af2;
   width: 50%;
   // height: 80px;
@@ -130,29 +139,22 @@ td {
 }
 .no-user {
   text-align: center;
-  
 }
 
-.student-info{
+.student-info {
   font-size: 20px;
   margin-left: 10%;
 }
-.info-content{
+.info-content {
   font-size: 15px;
 }
-.popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.search-button{
+.search-button {
   // margin-right: 20%;
   border: white 2px solid;
 }
-.add-button{
+.add-button {
   margin-left: 60%;
 }
-.updatePW-button{
+.updatePW-button {
   margin-right: 0px;
 }

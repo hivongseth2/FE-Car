@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import "../styles/RegisterAdvise.scss";
 import driver_img from "../img/driver_car.jpg";
+import ConfirmFinish from "./ConfirmFinish";
 
 const RegisterAdvise = () => {
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [degree, setDegree] = useState("");
+  const [showConfirmFinish, setShowConfirmFinish] = useState(false);
 
   const handleDegreeChange = (event) => {
     setDegree(event.target.value);
@@ -38,13 +40,15 @@ const RegisterAdvise = () => {
         return;
       }
 
-      setTimeout(function () {
-        window.location.reload();
-      }, 5000);
+      setShowConfirmFinish(true);
 
-      toast.success(
-        `Đăng ký thành công. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất`
-      );
+      setTimeout(function () {
+        setShowConfirmFinish(false);
+      }, 3000);
+
+      // toast.success(
+      //   `Đăng ký thành công. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất`
+      // );
     } catch (error) {
       console.error("Error add data:", error);
       toast.error("Đã xảy ra lỗi khi thêm thông tin");
@@ -62,14 +66,14 @@ const RegisterAdvise = () => {
         </p>
         <div className="input-info-register">
           <input
-            class="input"
+            className="input"
             name="text"
             placeholder="Nhập tên của bạn"
             type="search"
             onChange={(e) => setFullName(e.target.value)}
           />
           <input
-            class="input"
+            className="input"
             name="text"
             placeholder="Nhập số điện thoại"
             type="search"
@@ -127,7 +131,16 @@ const RegisterAdvise = () => {
       <div className="register-advise-img">
         <img src={driver_img} alt="Driver_img" />
       </div>
+
+      {showConfirmFinish && (
+        <div className="popup-confirm-finish">
+          <div className="popup-inner-confirm-finish">
+            <ConfirmFinish />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
+
 export default RegisterAdvise;

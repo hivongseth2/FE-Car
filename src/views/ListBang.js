@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/ListBang.scss";
-import Register_Advise from "./Register_advise";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import axios from "axios";
 
 const BangDetail = () => {
@@ -33,6 +33,7 @@ const BangDetail = () => {
     <div className="list-plan-card">
       {dataBang && dataBang.length > 0 ? (
         dataBang.map((item) => (
+          <CSSTransition key={item.id} timeout={500} classNames="fade">
           <div key={item.id} class="pricing-table">
             <div class="table-header">
               <h2>
@@ -46,7 +47,7 @@ const BangDetail = () => {
               <h4>Hạng {item.rating}</h4>
               <p>{item.description}</p>
             </div>
-            <div class="table-content">
+            <div class="table-content-degree">
               <ul class="feature-list clearfix">
                 <li>
                   Đội tuổi<span> &gt; {item.allowAge} tuổi</span>
@@ -73,6 +74,7 @@ const BangDetail = () => {
               </div>
             </div>
           </div>
+          </CSSTransition>
         ))
       ) : (
         <div>Không có dữ liệu</div>

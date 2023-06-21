@@ -156,7 +156,6 @@ const Sliderr = () => {
           </div>
         </div>
       </section>
-
       <LisBang />
       <RegisterAdvise />
       <ApplicationProcess />

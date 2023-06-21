@@ -4,18 +4,8 @@ import "../styles/Nav1.scss"; // Import file CSS tương ứng
 import { NavLink } from "react-router-dom";
 import logo from "../img/zyro-image.png";
 import login from "../img/login.png";
-import menu from "../img/menu.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FlastInfo from "./Forms/FlastInfo";
-
-import {
-  faHome,
-  faBars,
-  faUserPlus,
-  faSignInAlt,
-  faSignOutAlt,
-  faShareAlt,
-} from "@fortawesome/free-solid-svg-icons";
+import FastContact from "./FastContact";
 
 const Nav1 = () => {
   const token = localStorage.getItem("token");
@@ -81,7 +71,7 @@ const Nav1 = () => {
               type="checkbox"
               id="menu-toggle"
               className="menu-toggle"
-              checked={isMenuOpen}
+              defaultChecked={isMenuOpen}
             />
 
             <label
@@ -118,7 +108,7 @@ const Nav1 = () => {
                       style={{ border: "none" }}
                     >
                       <img src={login} alt="logo" className="parentLogo" />
-                      <span>ĐĂNG NHẬP</span>
+                      <span className="button-login-onnav">ĐĂNG NHẬP</span>
                     </NavLink>
                   </div>
                 )}
@@ -140,7 +130,7 @@ const Nav1 = () => {
               type="checkbox"
               id="menu-toggle"
               className="menu-toggle"
-              checked={isMenuOpen}
+              defaultChecked={isMenuOpen}
             />
 
             <label
@@ -166,7 +156,7 @@ const Nav1 = () => {
                 <NavLink to="/page-mxh" className="parent" onClick={closeMenu}>
                   Mạng xã hội
                 </NavLink>
-                <NavLink to="/page-mxh" className="parent" onClick={closeMenu}>
+                <NavLink to="/document" className="parent" onClick={closeMenu}>
                   Tài liệu
                 </NavLink>
               </div>
@@ -188,6 +178,9 @@ const Nav1 = () => {
           )}
         </nav>
       )}{" "}
+      <div className="fast-contact-home">
+        <FastContact />
+      </div>
     </>
   );
 };

@@ -1,16 +1,16 @@
-.form-add-degree {
+.form-add-document {
     max-width: 600px;
     margin: 0 auto;
     padding: 1rem;
     background-color: #f0f0f0;
     border-radius: 10px;
   }
-  .form-add-degree h1{
+  .form-add-document h1{
     margin-bottom: 10px;
   }
-  .form-add-degree input,
-  .form-add-degree textarea,
-  .form-add-degree select {
+  .form-add-document input,
+  .form-add-document textarea,
+  .form-add-document select {
     position: relative;
     height: 50px;
     width: 100%;
@@ -24,15 +24,15 @@
     padding: 0 15px;
   }
   
-  .button-addbanglai {
+  .button-add-document {
     display: flex;
     justify-content: flex-end;
     margin-top: 20px;
     margin-bottom: 20px;
   }
   
-  .button-addbanglai input[type="submit"],
-  .button-addbanglai input[type="button"] {
+  .button-add-document input[type="submit"],
+  .button-add-document input[type="button"] {
     border-radius: 10px;
     border: none;
     outline: none;
@@ -42,11 +42,11 @@
     margin: 0 10px;
   }
   
-  .button-addbanglai input[type="submit"] {
+  .button-add-document input[type="submit"] {
     background-color: #4ee173;
     color: #fff;
   }
-  .button-addbanglai input[type="button"] {
+  .button-add-document input[type="button"] {
     background-color: #e74c3c;
     color: #fff;
   }
@@ -55,7 +55,7 @@
       padding: 0 0.5rem;
     }
   
-    .form-add-degree {
+    .form-add-document {
       width: 95%;
       max-width: none;
     }

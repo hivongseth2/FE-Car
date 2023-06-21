@@ -41,13 +41,15 @@ const EditInfoStudent = ({
       if (!response.ok) {
         throw new Error("Error updating data");
       }
-
-      setIsEditing(false);
+      if (response.status === 200) {
+        setIsEditing(false);
+        setIsUpdating();
+      }
+      
       //setIsUpdating(true); // Notify parent component about the update
     } catch (error) {
       console.error("Error updating data:", error);
     }
-    window.location.reload();
   };
 
   return (

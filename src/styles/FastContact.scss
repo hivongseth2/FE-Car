@@ -1,0 +1,26 @@
+.fast-contact-container {
+  display: block;
+}
+
+.fast-contact-component {
+  display: flex;
+  align-items: center;
+}
+
+.contact-icon-plus {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.additional-contacts {
+  display: block;
+}
+
+.contact-icon {
+  cursor: pointer;
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin-bottom: 10px;
+}
