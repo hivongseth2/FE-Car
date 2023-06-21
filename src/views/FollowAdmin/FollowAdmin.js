@@ -6,14 +6,15 @@ import AddFollow from "./AddFollow";
 import axios from "axios";
 import IncreaseHours from "./IncreaseHours";
 import { toast } from "react-toastify";
+import { useCallback } from "react";
 
 const FollowAdmin = () => {
   const [data, setData] = useState([]);
   const token = localStorage.getItem("token");
-  const [currentPage, setCurrentPage] = useState();
-  const [totalPage, setTotalPage] = useState();
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalPage, setTotalPage] = useState(1);
   const [degree, setDegree] = useState([]);
-  const [inputSearch, setInputSearch] = useState();
+  const [inputSearch, setInputSearch] = useState("");
   const [selectedDegree, setSelectedDegree] = useState(-1);
   const [isDegree, setIsDegree] = useState(false);
   const [urlDegree, setUrlDegree] = useState("");
@@ -21,13 +22,17 @@ const FollowAdmin = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isFormCrease, setIsFormCrease] = useState(false);
   const [creasingItem, setCreasingItem] = useState(null);
+  const [currentDePage, setCurrentDePage] = useState(0);
+  const [url, setUrl] = useState(
+    "http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow"
+  );
 
   const params = {
     filter: inputSearch,
-    page: 0,
+    page: currentPage,
     size: 10,
   };
-  const url = "http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow";
+  // const url = "http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow";
 
   // ========config default
 
@@ -42,7 +47,7 @@ const FollowAdmin = () => {
   const paramsDe = {
     "degree-id": selectedDegree,
     filter: inputSearch,
-    page: 0,
+    page: currentPage,
     size: 10,
   };
 
@@ -59,14 +64,14 @@ const FollowAdmin = () => {
 
   const handleUpdateSuccess = () => {
     setIsUpdated(true);
-    console.log(isUpdated);
   };
 
   const handleDegreeChange = (e) => {
     setInputSearch("");
-    setSelectedDegree(e.target.value);
-    console.log(selectedDegree);
+    setCurrentPage(0);
+    setSelectedDegree(parseInt(e.target.value));
   };
+
   // ============
   useEffect(() => {
     fetchData();
@@ -77,16 +82,24 @@ const FollowAdmin = () => {
   }, []);
 
   useEffect(() => {
-    if (selectedDegree == -1) {
+    if (selectedDegree === -1) {
       setIsDegree(false);
+
+      setUrl(inputSearch);
+      fetchData();
     } else {
       setIsDegree(true);
+
       setUrlDegree(
-        `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow/by-degree?degree-id=${selectedDegree}`
+        `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow/by-degree?degree-id=${selectedDegree}&page=${currentPage}&size=10`
       );
     }
-  }, [selectedDegree]);
-
+  }, [selectedDegree, currentPage]);
+  // ================fix current page
+  useEffect(() => {
+    console.log(currentPage);
+  }, [currentPage]);
+  //
   useEffect(() => {
     setIsUpdated(false);
     if (!isDegree) {
@@ -94,24 +107,33 @@ const FollowAdmin = () => {
     } else {
       fetchFollowByDegree();
     }
-  }, [isDegree, urlDegree, isUpdated]);
+  }, [
+    isDegree,
+    urlDegree,
+    isUpdated,
+    !isDegree,
+    url ? currentPage : undefined,
+  ]);
 
   // ==========================fetch data
   const fetchData = () => {
-    console.log("config", config);
-
+    // fix ở đây
     axios
-      .get(url, config)
+      .get(
+        `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow?&page=${currentPage}&size=10`,
+        config
+      )
       .then((response) => {
         setData(response.data.data);
+
         setTotalPage(response.data.totalPages);
-        setCurrentPage(response.data.currentPage + 1);
-        console.log(currentPage);
+        setCurrentPage((page) => Math.min(page, response.data.currentPage + 1)); // Sử dụng hàm Math.min để giới hạn currentPage
       })
       .catch((error) => {
         console.error(error);
       });
   };
+
   // ========HANDLE FORM
   const handleAddSlideClick = () => {
     setIsFormOpen(true);
@@ -134,13 +156,21 @@ const FollowAdmin = () => {
   };
 
   // ==========xử lý button edit
+  // xử lý phân trang
+
+  // ==========
 
   const handleEditClick = (id) => {
     const itemToEdit = data.find((item) => item.id === id);
 
     setEditingItem(itemToEdit);
-    console.log("edit id", itemToEdit);
   };
+  // Xử lý click page không degree
+  const handlePageClick = (pageNumber) => {
+    console.log("tong", totalPage);
+    setCurrentPage(pageNumber - 1);
+  };
+  //
   //  xử lý update ở đây nè
   const handleSaveClick = () => {
     const { studentId, degreeId } = editingItem.id;
@@ -158,7 +188,7 @@ const FollowAdmin = () => {
       teacher: editingItem.teacher,
       theotyTestScore: editingItem.theotyTestScore,
     };
-    console.log(editingItem);
+
     axios
       .put(
         `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow/update?degree-id=${editingItem.id.degree.id}&student-id=${editingItem.id.student.id}`,
@@ -166,7 +196,7 @@ const FollowAdmin = () => {
         config
       )
       .then((response) => {
-        console.log("Data updated successfully:", response.data);
+        // console.log("Data updated successfully:", response.data);
         setEditingItem(null); // Reset editingItem to exit edit mode
         toast.success("Cập nhật thành công");
         setIsUpdated(true);
@@ -207,9 +237,7 @@ const FollowAdmin = () => {
   };
 
   //  xử lý điểm
-  const handleIncreaseHourse = (id) => {
-    console.log(id);
-  };
+  const handleIncreaseHourse = (id) => {};
 
   //=============fetch loại bằng
   const fetchDegree = () => {
@@ -227,16 +255,20 @@ const FollowAdmin = () => {
       });
   };
   //=================fetch follow loại bằng
-  const fetchFollowByDegree = () => {
+  const fetchFollowByDegree = useCallback(() => {
     axios
       .get(urlDegree, configDe)
       .then((response) => {
         setData(response.data.data);
+        setTotalPage(response.data.totalPages);
+        // Remove the following line to prevent loop
+        // setCurrentPage(response.data.currentPage);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  };
+  }, [urlDegree, configDe]);
+
   // ==================== fetch data search
 
   const handleInputSearch = (e) => {
@@ -244,21 +276,28 @@ const FollowAdmin = () => {
   };
 
   const handleClickSearch = () => {
-    console.log(isDegree);
-    if (isDegree === false) {
+    setCurrentPage(0);
+    if (!isDegree) {
+      setUrl(
+        `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow?&page=${currentPage}&size=10`
+      );
+
       fetchData();
     } else {
       setUrlDegree(
-        `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow/by-degree?degree-id=${selectedDegree}&filter=${inputSearch}`
+        `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow/by-degree?degree-id=${selectedDegree}&filter=${inputSearch}&page=${currentPage}&size=10`
       );
+
+      fetchFollowByDegree();
     }
   };
+
   // xem xét lại chỗ này
   // useEffect(() => {
   //   if (!isDegree) {
   //     fetchFollowByDegree();
   //   }
-  // }, [urlDegree]);
+  // }, [urlDegree, currentPage]);
 
   return (
     <MainLayoutAdmin>
@@ -550,18 +589,83 @@ const FollowAdmin = () => {
       </table>
       <div className="TotalPageContainer">
         <ul className="TotalPage">
-          {Array.from({ length: totalPage }, (_, index) => (
+          {/* Hiển thị trang đầu tiên */}
+
+          {currentPage >= 1 && (
             <li
-              key={index}
               className={
-                index + 1 === currentPage
+                1 === currentPage + 1
                   ? "TotalPageItem current"
                   : "TotalPageItem"
               }
+              onClick={() => handlePageClick(1)}
             >
-              {index + 1}
+              1
             </li>
-          ))}
+          )}
+          {/* Hiển thị trang trước nếu không phải là trang đầu tiên */}
+          {currentPage > 3 && (
+            <li className="TotalPageItem disabled">
+              {/* Hiển thị dấu ba chấm nếu trang hiện tại không liên tiếp với trang đầu tiên */}
+              {<span>...</span>}
+            </li>
+          )}
+          {/* Hiển thị các trang liền trước trang hiện tại */}
+          {currentPage > 2 && (
+            <li
+              className="TotalPageItem"
+              onClick={() => handlePageClick(currentPage - 1)}
+            >
+              {currentPage - 1}
+            </li>
+          )}
+          {currentPage > 1 && (
+            <li
+              className="TotalPageItem"
+              onClick={() => handlePageClick(currentPage)}
+            >
+              {currentPage}
+            </li>
+          )}
+          {/* Hiển thị trang hiện tại */}
+          <li className="TotalPageItem current">{currentPage + 1}</li>
+          {/* Hiển thị các trang liền sau trang hiện tại */}
+          {currentPage < totalPage - 1 && (
+            <li
+              className="TotalPageItem"
+              onClick={() => handlePageClick(currentPage + 2)}
+            >
+              {currentPage + 2}
+            </li>
+          )}
+          {currentPage < totalPage - 2 && (
+            <li
+              className="TotalPageItem"
+              onClick={() => handlePageClick(currentPage + 3)}
+            >
+              {currentPage + 3}
+            </li>
+          )}
+          {/* Hiển thị trang sau nếu không phải là trang cuối cùng */}
+          {currentPage < totalPage - 3 && (
+            <li className="TotalPageItem disabled">
+              {/* Hiển thị dấu ba chấm nếu trang hiện tại không liên tiếp với trang cuối cùng */}
+              {currentPage < totalPage - 2 && <span>...</span>}
+            </li>
+          )}
+          {/* Hiển thị trang cuối cùng */}
+          {totalPage > 1 && currentPage + 4 <= totalPage && (
+            <li
+              className={
+                totalPage === currentPage
+                  ? "TotalPageItem current"
+                  : "TotalPageItem"
+              }
+              onClick={() => handlePageClick(totalPage)}
+            >
+              {totalPage}
+            </li>
+          )}
         </ul>
       </div>
 
