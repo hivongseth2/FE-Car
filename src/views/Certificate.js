@@ -386,10 +386,10 @@ const Certificate = () => {
             Previous
           </button>
 
-          {/* <span className="total-page">
+          <span className="total-page">
             Tổng : {totalPagesCertificate} - Trang hiện tại:{" "}
             {currentPageCertificate + 1}
-          </span> */}
+          </span>
 
           {/* {pageNumbers.map((pageNumber) => (
             <button

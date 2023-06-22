@@ -308,6 +308,11 @@ const InfoStudentForAdmin = () => {
               Previous
             </button>
 
+            <span className="total-page">
+              Tổng : {totalPagesAccount} - Trang hiện tại:{" "}
+              {currentPageAccount + 1}
+            </span>
+
             {/* {pageNumbers.map((pageNumber) => (
               <button
                 key={pageNumber}

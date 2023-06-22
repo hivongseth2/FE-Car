@@ -358,6 +358,11 @@ const Contact = () => {
               Previous
             </button>
 
+            <span className="total-page">
+              Tổng : {totalPagesContact} - Trang hiện tại:{" "}
+              {currentPageContact + 1}
+            </span>
+
             {/* {pageNumbers.map((pageNumber) => (
           <button
             key={pageNumber}
