@@ -1,12 +1,18 @@
 .list-plan-card {
-  display: grid;
+  // display: grid;
   grid-template-columns: repeat(auto-fill, 22rem);
   grid-gap: 4em;
   padding-top: 3em;
   justify-content: center;
   align-items: center;
 }
+
+.button-register-advise{
+  display: block;
+  margin-bottom: 10px;
+}
 .pricing-table {
+  height: 44em;
   width: 350px;
   position: relative;
   display: block;
@@ -23,6 +29,7 @@
 .package-box {
   position: relative;
   display: block;
+  height: 100px;
   background: #f6f6f7;
   padding: 16px 40px 15px 40px;
 }
@@ -78,6 +85,7 @@
 .pricing-table .feature-list li {
   position: relative;
   display: block;
+
   font-size: 16px;
   font-weight: 500;
   font-family: "Lexend", sans-serif;
@@ -93,12 +101,14 @@
 
 .pricing-table .feature-list {
   margin-bottom: 20px;
+  height: 360px;
 }
 
 .pricing-table .table-content-degree {
   position: relative;
   display: block;
   padding: 20px 30px 40px 30px;
+  height: 520px;
 }
 // .table-content-degree span {
 //   color: #75767b;
@@ -139,4 +149,71 @@
 }
 @media screen and (max-width: 768px) {
  
+}
+.list-plan-card {
+
+  position: relative;
+  overflow: hidden;
+  .slider-container {
+    width: 100%;
+    display: flex;
+    margin-left: 30%;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .slider-content {
+      display: flex;
+      scroll-snap-align: start;
+      justify-content: flex-start;
+      align-content: stretch;
+      flex-wrap: nowrap;
+      align-items: center;
+      margin-left: 500px;
+      flex-direction: row;
+    
+      .pricing-table {
+        display: inline-block;
+      }
+    
+      .pricing-table.active {
+        // display: block;
+        margin-right:130px;
+        height: 900px;
+        left:-300px;
+        opacity: 1 !important;
+        
+        
+      }
+    }
+    
+  }
+  
+  .slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    cursor: pointer;
+    &.prev-button {
+      left: 33%;
+      z-index: 200;
+      background-color: #121113;
+    }
+    &.next-button {
+      right: 30%;
+    }
+  }
+}
+
+.slider-button.next-button{
+  background-color: #121113;
 }

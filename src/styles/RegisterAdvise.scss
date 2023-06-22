@@ -20,13 +20,17 @@
 }
 .register-advise-content p {
   color: #74757b;
+  font-size: 24px;
+
   line-height: 26px;
-  margin: 0px 0px 33px;
+  margin: 2em 0px 4em 0px;
   text-align: left;
 }
 .input-info-register {
   display: flex;
-  flex-direction: column;
+    flex-direction: column;
+    align-content: space-around;
+    flex-wrap: wrap;
 }
 .input-info-register input {
   margin-bottom: 10px;
@@ -37,7 +41,8 @@
 }
 .register-advise-content {
   .input {
-    max-width: 300px;
+    width: 100%;
+   
     background-color: #e2eef0;
     color: #242424;
     padding: 0.15rem 0.5rem;
