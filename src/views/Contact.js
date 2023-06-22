@@ -18,9 +18,14 @@ const Contact = () => {
   const accessToken = localStorage.getItem("token");
   const [allData, setAllData] = useState([]);
 
+  const [editingRowId, setEditingRowId] = useState(null);
+
   // Phan trang
   const [currentPageContact, setCurrentPageContact] = useState(0);
   const [totalPagesContact, setTotalPagesContact] = useState(0);
+
+  // Xoa
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   // ===================
   const handleSearch = async () => {
@@ -63,6 +68,11 @@ const Contact = () => {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
+  };
+
+  // ===================
+  const toggleConfirmation = () => {
+    setShowConfirmation(!showConfirmation);
   };
 
   // ===================
@@ -134,6 +144,12 @@ const Contact = () => {
 
   const handleSaveChanges = async (id) => {
     try {
+      const confirmed = window.confirm("Bạn có chắc chắn muốn cập nhật ?");
+
+      if (!confirmed) {
+        return; // Exit the function if the user cancels the confirmation
+      }
+
       const selectedRow = data.find((item) => item.id === id);
       const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/contact/${id}`;
       const response = await fetch(url, {
@@ -148,6 +164,7 @@ const Contact = () => {
         throw new Error("Error updating data");
       }
       setSelectedRowId(null); // Reset the selected row after saving changes
+      window.location.reload();
     } catch (error) {
       console.error("Error updating data:", error);
     }
@@ -219,7 +236,7 @@ const Contact = () => {
         </div>
         {/* ========================== */}
         <div className="searchByID">
-          Tìm kiếm tài khoản theo ID:
+          <span className="contact-content"> Tìm kiếm tài khoản theo ID:</span>
           <input
             type="text"
             placeholder="Nhập ID"
@@ -307,7 +324,27 @@ const Contact = () => {
                         Sửa
                       </button>
                     )}
-                    <button onClick={() => handleDeleteContact()}>Xóa</button>
+                    <div>
+                      {showConfirmation ? (
+                        <div>
+                          <p>Bạn có chắc chắn muốn xóa?</p>
+                          <button
+                            onClick={handleDeleteContact}
+                            style={{ background: "red" }}
+                          >
+                            Xóa
+                          </button>
+                          <button
+                            onClick={toggleConfirmation}
+                            style={{ background: "green" }}
+                          >
+                            Hủy
+                          </button>
+                        </div>
+                      ) : (
+                        <button onClick={toggleConfirmation}>Xóa</button>
+                      )}
+                    </div>
                   </td>
                 </tr>
               ))}

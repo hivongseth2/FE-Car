@@ -22,6 +22,12 @@ const Certificate = () => {
   const handleShowCreateCertificate = (value) => {
     setShowCreateCertificate(value);
   };
+
+  // confirm xoa
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const toggleConfirmation = () => {
+    setShowConfirmation(!showConfirmation);
+  };
   // Phan trang
   const [currentPageCertificate, setCurrentPageCertificate] = useState(0);
   const [totalPagesCertificate, setTotalPagesCertificate] = useState(0);
@@ -125,7 +131,7 @@ const Certificate = () => {
 
   const getAllCertificate = async () => {
     try {
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin?page=${currentPageCertificate}&size=10`;
+      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin?page=${currentPageCertificate}&size=3`;
       const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -182,6 +188,14 @@ const Certificate = () => {
 
   const updateCertificateStatus = async (degreeId, studentId, newStatus) => {
     try {
+      const confirmed = window.confirm(
+        "Bạn có chắc chắn muốn cập nhật trạng thái?"
+      );
+
+      if (!confirmed) {
+        return; // Exit the function if the user cancels the confirmation
+      }
+
       const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/destatus?degree-id=${degreeId}&student-id=${studentId}`;
       const response = await axios.put(
         url,
@@ -229,6 +243,7 @@ const Certificate = () => {
   const pageNumbers = [];
   for (let i = 1; i <= totalPagesCertificate; i++) {
     pageNumbers.push(i);
+    console.log(pageNumbers);
   }
 
   const renderDataCertificate = isSearchingFilterByDegree
@@ -250,7 +265,7 @@ const Certificate = () => {
           </span>
           <input
             type="text"
-            placeholder="Nhập ID"
+            placeholder="Nhập thông tin"
             className="input-certificate"
             value={filterSearchCertificate}
             onChange={(e) => setFilterSearchCertificate(e.target.value)}
@@ -260,7 +275,7 @@ const Certificate = () => {
             <button onClick={handleResetFilter}>Trở về</button>
           )}
         </div>
-        <div className="searchByIDCer">
+        {/* <div className="searchByIDCer">
           <span className="content-search-cer">Tìm kiếm theo loại bằng:</span>
           <select
             className="select-certificate"
@@ -273,7 +288,7 @@ const Certificate = () => {
             <option value="3">C</option>
           </select>
           <button onClick={getByDegree}>Tìm kiếm</button>
-        </div>
+        </div> */}
 
         <div className="container-table">
           <table className="table-certificate">
@@ -330,13 +345,33 @@ const Certificate = () => {
                   </td>
                   <td className="button-info">
                     {/* <button>Sửa</button> */}
-                    <button
-                      onClick={() =>
-                        deleteCertificate(item.id.degree.id, item.id.student.id)
-                      }
-                    >
-                      Xóa
-                    </button>
+
+                    <div>
+                      {showConfirmation ? (
+                        <div>
+                          <p>Bạn có chắc chắn muốn xóa?</p>
+                          <button
+                            style={{ background: "red" }}
+                            onClick={() =>
+                              deleteCertificate(
+                                item.id.degree.id,
+                                item.id.student.id
+                              )
+                            }
+                          >
+                            Xóa
+                          </button>
+                          <button
+                            style={{ background: "green" }}
+                            onClick={toggleConfirmation}
+                          >
+                            Hủy
+                          </button>
+                        </div>
+                      ) : (
+                        <button onClick={toggleConfirmation}>Xóa</button>
+                      )}
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -350,6 +385,11 @@ const Certificate = () => {
           >
             Previous
           </button>
+
+          {/* <span className="total-page">
+            Tổng : {totalPagesCertificate} - Trang hiện tại:{" "}
+            {currentPageCertificate + 1}
+          </span> */}
 
           {/* {pageNumbers.map((pageNumber) => (
             <button
