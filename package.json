@@ -32,6 +32,7 @@
     "react-social-media-embed": "^2.0.2",
     "react-tiktok-embed": "^1.0.0",
     "react-toastify": "8.0.2",
+    "react-transition-group": "^4.4.5",
     "react-youtube": "^10.1.0",
     "sass": "1.42.1",
     "web-vitals": "^2.1.4",

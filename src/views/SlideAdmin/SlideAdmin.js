@@ -60,25 +60,27 @@ const SlideAdmin = () => {
   };
 
   const handleDeleteClick = (id) => {
-    axios
-      .delete(`${process.env.REACT_DOMAIN}/api/admin/slide/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        // Xử lý phản hồi từ server
-        console.log(response);
+    const confirmed = window.confirm("Bạn có chắc chắn muốn xóa slide này?");
+    if (confirmed) {
+      axios
+        .delete(`${process.env.REACT_DOMAIN}/api/admin/slide/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          // Xử lý phản hồi từ server
+          console.log(response);
 
-        // Cập nhật lại danh sách slides
-        const updatedSlides = slides.filter((slide) => slide.id !== id);
-        setSlides(updatedSlides);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+          // Cập nhật lại danh sách slides
+          const updatedSlides = slides.filter((slide) => slide.id !== id);
+          setSlides(updatedSlides);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
   };
-  // ...
 
   const handleSaveClick = async () => {
     const formData = new FormData();
@@ -147,7 +149,7 @@ const SlideAdmin = () => {
 
           {isFormOpen && <AddSlide onClose={handleFormClose} />}
         </div>
-        <table className="striped-table-info">
+        <table className="container-table">
           <thead>
             <tr>
               <th>Id</th>

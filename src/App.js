@@ -11,12 +11,12 @@ import "react-toastify/dist/ReactToastify.css";
 import Register from "./views/Register";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SlideAdmin from "./views/SlideAdmin/SlideAdmin";
+import Document from "./views/Document";
 
 //admin
 import MainLayoutAdmin from "./views/Dashboard/MainLayoutAdmin";
 import InfoStudentForAdmin from "./views/Dashboard/InfoStudentForAdmin";
 import QuanLyBang from "./views/Dashboard/QuanLyBang";
-import NewCustomer from "./views/Dashboard/NewCustomer";
 import FollowAdmin from "./views/FollowAdmin/FollowAdmin";
 import InfoStudent from "./views/InfoStudent";
 import Logins from "./views/Logins";
@@ -25,6 +25,7 @@ import AdminLogin from "./views/Dashboard/AdminLogin";
 import Contact from "./views/Contact";
 import Certificate from "./views/Certificate";
 import StudentManagement from "./views/Dashboard/StudentManagement";
+import DocumentAdmin from "./views/Dashboard/DocumentAdmin";
 
 function App() {
   return (
@@ -56,6 +57,9 @@ function App() {
             <Route path="/page-mxh">
               <SocialPage />
             </Route>
+            <Route path="/document">
+              <Document />
+            </Route>
 
             <Route path="/edit-slide">
               <SlideAdmin></SlideAdmin>
@@ -65,9 +69,6 @@ function App() {
             </Route>
             <Route path="/edit-bang">
               <QuanLyBang />
-            </Route>
-            <Route path="/edit-new-customer">
-              <NewCustomer />
             </Route>
             <Route path="/admin-login">
               <AdminLogin />
@@ -86,6 +87,9 @@ function App() {
             </Route>
             <Route path="/follow-admin">
               <FollowAdmin />
+            </Route>
+            <Route path="/document-management">
+              <DocumentAdmin />
             </Route>
           </Switch>
         </header>

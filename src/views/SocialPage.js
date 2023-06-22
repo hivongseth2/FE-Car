@@ -2,12 +2,13 @@ import React, { Suspense } from "react";
 import "../styles/SocialPage.scss";
 import geekcode from "../img/logott.jpg";
 import SocalItem from "./SocalItem";
-//import Youtube from "./Youtube";
+import imgFacebook from "../img/facebook-fanpage.png";
 import Tiktok from "./Tiktok";
-//import VideoTikTok from "./VideoTikTok";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faTiktok } from "@fortawesome/free-brands-svg-icons";
+
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const SocialPage = () => {
   const VideoTikTok = React.lazy(() => import("./VideoTikTok"));
@@ -33,10 +34,6 @@ const SocialPage = () => {
               tristique, non lobortis. Nullam ac tristique nulla, at convallis
               quam. Integer consectetur mi nec magna tristique, non lobortis.
             </p>
-            <p className="footer-tiktok">
-              Written by <span className="by-name-tiktok">John Doe</span> on{" "}
-              <span className="date-tiktok">25/05/23</span>
-            </p>
           </div>
         </div>
         <div className="content-tiktok-video">
@@ -58,7 +55,7 @@ const SocialPage = () => {
               <FontAwesomeIcon icon={faYoutube} style={{ color: "#ff0000" }} />{" "}
               YOUTUBE
             </p>
-            <p className="card-body">
+            <p className="card-body-youtube">
               Nullam ac tristique nulla, at convallis quam. Integer consectetur
               mi nec magna tristique, non lobortis. Nullam ac tristique nulla,
               at convallis quam. Integer consectetur mi nec magna tristique, non
@@ -67,16 +64,39 @@ const SocialPage = () => {
               tristique nulla, at convallis quam. Integer consectetur card-image
               Nullam ac tristique nulla, at
             </p>
-            <p className="footer">
-              Written by <span className="by-name">John Doe</span> on{" "}
-              <span className="date">25/05/23</span>
-            </p>
           </div>
         </div>
         <div className="content-youtube-video">
           <Suspense fallback={<div>Loading...</div>}>
             <Youtube />
           </Suspense>
+        </div>
+      </div>
+      <div className="container-social-page-facebook">
+        <div className="card-social-page-info-facebook">
+          <div className="card-social-page-facebook">
+            <div className="card-image-facebook">
+              <img src={geekcode} alt="anh" />
+            </div>
+            <p className="card-title-facebook">
+              <FontAwesomeIcon icon={faFacebook} style={{ color: "#3161b4" }} />{" "}
+              <a href="https://www.facebook.com/profile.php?id=100093409633684">
+                FACEBOOK
+              </a>
+            </p>
+
+            <p className="card-body-facebook">
+              Nullam ac tristique nulla, at convallis quam. Integer consectetur
+              mi nec magna tristique, non lobortis. Nullam ac tristique nulla,
+              at convallis quam. Integer consectetur mi nec magna tristique, non
+              lobortis.
+            </p>
+          </div>
+        </div>
+        <div className="content-facebook-video">
+          <a href="https://www.facebook.com/profile.php?id=100093409633684">
+            <img src={imgFacebook} alt="facebook-fanpage-img" />
+          </a>
         </div>
       </div>
     </div>

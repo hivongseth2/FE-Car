@@ -3,10 +3,7 @@ import "../../styles/DashboardScss/InfoStudentForAdmin.scss";
 import "../../styles/DashboardScss/TableStudent.scss";
 import MainLayoutAdmin from "./MainLayoutAdmin";
 import AdAccount from "./AdAccount";
-import SearchByID from "../SearchByID";
 import FormUpdatePW from "./FormUpdatePW";
-import FormSearchStudent from "./FormSearchStudent";
-import CreateStudent from "../CreateStudent";
 import { toast } from "react-toastify";
 import axios from "axios";
 
@@ -15,7 +12,6 @@ const InfoStudentForAdmin = () => {
   const accessToken = localStorage.getItem("token");
   const [searchId, setSearchId] = useState("");
   const [isSearching, setIsSearching] = useState(false);
-  const [passwordError, setPasswordError] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [data, setData] = useState([]);
   const [editButton, setEditButton] = useState(false);

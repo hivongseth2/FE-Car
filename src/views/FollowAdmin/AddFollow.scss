@@ -21,13 +21,14 @@
 /* container and form */
 .container {
   max-width: 700px;
+
   width: 100%;
   background: #fff;
   padding: 25px 30px;
   border-radius: 5px;
   position: absolute;
   margin: auto;
-  left: 10%;
+  left: 15%;
   z-index: 10;
 
 
@@ -36,7 +37,21 @@
 .container .title {
   font-size: 25px;
   font-weight: 500;
+  display: inline-block;
+margin-left: 36%;
   position: relative;
+ 
+}
+.container button.closeBtn{
+  color: #fff;
+  border: none;
+  min-width: 40px;
+  margin-left: 20%;
+  height: 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: red;
+// margin-left: 58%;
 }
 
 .container .title::before {
@@ -44,7 +59,7 @@
   position: absolute;
   height: 3.5px;
   width: 30px;
-  background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+  // background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
   left: 0;
   bottom: 0;
 }
@@ -180,16 +195,55 @@ form .button input:hover {
 }
 // =
 
-.popup{
+.popupFollow{
   background-color: #55608f;
   position: absolute;
+  color: #fff;
   // width:35em;
-  // left: 100%;
-  margin-left: 13em;
   table{
     td{
       padding: 2px;
       text-align: center;
     }
   }
+}
+
+.popupFollow {
+
+  left: 60em;
+  transform: translate(-48%, -96%);
+  width: 540px;
+  overflow: auto;
+  height: 675px;
+  background-image: linear-gradient(to right, #044880f3, #0e2352e3);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // padding: 10px;
+  position: sticky;
+  
+    h3{
+      color: #c0d6ff;
+      margin-left: 3em;
+    
+  }
+}
+
+.popup-title {
+  text-align: center;
+  flex-grow: 1;
+}
+
+button.close-button {
+
+  border: none;
+  background-color: red;
+  font-size: 16px;
+  width: 30px !important;
+  padding: 0px;
 }

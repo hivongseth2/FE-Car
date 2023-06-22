@@ -43,22 +43,27 @@ const FlastInfo = ({ onLogout }) => {
 
   useEffect(() => {
     console.log(isUser);
-    fetchData();
-  }, []);
+    if (isUser === "ROLE_USER") {
+      fetchData();
+    }
+  }, [isUser]);
+
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     setIsUser(user.role);
-  }, [isUser]);
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
-    onLogout(); // Gọi hàm xử lý đăng xuất từ prop onLogout
+    onLogout();
     history.push("/login");
   };
+
   const toggleCardBody = () => {
     setShowCardBody(!showCardBody);
   };
+
   return (
     <div className="card-container">
       <div className="card-header" onClick={toggleCardBody}>
@@ -73,7 +78,7 @@ const FlastInfo = ({ onLogout }) => {
         <div className="card-body">
           <div className="messages-container">
             {/* =========== */}
-            {isUser !== null && isUser === "ROLE_USER" ? (
+            {isUser === "ROLE_USER" ? (
               <div
                 className="message-box left"
                 onClick={() => {
@@ -87,7 +92,7 @@ const FlastInfo = ({ onLogout }) => {
               <div
                 className="message-box left"
                 onClick={() => {
-                  history.push("/edit-admin");
+                  history.push("/follow-admin");
                 }}
               >
                 <i className="fa-solid fa-list-ul"></i>

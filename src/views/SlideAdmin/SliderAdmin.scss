@@ -50,3 +50,21 @@
 //     color: #333;
 //   }
   
+.header button.btnClose{
+
+    color: #fff;
+    border: none;
+    min-width: 40px;
+    margin-left: 30%;
+    height: 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: red;
+}
+textarea{
+    width:20em;
+    height:20em;
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+}

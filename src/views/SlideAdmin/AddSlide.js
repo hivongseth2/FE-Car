@@ -54,10 +54,15 @@ const AddSlide = (props) => {
 
   return (
     <div className="add-slide-form">
-      {console.log(props)}
+      <div className="header">
+        <span className="spanAddslide">Thêm slide</span>
+        <button type="button" className="btnClose" onClick={closeForm}>
+          X
+        </button>
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="form-field">
-          <label htmlFor="title">Title:</label>
+          <label htmlFor="title">Tiêu đề:</label>
           <input
             type="text"
             id="title"
@@ -68,7 +73,7 @@ const AddSlide = (props) => {
           />
         </div>
         <div className="form-field">
-          <label htmlFor="description">Description:</label>
+          <label htmlFor="description">Chi tiết:</label>
           <input
             type="text"
             id="description"
@@ -88,12 +93,8 @@ const AddSlide = (props) => {
             required
           />
         </div>
-        <div className="form-field">
-          <button type="button" onClick={closeForm}>
-            Đóng
-          </button>
-        </div>
-        <div className="form-field">
+        <div className="btnForm">
+          {" "}
           <button type="button" onClick={handleSubmit}>
             Thêm
           </button>

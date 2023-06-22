@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../styles/DashboardScss/UpdateDegree.scss";
 import { toast } from "react-toastify";
 
-const EditBangLai = ({ selectedBangLai, handleCloseUpdate }) => {
+const EditBangLai = ({ selectedBangLai, handleCloseUpdate, IsEditDegree }) => {
   const [title, setTitle] = useState(selectedBangLai.title);
   const [description, setDescription] = useState(selectedBangLai.description);
   const [price, setPrice] = useState(selectedBangLai.price);
@@ -45,12 +45,12 @@ const EditBangLai = ({ selectedBangLai, handleCloseUpdate }) => {
       if (!response.ok) {
         throw new Error("Error updating data");
       }
-  
-      // Cập nhật thông tin bằng lái thành công
+      if (response.status === 200) {
+        // Cập nhật thông tin bằng lái thành công
       toast.success("Cập nhật thông tin bằng lái thành công");
-  
-      // Đóng form
-      handleCloseUpdate();
+        IsEditDegree();
+        handleCloseUpdate();
+      }
     } catch (error) {
       console.error("Error updating data:", error);
       toast.error("Đã xảy ra lỗi khi cập nhật thông tin bằng lái");
