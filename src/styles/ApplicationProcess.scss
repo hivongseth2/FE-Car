@@ -3,32 +3,47 @@
   grid-template-columns: 1fr 1fr; /* Hai cột có chiều rộng bằng nhau */
   gap: 10px; /* Khoảng cách giữa các cột */
   padding-top: 3em;
-  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
+  // box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
   margin-top: 15px;
+  box-shadow: rgba(0, 0, 0, 0.068) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   margin-bottom: 15px;
 }
 .item-title {
-  background-color: #121113;
+  background-color: #11009E;
   height: 80px;
   display: flex;
+  margin-left: 53%;
+  width: 100%;
   align-items: center;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+
+.aplication-process-1 {
+    margin-top: 14em;
 }
 .item-title h1 {
   color: #ffffff;
   font-size: 44px;
   font-weight: 600;
   line-height: 56px;
-  margin: 0px 0px 11px;
-  text-align: left;
-  padding-left: 15px;
+
+  margin-left: 30%;
+  margin: 0px 0px 7px 20px;
+  text-align: center;
+  padding-left: 55px;
 }
-.aplication-process-title p {
+.aplication-process-title p.subTitle {
   color: #74757b;
+  left: 54%;
+  width: 30.5em;
+  position: relative;
   line-height: 26px;
-  text-align: left;
+  text-align: center;
   padding-bottom: 20px;
+  margin: 20px;
+  font-size: 23px;
   padding-top: 20px;
 }
 .aplication-process-title {
@@ -39,10 +54,14 @@
   border-radius: 0 64px 0 0;
 }
 .aplication-process-now-content {
-  padding: 10px;
+  padding-top: 40px;
 }
 .aplication-process-content img {
-  width: 10%;
+  width: 7%;
+  /* padding: 20px; */
+  /* height: 7%; */
+  border-radius: 20px;
+  box-shadow: rgba(136, 165, 191, 1) 6px 2px 16px 0px, rgba(255, 255, 255, 1) -6px -2px 16px 12px;
 }
 .aplication-process-content {
   padding: 10px;
@@ -51,14 +70,17 @@
 }
 .aplication-process-content h4 {
   color: #121113;
-  font-size: 20px;
+  font-size: 27px;
   font-weight: 600;
-  line-height: 24px;
+  margin-top: 5px;
+  line-height: 47px;
   text-align: left;
+
 }
 .aplication-process-content p {
   color: #74757b;
   line-height: 26px;
+  font-size: 20px;
   text-align: left;
 }
 .aplication-process-2 {

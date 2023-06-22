@@ -13,7 +13,7 @@ const ApplicationProcess = () => {
         <div className="item-title">
           <h1>Quy trình đăng ký học lái xe</h1>
         </div>
-        <p>
+        <p className="subTitle">
           Nhằm tiết kiệm thời gian cho học viên đăng ký học lái xe các hạng,
           trung tâm đưa ra quy trình ngắn gọn như sau:
         </p>

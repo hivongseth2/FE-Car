@@ -1,20 +1,16 @@
 .list-plan-card {
-  // display: grid;
+  display: grid;
   grid-template-columns: repeat(auto-fill, 22rem);
   grid-gap: 4em;
   padding-top: 3em;
   justify-content: center;
   align-items: center;
 }
-
-.button-register-advise{
-  display: block;
-  margin-bottom: 10px;
-}
 .pricing-table {
-  height: 44em;
-  width: 350px;
+  width: 400px;
   position: relative;
+  height: 706px;
+  
   display: block;
   background: #fff;
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
@@ -28,8 +24,8 @@
 }
 .package-box {
   position: relative;
+  height: 90px;
   display: block;
-  height: 100px;
   background: #f6f6f7;
   padding: 16px 40px 15px 40px;
 }
@@ -50,6 +46,7 @@
 
 .pricing-table .table-header {
   position: relative;
+  height: 100px;
   display: block;
   padding: 31px 35px 24px 35px;
   background-color: #121113;
@@ -85,7 +82,6 @@
 .pricing-table .feature-list li {
   position: relative;
   display: block;
-
   font-size: 16px;
   font-weight: 500;
   font-family: "Lexend", sans-serif;
@@ -101,14 +97,13 @@
 
 .pricing-table .feature-list {
   margin-bottom: 20px;
-  height: 360px;
 }
 
 .pricing-table .table-content-degree {
   position: relative;
+  height: 500px;
   display: block;
   padding: 20px 30px 40px 30px;
-  height: 520px;
 }
 // .table-content-degree span {
 //   color: #75767b;
@@ -129,6 +124,8 @@
   button {
     background: #fbca1f;
     font-family: inherit;
+    position: absolute;
+    bottom: 20px;
     padding: 0.6em 1.3em;
     font-weight: 900;
     font-size: 18px;
@@ -151,69 +148,28 @@
  
 }
 .list-plan-card {
-
-  position: relative;
-  overflow: hidden;
-  .slider-container {
-    width: 100%;
-    display: flex;
-    margin-left: 30%;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    .slider-content {
-      display: flex;
-      scroll-snap-align: start;
-      justify-content: flex-start;
-      align-content: stretch;
-      flex-wrap: nowrap;
-      align-items: center;
-      margin-left: 500px;
-      flex-direction: row;
-    
-      .pricing-table {
-        display: inline-block;
-      }
-    
-      .pricing-table.active {
-        // display: block;
-        margin-right:130px;
-        height: 900px;
-        left:-300px;
-        opacity: 1 !important;
-        
-        
-      }
-    }
-    
-  }
-  
-  .slider-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 200;
-    cursor: pointer;
-    &.prev-button {
-      left: 33%;
-      z-index: 200;
-      background-color: #121113;
-    }
-    &.next-button {
-      right: 30%;
-    }
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.slider-button.next-button{
-  background-color: #121113;
+.pricing-table {
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
+.pricing-table.middle-item {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  transition: transform 0.3s ease;
+}
+
+.list-plan-card .pricing-table.slide-in {
+  transition-delay: 0.3s;
+}
+
+
+
+
+
