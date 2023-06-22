@@ -1,5 +1,5 @@
 .list-plan-card {
-  display: grid;
+  // display: grid;
   grid-template-columns: repeat(auto-fill, 22rem);
   grid-gap: 4em;
   padding-top: 3em;
@@ -149,4 +149,71 @@
 }
 @media screen and (max-width: 768px) {
  
+}
+.list-plan-card {
+
+  position: relative;
+  overflow: hidden;
+  .slider-container {
+    width: 100%;
+    display: flex;
+    margin-left: 30%;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .slider-content {
+      display: flex;
+      scroll-snap-align: start;
+      justify-content: flex-start;
+      align-content: stretch;
+      flex-wrap: nowrap;
+      align-items: center;
+      margin-left: 500px;
+      flex-direction: row;
+    
+      .pricing-table {
+        display: inline-block;
+      }
+    
+      .pricing-table.active {
+        // display: block;
+        margin-right:130px;
+        height: 900px;
+        left:-300px;
+        opacity: 1 !important;
+        
+        
+      }
+    }
+    
+  }
+  
+  .slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    cursor: pointer;
+    &.prev-button {
+      left: 33%;
+      z-index: 200;
+      background-color: #121113;
+    }
+    &.next-button {
+      right: 30%;
+    }
+  }
+}
+
+.slider-button.next-button{
+  background-color: #121113;
 }

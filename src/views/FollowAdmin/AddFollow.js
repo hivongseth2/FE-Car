@@ -177,7 +177,9 @@ const AddFollow = (props) => {
   return (
     <div className="container">
       <div className="title">Thêm theo dõi mới</div>
-      <button onClick={closeForm}>X</button>
+      <button className="closeBtn" onClick={closeForm}>
+        X
+      </button>
       <form>
         <div className="user__details">
           <div className="input__box">
@@ -278,7 +280,7 @@ const AddFollow = (props) => {
       </form>
 
       {showPopup && (
-        <div className="popup">
+        <div className="popupFollow">
           <div className="popup-header">
             <h3 className="popup-title">Chọn học viên</h3>
             <button className="close-button" onClick={closePopup}>
