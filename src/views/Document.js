@@ -31,7 +31,7 @@ const Document = () => {
       <>
         {dataDocuments.map((document) => (
           <div key={document.id} className="document-container">
-            <div className="document-component-img">
+            <div className="document-component-img"  style={{ textAlign: "center" }}>
               <img
                 src={`${
                   process.env.REACT_DOMAIN ||

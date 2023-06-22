@@ -1,4 +1,4 @@
-import Sidebar from "./Sidebar";
+
 import "../styles/Footer.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -40,19 +40,19 @@ const Footer = () => {
                 href="https://www.facebook.com/profile.php?id=10006067046012"
               >
                 {" "}
-                <img src={fb}></img>
+                <img src={fb} alt="icon-fb"></img>
               </a>
               <a
                 className="tiktok"
                 href="https://www.facebook.com/profile.php?id=10006067046012"
               >
-                <img src={tiktok}></img>
+                <img src={tiktok} alt="icon-tiktok"></img>
               </a>
               <a
                 className="youtube"
                 href="https://www.facebook.com/profile.php?id=10006067046012"
               >
-                <img src={yt}></img>
+                <img src={yt} alt="icon-youtube"></img>
               </a>
             </p>
           </ul>

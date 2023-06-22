@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../styles/ListBang.scss";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 import axios from "axios";
+import "../styles/ListBang.scss";
+
 
 const BangDetail = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -33,7 +33,6 @@ const BangDetail = () => {
     <div className="list-plan-card">
       {dataBang && dataBang.length > 0 ? (
         dataBang.map((item) => (
-          <CSSTransition key={item.id} timeout={500} classNames="fade">
           <div key={item.id} class="pricing-table">
             <div class="table-header">
               <h2>
@@ -74,7 +73,6 @@ const BangDetail = () => {
               </div>
             </div>
           </div>
-          </CSSTransition>
         ))
       ) : (
         <div>Không có dữ liệu</div>

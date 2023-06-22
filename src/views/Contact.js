@@ -330,7 +330,7 @@ const Contact = () => {
             {pageNumber}
           </button>
         ))} */}
-
+            <button>Tổng số trang: {totalPagesContact} - Trang hiện tại: {currentPageContact+1}</button>
             <button
               onClick={handleNextPage}
               disabled={currentPageContact === totalPagesContact}

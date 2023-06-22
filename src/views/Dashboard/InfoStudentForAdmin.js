@@ -317,7 +317,7 @@ const InfoStudentForAdmin = () => {
                 {pageNumber}
               </button>
             ))} */}
-
+            <button>Tổng số trang: {totalPagesAccount} - Trang hiện tại: {currentPageAccount+1}</button>
             <button
               onClick={handleNextPage}
               disabled={setCurrentPageAccount === totalPagesAccount}
