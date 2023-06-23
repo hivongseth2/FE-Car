@@ -111,7 +111,10 @@ const RegisterAdvise = () => {
                     checked={degree === `Hạng ${item.rating}`}
                     onChange={handleDegreeChange}
                   />
-                  <span>Hạng {""}{item.rating}</span>
+                  <span>
+                    Hạng {""}
+                    {item.rating}
+                  </span>
                 </label>
               ))
             ) : (
@@ -120,7 +123,9 @@ const RegisterAdvise = () => {
           </form>
         </div>
         <div className="button-register-advise">
-          <button onClick={handleRegisterAdvise}>Đăng ký</button>
+          <button className="registerAButton" onClick={handleRegisterAdvise}>
+            Đăng ký
+          </button>
         </div>
       </div>
       <div className="register-advise-img">

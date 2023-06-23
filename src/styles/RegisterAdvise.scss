@@ -17,8 +17,9 @@
 .register-advise-content h1 {
   color: #121113;
   font-size: 40px;
-  //margin-top: 8%;
+  margin-top: 8%;
   font-weight: 600;
+
   line-height: 50px;
   text-align: -webkit-center;
 }
@@ -37,6 +38,9 @@
 }
 .input-info-register input {
   margin-bottom: 22px;
+}
+button.registerAButton{
+  margin-left: 34%;
 }
 .register-advise-img img {
   width: 100%;
@@ -77,15 +81,15 @@
 }
 .button-register-advise {
   button {
-    background: #fbca1f;
+    background: #1a9acc;
     padding: 0.6em 1.3em;
     font-weight: 900;
     font-size: 18px;
-    //border: 3px solid black;
+    // margin-left: 39%;
     border-radius: 0.4em;
     box-shadow: 0.1em 0.1em;
-    margin-top: 15px;
-    color: #000;
+    margin-top: 35px;
+    color: #ffffff;
   }
 
   button:hover {

@@ -227,13 +227,21 @@ const SlideAdmin = () => {
 
                 <td className="button-info">
                   {editingSlide && editingSlide.id === slide.id ? (
-                    <button onClick={handleSaveClick}>Lưu</button>
+                    <button className="btnAddSlide" onClick={handleSaveClick}>
+                      Lưu
+                    </button>
                   ) : (
-                    <button onClick={() => handleEditClick(slide.id)}>
+                    <button
+                      className="btnAddSlide"
+                      onClick={() => handleEditClick(slide.id)}
+                    >
                       Sửa
                     </button>
                   )}
-                  <button onClick={() => handleDeleteClick(slide.id)}>
+                  <button
+                    className="btnAddSlide"
+                    onClick={() => handleDeleteClick(slide.id)}
+                  >
                     Xóa
                   </button>
                 </td>
