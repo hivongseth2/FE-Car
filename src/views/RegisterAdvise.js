@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { toast } from "react-toastify";
 import "../styles/RegisterAdvise.scss";
 import driver_img from "../img/driver_car.jpg";
 import ConfirmFinish from "./ConfirmFinish";
 
 const RegisterAdvise = () => {
+  const [dataBang, setData] = useState([]);
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [degree, setDegree] = useState("");
@@ -13,7 +15,24 @@ const RegisterAdvise = () => {
   const handleDegreeChange = (event) => {
     setDegree(event.target.value);
   };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let result = await axios.get(
+          `${
+            process.env.REACT_DOMAIN ||
+            "http://trungtamdaotaolaixebinhduong.com:8080"
+          }/api/degree`
+        );
+        let data = result && result.data ? result.data.data : [];
+        setData(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
+    fetchData();
+  }, []);
   const handleRegisterAdvise = async (e) => {
     try {
       const response = await fetch(
@@ -82,50 +101,31 @@ const RegisterAdvise = () => {
         </div>
         <div className="container-radio-input">
           <form>
-            <label>
-              <input
-                type="radio"
-                name="radio"
-                value="Hạng B1"
-                checked={degree === "Hạng B1"}
-                onChange={handleDegreeChange}
-              />
-              <span>Hạng B1</span>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="radio"
-                value="Hạng B2"
-                checked={degree === "Hạng B2"}
-                onChange={handleDegreeChange}
-              />
-              <span>Hạng B2</span>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="radio"
-                value="Hạng C"
-                checked={degree === "Hạng C"}
-                onChange={handleDegreeChange}
-              />
-              <span>Hạng C</span>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="radio"
-                value="Hạng D"
-                checked={degree === "Hạng D"}
-                onChange={handleDegreeChange}
-              />
-              <span>Hạng D</span>
-            </label>
+            {dataBang && dataBang.length > 0 ? (
+              dataBang.map((item) => (
+                <label key={item.id}>
+                  <input
+                    type="radio"
+                    name="radio"
+                    value={`Hạng ${item.rating}`}
+                    checked={degree === `Hạng ${item.rating}`}
+                    onChange={handleDegreeChange}
+                  />
+                  <span>
+                    Hạng {""}
+                    {item.rating}
+                  </span>
+                </label>
+              ))
+            ) : (
+              <div>Không có dữ liệu</div>
+            )}
           </form>
         </div>
         <div className="button-register-advise">
-          <button onClick={handleRegisterAdvise}>Đăng ký</button>
+          <button className="registerAButton" onClick={handleRegisterAdvise}>
+            Đăng ký
+          </button>
         </div>
       </div>
       <div className="register-advise-img">

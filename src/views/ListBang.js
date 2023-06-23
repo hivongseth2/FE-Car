@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "../styles/ListBang.scss";
-import Register_Advise from "./Register_advise";
+import ListBangMobile from "./ListBangMobile";
 import axios from "axios";
-
+import next from "../img/next.png";
 const BangDetail = () => {
   const [openModal, setOpenModal] = useState(false);
   const [dataBang, setData] = useState([]);
   const [dataTemp, setDataTemp] = useState([]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,21 +29,21 @@ const BangDetail = () => {
     fetchData();
   }, []);
   // auto next
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setData((prevData) => {
-  //       const newData = [...prevData];
-  //       const tempData = newData.shift();
-  //       newData.push(tempData);
-  //       setDataTemp(newData.slice(0, 3));
-  //       return newData;
-  //     });
-  //   }, 2000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setData((prevData) => {
+        const newData = [...prevData];
+        const tempData = newData.shift();
+        newData.push(tempData);
+        setDataTemp(newData.slice(0, 3));
+        return newData;
+      });
+    }, 200000);
 
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, []);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   const handleOpenModal = () => {
     setOpenModal((prevState) => !prevState);
@@ -69,61 +70,76 @@ const BangDetail = () => {
   };
 
   return (
-    <div className="list-plan-card">
-      <div>
+    <>
+      {isMobile ? (
+        <ListBangMobile />
+      ) : (
+        <div className="list-plan-card">
+          {/* <div>
         <button onClick={handlePrev}>Prev</button>
         <button onClick={handleNext}>Next</button>
-      </div>
-      {dataTemp && dataTemp.length > 0 ? (
-        dataTemp.map((item, index) => (
-          <div
-            key={item.id}
-            className={`pricing-table ${index === 1 ? "middle-item" : ""}`}
-          >
-            <div class="table-header">
-              <h2>
-                <span class="symble"></span>
-                {`${(item.price / 1000000).toLocaleString()}`} &nbsp;
-                <span class="text">triệu</span>
-                <span class="course">toàn khoá</span>
-              </h2>
-            </div>
-            <div class="package-box">
-              <h4>Hạng {item.rating}</h4>
-              <p>{item.description}</p>
-            </div>
-            <div class="table-content-degree">
-              <ul class="feature-list clearfix">
-                <li>
-                  Đội tuổi<span> &gt; {item.allowAge} tuổi</span>
-                </li>
-                <li>
-                  Thời gian học<span>{item.studyTime} tháng</span>
-                </li>
-                <li>
-                  Bổ sung<span>{item.title}</span>
-                </li>
-                <li>
-                  Loại xe <span>{item.categoryCar}</span>
-                </li>
-                <li>
-                  DAT<span> Học đủ {item.dat}Km </span>
-                </li>
-                <li>
-                  Ưu điểm {""}
-                  <span> {item.advantage}</span>
-                </li>
-              </ul>
-              <div className="button-register-advise">
-                <button>Đăng ký</button>
+      </div> */}
+          <img
+            onClick={handlePrev}
+            className="next-left"
+            src={next}
+            alt="next-lefft"
+          ></img>
+          {dataTemp && dataTemp.length > 0 ? (
+            dataTemp.map((item, index) => (
+              <div
+                key={item.id}
+                className={`pricing-table ${index === 1 ? "middle-item" : ""}`}
+              >
+                <div class="table-header">
+                  <h2>
+                    <span class="symble"></span>
+                    {`${(item.price / 1000000).toLocaleString()}`} &nbsp;
+                    <span class="text">triệu</span>
+                    <span class="course">toàn khoá</span>
+                  </h2>
+                </div>
+                <div class="package-box">
+                  <h4>Hạng {item.rating}</h4>
+                  <p>{item.description}</p>
+                </div>
+                <div class="table-content-degree">
+                  <ul class="feature-list clearfix">
+                    <li>
+                      Đội tuổi<span> &gt; {item.allowAge} tuổi</span>
+                    </li>
+                    <li>
+                      Thời gian học<span>{item.studyTime} tháng</span>
+                    </li>
+                    <li>
+                      Bổ sung<span>{item.title}</span>
+                    </li>
+                    <li>
+                      Loại xe <span>{item.categoryCar}</span>
+                    </li>
+                    <li>
+                      DAT<span> Học đủ {item.dat}Km </span>
+                    </li>
+                    <li>
+                      Ưu điểm {""}
+                      <span> {item.advantage}</span>
+                    </li>
+                  </ul>
+                  <div className="container-button-register-advise">
+                    <div className="button-register-advise">
+                      <button>Đăng ký</button>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        ))
-      ) : (
-        <div>Không có dữ liệu</div>
+            ))
+          ) : (
+            <div>Không có dữ liệu</div>
+          )}
+          <img onClick={handleNext} src={next} alt="next-right"></img>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

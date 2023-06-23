@@ -400,7 +400,7 @@ const Certificate = () => {
               {pageNumber}
             </button>
           ))} */}
-
+          <button>Tổng số trang: {totalPagesCertificate} - Trang hiện tại: {currentPageCertificate+1}</button>
           <button
             onClick={handleNextPage}
             disabled={currentPageCertificate === totalPagesCertificate}

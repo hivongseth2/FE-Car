@@ -1,8 +1,8 @@
 .wrapper-footer {
-  font-family: "Roboto", sans-serif;
   display: flex;
   justify-content: space-around;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   padding: 20px;
   color: #333;
   background-color: #498fc9;
@@ -12,93 +12,116 @@
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
+}
+.content-footer {
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+
+// .left, .centre, .right {
+//   width: 30%;
+// }
+
+.left ul,
+.centre ul,
+.right ul {
+  list-style: none;
+  padding: 0;
+}
+
+.left ul li,
+.centre ul li,
+.right ul li {
+  margin-bottom: 10px;
+}
+
+.left ul li:first-child,
+.centre ul li:first-child,
+.right ul li:first-child {
+  font-weight: bold;
+}
+
+/* Trang trí phần Footer */
+.wrapper::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.footer-decoration {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.footer-decoration span {
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background-color: #333;
+  margin: 0 5px;
+}
+
+.content {
+  text-decoration: dashed;
+}
+
+.fab {
+  margin-right: 50px;
+  font-size: 25px;
+}
+.icon {
+  margin-left: 40px;
+}
+.facebook {
+  margin-right: 30px;
+}
+.tiktok {
+  margin-right: 30px;
+}
+li {
+  line-height: 35px;
+}
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+  .wrapper-footer {
+    flex-direction: column;
   }
-  .content-footer{
-    font-weight: bold;
-    font-size: 20px;
-    margin-left: 30px;
-    margin-bottom: 20px;
+  .left,
+  .centre,
+  .right {
+    width: 100%;
   }
-  
-  
-  // .left, .centre, .right {
-  //   width: 30%;
-  // }
-  
-  .left ul, .centre ul, .right ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .left ul li, .centre ul li, .right ul li {
+}
+
+@media screen and (max-width: 480px) {
+  .content-footer {
+    font-size: 18px;
+    margin-left: 10px;
     margin-bottom: 10px;
   }
-  
-  .left ul li:first-child, .centre ul li:first-child, .right ul li:first-child {
-    font-weight: bold;
-  }
-  
-  /* Trang trí phần Footer */
-  .wrapper::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  .footer-decoration {
-    margin-top: 20px;
+  .left,
+  .centre,
+  .right {
     text-align: center;
   }
-  
-  .footer-decoration span {
-    display: inline-block;
-    width: 30px;
-    height: 2px;
-    background-color: #333;
-    margin: 0 5px;
+  .left{
+    margin-bottom: 20px;
   }
-
- .content{
-    text-decoration: dashed;
- }
-  
-.fab {
-    margin-right: 50px;
-    font-size: 25px;
-
-}
-.icon{
-    margin-left: 40px;
-}
-.facebook{
-    margin-right: 30px;
-}
-.tiktok{
-    margin-right: 30px;
-}
-li{
-  line-height: 30px;
-}
-
-@media screen and (max-width: 600px) {
-  .wrapper-footer{
-    font-size:9px;
+  .centre{
+    margin-bottom: 20px;
   }
-  .content-footer{
-    font-size: 15px;
-    margin-left: 10px;
+  .icon {
+    margin-left: 0;
+    margin-top: 10px;
   }
-  .right{
-    display: none;
+  .facebook,
+  .tiktok,
+  .youtube {
+    margin-right: 10px;
   }
-  .icon{
-    margin-left: 10px;
+  li {
+    line-height: 30px;
   }
-  .tiktok{
-    margin-right: 5px;
-}
-.facebook{
-  margin-right: 5px;
-}
-  
 }

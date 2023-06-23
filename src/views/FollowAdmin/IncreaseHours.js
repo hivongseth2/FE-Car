@@ -89,12 +89,15 @@ const IncreaseHours = (props) => {
           value={updateValue}
           onChange={(e) => setUpdateValue(e.target.value)}
         />
-        <button type="button" onClick={handleAddPoint}>
+      </div>
+      <div>
+        <button type="button" className="btnAddValue" onClick={handleAddPoint}>
           Thêm điểm
         </button>
+        <button className="btnClose" onClick={closeCrease}>
+          Đóng
+        </button>
       </div>
-
-      <button onClick={closeCrease}>Đóng</button>
     </form>
   );
 };

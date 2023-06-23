@@ -62,7 +62,6 @@ th, td {
 
 // ====
 pre {
-    font-family: monospace, monospace;
     /* 1 */
     font-size: 1em;
     /* 2 */
@@ -483,11 +482,6 @@ fieldset {
     box-sizing: border-box;
   }
   
-  input,
-  button {
-    font-family: 'Poppins', sans-serif;
-  }
-  
   .s131 {
     min-height: max-content;
     display: -ms-flexbox;
@@ -496,7 +490,6 @@ fieldset {
         justify-content: center;
     -ms-flex-align: center;
         align-items: center;
-    font-family: 'Poppins', sans-serif;
     // background: url("../images/Search_131.png");
     background-size: cover;
     background-position: center center;
