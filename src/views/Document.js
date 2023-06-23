@@ -22,11 +22,11 @@ const Document = () => {
     <div className="document-page">
       <div className="document-header">
         <h2>CATEGORY ARCHIVES: TÀI LIỆU</h2>
-        <p>
+        {/* <p>
           Đây là chuyên mục Tài Liệu của trang web
           “trungtamdaotaolaixebinhduong.com”. Chuyên mục lữu trữ những tài liệu
           cung cấp cho việc học & thi bằng lái xe ô tô B1. B2.C
-        </p>
+        </p> */}
       </div>
       <>
         {dataDocuments.map((document) => (

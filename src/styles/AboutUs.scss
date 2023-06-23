@@ -1,11 +1,11 @@
 .about-us-page {
-  // margin: 5px;
+  margin-top: 20px;
   /* border: 1px solid black; */
   border-radius: 10px;
   /* border-top-left-radius: 65px; */
   /* border-bottom-left-radius: 65px; */
   box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
-  display: grid;
+  //display: grid;
   padding-bottom: 2em;
   justify-content: center;
   align-items: center;
@@ -19,7 +19,7 @@
 .about-us-content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 4rem;
+  grid-gap: 2rem;
   padding: 1rem;
 
   justify-content: center;
@@ -41,7 +41,7 @@
   width: 50%;
 }
 .card-about-us {
-  width: 370px;
+  width: 350px;
   height: 391px;
   border-width: 1px;
   border-color: #dbeafe;
@@ -102,4 +102,5 @@
     font-size: 20px;
     width: 98%;
   }
+  
 }

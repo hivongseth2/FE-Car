@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "../styles/ListBang.scss";
-import Register_Advise from "./Register_advise";
+import ListBangMobile from "./ListBangMobile";
 import axios from "axios";
-
+import next from "../img/next.png";
 const BangDetail = () => {
   const [openModal, setOpenModal] = useState(false);
   const [dataBang, setData] = useState([]);
   const [dataTemp, setDataTemp] = useState([]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,7 +38,7 @@ const BangDetail = () => {
         setDataTemp(newData.slice(0, 3));
         return newData;
       });
-    }, 2000);
+    }, 4000);
 
     return () => {
       clearInterval(interval);
@@ -69,11 +70,16 @@ const BangDetail = () => {
   };
 
   return (
+    <>
+    {isMobile ? (
+      <ListBangMobile />
+    ) : (
     <div className="list-plan-card">
-      <div>
+      {/* <div>
         <button onClick={handlePrev}>Prev</button>
         <button onClick={handleNext}>Next</button>
-      </div>
+      </div> */}
+      <img onClick={handlePrev} className="next-left" src={next} alt="next-lefft"></img>
       {dataTemp && dataTemp.length > 0 ? (
         dataTemp.map((item, index) => (
           <div
@@ -114,16 +120,23 @@ const BangDetail = () => {
                   <span> {item.advantage}</span>
                 </li>
               </ul>
+              <div className="container-button-register-advise">
               <div className="button-register-advise">
                 <button>Đăng ký</button>
+              </div>
               </div>
             </div>
           </div>
         ))
-      ) : (
+        
+      )
+       : (
         <div>Không có dữ liệu</div>
       )}
+      <img onClick={handleNext} src={next} alt="next-right"></img>
     </div>
+    )}
+    </>
   );
 };
 

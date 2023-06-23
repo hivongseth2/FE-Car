@@ -4,18 +4,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: rgb(215, 242, 250);
 }
 .document-header {
-  //background-color: cornflowerblue;
+  // background-color: cornflowerblue;
   text-align: center;
   margin-bottom: 15px;
   margin-top: 15px;
+  padding-top: 15px;
   width: 70%;
 }
-.document-header h2{
-  font-size: 35px;
+.document-header h2 {
+  font-size: 30px;
 }
-.document-header p{
+.document-header p {
   font-size: 20px;
 }
 .document-container {
@@ -23,12 +25,12 @@
   padding-bottom: 15px;
   border-radius: 10px;
   margin-top: 20px;
-  margin-left: 5px;
+  margin-left: 5px;margin-right: 5px;
   display: grid;
-  border-bottom: 2px solid #3666ea;
-  border-top: 2px solid #3666ea;
+  // border-bottom: 2px solid #3666ea;
+  // border-top: 2px solid #3666ea;
   grid-template-columns: 1fr 1fr;
-  //background-color: rgb(250, 246, 240);
+  //background-image: linear-gradient(to right, #ffffff9a, #2367ccd3);
 }
 .document-component-content {
   display: flex;
@@ -38,23 +40,23 @@
   padding: 10px;
   width: 90%;
 }
-.document-component-content h4{
-  background-color: #fee100;
+.document-component-content h4 {
+  // background-color: #fee100;
   padding: 10px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  font-size: 30px;
+  // padding-top: 30px;
+  // padding-bottom: 30px;
+  font-size: 25px;
   margin: 0;
 }
-.document-component-content p{
-  margin-top: 15px;
-  background-color: #f6f6f7;
+.document-component-content p {
+  //margin-top: 15px;
+  // background-color: #f6f6f7;
   padding: 10px;
-  font-size: 20px;
+  font-size: 15px;
 }
 .document-component-img img {
   // height: 100%;
-  width:70%;
+  width: 80%;
 }
 
 .action-document {
@@ -67,10 +69,10 @@
   align-items: center;
   gap: 0.25rem;
   background-color: #2563eb;
-  padding: 6px 8px;
+  padding: 8px 10px;
   border-radius: 4px;
   text-decoration: none;
-  width: 130px;
+  width: 150px;
 }
 
 .action-document span {
@@ -92,8 +94,10 @@
     width: 99%;
   }
   .document-header {
-    text-align: left;width: 90%;
+    text-align: left;
+    width: 90%;
   }
   .document-component-img img {
-    width: 90%;}
+    width: 90%;
+  }
 }
