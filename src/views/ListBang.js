@@ -28,21 +28,21 @@ const BangDetail = () => {
     fetchData();
   }, []);
   // auto next
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setData((prevData) => {
-        const newData = [...prevData];
-        const tempData = newData.shift();
-        newData.push(tempData);
-        setDataTemp(newData.slice(0, 3));
-        return newData;
-      });
-    }, 2000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setData((prevData) => {
+  //       const newData = [...prevData];
+  //       const tempData = newData.shift();
+  //       newData.push(tempData);
+  //       setDataTemp(newData.slice(0, 3));
+  //       return newData;
+  //     });
+  //   }, 2000);
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, []);
 
   const handleOpenModal = () => {
     setOpenModal((prevState) => !prevState);
