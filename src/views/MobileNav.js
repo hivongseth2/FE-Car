@@ -27,7 +27,7 @@ const MobileNav = ({ onClosePopup }) => {
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     setUserRole(user?.role);
-    console.log(user?.role);
+    // console.log(user?.role);
   }, []);
 
   return (

@@ -4,7 +4,6 @@ import ListBangMobile from "./ListBangMobile";
 import axios from "axios";
 import next from "../img/next.png";
 const BangDetail = () => {
-  const [openModal, setOpenModal] = useState(false);
   const [dataBang, setData] = useState([]);
   const [dataTemp, setDataTemp] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -38,17 +37,12 @@ const BangDetail = () => {
         setDataTemp(newData.slice(0, 3));
         return newData;
       });
-    }, 200000);
+    }, 3000);
 
     return () => {
       clearInterval(interval);
     };
   }, []);
-
-  const handleOpenModal = () => {
-    setOpenModal((prevState) => !prevState);
-  };
-
   const handleNext = () => {
     setData((prevData) => {
       const newData = [...prevData];

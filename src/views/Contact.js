@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "../styles/contact.scss";
 import MainLayoutAdmin from "./Dashboard/MainLayoutAdmin";
-import SearchContactByID from "./Dashboard/SearchContactByID";
 
 const Contact = () => {
+  document.title = "Quản lý liên hệ mới";
   const [data, setData] = useState([]);
   const [selectedRowId, setSelectedRowId] = useState(null);
   const [selectedRowIdDelete, setSelectedRowIdDelete] = useState(null);
@@ -16,9 +16,6 @@ const Contact = () => {
   const [searchResult, setSearchResult] = useState([]);
   const [showResult, setShowResult] = useState(false);
   const accessToken = localStorage.getItem("token");
-  const [allData, setAllData] = useState([]);
-
-  const [editingRowId, setEditingRowId] = useState(null);
 
   // Phan trang
   const [currentPageContact, setCurrentPageContact] = useState(0);
@@ -32,7 +29,10 @@ const Contact = () => {
     try {
       const accessToken = localStorage.getItem("token");
 
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/contact/${searchId}`;
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/contact/${searchId}`;
 
       if (searchId === "") {
         setSearchResult(data);
@@ -84,7 +84,10 @@ const Contact = () => {
 
   const getAllContact = async () => {
     try {
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/contact?page=${currentPageContact}&size=10`;
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/contact?page=${currentPageContact}&size=10`;
       const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -151,7 +154,10 @@ const Contact = () => {
       }
 
       const selectedRow = data.find((item) => item.id === id);
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/contact/${id}`;
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/contact/${id}`;
       const response = await fetch(url, {
         method: "PUT",
         headers: {
@@ -177,7 +183,10 @@ const Contact = () => {
   const handleDeleteContact = async () => {
     try {
       const accessToken = localStorage.getItem("token");
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/contact/${selectedRowIdDelete.id}`;
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/contact/${selectedRowIdDelete.id}`;
 
       const response = await fetch(url, {
         method: "DELETE",
@@ -358,10 +367,10 @@ const Contact = () => {
               Previous
             </button>
 
-            <span className="total-page">
+            {/* <span className="total-page">
               Tổng : {totalPagesContact} - Trang hiện tại:{" "}
               {currentPageContact + 1}
-            </span>
+            </span> */}
 
             {/* {pageNumbers.map((pageNumber) => (
           <button
@@ -372,7 +381,10 @@ const Contact = () => {
             {pageNumber}
           </button>
         ))} */}
-            <button>Tổng số trang: {totalPagesContact} - Trang hiện tại: {currentPageContact+1}</button>
+            <button>
+              Tổng số trang: {totalPagesContact} - Trang hiện tại:{" "}
+              {currentPageContact + 1}
+            </button>
             <button
               onClick={handleNextPage}
               disabled={currentPageContact === totalPagesContact}

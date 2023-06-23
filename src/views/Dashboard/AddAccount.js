@@ -8,7 +8,7 @@ const AdAccount = ({ handleCloseForm }) => {
 
   const handleRadioChange = (event) => {
     setSelectedRole(event.target.value); // Cập nhật trạng thái khi radio được chọn
-    console.log(selectedRole);
+    // console.log(selectedRole);
   };
 
   const handleAddAccount = async (e) => {

@@ -10,10 +10,10 @@ const AdminLogin = () => {
   const handleOnchangeInput = (e) => {
     if (e.target.classList.contains("userName")) {
       setUserName(e.target.value);
-      console.log("Us" + userName);
+      // console.log("Us" + userName);
     } else {
       setPassWord(e.target.value);
-      console.log("Pw" + passWord);
+      // console.log("Pw" + passWord);
     }
   };
   const setError = (errorMessage) => {
@@ -22,7 +22,7 @@ const AdminLogin = () => {
   const handleSignIn = async (event) => {
     event.preventDefault();
     try {
-      console.log(process.env.REACT_DOMAIN);
+      // console.log(process.env.REACT_DOMAIN);
       const response = await fetch(
         `${
           process.env.REACT_DOMAIN ||
@@ -41,10 +41,10 @@ const AdminLogin = () => {
       );
 
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
 
       if (data.errorCode !== undefined) {
-        console.log(data);
+        // console.log(data);
 
         toast.error(`Tên đăng nhập hoặc mật khẩu sai`);
 
@@ -55,7 +55,7 @@ const AdminLogin = () => {
       }, 1000);
 
       toast.success(`Chào mừng ${data.fullName} đã quay trở lại!`);
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       setError(error.message);
     }

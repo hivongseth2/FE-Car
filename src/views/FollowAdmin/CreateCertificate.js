@@ -15,8 +15,10 @@ const CreateCertificate = (props) => {
   const createCertificate = async () => {
     try {
       const accessToken = localStorage.getItem("token");
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/create?degree-id=${props.id.degree.id}&student-id=${props.id.student.id}`;
-
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/create?degree-id=${props.id.degree.id}&student-id=${props.id.student.id}`;
       const response = await fetch(url, {
         method: "POST",
         headers: {

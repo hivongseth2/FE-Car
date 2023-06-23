@@ -9,8 +9,10 @@ const SearchContactByID = () => {
   const handleSearch = async () => {
     const accesstoken = localStorage.getItem("token");
     try {
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/contact/${searchId}`;
-
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/contact/${searchId}`;
       const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -40,9 +42,10 @@ const SearchContactByID = () => {
   useEffect(() => {
     const fetchAllData = async () => {
       try {
-        const url =
-          "http://trungtamdaotaolaixebinhduong.com:8080/api/admin/contact";
-
+          const url = `${
+            process.env.REACT_DOMAIN ||
+            "http://trungtamdaotaolaixebinhduong.com:8080"
+          }/api/admin/contact`;
         const response = await fetch(url, {
           method: "GET",
           headers: {
