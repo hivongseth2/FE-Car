@@ -44,6 +44,8 @@
   }
 }
 #trapezoid {
+  // margin-left: 10em;
+  margin-left: 7%;
   box-sizing: content-box;
   height: 0;
   border: 200px solid rgba(0, 0, 0, 0);
@@ -199,7 +201,7 @@
   width: 100%;
   position: fixed;
   /* left: 32%; */
-  top: 14%;
+  top: 11%;
   text-align: center;
   font-size: 25px;
 }
@@ -375,6 +377,7 @@
     -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
   }
+  
 
   #trapezoid {
     box-sizing: content-box;

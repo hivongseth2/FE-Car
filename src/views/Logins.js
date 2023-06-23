@@ -59,7 +59,7 @@ const Logins = () => {
         window.location.href = "/";
       }, 1000);
 
-      toast.success(`Chào mừng ${data.fullName} đã quay trở lại!`);
+      toast.success(`Chào mừng ${data.student.fullName} đã quay trở lại!`);
       // console.log(data);
     } catch (error) {
       setError(error.message);
@@ -98,9 +98,6 @@ const Logins = () => {
           {/* <a className="forget" href="#">
             Quên mật khẩu
           </a> */}
-          <p className="signup-link">
-            Bạn chưa có tài khoản ? <Link to="/">Đăng ký</Link>
-          </p>
         </div>
       </form>
     </div>
