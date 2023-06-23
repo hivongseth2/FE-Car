@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import MainLayoutAdmin from "./MainLayoutAdmin";
 import { toast } from "react-toastify";
+import MainLayoutAdmin from "./MainLayoutAdmin";
+
 
 const LinkManagement = () => {
   document.title = "Quản lý link";
@@ -138,6 +139,7 @@ const LinkManagement = () => {
   return (
     <MainLayoutAdmin>
       <div className="contain-table-info">
+        <h1>Quản lý bài đăng</h1>
         <div className="header-info">
           <div>
             {showTextArea ? (
@@ -153,6 +155,9 @@ const LinkManagement = () => {
               <button onClick={handleAddPost}>Thêm bài đăng</button>
             )}
           </div>
+          <p>No.2 đến No.4 là link TikTok ở trang mạng xã hội</p>
+          <p>No.5 là link youtube ở mạng xã hội</p>
+          <p>No.6 Kênh youtube</p>
         </div>
         <table className="container-table">
           <thead>
