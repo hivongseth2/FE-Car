@@ -77,6 +77,7 @@ const IncreaseHours = (props) => {
           <option value="night">Giờ chạy đêm</option>
           <option value="automatic">Giờ chạy tự động</option>
           <option value="DAT">Giờ chạy đạt</option>
+          <option value="km">Số Km đạt</option>
         </select>
       </div>
 

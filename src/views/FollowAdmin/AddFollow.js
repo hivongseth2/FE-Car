@@ -16,12 +16,12 @@ const AddFollow = (props) => {
     // name: "",
     studentId: "",
     degreeId: "",
-    automaticRunningHours: 0,
-    hoursRunningDAT: 0,
-    kmDAT: 0,
-    nightRunningHours: 0,
-    theotyTestScore: 0,
-    simulatedTestScore: 0,
+    // automaticRunningHours: 0,
+    // hoursRunningDAT: 0,
+    // kmDAT: 0,
+    // nightRunningHours: 0,
+    // theotyTestScore: null,
+    // simulatedTestScore: null,
   });
   const [nameStudent, setNameStudent] = useState(null);
   const token = localStorage.getItem("token");

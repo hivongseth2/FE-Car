@@ -233,8 +233,9 @@
 .slogan{
   width: 100%;
   position: fixed;
-  left: 32%;
-  top: 13%;
+  /* left: 32%; */
+  top: 12%;
+  text-align: center;
   font-size: 25px;
 }
 .slogan{
@@ -244,8 +245,9 @@
   letter-spacing: 10px;
   // -webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
   // line-height: 0.5em;
+  color:#fff;
   outline: none;
-  animation: animate 5s linear infinite;
+  // animation: animate 5s both infinite;
 }
 @keyframes animate{
   0%,18%,20%,50.1%,60%,65.1%,80%,90.1%,92%
