@@ -225,7 +225,7 @@ const InfoStudentForAdmin = () => {
             className="add-button"
             onClick={() => handleOpenFormAddAccount(true)}
           >
-            Thêm tài khoản
+            Thêm tài tài khoản
           </button>
           <button
             onClick={handleOpenForm}
@@ -313,10 +313,10 @@ const InfoStudentForAdmin = () => {
               Previous
             </button>
 
-            <span className="total-page">
+            {/* <span className="total-page">
               Tổng : {totalPagesAccount} - Trang hiện tại:{" "}
               {currentPageAccount + 1}
-            </span>
+            </span> */}
 
             {/* {pageNumbers.map((pageNumber) => (
               <button
@@ -327,12 +327,15 @@ const InfoStudentForAdmin = () => {
                 {pageNumber}
               </button>
             ))} */}
-            <button>Tổng số trang: {totalPagesAccount} - Trang hiện tại: {currentPageAccount+1}</button>
+            <button>
+              Tổng số trang: {totalPagesAccount} - Trang hiện tại:{" "}
+              {currentPageAccount + 1}
+            </button>
             <button
               onClick={handleNextPage}
               disabled={setCurrentPageAccount === totalPagesAccount}
             >
-              Next 
+              Next
             </button>
           </div>
         </div>
