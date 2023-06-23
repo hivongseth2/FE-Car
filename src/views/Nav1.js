@@ -121,7 +121,6 @@ const Nav1 = () => {
           <div className="logo">
             <img src={logo} className="logoct" alt="logo" />
           </div>
-
           <div id="trapezoid">
             <a className="sub-home" href="#">
               Home
@@ -162,6 +161,7 @@ const Nav1 = () => {
               </div>
             </div>
           </div>
+          <span className="slogan">Học, Học Nữa, Học Mãi</span>
           {isLoggedIn ? (
             <FlastInfo onLogout={handleLogout} className="rotate" />
           ) : (

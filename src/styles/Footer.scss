@@ -79,3 +79,26 @@
 li{
   line-height: 30px;
 }
+
+@media screen and (max-width: 600px) {
+  .wrapper-footer{
+    font-size:9px;
+  }
+  .content-footer{
+    font-size: 15px;
+    margin-left: 10px;
+  }
+  .right{
+    display: none;
+  }
+  .icon{
+    margin-left: 10px;
+  }
+  .tiktok{
+    margin-right: 5px;
+}
+.facebook{
+  margin-right: 5px;
+}
+  
+}
