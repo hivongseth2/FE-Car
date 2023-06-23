@@ -21,7 +21,7 @@ function MainLayoutAdmin({ children }) {
           <li>
             <Link to="/follow-admin">Quản lý theo dõi học viên</Link>
           </li>
-          <li>Quản lý bài đăng</li>
+          <li><Link to="/link-management">Quản lý bài đăng</Link></li>
           <li>
             <Link to="/edit-bang">Quản lý bằng lái</Link>
           </li>

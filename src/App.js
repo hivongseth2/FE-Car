@@ -26,6 +26,7 @@ import Contact from "./views/Contact";
 import Certificate from "./views/Certificate";
 import StudentManagement from "./views/Dashboard/StudentManagement";
 import DocumentAdmin from "./views/Dashboard/DocumentAdmin";
+import LinkManagement from "./views/Dashboard/LinkManagement";
 
 function App() {
   return (
@@ -90,6 +91,9 @@ function App() {
             </Route>
             <Route path="/document-management">
               <DocumentAdmin />
+            </Route>
+            <Route path="/link-management">
+              <LinkManagement />
             </Route>
           </Switch>
         </header>

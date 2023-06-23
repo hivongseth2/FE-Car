@@ -6,6 +6,7 @@
   justify-content: center;
 }
 .document-header {
+  //background-color: cornflowerblue;
   text-align: center;
   margin-bottom: 15px;
   margin-top: 15px;
@@ -25,7 +26,7 @@
   margin-left: 5px;
   display: grid;
   border-bottom: 2px solid #3666ea;
-  //border-top: 2px solid #3666ea;
+  border-top: 2px solid #3666ea;
   grid-template-columns: 1fr 1fr;
   //background-color: rgb(250, 246, 240);
 }
@@ -43,6 +44,7 @@
   padding-top: 30px;
   padding-bottom: 30px;
   font-size: 30px;
+  margin: 0;
 }
 .document-component-content p{
   margin-top: 15px;
@@ -92,4 +94,6 @@
   .document-header {
     text-align: left;width: 90%;
   }
+  .document-component-img img {
+    width: 90%;}
 }

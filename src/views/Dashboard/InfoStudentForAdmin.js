@@ -322,7 +322,7 @@ const InfoStudentForAdmin = () => {
               onClick={handleNextPage}
               disabled={setCurrentPageAccount === totalPagesAccount}
             >
-              Next
+              Next 
             </button>
           </div>
         </div>
