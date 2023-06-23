@@ -3,6 +3,7 @@ import React from "react";
 import MainLayoutAdmin from "./MainLayoutAdmin";
 
 const LinkManagement = () => {
+    document.title = "Quản lý bài đăng";
     return (
         <MainLayoutAdmin>
         <div className="contain-table-info">

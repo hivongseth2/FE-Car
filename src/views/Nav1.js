@@ -77,7 +77,7 @@ const Nav1 = () => {
             <img src={logo} className="logoct" alt="logo" />
           </div>
           <div id="trapezoid">
-            <a className="sub-home" href="#">
+            <a className="sub-home" href="!#">
               Home
             </a>
             <input

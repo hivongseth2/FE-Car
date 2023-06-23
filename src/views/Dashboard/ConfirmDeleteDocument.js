@@ -10,9 +10,12 @@ const ConfirmDeleteDocument = ({
   const handleDeleteDocument = async () => {
     try {
       const accessToken = localStorage.getItem("token");
-      console.log(selectedDocumentDelete.id);
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/document/${selectedDocumentDelete.id}`;
-      
+      // console.log(selectedDocumentDelete.id);
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/document/${selectedDocumentDelete.id}`;
+
       const response = await fetch(url, {
         method: "DELETE",
         headers: {
@@ -30,9 +33,7 @@ const ConfirmDeleteDocument = ({
       handleClosePopup();
       // Remove the deleted document from dataDocument array
       setDataDocument((prevData) =>
-        prevData.filter(
-          (document) => document.id !== selectedDocumentDelete.id
-        )
+        prevData.filter((document) => document.id !== selectedDocumentDelete.id)
       );
     } catch (error) {
       console.error("Error deleting document:", error);

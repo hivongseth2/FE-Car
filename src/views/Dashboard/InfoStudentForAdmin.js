@@ -51,8 +51,10 @@ const InfoStudentForAdmin = () => {
 
   const handleSearch = async () => {
     try {
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/account/${searchId}`;
-
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/account/${searchId}`;
       if (searchId === "") {
         setSearchResult(data);
         setIsSearching(true);
@@ -70,7 +72,7 @@ const InfoStudentForAdmin = () => {
         }
 
         const responseDataSearchByID = await response.json();
-        console.log("API response:", responseDataSearchByID);
+        // console.log("API response:", responseDataSearchByID);
 
         // Gán dữ liệu vào biến state searchResult
         if (responseDataSearchByID) {
@@ -117,7 +119,10 @@ const InfoStudentForAdmin = () => {
 
   const updateActive = async (id, newActive) => {
     try {
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/account/deactive?id=${id}`;
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/account/deactive?id=${id}`;
       const response = await axios.put(
         url,
         { Active: newActive },

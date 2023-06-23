@@ -8,6 +8,7 @@ import ConfirmDeleteDocument from "./ConfirmDeleteDocument";
 import { set } from "date-fns";
 
 const DocumentAdmin = () => {
+  document.title = "Quản lý tài liệu";
   const [dataDocuments, setDataDocuments] = useState([]);
   const [selectedRow, setSelectedRow] = useState(null);
   const [imageFile, setImageFile] = useState(null);

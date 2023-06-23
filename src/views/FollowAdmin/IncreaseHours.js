@@ -42,7 +42,7 @@ const IncreaseHours = (props) => {
   }, [isSuccess]);
 
   const handleAddPoint = async () => {
-    console.log(body);
+    // console.log(body);
     axios
       .post(url, body, config)
       .then((response) => {

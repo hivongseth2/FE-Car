@@ -37,7 +37,7 @@ const AddSlide = (props) => {
       })
       .then((response) => {
         // Xử lý phản hồi từ server
-        console.log(response);
+        // console.log(response);
       })
       .catch((error) => {
         console.error(error);

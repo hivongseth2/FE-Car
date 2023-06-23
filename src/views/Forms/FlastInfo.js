@@ -30,7 +30,7 @@ const FlastInfo = ({ onLogout }) => {
       }
 
       const responseData = await response.json();
-      console.log("API response:", responseData);
+      // console.log("API response:", responseData);
 
       // Gán dữ liệu vào biến state data
       if (responseData) {
@@ -42,7 +42,7 @@ const FlastInfo = ({ onLogout }) => {
   };
 
   useEffect(() => {
-    console.log(isUser);
+    // console.log(isUser);
     if (isUser === "ROLE_USER") {
       fetchData();
     }

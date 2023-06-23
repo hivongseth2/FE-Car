@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import ConfirmDeleteStudent from "./ConfirmDeleteStudent";
 
 const StudentManagement = () => {
+  document.title = "Quản lý học viên";
   const [dataStudent, setDataStudent] = useState([]);
   // const [searchId, setSearchId] = useState("");
   const [selectedInfoStudent, setSelectedInfoStudent] = useState(null);
@@ -129,7 +130,7 @@ const StudentManagement = () => {
         }
 
         const responseDataSearchFilter = await response.json();
-        console.log("API response:", responseDataSearchFilter);
+        // console.log("API response:", responseDataSearchFilter);
 
         // Gán dữ liệu vào biến state searchResult hoặc hiển thị thông báo nếu không tìm thấy
         if (responseDataSearchFilter) {
@@ -159,8 +160,10 @@ const StudentManagement = () => {
   const handleResetPassword = async () => {
     try {
       const accessToken = localStorage.getItem("token");
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/student/reset-password?id=${selectedInfoStudentReset}`;
-
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/student/reset-password?id=${selectedInfoStudentReset}`;
       const response = await fetch(url, {
         method: "PUT",
         headers: {

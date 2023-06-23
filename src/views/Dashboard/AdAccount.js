@@ -9,7 +9,7 @@ const AdAccount = ({ handleCloseForm }) => {
 
   const handleRadioChange = (event) => {
     setSelectedRole(event.target.value); // Cập nhật trạng thái khi radio được chọn
-    console.log(selectedRole);
+    // console.log(selectedRole);
   };
 
   const handleAddAccount = async (e) => {
@@ -34,7 +34,7 @@ const AdAccount = ({ handleCloseForm }) => {
           username: userName,
         }),
       });
-      console.log("API response:", response);
+      // console.log("API response:", response);
       handleCloseForm();
       toast.success("Thêm tài khoản thành công");
       if (!response.ok) {

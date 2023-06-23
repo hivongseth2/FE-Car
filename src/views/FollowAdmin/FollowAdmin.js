@@ -10,6 +10,7 @@ import { useCallback } from "react";
 import CreateCertificate from "./CreateCertificate";
 
 const FollowAdmin = () => {
+  document.title = "Quản lý theo dõi học viên";
   const [data, setData] = useState([]);
   const token = localStorage.getItem("token");
   const [currentPage, setCurrentPage] = useState(0);
@@ -25,7 +26,10 @@ const FollowAdmin = () => {
   const [creasingItem, setCreasingItem] = useState(null);
 
   const [url, setUrl] = useState(
-    "http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow"
+    `${
+      process.env.REACT_DOMAIN ||
+      "http://trungtamdaotaolaixebinhduong.com:8080"
+    }/api/admin/follow`
   );
 
   const params = {
@@ -92,7 +96,10 @@ const FollowAdmin = () => {
       setIsDegree(true);
 
       setUrlDegree(
-        `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow/by-degree?degree-id=${selectedDegree}&page=${currentPage}&size=10`
+        `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/admin/follow/by-degree?degree-id=${selectedDegree}&page=${currentPage}&size=10`
       );
     }
   }, [selectedDegree, currentPage]);
@@ -121,7 +128,10 @@ const FollowAdmin = () => {
     // fix ở đây
     axios
       .get(
-        `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow?&page=${currentPage}&size=10`,
+        `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/admin/follow?&page=${currentPage}&size=10`,
         config
       )
       .then((response) => {
@@ -170,7 +180,7 @@ const FollowAdmin = () => {
   };
   // Xử lý click page không degree
   const handlePageClick = (pageNumber) => {
-    console.log("tong", totalPage);
+    // console.log("tong", totalPage);
     setCurrentPage(pageNumber - 1);
   };
   //
@@ -194,7 +204,10 @@ const FollowAdmin = () => {
 
     axios
       .put(
-        `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow/update?degree-id=${editingItem.id.degree.id}&student-id=${editingItem.id.student.id}`,
+        `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/admin/follow/update?degree-id=${editingItem.id.degree.id}&student-id=${editingItem.id.student.id}`,
         requestBody,
         config
       )
@@ -219,8 +232,12 @@ const FollowAdmin = () => {
         accept: "application/json",
       },
     };
-    const urlDelete = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow/delete?degree-id=${id.degree.id}&student-id=${id.student.id}`;
-
+    // const urlDelete = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow/delete?degree-id=${id.degree.id}&student-id=${id.student.id}`;
+    const urlDelete = `${
+      process.env.REACT_DOMAIN || "http://trungtamdaotaolaixebinhduong.com:8080"
+    }api/admin/follow/delete?degree-id=${id.degree.id}&student-id=${
+      id.student.id
+    }`;
     const confirmed = window.confirm("Bạn có chắc chắn muốn xóa?");
     if (confirmed) {
       axios
@@ -246,12 +263,15 @@ const FollowAdmin = () => {
   const fetchDegree = () => {
     axios
       .get(
-        "http://trungtamdaotaolaixebinhduong.com:8080/api/degree?size=10",
+        `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/degree?size=10`,
         {}
       )
       .then((response) => {
         setDegree(response.data.data);
-        console.log("loai bang", degree);
+        // console.log("loai bang", degree);
       })
       .catch((error) => {
         console.error(error);
@@ -282,13 +302,19 @@ const FollowAdmin = () => {
     setCurrentPage(0);
     if (!isDegree) {
       setUrl(
-        `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow?&page=${currentPage}&size=10`
+        `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/admin/follow?&page=${currentPage}&size=10`
       );
 
       fetchData();
     } else {
       setUrlDegree(
-        `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/follow/by-degree?degree-id=${selectedDegree}&filter=${inputSearch}&page=${currentPage}&size=10`
+        `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/admin/follow/by-degree?degree-id=${selectedDegree}&filter=${inputSearch}&page=${currentPage}&size=10`
       );
 
       fetchFollowByDegree();

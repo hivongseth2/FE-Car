@@ -1,31 +1,16 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTools,
-  faInfoCircle,
-  faHome,
-  faBars,
-  faUserPlus,
-  faSignInAlt,
-  faCircleInfo,
-  faPenToSquare,
-  faHouse,
-} from "@fortawesome/free-solid-svg-icons";
-import logo from "../img/logott.jpg";
+import React from "react";
 import "../styles/Nav.scss";
-import FlastInfo from "./Forms/FlastInfo";
 import Nav1 from "./Nav1";
 
 const Nav = () => {
-  const token = localStorage.getItem("token");
-  const [isLoggedIn, setIsLoggedIn] = useState(!!token);
+  // const token = localStorage.getItem("token");
+  // const [isLoggedIn, setIsLoggedIn] = useState(!!token);
 
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
-    setIsLoggedIn(false);
-  };
+  // const handleLogout = () => {
+  //   localStorage.removeItem("user");
+  //   localStorage.removeItem("token");
+  //   setIsLoggedIn(false);
+  // };
   return (
     <>
       <Nav1 />

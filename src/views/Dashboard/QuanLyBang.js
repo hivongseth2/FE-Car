@@ -7,6 +7,7 @@ import ConfirmDeleteDegree from "./ConfirmDeleteDegree";
 import axios from "axios";
 
 const QuanLyBang = () => {
+  document.title = "Quản lý bằng lái";
   const [dataBang, setData] = useState([]);
   const [selectedBangLai, setSelectedBangLai] = useState(null);
   const [showUpdateDegreePopup, setShowUpdateDegreePopup] = useState(false);

@@ -8,6 +8,7 @@ import "../../styles/DashboardScss/TableStudent.scss";
 import MainLayoutAdmin from "../Dashboard/MainLayoutAdmin";
 
 const SlideAdmin = () => {
+  document.title = "Quản lý Slider";
   const [slides, setSlides] = useState([]);
   const [editingSlide, setEditingSlide] = useState(null);
   const [imageFile, setImageFile] = useState(null);
@@ -70,7 +71,7 @@ const SlideAdmin = () => {
         })
         .then((response) => {
           // Xử lý phản hồi từ server
-          console.log(response);
+          // console.log(response);
 
           // Cập nhật lại danh sách slides
           const updatedSlides = slides.filter((slide) => slide.id !== id);

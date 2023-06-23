@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import imgavt from "../img/avtnoavt.png";
 import "../styles/InfoStudent.scss";
 import EditInfoStudent from "./Forms/EditInfoStudent";
-import { format, set } from "date-fns";
+import { format} from "date-fns";
 import StudentResetPw from "./Forms/StudentResetPw";
 import Loading from "./Forms/Loading";
-import { is } from "date-fns/esm/locale";
 
 const InfoStudent = () => {
   const [currentTab, setCurrentTab] = useState("1"); // 0: tab "Thông tin cá nhân", 1: tab "Bằng lái xe"
@@ -15,6 +14,7 @@ const InfoStudent = () => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
+    document.title = "Thông tin học viên";
     try {
       const url = `${
         process.env.REACT_DOMAIN ||
@@ -33,7 +33,7 @@ const InfoStudent = () => {
       }
 
       const responseData = await response.json();
-      console.log("API response:", responseData);
+      // console.log("API response:", responseData);
 
       // Gán dữ liệu vào biến state data
       if (responseData) {
@@ -64,7 +64,7 @@ const InfoStudent = () => {
       }
 
       const responseDataFl = await responsefl.json();
-      console.log("API response follow:", responseDataFl);
+      // console.log("API response follow:", responseDataFl);
 
       // Gán dữ liệu vào biến state datafollow
       const datafollow =

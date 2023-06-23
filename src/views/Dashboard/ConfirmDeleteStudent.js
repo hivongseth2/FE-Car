@@ -10,8 +10,12 @@ const ConfirmDeleteStudent = ({
   const handleDeleteStudent = async () => {
     try {
       const accessToken = localStorage.getItem("token");
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/student/${selectedInfoStudentDelete.id}`;
-      console.log(selectedInfoStudentDelete.id);
+      // console.log(selectedInfoStudentDelete.id);
+
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/student/${selectedInfoStudentDelete.id}`;
       const response = await fetch(url, {
         method: "DELETE",
         headers: {

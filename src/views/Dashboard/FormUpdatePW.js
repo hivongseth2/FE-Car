@@ -27,7 +27,11 @@ const FormUpdatePW = ({ handleCloseForm }) => {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/account/update?id=${id}`,
+        `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/admin/account/update?id=${id}`,
+
         {
           method: "PUT",
           headers: {

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Sliderr.scss";
-import BangDetail from "./BangDetail";
-import Nav1 from "./Nav1";
 import LisBang from "./ListBang";
 import RegisterAdvise from "./RegisterAdvise";
 import ApplicationProcess from "./ApplicationProcess";
@@ -56,7 +54,7 @@ const Sliderr = () => {
 
   const handleSlideClick = (index) => {
     setCurrentIndex(index);
-    const btn = document.getElementById(`${index}`);
+    // const btn = document.getElementById(`${index}`);
   };
 
   return (
@@ -84,7 +82,7 @@ const Sliderr = () => {
               </div>
             ))}
             <a
-              href="#"
+              href="!#"
               className="btn"
 
               // onMouseLeave={console.log(index)}

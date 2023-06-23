@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/CreateStudent.scss";
 const CreateStudent = (props) => {
+  document.title = "Quản lý học viên";
   const [form, setForm] = useState({
     password: "",
     role: "",
@@ -8,7 +9,7 @@ const CreateStudent = (props) => {
   });
   const handleChange = (e) => {
     e.preventDefault();
-    console.log({ [e.target.name]: e.target.value });
+    // console.log({ [e.target.name]: e.target.value });
     setForm({
       ...form,
       [e.target.name]: e.target.value,
@@ -16,9 +17,9 @@ const CreateStudent = (props) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
+    // console.log(form);
     createAccount(form).then((data) => {
-      console.log(data);
+      // console.log(data);
       setForm({
         password: "",
         role: "",
@@ -31,7 +32,10 @@ const CreateStudent = (props) => {
   const createAccount = async (data) => {
     const accessToken = localStorage.getItem("token");
     const response = await fetch(
-      "http://trungtamdaotaolaixebinhduong.com:8080/api/admin/account/create",
+      `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/account/create`,
       {
         method: "POST",
         headers: {

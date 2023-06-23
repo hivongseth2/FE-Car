@@ -11,6 +11,7 @@ import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const SocialPage = () => {
+  document.title = "Mạng xã hội";
   const VideoTikTok = React.lazy(() => import("./VideoTikTok"));
   const Youtube = React.lazy(() => import("./Youtube"));
   return (
