@@ -8,9 +8,6 @@ function MainLayoutAdmin({ children }) {
       <div className="sidebar-admin">
         <ul>
           <li>
-            <Link to="/">Trang chủ</Link>
-          </li>
-          <li>
             <Link to="/account-management">Tài khoản</Link>
           </li>
 
