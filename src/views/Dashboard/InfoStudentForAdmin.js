@@ -48,13 +48,12 @@ const InfoStudentForAdmin = () => {
   const handleCloseForm = () => {
     setShowForm(false);
   };
-
   const handleSearch = async () => {
     try {
       const url = `${
         process.env.REACT_DOMAIN ||
         "http://trungtamdaotaolaixebinhduong.com:8080"
-      }/api/admin/account/${searchId}`;
+      }/api/admin/account?filter=${searchId}`;
       if (searchId === "") {
         setSearchResult(data);
         setIsSearching(true);
@@ -72,12 +71,17 @@ const InfoStudentForAdmin = () => {
         }
 
         const responseDataSearchByID = await response.json();
-        // console.log("API response:", responseDataSearchByID);
-
-        // Gán dữ liệu vào biến state searchResult
         if (responseDataSearchByID) {
-          setSearchResult([responseDataSearchByID]);
           setIsSearching(true);
+          const fetchedDataFilter =
+          responseDataSearchByID && responseDataSearchByID.data
+              ? responseDataSearchByID.data
+              : [];
+              setSearchResult(fetchedDataFilter);
+        } else {
+          // Hiển thị thông báo không tìm thấy
+          console.log("Không tìm thấy học viên");
+          setIsSearching(false);
         }
       }
     } catch (error) {
@@ -237,25 +241,31 @@ const InfoStudentForAdmin = () => {
             Cập nhật mật khẩu
           </button>
         </div>
-        <div className="searchByID">
-          Tìm kiếm tài khoản theo ID:
+        {/* button search */}
+        <div className="group-search-student">
+          <svg
+            className="icon-search-student"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+          >
+            <g>
+              <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+            </g>
+          </svg>
           <input
-            className="input-searchByID"
-            type="text"
-            placeholder="Nhập ID học viên"
+            placeholder="Tìm kiếm"
+            type="search"
+            className="input-search-student"
             value={searchId}
             onChange={(e) => setSearchId(e.target.value)}
           />
-          <button className="search-button" onClick={handleSearch}>
+          <button className="button-search-student" onClick={handleSearch}>
             Tìm kiếm
           </button>
-          {isSearching && (
-            <button className="reset-button" onClick={handleReset}>
-              Trở về
-            </button>
-          )}
+          <button onClick={handleReset} className="reset-button">
+            Trở về
+          </button>
         </div>
-
         <div class="container-table">
           <table className="table-account">
             <thead className="thead">
@@ -313,10 +323,10 @@ const InfoStudentForAdmin = () => {
               Previous
             </button>
 
-            <span className="total-page">
+            {/* <span className="total-page">
               Tổng : {totalPagesAccount} - Trang hiện tại:{" "}
               {currentPageAccount + 1}
-            </span>
+            </span> */}
 
             {/* {pageNumbers.map((pageNumber) => (
               <button
@@ -327,12 +337,15 @@ const InfoStudentForAdmin = () => {
                 {pageNumber}
               </button>
             ))} */}
-            <button>Tổng số trang: {totalPagesAccount} - Trang hiện tại: {currentPageAccount+1}</button>
+            <button>
+              Tổng số trang: {totalPagesAccount} - Trang hiện tại:{" "}
+              {currentPageAccount + 1}
+            </button>
             <button
               onClick={handleNextPage}
               disabled={setCurrentPageAccount === totalPagesAccount}
             >
-              Next 
+              Next
             </button>
           </div>
         </div>

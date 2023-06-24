@@ -212,6 +212,10 @@
   width: 100%;
   border-radius: 10px;
 }
+.drescription-caption{
+  color: #ffffff;
+  font-size: 20px;
+}
 @media (max-width: 768px) {
   .container-social-page-youtube, .container-social-page-tiktok,.container-social-page-facebook {
     //min-width: 95%;
@@ -226,5 +230,14 @@
   .container-social-page-facebook {
     border-radius: 5px;
     margin: 5px;
+  }
+  .video-tiktok{
+    display: none;
+  }
+  .content-facebook-video{
+    text-align: center;
+  }
+  .content-facebook-video img{
+    width: 95%;
   }
 }

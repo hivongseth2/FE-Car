@@ -6,11 +6,9 @@ import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 const SocalItem = () => {
   const [data, setData] = useState(null);
-  const [apiIdYoutube, setApiIdYoutube] = useState("");
-  const channelId = "UC3tBOLQ51lbd14W8taLBpBQ"; // Replace with your YouTube channel ID
+  const channelId = "UCXjjZFlsO6wBtjk_pWP6eTQ"; // Replace with your YouTube channel ID
 
   useEffect(() => {
-    
     const fetchData = async () => {
       try {
         const response = await axios.get(

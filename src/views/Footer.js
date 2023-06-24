@@ -18,16 +18,15 @@ const Footer = () => {
             <p className="content-footer">Thông tin liên hệ</p>
             <li>
               {" "}
-              <FontAwesomeIcon icon={faMapMarkerAlt} /> 12 Nguyễn Văn Bảo, Gò
-              Vấp, Hồ Chí Minh
+              <FontAwesomeIcon icon={faMapMarkerAlt} /> {""} Bình dương, Thu Dau Mot, Vietnam
             </li>
             <li>
               {" "}
-              <FontAwesomeIcon icon={faClock} />
-              Mở cửa: 7:30 AM - 17 PM
+              <FontAwesomeIcon icon={faClock} /> {""}
+              maivanthuong3066@gmail.com
             </li>
             <li>
-              <FontAwesomeIcon icon={faPhone} /> Số điện thoại:0909789789
+              <FontAwesomeIcon icon={faPhone} /> {""} 03 4444 9778
             </li>
           </ul>
         </div>

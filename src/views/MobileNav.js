@@ -77,10 +77,12 @@ const MobileNav = ({ onClosePopup }) => {
             </li>
           )}
           {token && (
-            <li onClick={() => {
-              handleLogout();
-              handleButtonClick();
-            }}>
+            <li
+              onClick={() => {
+                handleLogout();
+                handleButtonClick();
+              }}
+            >
               ĐĂNG XUẤT
             </li>
           )}
@@ -89,9 +91,9 @@ const MobileNav = ({ onClosePopup }) => {
       <div className="footer-navbar-mobile">
         <h3>Thông tin liên hệ</h3>
         <ul className="footer-navbar-mobile-ul">
-          <li>TP.Thủ Dầu Một - Bình Dương</li>
-          <li>0123456789</li>
-          <li>thanhtungeric4@gmail.com</li>
+          <li>Bình dương, Thu Dau Mot, Vietnam</li>
+          <li>03 4444 9778</li>
+          <li>maivanthuong3066@gmail.com</li>
           <li>&#169; 2023 Dạy lái xe Bình Dương</li>
         </ul>
       </div>

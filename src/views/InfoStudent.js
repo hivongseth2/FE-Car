@@ -64,7 +64,7 @@ const InfoStudent = () => {
       }
 
       const responseDataFl = await responsefl.json();
-      // console.log("API response follow:", responseDataFl);
+      console.log("API response follow:", responseDataFl);
 
       // Gán dữ liệu vào biến state datafollow
       const datafollow =
@@ -159,7 +159,7 @@ const InfoStudent = () => {
                     </div>
                     <div className="box">
                       <span className="parameter">Tên thầy dạy:</span>
-                      <span className="value">{item.techer}</span>
+                      <span className="value">{item.teacher}</span>
                     </div>
                     <div className="box">
                       <span className="parameter">Giờ chạy DAT:</span>

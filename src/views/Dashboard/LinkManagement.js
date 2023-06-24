@@ -155,15 +155,18 @@ const LinkManagement = () => {
               <button onClick={handleAddPost}>Thêm bài đăng</button>
             )}
           </div>
-          <p>No.2 đến No.4 là link TikTok ở trang mạng xã hội</p>
-          <p>No.5 là link youtube ở mạng xã hội</p>
-          <p>No.6 Kênh youtube</p>
+          <p className="drescription-caption">No.2 đến No.4 là link TikTok ở trang mạng xã hội</p>
+          <p className="drescription-caption">No.5 là link youtube ở mạng xã hội</p>
+          <p className="drescription-caption">No.6 Kênh youtube</p>
+          <p className="drescription-caption">No.8 Là mô tả của kênh TikTok</p>
+          <p className="drescription-caption">No.9 Là mô tả của kênh Youtube</p>
+          <p className="drescription-caption">No.10 Là mô tả của facebook</p>
         </div>
         <table className="container-table">
           <thead>
             <tr>
               <th>No.</th>
-              <th>Hạng - Không được xóa 3 link tiktok này. chỉ được cập nhật 3 link tiktok này</th>
+              <th>Hạng - Không được xóa các link và nội dung này. chỉ được cập nhật</th>
               <th className="text-center-info">Hành động</th>
             </tr>
           </thead>
