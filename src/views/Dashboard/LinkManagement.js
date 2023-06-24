@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import MainLayoutAdmin from "./MainLayoutAdmin";
 
-
 const LinkManagement = () => {
   document.title = "Quản lý link";
   const [isUpdate, setIsUpdate] = useState(false);
@@ -14,6 +13,19 @@ const LinkManagement = () => {
   const [newLink, setNewLink] = useState("");
   const [selectedLinkDelete, setSelectedLinkDelete] = useState(null);
   const [dataLink, setLink] = useState([]);
+
+  const additionalColumns = [
+    "",
+    "link TikTok ở trang mạng xã hội",
+    "link TikTok ở trang mạng xã hội",
+    "link TikTok ở trang mạng xã hội",
+    "link youtube ở mạng xã hội",
+    "Kênh youtube",
+    "",
+    "mô tả của kênh TikTok",
+    "mô tả kênh Youtube",
+    "mô tả của Facebook",
+  ];
 
   const handleDeleteLink = async () => {
     try {
@@ -95,7 +107,6 @@ const LinkManagement = () => {
     fetchData();
   }, [onAddLink, isUpdate]);
 
-
   const handleAddPost = () => {
     setShowTextArea(true);
     setOnAddLink(false);
@@ -153,37 +164,38 @@ const LinkManagement = () => {
               <button onClick={handleAddPost}>Thêm bài đăng</button>
             )}
           </div>
-          <p className="drescription-caption">No.2 đến No.4 là link TikTok ở trang mạng xã hội</p>
-          <p className="drescription-caption">No.5 là link youtube ở mạng xã hội</p>
-          <p className="drescription-caption">No.6 Kênh youtube</p>
-          <p className="drescription-caption">No.8 Là mô tả của kênh TikTok</p>
-          <p className="drescription-caption">No.9 Là mô tả của kênh Youtube</p>
-          <p className="drescription-caption">No.10 Là mô tả của facebook</p>
         </div>
         <table className="container-table">
           <thead>
             <tr>
               <th>No.</th>
-              <th>Hạng - Không được xóa các link và nội dung này. chỉ được cập nhật</th>
+              <th>
+                Hạng - Không được xóa các link và nội dung này. chỉ được cập
+                nhật
+              </th>
+              <th>Đường dẫn</th>
               <th className="text-center-info">Hành động</th>
             </tr>
           </thead>
           <tbody>
             {dataLink && dataLink.length > 0 ? (
-              dataLink.map((item) => (
+              dataLink.map((item, index) => (
                 <tr key={item.id} onClick={() => setSelectedLinkDelete(item)}>
                   <td>{item.id}</td>
+                  <td style={{ width: "600px", textAlign: "center" }}>
+                    {additionalColumns[index]}
+                  </td>{" "}
+                  {/* Corrected code */}
                   {editingItemId === item.id && !isUpdate ? (
-                    <td>
+                    <td style={{ width: "500px" }} className="link">
                       <textarea
                         value={linkSelected}
                         onChange={(e) => setLinkSelected(e.target.value)}
                       />
                     </td>
                   ) : (
-                    <td>{item.link}</td>
+                    <td style={{ width: "500px" }}>{item.link}</td>
                   )}
-
                   <td className="button-info">
                     {editingItemId === item.id && isEditing ? (
                       <button
@@ -200,12 +212,13 @@ const LinkManagement = () => {
                           setEditingItemId(item.id);
                           setIsEditing(true);
                           setIsUpdate(false);
+                          setLinkSelected(item.link);
                         }}
                       >
                         Sửa
                       </button>
                     )}
-                    <button
+                    {/* <button
                       onClick={() => {
                         const confirmed = window.confirm(
                           "Bạn có chắc muốn reset mật khẩu?"
@@ -216,7 +229,7 @@ const LinkManagement = () => {
                       }}
                     >
                       Xóa
-                    </button>
+                    </button> */}
                   </td>
                 </tr>
               ))

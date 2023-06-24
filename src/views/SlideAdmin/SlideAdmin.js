@@ -14,7 +14,6 @@ const SlideAdmin = () => {
   const [imageFile, setImageFile] = useState(null);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [updateTrigger, setUpdateTrigger] = useState(false); // State để trigger việc render lại
-
   const token = localStorage.getItem("token");
   const [file, setFile] = useState();
   // Gọi API và lấy danh sách slide
@@ -36,6 +35,10 @@ const SlideAdmin = () => {
   const handleEditClick = (slideId) => {
     const slideToEdit = slides.find((slide) => slide.id === slideId);
     setEditingSlide(slideToEdit);
+  };
+
+  const updateTrig = () => {
+    setUpdateTrigger(!updateTrigger);
   };
 
   const handleInputChange = (e) => {
@@ -148,7 +151,9 @@ const SlideAdmin = () => {
           <h1>Quản Lý Slider</h1>
           <button onClick={handleAddSlideClick}>Thêm Slider mới</button>
 
-          {isFormOpen && <AddSlide onClose={handleFormClose} />}
+          {isFormOpen && (
+            <AddSlide onClose={handleFormClose} trigger={updateTrig} />
+          )}
         </div>
         <table className="container-table">
           <thead>

@@ -29,7 +29,7 @@
       left: 61em;
       overflow: auto;
       height: 670px;
-      top:50%;
+      top:96%;
       .popup-content{
       
         width: 35em;
@@ -49,9 +49,15 @@
     {
         td{
             background-color: rgba(255,255,255,0.2) !important;
+           
+            
         }
+      
     }
 }
+
+
+
 li.current{
 background-color: rgba(5, 79, 189, 0.651) !important;
 color: aliceblue !important;
@@ -723,6 +729,11 @@ fieldset {
   .container-table{
     tbody{
      .rowFollow{
+      input[type=text], input[type=file]{
+        padding: 2px;
+        width: 80px;
+        height: 40px;}
+     
         td.button-info{
             button.creaseButton{
               background-color: #2d62d3 !important;
@@ -738,7 +749,7 @@ fieldset {
             }
             button.saveButton{
               background-color: #03f523 !important;
-
+              margin-right:  30px;
             }
             button.doneButton{
               background-color: #05a500;
@@ -751,7 +762,7 @@ fieldset {
           
           input[type=text], input[type=file]{
             padding: 2px;
-            width: 70px;
+            width: 30px;
             height: 40px;
           }
         }

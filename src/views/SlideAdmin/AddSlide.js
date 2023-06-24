@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import axios from "axios";
 import "./AddSlide.scss";
 const AddSlide = (props) => {
@@ -38,9 +39,12 @@ const AddSlide = (props) => {
       .then((response) => {
         // Xử lý phản hồi từ server
         // console.log(response);
+        toast.success("Thêm slide thành công");
+        props.trigger();
       })
       .catch((error) => {
-        console.error(error);
+        // console.error(error);
+        toast.error("Đã có lỗi xảy ra vui lòng thử lại sau");
       });
     //
     setTitle("");
