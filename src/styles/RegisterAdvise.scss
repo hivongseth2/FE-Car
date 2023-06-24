@@ -50,8 +50,7 @@ button.registerAButton{
 }
 .register-advise-content {
   .input {
-    width: 100%;
-
+    width: 50%;
     background-color: #abdde6;
     color: #242424;
     padding: 0.15rem 0.5rem;
@@ -192,6 +191,9 @@ button.registerAButton{
     line-height: 40px;
     text-align: left;
   }
+  .register-advise-content {
+    .input {
+      width: 100%;}}
 }
 
 /* Các media query khác tùy thuộc vào nhu cầu thiết kế của bạn */

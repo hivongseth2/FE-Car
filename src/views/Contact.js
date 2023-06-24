@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "../styles/contact.scss";
 import MainLayoutAdmin from "./Dashboard/MainLayoutAdmin";
+import { set } from "date-fns";
 
 const Contact = () => {
   document.title = "Quản lý liên hệ mới";
   const [data, setData] = useState([]);
   const [selectedRowId, setSelectedRowId] = useState(null);
   const [selectedRowIdDelete, setSelectedRowIdDelete] = useState(null);
-
+  const [isEditing, setIsEditing] = useState(false);
   const [checkedStatus, setCheckedStatus] = useState({});
 
   // ===================
@@ -114,7 +115,7 @@ const Contact = () => {
 
   useEffect(() => {
     getAllContact();
-  }, [accessToken, currentPageContact]);
+  }, [accessToken, currentPageContact, isEditing]);
 
   useEffect(() => {
     const storedCheckedStatus = JSON.parse(
@@ -171,7 +172,7 @@ const Contact = () => {
         throw new Error("Error updating data");
       }
       setSelectedRowId(null); // Reset the selected row after saving changes
-      window.location.reload();
+      setIsEditing(true); // Exit edit mode after saving
     } catch (error) {
       console.error("Error updating data:", error);
     }
@@ -281,7 +282,7 @@ const Contact = () => {
                 <th>Họ tên</th>
                 <th>Số điện thoại</th>
                 <th>Ghi chú</th>
-                <th>Nhận bằng</th>
+                <th>Đã gọi</th>
                 <th>Hành động</th>
               </tr>
             </thead>
@@ -344,7 +345,7 @@ const Contact = () => {
                     ) : (
                       <button
                         onClick={() => {
-                          setSelectedRowId(item.id);
+                          setSelectedRowId(item.id); setIsEditing(false);
                         }}
                       >
                         Sửa

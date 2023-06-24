@@ -271,9 +271,9 @@ const Certificate = () => {
     <div>
       <MainLayoutAdmin>
         <div className="header-info">
-          <h1>Thông tin</h1>
+          <h1>Thông tin học viên</h1>
         </div>
-        <button onClick={() => handleShowCreateCertificate(true)}>Thêm</button>
+        {/* <button onClick={() => handleShowCreateCertificate(true)}>Thêm</button> */}
         {/* <div className="searchByIDCer">
           <span className="content-search-cer">
             Tìm kiếm theo tên hoặc số điện thoại:

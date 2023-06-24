@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import "../../styles/DashboardScss/FormUpdatePW.scss";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const FormUpdatePW = ({ handleCloseForm }) => {
+const FormUpdatePW = ({ handleCloseForm, selectedAccount }) => {
   const [passwordError, setPasswordError] = useState("");
-  const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleResetForm = () => {
-    setId("");
     setPassword("");
     setConfirmPassword("");
   };
@@ -30,7 +28,7 @@ const FormUpdatePW = ({ handleCloseForm }) => {
         `${
           process.env.REACT_DOMAIN ||
           "http://trungtamdaotaolaixebinhduong.com:8080"
-        }/api/admin/account/update?id=${id}`,
+        }/api/admin/account/update?id=${selectedAccount.id}`,
 
         {
           method: "PUT",
@@ -40,7 +38,6 @@ const FormUpdatePW = ({ handleCloseForm }) => {
           },
           body: JSON.stringify({
             password: password,
-            studentId: id,
           }),
         }
       );
@@ -58,26 +55,25 @@ const FormUpdatePW = ({ handleCloseForm }) => {
     handleCloseForm(false);
   };
   return (
-    <div className="formUpdatePW">
-      <p className="content-update">Cập nhật mật khẩu học viên</p>
+    <div className="form-add-degree">
+      <p className="content-update">Cập nhật mật khẩu</p>
       <input
         className="input-formUpdateID"
         type="text"
-        placeholder="Nhập ID học viên"
-        value={id}
-        onChange={(e) => setId(e.target.value)}
+        // placeholder="Nhập ID học viên"
+        value={selectedAccount.username}
       />
       <input
         className="input-formUpdatePW"
         type="password"
-        placeholder="Nhập mật khẩu học viên"
+        placeholder="Nhập mật khẩu"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <input
         className="input-formUpdateConfirmPW"
         type="password"
-        placeholder="Nhập lại mật khẩu học viên"
+        placeholder="Nhập lại mật khẩu"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
