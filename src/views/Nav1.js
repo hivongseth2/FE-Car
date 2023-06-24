@@ -67,7 +67,6 @@ const Nav1 = () => {
         <nav>
           <div className="nav-header-mobile">
             <img src={logo} className="" alt="logo" onClick={handleClickHome}/>
-            <img className="name-brand" src={nameBrand} alt="nameBrand"/>
             <img src={listmenu} alt="list-menu" onClick={togglePopup} />
           </div>
         </nav>
@@ -116,7 +115,7 @@ const Nav1 = () => {
               </div>
             </div>
           </div>
-          <span className="slogan">Học, Học Nữa, Học Mãi</span>
+          <span className="slogan"> CHẤT LƯỢNG - TẬN TÂM - UY TÍN</span>
           {isLoggedIn ? (
             <FlastInfo onLogout={handleLogout} className="rotate" />
           ) : (
