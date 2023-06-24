@@ -16,7 +16,7 @@ const VideoTikTok = () => {
             "http://trungtamdaotaolaixebinhduong.com:8080"
           }/api/intro/2`
         );
-        console.log(result);
+        // console.log(result);
         let data = result && result.data ? result.data : [];
         setApiTextlink(data.link);
       } catch (error) {
@@ -31,7 +31,7 @@ const VideoTikTok = () => {
             "http://trungtamdaotaolaixebinhduong.com:8080"
           }/api/intro/3`
         );
-        console.log(result);
+        // console.log(result);
         let data2 = result && result.data ? result.data : [];
         setApiTextlink2(data2.link);
       } catch (error) {
@@ -46,7 +46,7 @@ const VideoTikTok = () => {
             "http://trungtamdaotaolaixebinhduong.com:8080"
           }/api/intro/4`
         );
-        console.log(result);
+        // console.log(result);
         let data3 = result && result.data ? result.data : [];
         setApiTextlink3(data3.link);
       } catch (error) {

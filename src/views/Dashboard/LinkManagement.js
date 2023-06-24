@@ -68,7 +68,7 @@ const LinkManagement = () => {
         throw new Error("Error updating data");
       }
       if (response.status === 200) {
-        toast.success("Thêm học viên thành công");
+        toast.success("Thêm link thành công");
         handleCancel();
         setOnAddLink(true);
       }
@@ -86,9 +86,7 @@ const LinkManagement = () => {
             "http://trungtamdaotaolaixebinhduong.com:8080"
           }/api/intro`
         );
-        console.log(result);
-        let data = result && result.data ? result.data : [];
-        console.log(data);
+        const data = result && result.data ? result.data : [];
         setLink(data);
       } catch (error) {
         console.error("Error fetching data:", error);

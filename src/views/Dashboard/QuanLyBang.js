@@ -54,7 +54,6 @@ const QuanLyBang = () => {
       <div className="contain-table-info">
         <div className="header-info">
           <h1>Quản lý bằng lái</h1>
-          <button>Quay lại</button>
           <button onClick={()=>{handleAddDegree();handleEditDegree()}}>Thêm bằng lái</button>
         </div>
         <table className="container-table">

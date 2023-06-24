@@ -120,8 +120,6 @@ const DocumentAdmin = () => {
           >
             Thêm tài liệu mới
           </button>
-
-          <button>Quay lại</button>
         </div>
         <table className="container-table">
           <thead>
