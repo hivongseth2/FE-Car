@@ -1,4 +1,5 @@
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../styles/Footer.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,7 +10,63 @@ import {
 import fb from "../img/facebook.png";
 import tiktok from "../img/tik-tok-logo.png";
 import yt from "../img/youtube.png";
+
 const Footer = () => {
+  const [linkFacebook, setLinkFacebook] = useState("");
+  const [linkTiktok, setLinkTiktok] = useState("");
+  const [linkYoutube, setLinkYoutube] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let result = await axios.get(
+          `${
+            process.env.REACT_DOMAIN ||
+            "http://trungtamdaotaolaixebinhduong.com:8080"
+          }/api/intro/1`
+        );
+        // console.log(result);
+        let data = result && result.data ? result.data : [];
+        setLinkFacebook(data.link);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    const fetchDataTikTok = async () => {
+      try {
+        let result = await axios.get(
+          `${
+            process.env.REACT_DOMAIN ||
+            "http://trungtamdaotaolaixebinhduong.com:8080"
+          }/api/intro/7`
+        );
+        // console.log(result);
+        let data = result && result.data ? result.data : [];
+        setLinkTiktok(data.link);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    const fetchDataYoutube = async () => {
+      try {
+        let result = await axios.get(
+          `${
+            process.env.REACT_DOMAIN ||
+            "http://trungtamdaotaolaixebinhduong.com:8080"
+          }/api/intro/6`
+        );
+        // console.log(result);
+        let data = result && result.data ? result.data : [];
+        setLinkYoutube(data.link);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+    fetchDataTikTok();
+    fetchDataYoutube();
+  }, []);
+
   return (
     <div>
       <div className="wrapper-footer">
@@ -36,20 +93,20 @@ const Footer = () => {
             <p className="icon">
               <a
                 className="facebook"
-                href="https://www.facebook.com/profile.php?id=10006067046012"
+                href={linkFacebook}
               >
                 {" "}
                 <img src={fb} alt="icon-fb"></img>
               </a>
               <a
                 className="tiktok"
-                href="https://www.facebook.com/profile.php?id=10006067046012"
+                href={linkTiktok}
               >
                 <img src={tiktok} alt="icon-tiktok"></img>
               </a>
               <a
                 className="youtube"
-                href="https://www.facebook.com/profile.php?id=10006067046012"
+                href={linkYoutube}
               >
                 <img src={yt} alt="icon-youtube"></img>
               </a>

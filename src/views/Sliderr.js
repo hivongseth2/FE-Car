@@ -6,6 +6,7 @@ import ApplicationProcess from "./ApplicationProcess";
 import AboutUs from "./AboutUs";
 
 const Sliderr = () => {
+  document.title = "Trung tâm đào tạo lái xe Bình Dương";
   const [currentIndex, setCurrentIndex] = useState(0);
   const xmlns = "http://www.w3.org/2000/svg";
   const [slides, setSlides] = useState([]);
@@ -44,13 +45,13 @@ const Sliderr = () => {
     }
   }, [slides]);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  //   }, 4000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 4000);
 
-  //   return () => clearInterval(interval);
-  // }, [slides.length]);
+    return () => clearInterval(interval);
+  }, [slides.length]);
 
   const handleSlideClick = (index) => {
     setCurrentIndex(index);

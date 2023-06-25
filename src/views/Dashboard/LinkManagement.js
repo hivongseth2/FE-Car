@@ -15,16 +15,16 @@ const LinkManagement = () => {
   const [dataLink, setLink] = useState([]);
 
   const additionalColumns = [
-    "",
-    "link TikTok ở trang mạng xã hội",
-    "link TikTok ở trang mạng xã hội",
-    "link TikTok ở trang mạng xã hội",
-    "link youtube ở mạng xã hội",
-    "Kênh youtube",
-    "",
-    "mô tả của kênh TikTok",
-    "mô tả kênh Youtube",
-    "mô tả của Facebook",
+    "Link Facebook",
+    "Link TikTok ở trang mạng xã hội",
+    "Link TikTok ở trang mạng xã hội",
+    "Link TikTok ở trang mạng xã hội",
+    "Link youtube ở mạng xã hội",
+    "Kênh Youtube ở footer",
+    "Kênh TikTok ở footer",
+    "Mô tả của kênh TikTok",
+    "Mô tả kênh Youtube",
+    "Mô tả của Facebook",
   ];
 
   const handleDeleteLink = async () => {
@@ -170,8 +170,7 @@ const LinkManagement = () => {
             <tr>
               <th>No.</th>
               <th>
-                Hạng - Không được xóa các link và nội dung này. chỉ được cập
-                nhật
+                Nội dung
               </th>
               <th>Đường dẫn</th>
               <th className="text-center-info">Hành động</th>
@@ -182,7 +181,7 @@ const LinkManagement = () => {
               dataLink.map((item, index) => (
                 <tr key={item.id} onClick={() => setSelectedLinkDelete(item)}>
                   <td>{item.id}</td>
-                  <td style={{ width: "600px", textAlign: "center" }}>
+                  <td style={{ width: "600px"}}>
                     {additionalColumns[index]}
                   </td>{" "}
                   {/* Corrected code */}
