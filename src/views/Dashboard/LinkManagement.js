@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import MainLayoutAdmin from "./MainLayoutAdmin";
 
 const LinkManagement = () => {
-  document.title = "Quản lý link";
+  document.title = "Quản lý mạng xã hội";
   const [isUpdate, setIsUpdate] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editingItemId, setEditingItemId] = useState(null);
@@ -16,15 +16,19 @@ const LinkManagement = () => {
 
   const additionalColumns = [
     "Link Facebook",
-    "Link TikTok ở trang mạng xã hội",
-    "Link TikTok ở trang mạng xã hội",
-    "Link TikTok ở trang mạng xã hội",
-    "Link youtube ở mạng xã hội",
-    "Kênh Youtube ở footer",
-    "Kênh TikTok ở footer",
+    "Link Video TikTok ở trang mạng xã hội",
+    "Link Video TikTok ở trang mạng xã hội",
+    "Link Video TikTok ở trang mạng xã hội",
+    "Link video youtube ở mạng xã hội",
+    "Kênh Youtube ở cuối trang",
+    "Kênh TikTok ở cuối trang",
     "Mô tả của kênh TikTok",
     "Mô tả kênh Youtube",
     "Mô tả của Facebook",
+    "Link Zalo",
+    "Số điện thoại",
+    "Địa chỉ trung tâm",
+    "Email trung tâm",
   ];
 
   const handleDeleteLink = async () => {
@@ -148,7 +152,7 @@ const LinkManagement = () => {
   return (
     <MainLayoutAdmin>
       <div className="contain-table-info">
-        <h1>Quản lý bài đăng</h1>
+        <h1>Quản lý mạng xã hội</h1>
         <div className="header-info">
           <div>
             {showTextArea ? (
