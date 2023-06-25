@@ -63,6 +63,15 @@ const BangDetail = () => {
     });
   };
 
+  //
+
+  const handleButtonClick = () => {
+    // Call the scroll function in the RegisterAdvise component
+    if (typeof window !== "undefined") {
+      window.scrollToRegisterAdvise();
+    }
+  };
+
   return (
     <>
       {isMobile ? (
@@ -121,7 +130,7 @@ const BangDetail = () => {
                   </ul>
                   <div className="container-button-register-advise">
                     <div className="button-register-advise">
-                      <button>Đăng ký</button>
+                      <button onClick={handleButtonClick}>Đăng ký</button>
                     </div>
                   </div>
                 </div>

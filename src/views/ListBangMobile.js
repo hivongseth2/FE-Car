@@ -23,6 +23,13 @@ const ListBangMobile = () => {
 
     fetchData();
   }, []);
+
+  const handleButtonClick = () => {
+    // Call the scroll function in the RegisterAdvise component
+    if (typeof window !== "undefined") {
+      window.scrollToRegisterAdvise();
+    }
+  };
   return (
     <div className="list-plan-card-mobile">
       {dataBang && dataBang.length > 0 ? (
@@ -63,7 +70,7 @@ const ListBangMobile = () => {
                 </li>
               </ul>
               <div className="button-register-advise">
-                <button>Đăng ký</button>
+                <button onClick={handleButtonClick}>Đăng ký</button>
               </div>
             </div>
           </div>

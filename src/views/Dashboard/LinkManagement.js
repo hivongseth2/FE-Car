@@ -173,9 +173,7 @@ const LinkManagement = () => {
           <thead>
             <tr>
               <th>No.</th>
-              <th>
-                Nội dung
-              </th>
+              <th>Nội dung</th>
               <th>Đường dẫn</th>
               <th className="text-center-info">Hành động</th>
             </tr>
@@ -185,7 +183,7 @@ const LinkManagement = () => {
               dataLink.map((item, index) => (
                 <tr key={item.id} onClick={() => setSelectedLinkDelete(item)}>
                   <td>{item.id}</td>
-                  <td style={{ width: "600px"}}>
+                  <td style={{ width: "600px" }}>
                     {additionalColumns[index]}
                   </td>{" "}
                   {/* Corrected code */}

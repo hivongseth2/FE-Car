@@ -7,6 +7,12 @@ import carimg from "../img/CarImg.png";
 import imgregisterwrite from "../img/img_register_write.png";
 
 const ApplicationProcess = () => {
+  const handleButtonClick = () => {
+    // Call the scroll function in the RegisterAdvise component
+    if (typeof window !== "undefined") {
+      window.scrollToRegisterAdvise();
+    }
+  };
   return (
     <div className="aplication-process-container">
       <div className="aplication-process-title">
@@ -60,7 +66,7 @@ const ApplicationProcess = () => {
           <p>Nhiều bài luyện thi miễn phí cho bạn khi đăng ký.</p>
         </div>
         <div className="button-register">
-          <button>Đăng ký</button>
+          <button onClick={handleButtonClick}>Đăng ký</button>
         </div>
       </div>
     </div>
