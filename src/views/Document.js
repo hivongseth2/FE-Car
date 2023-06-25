@@ -3,7 +3,7 @@ import "../styles/Document.scss";
 import axios from "axios";
 
 const Document = () => {
-  Document.title = "Tài liệu";
+  document.title = "Tài liệu";
   const [dataDocuments, setDataDocuments] = useState([]);
   useEffect(() => {
     axios
