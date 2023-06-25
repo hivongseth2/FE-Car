@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "../styles/Footer.scss";
+import { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMapMarkerAlt,
@@ -18,7 +20,14 @@ const Footer = () => {
   const [linkYoutube, setLinkYoutube] = useState("");
 
   const [dataBang, setData] = useState([]);
+  const registerAdviseRef = useRef(null);
 
+  const scrollToRegisterAdvise = (e) => {
+    e.preventDefault();
+    if (registerAdviseRef.current) {
+      registerAdviseRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   const handleCourse = () => {
     if (typeof window !== "undefined") {
       window.scrollToRegisterAdvise();
@@ -139,9 +148,9 @@ const Footer = () => {
             {dataBang && dataBang.length > 0 ? (
               dataBang.map((item) => (
                 <li key={item.id}>
-                  <a onClick={handleCourse}>
+                  <button href="" onClick={handleCourse} className="course">
                     Khóa học lái xe bằng {item.rating}
-                  </a>
+                  </button>
                 </li>
               ))
             ) : (
