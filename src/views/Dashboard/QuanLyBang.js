@@ -7,6 +7,7 @@ import ConfirmDeleteDegree from "./ConfirmDeleteDegree";
 import axios from "axios";
 
 const QuanLyBang = () => {
+  document.title = "Quản lý bằng lái";
   const [dataBang, setData] = useState([]);
   const [selectedBangLai, setSelectedBangLai] = useState(null);
   const [showUpdateDegreePopup, setShowUpdateDegreePopup] = useState(false);
@@ -53,7 +54,6 @@ const QuanLyBang = () => {
       <div className="contain-table-info">
         <div className="header-info">
           <h1>Quản lý bằng lái</h1>
-          <button>Quay lại</button>
           <button onClick={()=>{handleAddDegree();handleEditDegree()}}>Thêm bằng lái</button>
         </div>
         <table className="container-table">

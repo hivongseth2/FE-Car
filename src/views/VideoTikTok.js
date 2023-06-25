@@ -1,7 +1,67 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../styles/VideoTikTok.scss"
 
+
 const VideoTikTok = () => {
+  const [apiTextLink, setApiTextlink] = useState("");
+  const [apiTextLink2, setApiTextlink2] = useState("");
+  const [apiTextLink3, setApiTextlink3] = useState("");
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let result = await axios.get(
+          `${
+            process.env.REACT_DOMAIN ||
+            "http://trungtamdaotaolaixebinhduong.com:8080"
+          }/api/intro/2`
+        );
+        // console.log(result);
+        let data = result && result.data ? result.data : [];
+        setApiTextlink(data.link);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    const fetchData2 = async () => {
+      try {
+        let result = await axios.get(
+          `${
+            process.env.REACT_DOMAIN ||
+            "http://trungtamdaotaolaixebinhduong.com:8080"
+          }/api/intro/3`
+        );
+        // console.log(result);
+        let data2 = result && result.data ? result.data : [];
+        setApiTextlink2(data2.link);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    const fetchData3 = async () => {
+      try {
+        let result = await axios.get(
+          `${
+            process.env.REACT_DOMAIN ||
+            "http://trungtamdaotaolaixebinhduong.com:8080"
+          }/api/intro/4`
+        );
+        // console.log(result);
+        let data3 = result && result.data ? result.data : [];
+        setApiTextlink3(data3.link);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData3();
+    fetchData2();
+    fetchData();
+  }, []);
+
+
+  const parsedApiText = React.createElement('div', { dangerouslySetInnerHTML: { __html: apiTextLink } });
+  const parsedApiText2 = React.createElement('div', { dangerouslySetInnerHTML: { __html: apiTextLink2 } });
+  const parsedApiText3 = React.createElement('div', { dangerouslySetInnerHTML: { __html: apiTextLink3 } });
   return (
     <div className="list-video-tiktok">
       <div className="video-tiktok-1">
@@ -9,24 +69,7 @@ const VideoTikTok = () => {
           className="tiktok-embed"
           style={{ maxWidth: "605px", minWidth: "325px" }}
         >
-          <blockquote
-            className="tiktok-embed"
-            cite="https://www.tiktok.com/@hienreviewcoto/video/7241897011694406918"
-            data-video-id="7241897011694406918"
-          >
-            <section>
-              <a
-                target="_blank"
-                title="@hienreviewcoto"
-                rel="noopener noreferrer"
-                href="https://www.tiktok.com/@hienreviewcoto?refer=embed"
-              >
-                @hienreviewcoto
-              </a>{" "}
-              Về với biển để cảm nhận từng nhịp thở của đại dương, đảo Cô Tô
-              luôn có những điều bất ngờ.{" "}
-            </section>
-          </blockquote>
+          {parsedApiText}
           
         </div>
       </div>
@@ -35,24 +78,7 @@ const VideoTikTok = () => {
           className="tiktok-embed"
           style={{ maxWidth: "605px", minWidth: "325px" }}
         >
-          <blockquote
-            className="tiktok-embed"
-            cite="https://www.tiktok.com/@somewherepeacefulinvn/video/7226350914880212229"
-            data-video-id="7226350914880212229"
-          >
-            <section>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                title="@somewherepeacefulinvn"
-                href="https://www.tiktok.com/@somewherepeacefulinvn?refer=embed"
-              >
-                @somewherepeacefulinvn
-              </a>{" "}
-              Kỳ nghỉ lễ này các bạn có hẹn với Tràng An không?{" "}
-              
-            </section>
-          </blockquote>
+          {parsedApiText2}
           <script async src="https://www.tiktok.com/embed.js"></script>
         </div>
       </div>
@@ -61,32 +87,7 @@ const VideoTikTok = () => {
           className="tiktok-embed"
           style={{ maxWidth: "605px", minWidth: "325px" }}
         >
-          <blockquote
-            className="tiktok-embed"
-            cite="https://www.tiktok.com/@tmc_29/video/7230376795202325761"
-            data-video-id="7230376795202325761"
-          >
-            <section>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                title="@tmc_29"
-                href="https://www.tiktok.com/@tmc_29?refer=embed"
-              >
-                @tmc_29
-              </a>{" "}
-              <a
-                title="capcut"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.tiktok.com/tag/capcut?refer=embed"
-              >
-                #CapCut
-              </a>{" "}
-              anh đánh rơi gì không..🖤{" "}
-              
-            </section>
-          </blockquote>
+          {parsedApiText3}
           <script async src="https://www.tiktok.com/embed.js"></script>
         </div>
       </div>

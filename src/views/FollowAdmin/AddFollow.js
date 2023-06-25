@@ -6,8 +6,8 @@ import { toast } from "react-toastify";
 
 const AddFollow = (props) => {
   const [degree, setDegree] = useState([]);
-  const [data, setData] = useState([]);
-  const [phone, setPhone] = useState("");
+  // const [data, setData] = useState([]);
+  // const [phone, setPhone] = useState("");
   const [formData, setFormData] = useState({
     course: "",
     teacher: "",
@@ -16,19 +16,19 @@ const AddFollow = (props) => {
     // name: "",
     studentId: "",
     degreeId: "",
-    automaticRunningHours: 0,
-    hoursRunningDAT: 0,
-    kmDAT: 0,
-    nightRunningHours: 0,
-    theotyTestScore: 0,
-    simulatedTestScore: 0,
+    // automaticRunningHours: 0,
+    // hoursRunningDAT: 0,
+    // kmDAT: 0,
+    // nightRunningHours: 0,
+    // theotyTestScore: null,
+    // simulatedTestScore: null,
   });
   const [nameStudent, setNameStudent] = useState(null);
   const token = localStorage.getItem("token");
   const [showPopup, setShowPopup] = useState(false);
   const [popupData, setPopupData] = useState({ id: "", name: "", phone: "" });
 
-  const [filterSearchStudent, setFilterSearchStudent] = useState(""); // Dữ liệu tìm kiếm theo filter [
+  // const [filterSearchStudent, setFilterSearchStudent] = useState(""); // Dữ liệu tìm kiếm theo filter [
   const [dataSearchFilter, setDataSearchFilter] = useState([]);
 
   const config = {
@@ -44,7 +44,7 @@ const AddFollow = (props) => {
     try {
       const { phone, ...updatedFormData } = formData;
       setFormData(updatedFormData);
-      console.log("ssssss", formData);
+      // console.log("ssssss", formData);
       const urlcr = `${
         process.env.REACT_DOMAIN ||
         "http://trungtamdaotaolaixebinhduong.com:8080"
@@ -89,7 +89,7 @@ const AddFollow = (props) => {
       }
 
       const responseDataSearchFilter = await response.json();
-      console.log("API response:", responseDataSearchFilter);
+      // console.log("API response:", responseDataSearchFilter);
 
       // Gán dữ liệu vào biến state searchResult hoặc hiển thị thông báo nếu không tìm thấy
       if (responseDataSearchFilter && responseDataSearchFilter.data) {
@@ -146,7 +146,7 @@ const AddFollow = (props) => {
       )
       .then((response) => {
         setDegree(response.data.data);
-        console.log("loai bang", degree);
+        // console.log("loai bang", degree);
       })
       .catch((error) => {
         console.error(error);
@@ -160,13 +160,13 @@ const AddFollow = (props) => {
       phone: e.phoneNumber,
       studentId: e.id,
     }));
-    console.log(e);
+    // console.log(e);
     setNameStudent(e.fullName);
   };
 
   // create button
   const CreateFollow = () => {
-    console.log(formData);
+    // console.log(formData);
 
     submitForm();
   };

@@ -6,7 +6,7 @@ import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 const SocalItem = () => {
   const [data, setData] = useState(null);
-  const channelId = "UC3tBOLQ51lbd14W8taLBpBQ"; // Replace with your YouTube channel ID
+  const channelId = "UCXjjZFlsO6wBtjk_pWP6eTQ"; // Replace with your YouTube channel ID
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,7 +45,9 @@ const SocalItem = () => {
             <p className="ChanelName">
               {data.items[0].brandingSettings.channel.title}
             </p>
-            <p className="description">{data.items[0].snippet.localized.description} </p>
+            <p className="description">
+              {data.items[0].snippet.localized.description}{" "}
+            </p>
             <p className="subrice">
               Nguời theo dõi: {data.items[0].statistics.subscriberCount}
             </p>
@@ -59,7 +61,6 @@ const SocalItem = () => {
                   <FontAwesomeIcon
                     icon={faYoutube}
                     style={{ color: "#ff0000", paddingRight: "8px" }}
-
                   />
                   Mở Youtube
                 </button>

@@ -5,44 +5,44 @@ import { toast } from "react-toastify";
 const ConfirmDeleteDegree = ({
   handleCloseFormDelete,
   dataBang,
-  selectedDegreeDelete
+  selectedDegreeDelete,
 }) => {
-    const handleDeleteDegree = async () => {
-        try {
-          const accessToken = localStorage.getItem("token");
-          const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/degree/${selectedDegreeDelete.id}`;
-          console.log(selectedDegreeDelete.id);
-          const response = await fetch(url, {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${accessToken}`,
-            },
-          });
-      
-          if (!response.ok) {
-            throw new Error("Error deleting degree");
-          }
-      
-          // Xóa sinh viên thành công
-          toast.success("Xóa bằng thành công");
-          handleClosePopup();
-          // Remove the deleted student from dataStudent array
-          dataBang((prevData) =>
-            prevData.filter(
-              (degree) => degree.id !== selectedDegreeDelete.id
-            )
-          );
-        } catch (error) {
-          console.error("Error deleting degree:", error);
-          toast.error("Đã xảy ra lỗi khi xóa bằng");
-        }
-      };
-      
-      const handleClosePopup = () => {
-        handleCloseFormDelete();
-      };
-      
+  const handleDeleteDegree = async () => {
+    try {
+      const accessToken = localStorage.getItem("token");
+      // console.log(selectedDegreeDelete.id);
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/degree/${selectedDegreeDelete.id}`;
+      const response = await fetch(url, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Error deleting degree");
+      }
+
+      // Xóa sinh viên thành công
+      toast.success("Xóa bằng thành công");
+      handleClosePopup();
+      // Remove the deleted student from dataStudent array
+      dataBang((prevData) =>
+        prevData.filter((degree) => degree.id !== selectedDegreeDelete.id)
+      );
+    } catch (error) {
+      console.error("Error deleting degree:", error);
+      toast.error("Đã xảy ra lỗi khi xóa bằng");
+    }
+  };
+
+  const handleClosePopup = () => {
+    handleCloseFormDelete();
+  };
 
   return (
     <div className="card-delete-degree">
@@ -65,8 +65,8 @@ const ConfirmDeleteDegree = ({
         <div className="content">
           <span className="title">Xóa học viên</span>
           <p className="message">
-            Bạn có chắc chắn muốn xóa bằng này? Hành động này sẽ không thể
-            hoàn tác sau khi thực hiện.
+            Bạn có chắc chắn muốn xóa bằng này? Hành động này sẽ không thể hoàn
+            tác sau khi thực hiện.
           </p>
         </div>
         <div className="actions-delete">

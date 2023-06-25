@@ -1,4 +1,5 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState, useEffect  } from "react";
+import axios from "axios";
 import "../styles/SocialPage.scss";
 import geekcode from "../img/logott.jpg";
 import SocalItem from "./SocalItem";
@@ -11,8 +12,60 @@ import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const SocialPage = () => {
+  document.title = "Mạng xã hội";
   const VideoTikTok = React.lazy(() => import("./VideoTikTok"));
   const Youtube = React.lazy(() => import("./Youtube"));
+  const [apiTextLink, setApiTextlink] = useState("");
+  const [descriptionYoutube, setDescriptionYoutube] = useState("");
+  const [descriptionFacebook, setDescriptionFacebook] = useState("");
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let result = await axios.get(
+          `${
+            process.env.REACT_DOMAIN ||
+            "http://trungtamdaotaolaixebinhduong.com:8080"
+          }/api/intro/8`
+        );
+        let data = result && result.data ? result.data : [];
+        setApiTextlink(data.link);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    const descriptionYoutube = async () => {
+      try {
+        let result = await axios.get(
+          `${
+            process.env.REACT_DOMAIN ||
+            "http://trungtamdaotaolaixebinhduong.com:8080"
+          }/api/intro/9`
+        );
+        let data = result && result.data ? result.data : [];
+        setDescriptionYoutube(data.link);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    const descriptionFacebook = async () => {
+      try {
+        let result = await axios.get(
+          `${
+            process.env.REACT_DOMAIN ||
+            "http://trungtamdaotaolaixebinhduong.com:8080"
+          }/api/intro/10`
+        );
+        let data = result && result.data ? result.data : [];
+        setDescriptionFacebook(data.link);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+    descriptionYoutube();
+    descriptionFacebook();
+  }, []);
+
   return (
     <div>
       <div className="container-social-page-tiktok">
@@ -26,13 +79,7 @@ const SocialPage = () => {
               TIKTOK
             </p>
             <p className="card-body-tiktok">
-              Nullam ac tristique nulla, at convallis quam. Integer consectetur
-              mi nec magna tristique, non lobortis. Nullam ac tristique nulla,
-              at convallis quam. Integer consectetur mi nec magna tristique, non
-              lobortis. Nullam ac tristique nulla, at convallis quam. Integer
-              consectetur mi nec magna tristique, non lobortis. mi nec magna
-              tristique, non lobortis. Nullam ac tristique nulla, at convallis
-              quam. Integer consectetur mi nec magna tristique, non lobortis.
+              {apiTextLink}
             </p>
           </div>
         </div>
@@ -56,13 +103,7 @@ const SocialPage = () => {
               YOUTUBE
             </p>
             <p className="card-body-youtube">
-              Nullam ac tristique nulla, at convallis quam. Integer consectetur
-              mi nec magna tristique, non lobortis. Nullam ac tristique nulla,
-              at convallis quam. Integer consectetur mi nec magna tristique, non
-              lobortis. Nullam ac tristique nulla, at convallis quam. Integer
-              consectetur mi nec magna tristique, non lobortis. Nullam ac
-              tristique nulla, at convallis quam. Integer consectetur card-image
-              Nullam ac tristique nulla, at
+              {descriptionYoutube}
             </p>
           </div>
         </div>
@@ -86,10 +127,7 @@ const SocialPage = () => {
             </p>
 
             <p className="card-body-facebook">
-              Nullam ac tristique nulla, at convallis quam. Integer consectetur
-              mi nec magna tristique, non lobortis. Nullam ac tristique nulla,
-              at convallis quam. Integer consectetur mi nec magna tristique, non
-              lobortis.
+              {descriptionFacebook}
             </p>
           </div>
         </div>

@@ -9,7 +9,7 @@ const Certificate = (props) => {
 
   const handleChange = (e) => {
     e.preventDefault();
-    console.log({ [e.target.name]: e.target.value });
+    // console.log({ [e.target.name]: e.target.value });
     setForm({
       ...form,
       [e.target.name]: e.target.value,
@@ -17,9 +17,9 @@ const Certificate = (props) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
+    // console.log(form);
     createCertificate(form).then((data) => {
-      console.log(data);
+      // console.log(data);
       setForm({
         IDStudent: "",
         degree: "",
@@ -30,7 +30,10 @@ const Certificate = (props) => {
   const createCertificate = async (data) => {
     try {
       const accessToken = localStorage.getItem("token");
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/create?degree-id=${data.degree}&student-id=${data.IDStudent}`;
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/create?degree-id=${data.degree}&student-id=${data.IDStudent}`;
 
       const response = await fetch(url, {
         method: "POST",
@@ -45,7 +48,7 @@ const Certificate = (props) => {
         toast.success("Thêm thành công");
         window.location.reload();
         const responseData = await response.json();
-        console.log("Certificate created successfully:", responseData);
+        // console.log("Certificate created successfully:", responseData);
         return responseData;
       } else {
         toast.error("Thêm thất bại");

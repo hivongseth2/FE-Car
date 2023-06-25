@@ -16,8 +16,10 @@ const UpdateStudent = ({ handleCloseForm, selectedInfoStudent, IsEditing }) => {
 
     try {
       const accessToken = localStorage.getItem("token");
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/student/${selectedInfoStudent.id}`;
-
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/student/${selectedInfoStudent.id}`;
       const response = await fetch(url, {
         method: "PUT",
         headers: {
@@ -44,7 +46,7 @@ const UpdateStudent = ({ handleCloseForm, selectedInfoStudent, IsEditing }) => {
       toast.error("Đã xảy ra lỗi khi cập nhật thông tin học viên");
     }
   };
-  console.log(selectedInfoStudent.id);
+  // console.log(selectedInfoStudent.id);
   return (
     <div className="form-add-degree">
       <form>

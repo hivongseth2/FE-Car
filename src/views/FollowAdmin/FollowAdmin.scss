@@ -29,7 +29,7 @@
       left: 61em;
       overflow: auto;
       height: 670px;
-      top:50%;
+      top:96%;
       .popup-content{
       
         width: 35em;
@@ -49,9 +49,15 @@
     {
         td{
             background-color: rgba(255,255,255,0.2) !important;
+           
+            
         }
+      
     }
 }
+
+
+
 li.current{
 background-color: rgba(5, 79, 189, 0.651) !important;
 color: aliceblue !important;
@@ -62,7 +68,6 @@ th, td {
 
 // ====
 pre {
-    font-family: monospace, monospace;
     /* 1 */
     font-size: 1em;
     /* 2 */
@@ -483,11 +488,6 @@ fieldset {
     box-sizing: border-box;
   }
   
-  input,
-  button {
-    font-family: 'Poppins', sans-serif;
-  }
-  
   .s131 {
     min-height: max-content;
     display: -ms-flexbox;
@@ -496,7 +496,6 @@ fieldset {
         justify-content: center;
     -ms-flex-align: center;
         align-items: center;
-    font-family: 'Poppins', sans-serif;
     // background: url("../images/Search_131.png");
     background-size: cover;
     background-position: center center;
@@ -730,6 +729,11 @@ fieldset {
   .container-table{
     tbody{
      .rowFollow{
+      input[type=text], input[type=file]{
+        padding: 2px;
+        width: 80px;
+        height: 40px;}
+     
         td.button-info{
             button.creaseButton{
               background-color: #2d62d3 !important;
@@ -745,7 +749,7 @@ fieldset {
             }
             button.saveButton{
               background-color: #03f523 !important;
-
+              margin-right:  30px;
             }
             button.doneButton{
               background-color: #05a500;
@@ -757,8 +761,9 @@ fieldset {
            
           
           input[type=text], input[type=file]{
-            padding: 2px ;
-            width: 60px;
+            padding: 2px;
+            width: 30px;
+            height: 40px;
           }
         }
      }

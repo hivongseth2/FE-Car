@@ -8,6 +8,7 @@ import ConfirmDeleteDocument from "./ConfirmDeleteDocument";
 import { set } from "date-fns";
 
 const DocumentAdmin = () => {
+  document.title = "Quản lý tài liệu";
   const [dataDocuments, setDataDocuments] = useState([]);
   const [selectedRow, setSelectedRow] = useState(null);
   const [imageFile, setImageFile] = useState(null);
@@ -119,8 +120,6 @@ const DocumentAdmin = () => {
           >
             Thêm tài liệu mới
           </button>
-
-          <button>Quay lại</button>
         </div>
         <table className="container-table">
           <thead>

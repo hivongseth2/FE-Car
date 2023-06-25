@@ -8,9 +8,9 @@ import AddStudent from "./AddStudent";
 import UpdateStudent from "./UpdateStudent";
 import { toast } from "react-toastify";
 import ConfirmDeleteStudent from "./ConfirmDeleteStudent";
-import is from "date-fns/locale/is/index";
 
 const StudentManagement = () => {
+  document.title = "Quản lý học viên";
   const [dataStudent, setDataStudent] = useState([]);
   // const [searchId, setSearchId] = useState("");
   const [selectedInfoStudent, setSelectedInfoStudent] = useState(null);
@@ -39,7 +39,7 @@ const StudentManagement = () => {
         const url = `${
           process.env.REACT_DOMAIN ||
           "http://trungtamdaotaolaixebinhduong.com:8080"
-        }/api/admin/student?page=${currentPageTemp}&size=6`;
+        }/api/admin/student?page=${currentPageTemp}&size=10`;
         const response = await fetch(url, {
           method: "GET",
           headers: {
@@ -130,7 +130,7 @@ const StudentManagement = () => {
         }
 
         const responseDataSearchFilter = await response.json();
-        console.log("API response:", responseDataSearchFilter);
+        // console.log("API response:", responseDataSearchFilter);
 
         // Gán dữ liệu vào biến state searchResult hoặc hiển thị thông báo nếu không tìm thấy
         if (responseDataSearchFilter) {
@@ -160,8 +160,10 @@ const StudentManagement = () => {
   const handleResetPassword = async () => {
     try {
       const accessToken = localStorage.getItem("token");
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/student/reset-password?id=${selectedInfoStudentReset}`;
-
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/student/reset-password?id=${selectedInfoStudentReset}`;
       const response = await fetch(url, {
         method: "PUT",
         headers: {
@@ -334,11 +336,17 @@ const StudentManagement = () => {
                       type="button-reset-pw"
                       style={{ color: "black" }}
                       onClick={() => {
-                        handleResetPassword();
+                        const confirmed = window.confirm(
+                          "Bạn có chắc muốn reset mật khẩu?"
+                        );
+                        if (confirmed) {
+                          handleResetPassword();
+                        }
                       }}
                     >
                       Reset mật khẩu
                     </button>
+
                     <button onClick={handleShowDeleteStudentPopup}>Xóa</button>
                   </td>
                 </tr>
@@ -361,7 +369,9 @@ const StudentManagement = () => {
             {pageNumber}
           </button>
         ))} */}
-
+        <button>
+          Tổng số trang là: {totalPages} - Trang hiện tại là: {currentPage + 1}
+        </button>
         <button onClick={handleNextPage} disabled={currentPage === totalPages}>
           Next
         </button>

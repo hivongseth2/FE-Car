@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/DashboardScss/AddAccount.scss";
 import { toast } from "react-toastify";
 
 const AdAccount = ({ handleCloseForm }) => {
+  const [isUser, setIsUser] = useState(null);
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [selectedRole, setSelectedRole] = useState("");
 
   const handleRadioChange = (event) => {
     setSelectedRole(event.target.value); // Cập nhật trạng thái khi radio được chọn
-    console.log(selectedRole);
+    // console.log(selectedRole);
   };
 
   const handleAddAccount = async (e) => {
@@ -34,7 +35,7 @@ const AdAccount = ({ handleCloseForm }) => {
           username: userName,
         }),
       });
-      console.log("API response:", response);
+      // console.log("API response:", response);
       handleCloseForm();
       toast.success("Thêm tài khoản thành công");
       if (!response.ok) {
@@ -44,6 +45,10 @@ const AdAccount = ({ handleCloseForm }) => {
       console.error("Error updating data:", error);
     }
   };
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    setIsUser(user.role);
+  }, []);
   return (
     <div className="form-add-degree">
       <form>
@@ -87,16 +92,19 @@ const AdAccount = ({ handleCloseForm }) => {
             <span className="name">STAFF</span>
           </label>
 
-          <label className="radio">
-            <input
-              type="radio"
-              name="radio"
-              value="admin"
-              checked={selectedRole === "admin"}
-              onChange={handleRadioChange}
-            />
-            <span className="name">ADMIN</span>
-          </label>
+          {isUser !== "ROLE_STAFF" && (
+  <label className="radio">
+    <input
+      type="radio"
+      name="radio"
+      value="admin"
+      checked={selectedRole === "admin"}
+      onChange={handleRadioChange}
+    />
+    <span className="name">ADMIN</span>
+  </label>
+)}
+
         </div>
         <div className="button-addbanglai">
           <input type="submit" value="Thêm" onClick={handleAddAccount} />

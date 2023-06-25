@@ -6,6 +6,7 @@ import AdAccount from "./AdAccount";
 import FormUpdatePW from "./FormUpdatePW";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { tr } from "date-fns/locale";
 
 const InfoStudentForAdmin = () => {
   const [showForm, setShowForm] = useState(false);
@@ -14,8 +15,6 @@ const InfoStudentForAdmin = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [data, setData] = useState([]);
-  const [editButton, setEditButton] = useState(false);
-  const [editedData, setEditedData] = useState({});
   const [showFormAddAccount, setShowFormAddAccount] = useState(false);
   const [isEditingAccount, setIsEditingAccount] = useState(false);
 
@@ -27,6 +26,9 @@ const InfoStudentForAdmin = () => {
     setShowConfirmation(!showConfirmation);
   };
 
+  const [selectedAccount, setSelectedAccount] = useState({});
+
+  const [isActived, setIsActived] = useState(false);
   // active
   const [checkedActive, setCheckedActive] = useState({});
   const handleCheckedActive = () => {
@@ -57,11 +59,12 @@ const InfoStudentForAdmin = () => {
   const handleCloseForm = () => {
     setShowForm(false);
   };
-
   const handleSearch = async () => {
     try {
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/account/${searchId}`;
-
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/account?filter=${searchId}`;
       if (searchId === "") {
         setSearchResult(data);
         setIsSearching(true);
@@ -79,12 +82,17 @@ const InfoStudentForAdmin = () => {
         }
 
         const responseDataSearchByID = await response.json();
-        console.log("API response:", responseDataSearchByID);
-
-        // Gán dữ liệu vào biến state searchResult
         if (responseDataSearchByID) {
-          setSearchResult([responseDataSearchByID]);
           setIsSearching(true);
+          const fetchedDataFilter =
+            responseDataSearchByID && responseDataSearchByID.data
+              ? responseDataSearchByID.data
+              : [];
+          setSearchResult(fetchedDataFilter);
+        } else {
+          // Hiển thị thông báo không tìm thấy
+          console.log("Không tìm thấy học viên");
+          setIsSearching(false);
         }
       }
     } catch (error) {
@@ -97,33 +105,6 @@ const InfoStudentForAdmin = () => {
     setSearchResult([]);
     setIsSearching(false);
   };
-
-  const handleEditClick = () => {
-    setEditButton(true);
-    setEditedData({});
-  };
-
-  const handleSaveClick = () => {
-    const updatedData = renderData.map((item) => {
-      if (editedData[item.id] !== undefined) {
-        return {
-          ...item,
-          active: editedData[item.id],
-        };
-      }
-      return item;
-    });
-
-    if (isSearching) {
-      setSearchResult(updatedData);
-    } else {
-      setData(updatedData);
-    }
-
-    setEditButton(false);
-    setEditedData({});
-  };
-
   const updateActive = async (id, newActive) => {
     try {
       const confirmed = window.confirm("Bạn có chắc chắn muốn cập nhật ?");
@@ -131,7 +112,10 @@ const InfoStudentForAdmin = () => {
       if (!confirmed) {
         return; // Exit the function if the user cancels the confirmation
       }
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/account/deactive?id=${id}`;
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/account/deactive?id=${id}`;
       const response = await axios.put(
         url,
         { Active: newActive },
@@ -148,7 +132,7 @@ const InfoStudentForAdmin = () => {
         console.log("Certificate Active updated successfully");
         setIsEditingAccount(true);
         toast.success("Cập nhật trạng thái thành công");
-        // setTimeout(() => window.location.reload(), 1000);
+        setIsActived(true);
         // window.location.reload();
       } else {
         // Cập nhật trạng thái thất bại, xử lý lỗi hoặc hiển thị thông báo lỗi
@@ -193,17 +177,9 @@ const InfoStudentForAdmin = () => {
     };
 
     fetchData();
-  }, [accessToken, currentPageAccount, isEditingAccount]);
+  }, [accessToken, currentPageAccount, isActived]);
 
   const renderData = isSearching ? searchResult : data;
-
-  const handleActiveChange = (itemId, checked) => {
-    setEditedData((prevState) => ({
-      ...prevState,
-      [itemId]: checked,
-    }));
-  };
-
   const handlePreviousPage = () => {
     if (currentPageAccount > 0) {
       setCurrentPageAccount(currentPageAccount - 1);
@@ -235,37 +211,34 @@ const InfoStudentForAdmin = () => {
             className="add-button"
             onClick={() => handleOpenFormAddAccount(true)}
           >
-            Thêm tài khoản
-          </button>
-          <button
-            onClick={handleOpenForm}
-            className="updatePW-button"
-            style={{
-              marginRight: "-0px",
-            }}
-          >
-            Cập nhật mật khẩu
+            Thêm tài tài khoản
           </button>
         </div>
-        <div className="searchByID">
-          Tìm kiếm tài khoản theo ID:
+        {/* button search */}
+        <div className="group-search-student">
+          <svg
+            className="icon-search-student"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+          >
+            <g>
+              <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+            </g>
+          </svg>
           <input
-            className="input-searchByID"
-            type="text"
-            placeholder="Nhập ID học viên"
+            placeholder="Tìm kiếm"
+            type="search"
+            className="input-search-student"
             value={searchId}
             onChange={(e) => setSearchId(e.target.value)}
           />
-          <button className="search-button" onClick={handleSearch}>
+          <button className="button-search-student" onClick={handleSearch}>
             Tìm kiếm
           </button>
-          {isSearching && (
-            <button className="reset-button" onClick={handleReset}>
-              Trở về
-            </button>
-          )}
+          <button onClick={handleReset} className="reset-button">
+            Trở về
+          </button>
         </div>
-
         <div class="container-table">
           <table className="table-account">
             <thead className="thead">
@@ -279,7 +252,12 @@ const InfoStudentForAdmin = () => {
             </thead>
             <tbody className="tbody">
               {renderData.map((item) => (
-                <tr key={item.id}>
+                <tr
+                  key={item.id}
+                  onClick={() => {
+                    setSelectedAccount(item);
+                  }}
+                >
                   <td>{item.id}</td>
                   <td>{item.username}</td>
                   <td>{item.role}</td>
@@ -288,30 +266,34 @@ const InfoStudentForAdmin = () => {
                       <input
                         type="checkbox"
                         checked={true}
-                        onChange={() => updateActive(item.id, false)}
-                        onClick={() => handleCheckedActive()}
+                        onChange={() => {
+                          const confirmed = window.confirm(
+                            "Bạn có chắc muốn dừng hoạt động tài khoản này?"
+                          );
+                          if (confirmed) {
+                            updateActive(item.id, false);
+                            setIsActived(false);
+                          }
+                        }}
                       />
                     ) : (
                       <input
                         type="checkbox"
                         checked={false}
-                        onChange={() => updateActive(item.id, true)}
-                        onClick={() => handleCheckedActive()}
+                        onChange={() => {
+                          const confirmed = window.confirm(
+                            "Bạn có chắc muốn mở hoạt động tài khoản này?"
+                          );
+                          if (confirmed) {
+                            updateActive(item.id, true);
+                            setIsActived(false);
+                          }
+                        }}
                       />
                     )}
                   </td>
                   <td className="button-info">
-                    {editButton ? (
-                      <>
-                        <button onClick={handleSaveClick}>Lưu</button>
-                        <button onClick={() => setEditButton(false)}>
-                          Hủy
-                        </button>
-                      </>
-                    ) : (
-                      <button onClick={handleEditClick}>Sửa</button>
-                    )}
-                    <button>Xóa</button>
+                    <button onClick={handleOpenForm}>Đổi mật khẩu</button>
                   </td>
                 </tr>
               ))}
@@ -325,10 +307,10 @@ const InfoStudentForAdmin = () => {
               Previous
             </button>
 
-            <span className="total-page">
+            {/* <span className="total-page">
               Tổng : {totalPagesAccount} - Trang hiện tại:{" "}
               {currentPageAccount + 1}
-            </span>
+            </span> */}
 
             {/* {pageNumbers.map((pageNumber) => (
               <button
@@ -339,7 +321,10 @@ const InfoStudentForAdmin = () => {
                 {pageNumber}
               </button>
             ))} */}
-
+            <button>
+              Tổng số trang: {totalPagesAccount} - Trang hiện tại:{" "}
+              {currentPageAccount + 1}
+            </button>
             <button
               onClick={handleNextPage}
               disabled={setCurrentPageAccount === totalPagesAccount}
@@ -353,7 +338,11 @@ const InfoStudentForAdmin = () => {
         <div className="popup">
           <div className="popup-inner">
             {/* <AdAccount handleCloseForm={handleCloseForm} /> */}
-            <FormUpdatePW handleCloseForm={handleCloseForm} />
+
+            <FormUpdatePW
+              handleCloseForm={handleCloseForm}
+              selectedAccount={selectedAccount}
+            />
           </div>
         </div>
       )}

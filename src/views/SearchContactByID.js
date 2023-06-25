@@ -39,7 +39,10 @@ const SearchContactByID = () => {
     const fetchAllData = async () => {
       try {
         const url =
-          "http://trungtamdaotaolaixebinhduong.com:8080/api/admin/contact";
+        `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/admin/contact`;
 
         const response = await fetch(url, {
           method: "GET",

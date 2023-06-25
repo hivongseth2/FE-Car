@@ -1,21 +1,20 @@
 import { useState } from "react";
 import "../styles/Login.scss";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Logins = () => {
   const [userName, setUserName] = useState("");
   const [passWord, setPassWord] = useState("");
-  const history = useHistory();
+  // const history = useHistory();
   // const NODE_ENV = process.env.REACT_DOMAIN;
   const handleOnchangeInput = (e) => {
     if (e.target.classList.contains("userName")) {
       setUserName(e.target.value);
-      console.log("Us" + userName);
+      // console.log("Us" + userName);
     } else {
       setPassWord(e.target.value);
-      console.log("Pw" + passWord);
+      // console.log("Pw" + passWord);
     }
   };
 
@@ -25,7 +24,7 @@ const Logins = () => {
   const handleSignIn = async (event) => {
     event.preventDefault();
     try {
-      console.log(process.env.REACT_DOMAIN);
+      // console.log(process.env.REACT_DOMAIN);
       const response = await fetch(
         `${
           process.env.REACT_DOMAIN ||
@@ -44,10 +43,10 @@ const Logins = () => {
       );
 
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
 
       if (data.errorCode !== undefined) {
-        console.log(data);
+        // console.log(data);
 
         toast.error(`Tên đăng nhập hoặc mật khẩu sai`);
 
@@ -60,8 +59,8 @@ const Logins = () => {
         window.location.href = "/";
       }, 1000);
 
-      toast.success(`Chào mừng ${data.fullName} đã quay trở lại!`);
-      console.log(data);
+      toast.success(`Chào mừng ${data.student.fullName} đã quay trở lại!`);
+      // console.log(data);
     } catch (error) {
       setError(error.message);
     }
@@ -99,9 +98,6 @@ const Logins = () => {
           {/* <a className="forget" href="#">
             Quên mật khẩu
           </a> */}
-          <p className="signup-link">
-            Bạn chưa có tài khoản ? <Link to="/">Đăng ký</Link>
-          </p>
         </div>
       </form>
     </div>

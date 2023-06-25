@@ -8,52 +8,54 @@
   margin-top: 65px;
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  
 }
 .register-advise-content {
   display: block;
   padding: 20px;
-  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  //box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 }
 .register-advise-content h1 {
   color: #121113;
-    font-size: 45px;
-    margin-top: 8%;
-    font-weight: 600;
-    line-height: 50px;
-    text-align: -webkit-center;
+  font-size: 35px;
+  margin-top: 5%;
+  font-weight: 600;
+  line-height: 50px;
+  text-align: -webkit-center;
 }
 .register-advise-content p {
   color: #74757b;
-  font-size: 28px;
+  font-size: 20px;
   line-height: 35px;
   margin: 2em 0px 1.5em 0px;
   text-align: justify;
 }
 .input-info-register {
   display: flex;
-    flex-direction: column;
-    align-content: space-around;
-    flex-wrap: wrap;
+  flex-direction: column;
+  align-content: space-around;
+  flex-wrap: wrap;
 }
 .input-info-register input {
   margin-bottom: 22px;
 }
-.register-advise-img img{
+button.registerAButton{
+  margin-left: 43%;
+}
+.register-advise-img img {
   width: 100%;
   border-radius: 3px;
-  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
   height: 100vh;
 }
 .register-advise-content {
   .input {
-    width: 100%;
-   
+    width: 50%;
     background-color: #abdde6;
     color: #242424;
     padding: 0.15rem 0.5rem;
- 
-     min-height: 47px;
+
+    min-height: 47px;
     border-radius: 4px;
     outline: none;
     border: none;
@@ -64,7 +66,8 @@
   input:focus {
     border-bottom: 2px solid #5b5fc7;
     border-radius: 4px 4px 2px 2px;
-    box-shadow: rgba(6, 94, 145, 0.25) 0px 30px 60px -5px inset, rgba(160, 159, 159, 0.1) 0px 18px 36px -10px inset;
+    box-shadow: rgba(6, 94, 145, 0.25) 0px 30px 60px -5px inset,
+      rgba(160, 159, 159, 0.1) 0px 18px 36px -10px inset;
   }
 
   input:hover {
@@ -76,23 +79,22 @@
 }
 .button-register-advise {
   button {
-    background: #FBCA1F;
-    font-family: inherit;
+    background: #1a9acc;
     padding: 0.6em 1.3em;
     font-weight: 900;
     font-size: 18px;
-    //border: 3px solid black;
+    // margin-left: 39%;
     border-radius: 0.4em;
     box-shadow: 0.1em 0.1em;
-    margin-top: 15px;
-    color: #000;
+    margin-top: 35px;
+    color: #ffffff;
   }
-  
+
   button:hover {
     transform: translate(-0.05em, -0.05em);
     box-shadow: 0.15em 0.15em;
   }
-  
+
   button:active {
     transform: translate(0.05em, 0.05em);
     box-shadow: 0.05em 0.05em;
@@ -115,7 +117,7 @@
   margin-bottom: 0.375em;
 }
 
-.container-radio-input  label input {
+.container-radio-input label input {
   position: absolute;
   left: -9999px;
 }
@@ -174,14 +176,24 @@
 
 /* Thêm các kiểu khác cho nút đóng hoặc nội dung bên trong */
 
-
 @media screen and (max-width: 768px) {
+  .container-radio-input form {
+    justify-content: left;
+  }
   .register-advise-container {
     grid-template-columns: 1fr; /* Chỉ có một cột */
   }
-  .register-advise-img img{
+  .register-advise-img img {
     display: none;
   }
+  .register-advise-content h1 {
+    font-size: 30px;
+    line-height: 40px;
+    text-align: left;
+  }
+  .register-advise-content {
+    .input {
+      width: 100%;}}
 }
 
 /* Các media query khác tùy thuộc vào nhu cầu thiết kế của bạn */
@@ -189,6 +201,6 @@
   .register-advise-container {
     grid-template-columns: 1fr; /* Chỉ có một cột */
     gap: 5px; /* Khoảng cách giữa các cột nhỏ hơn */
-    padding-top: 2em; /* Khoảng cách trên cùng nhỏ hơn */
+    padding-top: 1em; /* Khoảng cách trên cùng nhỏ hơn */
   }
 }

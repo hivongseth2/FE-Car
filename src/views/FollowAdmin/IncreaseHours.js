@@ -42,7 +42,7 @@ const IncreaseHours = (props) => {
   }, [isSuccess]);
 
   const handleAddPoint = async () => {
-    console.log(body);
+    // console.log(body);
     axios
       .post(url, body, config)
       .then((response) => {
@@ -77,6 +77,7 @@ const IncreaseHours = (props) => {
           <option value="night">Giờ chạy đêm</option>
           <option value="automatic">Giờ chạy tự động</option>
           <option value="DAT">Giờ chạy đạt</option>
+          <option value="km">Số Km đạt</option>
         </select>
       </div>
 
@@ -88,12 +89,15 @@ const IncreaseHours = (props) => {
           value={updateValue}
           onChange={(e) => setUpdateValue(e.target.value)}
         />
-        <button type="button" onClick={handleAddPoint}>
+      </div>
+      <div>
+        <button type="button" className="btnAddValue" onClick={handleAddPoint}>
           Thêm điểm
         </button>
+        <button className="btnClose" onClick={closeCrease}>
+          Đóng
+        </button>
       </div>
-
-      <button onClick={closeCrease}>Đóng</button>
     </form>
   );
 };

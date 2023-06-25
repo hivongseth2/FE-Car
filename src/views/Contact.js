@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "../styles/contact.scss";
 import MainLayoutAdmin from "./Dashboard/MainLayoutAdmin";
-import SearchContactByID from "./Dashboard/SearchContactByID";
+import { set } from "date-fns";
 
 const Contact = () => {
+  document.title = "Quản lý liên hệ mới";
   const [data, setData] = useState([]);
   const [selectedRowId, setSelectedRowId] = useState(null);
   const [selectedRowIdDelete, setSelectedRowIdDelete] = useState(null);
-
+  const [isEditing, setIsEditing] = useState(false);
   const [checkedStatus, setCheckedStatus] = useState({});
 
   // ===================
@@ -16,9 +17,6 @@ const Contact = () => {
   const [searchResult, setSearchResult] = useState([]);
   const [showResult, setShowResult] = useState(false);
   const accessToken = localStorage.getItem("token");
-  const [allData, setAllData] = useState([]);
-
-  const [editingRowId, setEditingRowId] = useState(null);
 
   // Phan trang
   const [currentPageContact, setCurrentPageContact] = useState(0);
@@ -33,7 +31,10 @@ const Contact = () => {
     try {
       const accessToken = localStorage.getItem("token");
 
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/contact/${searchId}`;
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/contact?filter=${searchId}`;
 
       if (searchId === "") {
         setSearchResult(data);
@@ -54,12 +55,13 @@ const Contact = () => {
         }
 
         const responseDataSearchById = await response.json();
-        console.log("API response:", responseDataSearchById);
-
-        // Gán dữ liệu vào biến state searchResult hoặc hiển thị thông báo nếu không tìm thấy
         if (responseDataSearchById) {
-          setSearchResult([responseDataSearchById]);
           setShowResult(true);
+          const fetchedDataFilter =
+          responseDataSearchById && responseDataSearchById.data
+              ? responseDataSearchById.data
+              : [];
+              setSearchResult(fetchedDataFilter);
         } else {
           // Hiển thị thông báo không tìm thấy
           console.log("Không tìm thấy học viên");
@@ -85,7 +87,10 @@ const Contact = () => {
 
   const getAllContact = async () => {
     try {
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/contact?page=${currentPageContact}&size=10`;
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/contact?page=${currentPageContact}&size=10`;
       const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -111,7 +116,7 @@ const Contact = () => {
 
   useEffect(() => {
     getAllContact();
-  }, [accessToken, currentPageContact]);
+  }, [accessToken, currentPageContact, isEditing]);
 
   useEffect(() => {
     const storedCheckedStatus = JSON.parse(
@@ -152,7 +157,10 @@ const Contact = () => {
       }
 
       const selectedRow = data.find((item) => item.id === id);
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/contact/${id}`;
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/contact/${id}`;
       const response = await fetch(url, {
         method: "PUT",
         headers: {
@@ -165,7 +173,7 @@ const Contact = () => {
         throw new Error("Error updating data");
       }
       setSelectedRowId(null); // Reset the selected row after saving changes
-      window.location.reload();
+      setIsEditing(true); // Exit edit mode after saving
     } catch (error) {
       console.error("Error updating data:", error);
     }
@@ -178,7 +186,10 @@ const Contact = () => {
   const handleDeleteContact = async () => {
     try {
       const accessToken = localStorage.getItem("token");
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/contact/${selectedRowIdDelete.id}`;
+      const url = `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/admin/contact/${selectedRowIdDelete.id}`;
 
       const response = await fetch(url, {
         method: "DELETE",
@@ -235,17 +246,33 @@ const Contact = () => {
         <div className="header-info">
           <h1>Quản lý khách hàng</h1>
         </div>
-        {/* ========================== */}
-        <div className="searchByID">
-          <span className="contact-content"> Tìm kiếm tài khoản theo ID:</span>
+        {/* button search */}
+        <div className="group-search-student">
+          <svg
+            className="icon-search-student"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+          >
+            <g>
+              <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+            </g>
+          </svg>
           <input
-            type="text"
-            placeholder="Nhập ID"
+            placeholder="Tìm kiếm"
+            type="search"
+            className="input-search-student"
             value={searchId}
             onChange={(e) => setSearchId(e.target.value)}
           />
-          <button onClick={handleSearch}>Tìm kiếm</button>
-          {showResult && <button onClick={handleReset}>Trở về</button>}
+          <button
+            className="button-search-student"
+            onClick={handleSearch}
+          >
+            Tìm kiếm
+          </button>
+          <button className="reset-button" onClick={handleReset}>
+            Trở về
+          </button>
         </div>
         {/* ========================== */}
         <div className="container-table">
@@ -256,7 +283,7 @@ const Contact = () => {
                 <th>Họ tên</th>
                 <th>Số điện thoại</th>
                 <th>Ghi chú</th>
-                <th>Trạng thái</th>
+                <th>Đã gọi</th>
                 <th>Hành động</th>
               </tr>
             </thead>
@@ -319,7 +346,7 @@ const Contact = () => {
                     ) : (
                       <button
                         onClick={() => {
-                          setSelectedRowId(item.id);
+                          setSelectedRowId(item.id); setIsEditing(false);
                         }}
                       >
                         Sửa
@@ -359,10 +386,10 @@ const Contact = () => {
               Previous
             </button>
 
-            <span className="total-page">
+            {/* <span className="total-page">
               Tổng : {totalPagesContact} - Trang hiện tại:{" "}
               {currentPageContact + 1}
-            </span>
+            </span> */}
 
             {/* {pageNumbers.map((pageNumber) => (
           <button
@@ -373,7 +400,10 @@ const Contact = () => {
             {pageNumber}
           </button>
         ))} */}
-
+            <button>
+              Tổng số trang: {totalPagesContact} - Trang hiện tại:{" "}
+              {currentPageContact + 1}
+            </button>
             <button
               onClick={handleNextPage}
               disabled={currentPageContact === totalPagesContact}

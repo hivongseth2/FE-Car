@@ -1,6 +1,5 @@
 import "../styles/Register.scss";
 import { useState } from "react";
-import MainLayout from "./MainLayout";
 import { Link } from "react-router-dom";
 const Register = () => {
   const [fullName, setFullName] = useState("");
@@ -63,7 +62,7 @@ const Register = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         alert("Đăng ký thành công");
       })
       .catch((error) => {

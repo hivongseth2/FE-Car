@@ -1,0 +1,143 @@
+.list-plan-card-mobile {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 22rem);
+    grid-gap: 4em;
+    padding-top: 3em;
+    justify-content: center;
+    align-items: center;
+  }
+  .pricing-table-mobile {
+    width: 350px;
+    position: relative;
+    display: block;
+    background: #fff;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  .pricing-table-mobile p {
+    color: #74757b;
+    line-height: 26px;
+    text-align: left;
+  }
+  .package-box-mobile {
+    position: relative;
+    display: block;
+    background: #f6f6f7;
+    padding: 10px 15px 15px 10px;
+  }
+  
+  .package-box-mobile h4 {
+    display: block;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 500;
+    margin-bottom: 3px;
+    color: #121113;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    margin: 0px 0px 3px;
+    text-align: left;
+  }
+  
+  .pricing-table-mobile .table-header-mobile {
+    position: relative;
+    display: block;
+    padding: 31px 35px 24px 35px;
+    background-color: #121113;
+  }
+  
+  .pricing-table-mobile .table-header-mobile h2 {
+    position: relative;
+    display: inline-block;
+    font-size: 60px;
+    line-height: 40px;
+    font-weight: 600;
+    padding-left: 20px;
+    padding-right: 43px;
+    color: #fbca1f;
+  }
+  
+  .pricing-table-mobile .table-header-mobile h2 .course-mobile {
+    position: absolute;
+    right: -100px;
+    bottom: -17px;
+    font-size: 14px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .pricing-table-mobile .table-header-mobile h2 .text-mobile {
+    position: absolute;
+    top: -12px;
+    right: 0px;
+    font-size: 26px;
+  }
+  
+  .pricing-table-mobile .feature-list-mobile li {
+    position: relative;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Lexend", sans-serif;
+    color: #121113;
+    padding: 13px 0px;
+    border-bottom: 1px solid #e8eaed;
+    font-family: Lexend;
+    font-weight: 500;
+    line-height: 26px;
+    padding: 13px 0px;
+    text-align: left;
+  }
+  
+  .pricing-table-mobile .feature-list-mobile {
+    margin-bottom: 20px;
+    padding-left: 0;
+  }
+  
+  .pricing-table-mobile .table-content-degree-mobile {
+    position: relative;
+    display: block;
+    padding: 20px 30px 40px 30px;
+  }
+  // .table-content-degree span {
+  //   color: #75767b;
+  //   font-weight: 500;
+  //   line-height: 30px;
+  //   text-align: right;
+  // }
+  .table-content-degree-mobile li span {
+    display: inline-block;
+    float: right;
+    color: #75767b;
+  
+    font-weight: 500;
+    line-height: 26px;
+    text-align: right;
+  }
+  .button-register-advise-mobile {
+    button {
+      background: #fbca1f;
+      font-family: inherit;
+      padding: 0.6em 1.3em;
+      font-weight: 900;
+      font-size: 18px;
+      //border: 3px solid black;
+      border-radius: 0.4em;
+      box-shadow: 0.1em 0.1em;
+    }
+  
+    button:hover {
+      transform: translate(-0.05em, -0.05em);
+      box-shadow: 0.15em 0.15em;
+    }
+  
+    button:active {
+      transform: translate(0.05em, 0.05em);
+      box-shadow: 0.05em 0.05em;
+    }
+  }
+  @media screen and (max-width: 768px) {
+   
+  }
+  

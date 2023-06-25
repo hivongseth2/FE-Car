@@ -1,26 +1,25 @@
 import "../styles/Register_advise.scss";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { useHistory } from "react-router-dom";
 
 const Register_Advise = () => {
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [license, setLicense] = useState("");
-  const history = useHistory();
+  // const history = useHistory();
   // Lấy thông tin
   const handleOnchangeInput = (e) => {
     if (e.target.classList.contains("fullName")) {
       setFullName(e.target.value);
-      console.log("hoTen" + fullName);
+      // console.log("hoTen" + fullName);
     } else {
       setPhoneNumber(e.target.value);
-      console.log("soDienThoai" + phoneNumber);
+      // console.log("soDienThoai" + phoneNumber);
     }
   };
   const handleSelectChange = (event) => {
     setLicense(event.target.value);
-    console.log(license);
+    // console.log(license);
   };
 
   const handleClickBtn = () => {
@@ -30,7 +29,7 @@ const Register_Advise = () => {
       license: license,
     };
     // Lấy thông tin vào local
-    console.log("aaaaaaaaa", object);
+    // console.log("aaaaaaaaa", object);
     let objectJSON = JSON.stringify(object);
     localStorage.setItem("client", objectJSON);
   };
@@ -67,10 +66,10 @@ const Register_Advise = () => {
         }
       );
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
 
       if (data.errorCode !== undefined) {
-        console.log(data);
+        // console.log(data);
         toast.error(`Vui lòng nhập đúng số điện thoại`);
         return;
       }
@@ -87,7 +86,7 @@ const Register_Advise = () => {
         `Đăng ký thành công. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất`
       );
 
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       setError(error.message);
     }

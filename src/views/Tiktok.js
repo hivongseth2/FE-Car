@@ -1,12 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
 const Tiktok = () => {
-  const iframeStyle = {
-    border: "none",
-    overflow: "hidden",
-    width: 0,
-    height: 0,
-  };
   const loadScript = (src) => {
     return new Promise((resolve, reject) => {
       const script = document.createElement("script");

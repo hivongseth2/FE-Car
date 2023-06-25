@@ -29,7 +29,7 @@ const FastContact = () => {
       <a href="tel:0123456789">
         <img src={contactPhone} alt="Phone" className="contact-icon" />
       </a>
-      <a href="https://zalo.me/0394282260" target="_blank" rel="noopener noreferrer">
+      <a href="https://zalo.me/0344449778" target="_blank" rel="noopener noreferrer">
         <img src={contactZalo} alt="Zalo" className="contact-icon" />
       </a>
       <a href="https://www.tiktok.com/@daylaixebinhduongg" target="_blank" rel="noopener noreferrer">
