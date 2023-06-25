@@ -20,8 +20,8 @@ const LinkManagement = () => {
     "Link TikTok ở trang mạng xã hội",
     "Link TikTok ở trang mạng xã hội",
     "Link youtube ở mạng xã hội",
-    "Kênh Youtube ở footer",
-    "Kênh TikTok ở footer",
+    "Kênh Youtube ở thông tin liên kết",
+    "Kênh TikTok ở thông tin liên kết",
     "Mô tả của kênh TikTok",
     "Mô tả kênh Youtube",
     "Mô tả của Facebook",
@@ -169,9 +169,7 @@ const LinkManagement = () => {
           <thead>
             <tr>
               <th>No.</th>
-              <th>
-                Nội dung
-              </th>
+              <th>Nội dung</th>
               <th>Đường dẫn</th>
               <th className="text-center-info">Hành động</th>
             </tr>
@@ -181,7 +179,7 @@ const LinkManagement = () => {
               dataLink.map((item, index) => (
                 <tr key={item.id} onClick={() => setSelectedLinkDelete(item)}>
                   <td>{item.id}</td>
-                  <td style={{ width: "600px"}}>
+                  <td style={{ width: "600px" }}>
                     {additionalColumns[index]}
                   </td>{" "}
                   {/* Corrected code */}

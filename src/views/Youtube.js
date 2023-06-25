@@ -27,11 +27,7 @@ const Youtube = () => {
     <>
       <div className="social-youtube">
         <div className="video-container">
-          <iframe
-            src={apiTextYoutube}
-            title="Video"
-            allowfullscreen
-          ></iframe>
+          <iframe src={apiTextYoutube} title="Video" allowfullscreen></iframe>
         </div>
       </div>
     </>
