@@ -1,7 +1,7 @@
 import logomobile from "../img/zyro-image.png";
 import close from "../img/close.png";
 import React, { useState, useEffect } from "react";
-
+import axios from "axios";
 import { NavLink, useHistory } from "react-router-dom";
 import "../styles/MobileNav.scss";
 
@@ -9,6 +9,9 @@ const MobileNav = ({ onClosePopup }) => {
   const token = localStorage.getItem("token");
   const [userRole, setUserRole] = useState(null);
   const history = useHistory();
+  const [address, setAddress] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -23,11 +26,58 @@ const MobileNav = ({ onClosePopup }) => {
   const handleClickHome = () => {
     history.push("/");
   };
-
+  const fetchDataAddress = async () => {
+    try {
+      let result = await axios.get(
+        `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/intro/14`
+      );
+      // console.log(result);
+      let data = result && result.data ? result.data : [];
+      setAddress(data.link);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  const fetchDataPhoneNumber = async () => {
+    try {
+      let result = await axios.get(
+        `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/intro/13`
+      );
+      // console.log(result);
+      let data = result && result.data ? result.data : [];
+      setPhoneNumber(data.link);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  const fetchDataEmail = async () => {
+    try {
+      let result = await axios.get(
+        `${
+          process.env.REACT_DOMAIN ||
+          "http://trungtamdaotaolaixebinhduong.com:8080"
+        }/api/intro/15`
+      );
+      // console.log(result);
+      let data = result && result.data ? result.data : [];
+      setEmail(data.link);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     setUserRole(user?.role);
     // console.log(user?.role);
+    fetchDataAddress();
+    fetchDataPhoneNumber();
+    fetchDataEmail();
   }, []);
 
   return (
@@ -91,9 +141,9 @@ const MobileNav = ({ onClosePopup }) => {
       <div className="footer-navbar-mobile">
         <h3>Thông tin liên hệ</h3>
         <ul className="footer-navbar-mobile-ul">
-          <li>Bình dương, Thu Dau Mot, Vietnam</li>
-          <li>03 4444 9778</li>
-          <li>maivanthuong3066@gmail.com</li>
+          <li>{address}</li>
+          <li>{phoneNumber}</li>
+          <li>{email}</li>
           <li>&#169; 2023 Dạy lái xe Bình Dương</li>
         </ul>
       </div>
