@@ -31,6 +31,12 @@ const Certificate = () => {
   // Phan trang
   const [currentPageCertificate, setCurrentPageCertificate] = useState(0);
   const [totalPagesCertificate, setTotalPagesCertificate] = useState(0);
+  // Reload lại trang
+  const [isEditingCertificate, setIsEditingCertificate] = useState(false);
+
+  const handleIsEditingCertificate = () => {
+    setIsEditingCertificate(false);
+  };
 
   const handleCertificateFilter = (event) => {
     const selectedValue = event.target.value;
@@ -79,7 +85,7 @@ const Certificate = () => {
 
   const getAllCertificateFilter = async () => {
     try {
-      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin?filter=${filterSearchCertificate}&page=${currentPageCertificate}&size=1`;
+      const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin?filter=${filterSearchCertificate}&page=${currentPageCertificate}&size=10`;
       if (filterSearchCertificate === "") {
         setDataSearchCertificate(data);
         setIsSearchingCertificate(false);
@@ -159,7 +165,7 @@ const Certificate = () => {
   useEffect(() => {
     getAllCertificate();
     getAllCertificateFilter();
-  }, [accessToken, currentPageCertificate]);
+  }, [accessToken, currentPageCertificate, isEditingCertificate]);
 
   const deleteCertificate = async (degreeId, studentId) => {
     try {
@@ -212,7 +218,8 @@ const Certificate = () => {
         // Cập nhật trạng thái thành công
         console.log("Certificate status updated successfully");
         toast.success("Cập nhật trạng thái thành công");
-        window.location.reload();
+        setIsEditingCertificate(true);
+        // window.location.reload();
       } else {
         // Cập nhật trạng thái thất bại, xử lý lỗi hoặc hiển thị thông báo lỗi
         console.error("Failed to update certificate status");
@@ -328,6 +335,7 @@ const Certificate = () => {
                             false
                           )
                         }
+                        onClick={handleIsEditingCertificate}
                       />
                     ) : (
                       <input
@@ -340,6 +348,7 @@ const Certificate = () => {
                             true
                           )
                         }
+                        onClick={handleIsEditingCertificate}
                       />
                     )}
                   </td>

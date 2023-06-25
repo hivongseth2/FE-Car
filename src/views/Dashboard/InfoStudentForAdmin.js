@@ -17,12 +17,21 @@ const InfoStudentForAdmin = () => {
   const [editButton, setEditButton] = useState(false);
   const [editedData, setEditedData] = useState({});
   const [showFormAddAccount, setShowFormAddAccount] = useState(false);
+  const [isEditingAccount, setIsEditingAccount] = useState(false);
 
   const [currentPageAccount, setCurrentPageAccount] = useState(0);
   const [totalPagesAccount, setTotalPagesAccount] = useState(0);
 
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const toggleConfirmation = () => {
+    setShowConfirmation(!showConfirmation);
+  };
+
   // active
   const [checkedActive, setCheckedActive] = useState({});
+  const handleCheckedActive = () => {
+    setIsEditingAccount(false);
+  };
 
   useEffect(() => {
     const storedCheckedActive = JSON.parse(
@@ -117,6 +126,11 @@ const InfoStudentForAdmin = () => {
 
   const updateActive = async (id, newActive) => {
     try {
+      const confirmed = window.confirm("Bạn có chắc chắn muốn cập nhật ?");
+
+      if (!confirmed) {
+        return; // Exit the function if the user cancels the confirmation
+      }
       const url = `http://trungtamdaotaolaixebinhduong.com:8080/api/admin/account/deactive?id=${id}`;
       const response = await axios.put(
         url,
@@ -132,8 +146,9 @@ const InfoStudentForAdmin = () => {
       if (response.status === 200) {
         // Cập nhật trạng thái thành công
         console.log("Certificate Active updated successfully");
+        setIsEditingAccount(true);
         toast.success("Cập nhật trạng thái thành công");
-        setTimeout(() => window.location.reload(), 1000);
+        // setTimeout(() => window.location.reload(), 1000);
         // window.location.reload();
       } else {
         // Cập nhật trạng thái thất bại, xử lý lỗi hoặc hiển thị thông báo lỗi
@@ -178,7 +193,7 @@ const InfoStudentForAdmin = () => {
     };
 
     fetchData();
-  }, [accessToken, currentPageAccount]);
+  }, [accessToken, currentPageAccount, isEditingAccount]);
 
   const renderData = isSearching ? searchResult : data;
 
@@ -274,12 +289,14 @@ const InfoStudentForAdmin = () => {
                         type="checkbox"
                         checked={true}
                         onChange={() => updateActive(item.id, false)}
+                        onClick={() => handleCheckedActive()}
                       />
                     ) : (
                       <input
                         type="checkbox"
                         checked={false}
                         onChange={() => updateActive(item.id, true)}
+                        onClick={() => handleCheckedActive()}
                       />
                     )}
                   </td>
