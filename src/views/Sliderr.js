@@ -82,14 +82,6 @@ const Sliderr = () => {
                 </div>
               </div>
             ))}
-            <a
-              href="!#"
-              className="btn"
-
-              // onMouseLeave={console.log(index)}
-            >
-              <span className="btn-inner">Learn More</span>
-            </a>
           </div>
           <div className="pagination">
             {slides.map((_, index) => (

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useRef } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "../styles/RegisterAdvise.scss";
@@ -73,9 +74,28 @@ const RegisterAdvise = () => {
       toast.error("Đã xảy ra lỗi khi thêm thông tin");
     }
   };
+  //
+  const registerAdviseRef = useRef(null);
+
+  useEffect(() => {
+    // Expose the scroll function to the window object
+    if (typeof window !== "undefined") {
+      window.scrollToRegisterAdvise = scrollToRegisterAdvise;
+    }
+  }, []);
+
+  const scrollToRegisterAdvise = () => {
+    if (registerAdviseRef.current) {
+      registerAdviseRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
-    <div className="register-advise-container">
+    <div
+      className="register-advise-container"
+      id="register-advise"
+      ref={registerAdviseRef}
+    >
       <div className="register-advise-content">
         <h1>Hình ảnh học viên tại trung tâm đã thi đậu ngay lần đầu tiên</h1>
         <p>
