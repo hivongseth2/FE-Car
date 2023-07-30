@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "../styles/Login.scss";
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Logins = () => {
