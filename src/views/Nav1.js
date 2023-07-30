@@ -8,7 +8,6 @@ import login from "../img/login.png";
 import FlastInfo from "./Forms/FlastInfo";
 import FastContact from "./FastContact";
 import MobileNav from "./MobileNav";
-import nameBrand from "../img/59wtnp9f.png";
 
 const Nav1 = () => {
   const token = localStorage.getItem("token");

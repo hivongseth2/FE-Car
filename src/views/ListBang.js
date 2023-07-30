@@ -94,20 +94,20 @@ const BangDetail = () => {
                 key={item.id}
                 className={`pricing-table ${index === 1 ? "middle-item" : ""}`}
               >
-                <div class="table-header">
+                <div className="table-header">
                   <h2>
-                    <span class="symble"></span>
+                    <span className="symble"></span>
                     {`${(item.price / 1000000).toLocaleString()}`} &nbsp;
-                    <span class="text">triệu</span>
-                    <span class="course">toàn khoá</span>
+                    <span className="text">triệu</span>
+                    <span className="course">toàn khoá</span>
                   </h2>
                 </div>
-                <div class="package-box">
+                <div className="package-box">
                   <h4>Hạng {item.rating}</h4>
                   <p>{item.description}</p>
                 </div>
-                <div class="table-content-degree">
-                  <ul class="feature-list clearfix">
+                <div className="table-content-degree">
+                  <ul className="feature-list clearfix">
                     <li>
                       Đội tuổi<span> &gt; {item.allowAge} tuổi</span>
                     </li>
