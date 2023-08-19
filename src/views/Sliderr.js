@@ -14,7 +14,7 @@ const Sliderr = () => {
   useEffect(() => {
     fetch(
       `${
-        process.env.REACT_DOMAIN ||
+        // process.env.REACT_DOMAIN ||
         "http://trungtamdaotaolaixebinhduong.com:8080"
       }/api/slide`,
       {
@@ -41,7 +41,7 @@ const Sliderr = () => {
             process.env.REACT_DOMAIN ||
             "http://trungtamdaotaolaixebinhduong.com:8080"
           }/api/slide/image?image-name=${slide.image} `;
-          console.log("temp", temp);
+          // console.log("temp", temp);
           return { ...slide, image: temp };
         }
         return slide;
