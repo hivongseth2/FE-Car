@@ -50,7 +50,7 @@ const Document = () => {
               <img
                 src={`${
                   process.env.REACT_DOMAIN ||
-                  "http://trungtamdaotaolaixebinhduong.com:8080/"
+                  "http://trungtamdaotaolaixebinhduong.com:8080"
                 }/api/document/${document.id}/image`}
                 alt="img-app-document"
               />

@@ -37,7 +37,10 @@ const Sliderr = () => {
       updatedSlides = updatedSlides.map((slide) => {
         // Kiểm tra xem thuộc tính image đã được cập nhật hay chưa
         if (!slide.image.includes(process.env.REACT_DOMAIN)) {
-          const temp = `${process.env.REACT_DOMAIN}/api/slide/image?image-name=${slide.image}`;
+          const temp = `${
+            process.env.REACT_DOMAIN ||
+            "http://trungtamdaotaolaixebinhduong.com:8080"
+          }/api/slide/image?image-name=${slide.image} `;
           console.log("temp", temp);
           return { ...slide, image: temp };
         }
