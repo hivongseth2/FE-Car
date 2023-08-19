@@ -66,7 +66,6 @@ const BangDetail = () => {
   //
 
   const handleButtonClick = () => {
-    // Call the scroll function in the RegisterAdvise component
     if (typeof window !== "undefined") {
       window.scrollToRegisterAdvise();
     }
