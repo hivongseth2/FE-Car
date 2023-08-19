@@ -31,6 +31,12 @@ const Certificate = () => {
   // Phan trang
   const [currentPageCertificate, setCurrentPageCertificate] = useState(0);
   const [totalPagesCertificate, setTotalPagesCertificate] = useState(0);
+  // Reload lại trang
+  const [isEditingCertificate, setIsEditingCertificate] = useState(false);
+
+  const handleIsEditingCertificate = () => {
+    setIsEditingCertificate(false);
+  };
 
   const handleCertificateFilter = (event) => {
     const selectedValue = event.target.value;
@@ -86,6 +92,7 @@ const Certificate = () => {
         process.env.REACT_DOMAIN ||
         "http://trungtamdaotaolaixebinhduong.com:8080"
       }/api/admin?filter=${filterSearchCertificate}&page=${currentPageCertificate}&size=1`;
+
       if (filterSearchCertificate === "") {
         setDataSearchCertificate(data);
         setIsSearchingCertificate(false);
@@ -168,7 +175,7 @@ const Certificate = () => {
   useEffect(() => {
     getAllCertificate();
     getAllCertificateFilter();
-  }, [accessToken, currentPageCertificate]);
+  }, [accessToken, currentPageCertificate, isEditingCertificate]);
 
   const deleteCertificate = async (degreeId, studentId) => {
     try {
@@ -227,7 +234,8 @@ const Certificate = () => {
         // Cập nhật trạng thái thành công
         // console.log("Certificate status updated successfully");
         toast.success("Cập nhật trạng thái thành công");
-        window.location.reload();
+        setIsEditingCertificate(true);
+        // window.location.reload();
       } else {
         // Cập nhật trạng thái thất bại, xử lý lỗi hoặc hiển thị thông báo lỗi
         console.error("Failed to update certificate status");
@@ -322,7 +330,10 @@ const Certificate = () => {
             value={filterSearchCertificate}
             onChange={(e) => setFilterSearchCertificate(e.target.value)}
           />
-          <button className="button-search-student" onClick={getAllCertificateFilter}>
+          <button
+            className="button-search-student"
+            onClick={getAllCertificateFilter}
+          >
             Tìm kiếm
           </button>
           <button onClick={handleResetFilter} className="reset-button">
@@ -368,6 +379,7 @@ const Certificate = () => {
                             false
                           )
                         }
+                        onClick={handleIsEditingCertificate}
                       />
                     ) : (
                       <input
@@ -380,6 +392,7 @@ const Certificate = () => {
                             true
                           )
                         }
+                        onClick={handleIsEditingCertificate}
                       />
                     )}
                   </td>
@@ -440,7 +453,10 @@ const Certificate = () => {
               {pageNumber}
             </button>
           ))} */}
-          <button>Tổng số trang: {totalPagesCertificate} - Trang hiện tại: {currentPageCertificate+1}</button>
+          <button>
+            Tổng số trang: {totalPagesCertificate} - Trang hiện tại:{" "}
+            {currentPageCertificate + 1}
+          </button>
           <button
             onClick={handleNextPage}
             disabled={currentPageCertificate === totalPagesCertificate}

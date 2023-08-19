@@ -16,12 +16,24 @@ const InfoStudentForAdmin = () => {
   const [searchResult, setSearchResult] = useState([]);
   const [data, setData] = useState([]);
   const [showFormAddAccount, setShowFormAddAccount] = useState(false);
-  const [selectedAccount, setSelectedAccount] = useState({});
+  const [isEditingAccount, setIsEditingAccount] = useState(false);
+
   const [currentPageAccount, setCurrentPageAccount] = useState(0);
   const [totalPagesAccount, setTotalPagesAccount] = useState(0);
+
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const toggleConfirmation = () => {
+    setShowConfirmation(!showConfirmation);
+  };
+
+  const [selectedAccount, setSelectedAccount] = useState({});
+
   const [isActived, setIsActived] = useState(false);
   // active
   const [checkedActive, setCheckedActive] = useState({});
+  const handleCheckedActive = () => {
+    setIsEditingAccount(false);
+  };
 
   useEffect(() => {
     const storedCheckedActive = JSON.parse(
@@ -95,6 +107,11 @@ const InfoStudentForAdmin = () => {
   };
   const updateActive = async (id, newActive) => {
     try {
+      const confirmed = window.confirm("Bạn có chắc chắn muốn cập nhật ?");
+
+      if (!confirmed) {
+        return; // Exit the function if the user cancels the confirmation
+      }
       const url = `${
         process.env.REACT_DOMAIN ||
         "http://trungtamdaotaolaixebinhduong.com:8080"
@@ -113,6 +130,7 @@ const InfoStudentForAdmin = () => {
       if (response.status === 200) {
         // Cập nhật trạng thái thành công
         console.log("Certificate Active updated successfully");
+        setIsEditingAccount(true);
         toast.success("Cập nhật trạng thái thành công");
         setIsActived(true);
         // window.location.reload();
