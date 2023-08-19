@@ -12,12 +12,18 @@ const Sliderr = () => {
   const [slides, setSlides] = useState([]);
   //trungtamdaotaolaixebinhduong.com:8080/api/slide
   useEffect(() => {
-    fetch(`${process.env.REACT_DOMAIN}/api/slide`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      `${
+        process.env.REACT_DOMAIN ||
+        "http://trungtamdaotaolaixebinhduong.com:8080"
+      }/api/slide`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         setSlides(data);
