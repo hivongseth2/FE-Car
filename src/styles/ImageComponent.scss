@@ -1,0 +1,31 @@
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cột cho mỗi hàng */
+    gap: 15px; /* Khoảng cách giữa các tấm hình */
+  }
+  
+  .image-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+  }
+  
+  .image-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  /* Điều chỉnh cho màn hình nhỏ hơn */
+@media screen and (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Điều chỉnh cho màn hình nhỏ nhất */
+@media screen and (max-width: 480px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+}
