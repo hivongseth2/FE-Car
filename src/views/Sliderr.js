@@ -4,6 +4,8 @@ import LisBang from "./ListBang";
 import RegisterAdvise from "./RegisterAdvise";
 import ApplicationProcess from "./ApplicationProcess";
 import AboutUs from "./AboutUs";
+import ImageComponent from "./ImageComponent";
+
 
 const Sliderr = () => {
   document.title = "Trung tâm đào tạo lái xe Bình Dương";
@@ -88,7 +90,7 @@ const Sliderr = () => {
                   </div>
                 </div>
                 <div className="image-container">
-                  <img src={slide.image} alt="" className="image" />
+                <img src={slide.image} alt="" className="image" />
                 </div>
               </div>
             ))}
@@ -159,6 +161,7 @@ const Sliderr = () => {
       </section>
       <LisBang />
       <RegisterAdvise />
+      <ImageComponent />
       <ApplicationProcess />
       <AboutUs />
     </main>
