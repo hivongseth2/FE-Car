@@ -128,6 +128,9 @@ const Nav1 = () => {
           <div className="logo-home" onClick={handleClickHome}>
             <img style={{ height: 55, width: 55 }} src={logo} alt="logo" />
           </div>
+          <div className="title-nav-home">
+            <p className="title-nav-mobile-home"> ĐÀO TẠO LÁI XE HẠNG A1, A2, B1, B2, C, D</p>
+          </div>
           <div className="group-nav-home">
             <ul className="nav-home">
               <li className="li-nav-home">
@@ -225,7 +228,7 @@ const Nav1 = () => {
                   )
                 ) : null}
               </li>
-                      |
+              |
               {isLoggedIn ? (
                 <li>
                   <NavLink
@@ -245,7 +248,7 @@ const Nav1 = () => {
                     activeClassName="active-home"
                   >
                     Đăng nhập
-                  </NavLink>  
+                  </NavLink>
                 </li>
               )}
 

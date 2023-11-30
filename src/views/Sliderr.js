@@ -5,7 +5,7 @@ import RegisterAdvise from "./RegisterAdvise";
 import ApplicationProcess from "./ApplicationProcess";
 import AboutUs from "./AboutUs";
 import ImageComponent from "./ImageComponent";
-
+import AboutUsNew from "./AboutUsNew";
 
 const Sliderr = () => {
   document.title = "Trung tâm đào tạo lái xe Bình Dương";
@@ -18,7 +18,7 @@ const Sliderr = () => {
     fetch(
       `${
         process.env.REACT_DOMAIN ||
-        "http://trungtamdaotaolaixebinhdu1ong.com:8080"
+        "http://trungtamdaotaolaixebinhduong.com:8080"
       }/api/slide`,
       {
         method: "GET",
@@ -91,7 +91,7 @@ const Sliderr = () => {
                   </div>
                 </div>
                 <div className="image-container">
-                <img src={slide.image} alt="" className="image" />
+                  <img src={slide.image} alt="" className="image" />
                 </div>
               </div>
             ))}
@@ -164,7 +164,8 @@ const Sliderr = () => {
       
       <ImageComponent />
       <ApplicationProcess />
-      <AboutUs />
+      {/* <AboutUs /> */}
+      <AboutUsNew></AboutUsNew>
     </main>
   );
 };
