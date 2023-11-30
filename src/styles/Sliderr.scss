@@ -67,6 +67,12 @@
   z-index: 1;
 }
 
+@media only screen and (max-width: 768px) {
+  .slideshow {
+    height: 28vh;
+  }
+}
+
 .slideshow .slideshow-inner {
   position: absolute;
   top: 0;
@@ -264,6 +270,12 @@
   top: 50%;
   cursor: pointer;
   z-index: 3;
+}
+
+@media only screen and (max-width: 768px) {
+  .slideshow .arrows .arrow{
+    width:62px;
+  }
 }
 
 .slideshow .arrows .prev {

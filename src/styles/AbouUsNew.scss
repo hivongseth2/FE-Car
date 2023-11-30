@@ -1,0 +1,231 @@
+// AboutUsNew.scss\
+
+
+.about-us-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* From https://css.glass */
+background: rgba(255, 255, 255, 0.29);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(9.4px);
+-webkit-backdrop-filter: blur(9.4px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+
+  .about-us-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center
+  }
+  
+  .parallax-card {
+    position: relative;
+    display: flex;
+    padding: 15px;
+    width: 80vh;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    overflow: hidden;
+    border-radius: 3%;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(16, 8, 129, 0.1);
+    
+  }
+  
+  .about-us-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .message-about-us {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(1, 66, 150, 0.747);
+    color: #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(9.4px);
+-webkit-backdrop-filter: blur(9.4px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 0;
+    transform: translateY(100%);
+    transition: transform 0.14s ease-in;
+  }
+  
+  .parallax-card:hover .message-about-us {
+    transform: translateY(0);
+  }
+  
+  .parallax-card::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(90deg, #0A6EBD, #19A7CE);
+    z-index: -1;
+    border-radius: 20px;
+    opacity: 0.6;
+
+  }
+  
+  .parallax-card:hover::before {
+    // transform: scale(1);
+  }
+
+.about-us-page {
+    text-align: center;
+    width: fit-content;
+   
+  }
+
+  .about-us-container {
+    // perspective: 1000px;
+    display: flex;
+  }
+  
+  .card-about-us {
+    // transform-style: preserve-3d;
+    // transform: translateZ(-50px);
+    // transition: transform 0.5s ease-out;
+  }
+  
+  .card-about-us:hover {
+    // transform: translateZ(0);
+  }
+  
+  .about-us-container-title {
+    margin: 40px 0;
+    font-size: 35px;
+  }
+  
+  .about-us-container {
+    display: flex;
+    // width: 80%;
+    width: fit-content;
+
+    // padding: 0 32vh;
+    align-items: center;
+ 
+    justify-content: space-around;
+  }
+  
+  .about-us-content {
+    // display: flex;
+    // flex-wrap: wrap;
+    width: 100%;
+    
+  }
+  
+//   .card-about-us {
+//     // border: 1px solid #ddd;
+//     justify-content: center;
+//     // padding: 0 20px;
+//     // margin: 10px;
+//     text-align: center;
+    
+//     align-items: center;
+//     // display: flex;
+//     width: 100%; /* Chiếm hết chiều rộng của container */
+//     box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước của phần tử */
+//   }
+  
+  .about-us-image {
+    // width: 100%;
+    // max-width: 70vh;
+    object-fit: contain;
+    // margin-bottom: 15px;
+    // filter: opacity(0.9);
+    // border-radius: 10px;
+    min-width: 72.4vh
+  }
+  
+  .message-about-us {
+    // margin-bottom: 15px;
+    // width: 50%;
+    padding: 0 10vh;
+    font-size: 26px;
+    letter-spacing: 1px;
+    line-height: 50px;
+    text-align: justify;
+    font-weight: 700;
+
+  }
+
+  .card-about-us:nth-child(odd){
+    background-color: #265073;
+    color: #fff;
+  }
+  
+
+//   Phone
+@media only screen and (max-width: 768px) {
+// AboutUsNew.scss
+
+.about-us-page {
+    text-align: center;
+    width: fit-content;
+    padding: 0 2vh; /* Thêm padding cho trang web trên điện thoại di động */
+  }
+  
+  .about-us-container-title {
+    margin: 20px 0;
+  }
+  
+  .about-us-container {
+    display: flex;
+    flex-direction: column; /* Đặt hướng chồng chéo cho trang web trên điện thoại di động */
+    align-items: center;
+    width: 100%;
+  }
+  
+  .about-us-content {
+    width: 100%;
+  }
+  
+  .parallax-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Đặt hướng chồng chéo cho trang web trên điện thoại di động */
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 2vh; /* Thêm padding cho trang web trên điện thoại di động */
+  }
+  
+  .about-us-image {
+    min-width: fit-content;
+    // max-width: fit-content;
+    // height: fit-content;
+    min-width: 30vh;
+    object-fit: cover;
+    min-height: 50vh;
+    margin-bottom: 15px;
+  }
+  
+  .message-about-us {
+    padding: 0 2vh; /* Thêm padding cho trang web trên điện thoại di động */
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    text-align: justify;
+    font-weight: 700;
+  }
+  
+  .card-about-us:nth-child(odd) {
+    background-color: #265073;
+    color: #fff;
+  }
+}  
