@@ -162,7 +162,7 @@ const Sliderr = () => {
       </section>
       <LisBang />
       
-      <ImageComponent />
+      {/* <ImageComponent /> */}
       <ApplicationProcess />
       {/* <AboutUs /> */}
       <AboutUsNew></AboutUsNew>
