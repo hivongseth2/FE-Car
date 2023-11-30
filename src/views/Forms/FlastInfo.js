@@ -8,7 +8,6 @@ const FlastInfo = ({ onLogout }) => {
   const [data, setData] = useState([]);
   const accessToken = localStorage.getItem("token");
   const history = useHistory();
-
   const [isUser, setIsUser] = useState(null);
 
   const fetchData = async () => {

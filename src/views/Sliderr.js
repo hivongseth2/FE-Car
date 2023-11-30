@@ -72,6 +72,7 @@ const Sliderr = () => {
 
   return (
     <main className="main-content">
+      <RegisterAdvise />
       <section className="slideshow">
         <div className="slideshow-inner">
           <div className="slides">
@@ -160,7 +161,7 @@ const Sliderr = () => {
         </div>
       </section>
       <LisBang />
-      <RegisterAdvise />
+      
       <ImageComponent />
       <ApplicationProcess />
       <AboutUs />

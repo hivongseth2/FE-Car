@@ -1,14 +1,11 @@
 .wrapper-footer {
+  border-top: 1px solid #333;
   display: flex;
   justify-content: space-around;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   padding: 20px;
   color: #333;
-  background-color: #498fc9;
-  // border-top-left-radius: 50px;
-
-  color: white;
+  background-color: #fff;
+  color: #111;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
@@ -16,13 +13,8 @@
 .content-footer {
   font-weight: bold;
   font-size: 20px;
-
   margin-bottom: 20px;
 }
-
-// .left, .centre, .right {
-//   width: 30%;
-// }
 
 .left ul,
 .centre ul,
@@ -71,9 +63,6 @@
   margin-right: 50px;
   font-size: 25px;
 }
-.icon {
-
-}
 .facebook {
   margin-right: 30px;
 }
@@ -83,9 +72,9 @@
 li {
   line-height: 35px;
 }
-// .course{
-//   background-color: #498fc9;
-// }
+.course{
+  color: #111;
+}
 /* Responsiveness */
 @media screen and (max-width: 768px) {
   .wrapper-footer {

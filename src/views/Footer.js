@@ -162,11 +162,9 @@ const Footer = () => {
           <ul>
             <p className="content-footer">Thông tin liên hệ</p>
             <li>
-              {" "}
               <FontAwesomeIcon icon={faMapMarkerAlt} /> {""} {address}
             </li>
             <li>
-              {" "}
               <FontAwesomeIcon icon={faClock} /> {""}
               {email}
             </li>
@@ -180,8 +178,7 @@ const Footer = () => {
             <p className="content-footer">Thông tin liên kết</p>
             <p className="icon">
               <a className="facebook" href={linkFacebook}>
-                {" "}
-                <img src={fb} alt="icon-fb"></img>
+                <img  src={fb} alt="icon-fb"></img>
               </a>
               <a className="tiktok" href={linkTiktok}>
                 <img src={tiktok} alt="icon-tiktok"></img>
